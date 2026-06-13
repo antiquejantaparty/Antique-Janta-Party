@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Antique Janta Party | V2 Premium</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;overflow-x:hidden}
+:root{--gold:#d4af37;--gold2:#b8860b;--glass:rgba(255,255,255,.75)}
+
+#particles{position:fixed;inset:0;z-index:-1}
+
+header{
+position:fixed;top:0;width:100%;
+background:rgba(255,255,255,.8);
+backdrop-filter:blur(15px);
+border-bottom:1px solid rgba(212,175,55,.4);
+z-index:1000;
+}
+nav{max-width:1200px;margin:auto;padding:18px;display:flex;justify-content:space-between;align-items:center}
+.logo{font-weight:800;color:var(--gold2);font-size:1.5rem}
+nav a{text-decoration:none;color:#333;margin-left:18px;font-weight:600}
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+overflow:hidden;
+}
+.hero::before{
+content:'';
+position:absolute;inset:0;
+background:
+linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.90)),
+url('logo.png') center/55% no-repeat;
+animation:floatLogo 15s ease-in-out infinite;
+}
+@keyframes floatLogo{
+50%{transform:scale(1.05)}
+}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:20px}
+.hero h1{font-size:5rem;color:var(--gold2);letter-spacing:2px}
+.tag{font-size:1.3rem;color:var(--gold2);font-weight:700;margin:10px 0}
+.btn{
+display:inline-block;margin-top:25px;
+padding:15px 30px;
+border-radius:50px;
+background:linear-gradient(45deg,var(--gold),var(--gold2));
+color:white;text-decoration:none;
+box-shadow:0 10px 25px rgba(212,175,55,.4);
+}
+
+section{padding:100px 20px}
+.container{max-width:1200px;margin:auto}
+.title{text-align:center;font-size:2.7rem;color:var(--gold2);margin-bottom:40px}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
+.card{
+background:var(--glass);
+backdrop-filter:blur(12px);
+border:1px solid rgba(212,175,55,.4);
+padding:25px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+transition:.4s;
+}
+.card:hover{transform:translateY(-10px)}
+.card h3{color:var(--gold2)}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:20px;
+text-align:center;
+}
+.stat{
+padding:30px;
+border-radius:20px;
+background:linear-gradient(135deg,#fff,#faf4db);
+}
+.num{font-size:3rem;font-weight:800;color:var(--gold2)}
+
+.timeline{
+max-width:900px;
+margin:auto;
+}
+.event{
+margin:25px 0;
+padding:20px;
+border-left:4px solid var(--gold);
+background:#faf8f0;
+}
+
+.faq details{
+margin:15px 0;
+padding:15px;
+border-radius:12px;
+background:#faf8f0;
+}
+
+footer{
+background:linear-gradient(45deg,var(--gold2),var(--gold));
+color:white;
+padding:50px;
+text-align:center;
+}
+
+.reveal{opacity:0;transform:translateY(50px);transition:1s}
+.reveal.active{opacity:1;transform:none}
+
+@media(max-width:768px){
+.hero h1{font-size:2.8rem}
+.hero::before{background-size:90%}
+nav{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<header>
+<nav>
+<div class="logo">ANTIQUE JANTA PARTY</div>
+<div>
+<a href="#about">About</a>
+<a href="#leaders">Leadership</a>
+<a href="#manifesto">Manifesto</a>
+<a href="#faq">FAQ</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-content">
+<h1>ANTIQUE JANTA PARTY</h1>
+<div class="tag">कलम हमारी • आवाज आपकी</div>
+<div class="tag">Think ANTIQUE, Build the Future.</div>
+<p>An independent Indian political discussion community built around constitutional values, respectful debate and informed citizenship.</p>
+<a class="btn" href="#manifesto">Explore</a>
+</div>
+</section>
+
+<section id="about" class="reveal">
+<div class="container">
+<h2 class="title">About Us</h2>
+<div class="card">
+Antique Janta Party is a political discussion community where ideas matter more than blind support. We welcome constitutional viewpoints, healthy disagreement and respectful dialogue.
+</div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="container">
+<h2 class="title">Community Principles</h2>
+<div class="stats">
+<div class="stat"><div class="num">100%</div>Respect</div>
+<div class="stat"><div class="num">0%</div>Discrimination</div>
+<div class="stat"><div class="num">1</div>Constitution</div>
+</div>
+</div>
+</section>
+
+<section id="leaders" class="reveal">
+<div class="container">
+<h2 class="title">Leadership</h2>
+<div class="grid">
+<div class="card"><h3>President</h3><b>Obtt</b><br>@obtt_x_void</div>
+<div class="card"><h3>Vice President</h3><b>Nulleather</b><br>@nullleather07</div>
+<div class="card"><h3>General Secretary</h3><b>Ryuk</b><br>@ryuk_1202</div>
+</div>
+</div>
+</section>
+
+<section id="manifesto" class="reveal">
+<div class="container">
+<h2 class="title">Manifesto</h2>
+<div class="timeline">
+<div class="event">Respect for the Constitution of India.</div>
+<div class="event">No blind support for any political party or leader.</div>
+<div class="event">No discrimination based on religion, caste, language, gender or region.</div>
+<div class="event">Respect for all freedom fighters and democratic values.</div>
+<div class="event">Evidence-based discussions over propaganda.</div>
+<div class="event">All constitutional ideologies are welcome.</div>
+</div>
+</div>
+</section>
+
+<section id="faq" class="reveal">
+<div class="container">
+<h2 class="title">FAQ</h2>
+<div class="faq">
+<details><summary>Are you a political party?</summary><p>No. We are a political discussion community.</p></details>
+<details><summary>Do you support any party?</summary><p>No. We encourage independent thinking.</p></details>
+<details><summary>Who can join?</summary><p>Anyone willing to respect the Constitution and others.</p></details>
+</div>
+</div>
+</section>
+
+<section class="reveal">
+<div class="container">
+<h2 class="title">Contact</h2>
+<div class="grid">
+<div class="card"><h3>Instagram</h3>@_antique_janta_party_</div>
+<div class="card"><h3>Email</h3>antique.janta.party@gmail.com</div>
+</div>
+</div>
+</section>
+
+<footer>
+<h2>ANTIQUE JANTA PARTY</h2>
+<p>कलम हमारी • आवाज आपकी</p>
+<p>Think ANTIQUE, Build the Future.</p>
+</footer>
+
+<script>
+const r=document.querySelectorAll('.reveal');
+window.addEventListener('scroll',()=>{
+r.forEach(e=>{
+if(e.getBoundingClientRect().top<window.innerHeight-100)e.classList.add('active');
+});
+});
+
+const c=document.getElementById('particles');
+const x=c.getContext('2d');
+function resize(){c.width=innerWidth;c.height=innerHeight}
+resize();addEventListener('resize',resize);
+const p=[...Array(60)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*3+1,v:Math.random()+0.3}));
+function draw(){
+x.clearRect(0,0,c.width,c.height);
+x.fillStyle='rgba(212,175,55,.5)';
+p.forEach(a=>{a.y-=a.v;if(a.y<0)a.y=innerHeight;x.beginPath();x.arc(a.x,a.y,a.r,0,6.28);x.fill();});
+requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
