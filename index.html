@@ -1,244 +1,820 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antique Janta Party | V2 Premium</title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#222;overflow-x:hidden}
-:root{--gold:#d4af37;--gold2:#b8860b;--glass:rgba(255,255,255,.75)}
 
-#particles{position:fixed;inset:0;z-index:-1}
+<title>Antique Janta Party</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--gold:#D4AF37;
+--gold-dark:#B8860B;
+--black:#0d0d0d;
+--white:#ffffff;
+
+}
+
+body{
+
+font-family:Segoe UI,sans-serif;
+background:white;
+overflow-x:hidden;
+
+}
+
+/* NAVBAR */
 
 header{
-position:fixed;top:0;width:100%;
-background:rgba(255,255,255,.8);
-backdrop-filter:blur(15px);
-border-bottom:1px solid rgba(212,175,55,.4);
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
 z-index:1000;
+
+backdrop-filter:blur(20px);
+
+background:rgba(0,0,0,0.4);
+
+border-bottom:1px solid rgba(212,175,55,0.3);
+
+transition:0.3s;
+
 }
-nav{max-width:1200px;margin:auto;padding:18px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;color:var(--gold2);font-size:1.5rem}
-nav a{text-decoration:none;color:#333;margin-left:18px;font-weight:600}
+
+nav{
+
+max-width:1400px;
+margin:auto;
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:20px;
+
+}
+
+.logo{
+
+font-size:1.6rem;
+font-weight:800;
+
+color:var(--gold);
+
+letter-spacing:2px;
+
+}
+
+.nav-links{
+
+display:flex;
+gap:30px;
+
+}
+
+.nav-links a{
+
+text-decoration:none;
+color:white;
+font-weight:600;
+
+transition:0.3s;
+
+}
+
+.nav-links a:hover{
+
+color:var(--gold);
+
+}
+
+/* HERO */
 
 .hero{
+
 height:100vh;
+
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
+
 text-align:center;
+
 position:relative;
-overflow:hidden;
-}
-.hero::before{
-content:'';
-position:absolute;inset:0;
+
 background:
-linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.90)),
-url('logo.png') center/55% no-repeat;
-animation:floatLogo 15s ease-in-out infinite;
-}
-@keyframes floatLogo{
-50%{transform:scale(1.05)}
-}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:20px}
-.hero h1{font-size:5rem;color:var(--gold2);letter-spacing:2px}
-.tag{font-size:1.3rem;color:var(--gold2);font-weight:700;margin:10px 0}
-.btn{
-display:inline-block;margin-top:25px;
-padding:15px 30px;
-border-radius:50px;
-background:linear-gradient(45deg,var(--gold),var(--gold2));
-color:white;text-decoration:none;
-box-shadow:0 10px 25px rgba(212,175,55,.4);
+linear-gradient(
+rgba(0,0,0,0.75),
+rgba(0,0,0,0.8)
+),
+url("logo.png");
+
+background-size:contain;
+background-repeat:no-repeat;
+background-position:center;
+
+overflow:hidden;
+
 }
 
-section{padding:100px 20px}
-.container{max-width:1200px;margin:auto}
-.title{text-align:center;font-size:2.7rem;color:var(--gold2);margin-bottom:40px}
+.hero::before{
 
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-.card{
-background:var(--glass);
-backdrop-filter:blur(12px);
-border:1px solid rgba(212,175,55,.4);
-padding:25px;
-border-radius:20px;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-transition:.4s;
-}
-.card:hover{transform:translateY(-10px)}
-.card h3{color:var(--gold2)}
+content:"";
 
-.stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-text-align:center;
-}
-.stat{
-padding:30px;
-border-radius:20px;
-background:linear-gradient(135deg,#fff,#faf4db);
-}
-.num{font-size:3rem;font-weight:800;color:var(--gold2)}
+position:absolute;
 
-.timeline{
-max-width:900px;
-margin:auto;
+width:2000px;
+height:2000px;
+
+background:
+radial-gradient(
+circle,
+rgba(212,175,55,0.08),
+transparent
+);
+
+animation:rotateGlow 20s linear infinite;
+
 }
-.event{
-margin:25px 0;
+
+@keyframes rotateGlow{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.hero-content{
+
+position:relative;
+z-index:5;
+
+max-width:1000px;
+
 padding:20px;
-border-left:4px solid var(--gold);
-background:#faf8f0;
+
 }
 
-.faq details{
-margin:15px 0;
-padding:15px;
-border-radius:12px;
-background:#faf8f0;
-}
+.hero h1{
 
-footer{
-background:linear-gradient(45deg,var(--gold2),var(--gold));
+font-size:5rem;
+
 color:white;
-padding:50px;
+
+letter-spacing:4px;
+
+margin-bottom:15px;
+
+}
+
+.hero .tagline{
+
+font-size:1.4rem;
+
+color:var(--gold);
+
+margin-bottom:10px;
+
+font-weight:700;
+
+}
+
+.hero p{
+
+color:white;
+
+font-size:1.15rem;
+
+line-height:1.8;
+
+margin-top:20px;
+
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+
+margin-top:40px;
+
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+
+}
+
+.btn{
+
+padding:16px 34px;
+
+border-radius:50px;
+
+text-decoration:none;
+
+font-weight:700;
+
+transition:0.3s;
+
+}
+
+.btn-gold{
+
+background:var(--gold);
+
+color:black;
+
+}
+
+.btn-gold:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 0 30px rgba(212,175,55,0.5);
+
+}
+
+.btn-outline{
+
+border:2px solid var(--gold);
+
+color:white;
+
+}
+
+.btn-outline:hover{
+
+background:var(--gold);
+
+color:black;
+
+}
+
+/* SECTION */
+
+section{
+
+padding:120px 8%;
+
+}
+
+.section-title{
+
 text-align:center;
+
+font-size:3rem;
+
+margin-bottom:50px;
+
+color:var(--gold-dark);
+
 }
 
-.reveal{opacity:0;transform:translateY(50px);transition:1s}
-.reveal.active{opacity:1;transform:none}
+/* LEADERS */
 
-@media(max-width:768px){
-.hero h1{font-size:2.8rem}
-.hero::before{background-size:90%}
-nav{flex-direction:column}
+.leaders{
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(300px,1fr));
+
+gap:30px;
+
 }
+
+.leader-card{
+
+background:white;
+
+border:1px solid rgba(212,175,55,0.3);
+
+border-radius:25px;
+
+padding:40px;
+
+text-align:center;
+
+transition:0.4s;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+.leader-card:hover{
+
+transform:
+translateY(-10px);
+
+box-shadow:
+0 15px 40px rgba(212,175,55,0.2);
+
+}
+
+.role{
+
+font-size:0.9rem;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+color:var(--gold);
+
+margin-bottom:15px;
+
+}
+
+.leader-card h3{
+
+font-size:2rem;
+
+margin-bottom:10px;
+
+}
+
+.handle{
+
+color:#666;
+
+}
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:3rem;
+
+}
+
+.nav-links{
+
+display:none;
+
+}
+
+}
+
 </style>
+
 </head>
+
 <body>
 
-<canvas id="particles"></canvas>
-
 <header>
+
 <nav>
-<div class="logo">ANTIQUE JANTA PARTY</div>
-<div>
-<a href="#about">About</a>
-<a href="#leaders">Leadership</a>
-<a href="#manifesto">Manifesto</a>
-<a href="#faq">FAQ</a>
+
+<div class="logo">
+ANTIQUE JANTA PARTY
 </div>
+
+<div class="nav-links">
+
+<a href="#">Home</a>
+<a href="#">About</a>
+<a href="#">Leadership</a>
+<a href="#">Manifesto</a>
+<a href="#">FAQ</a>
+<a href="#">Discord</a>
+
+</div>
+
 </nav>
+
 </header>
 
 <section class="hero">
+
 <div class="hero-content">
-<h1>ANTIQUE JANTA PARTY</h1>
-<div class="tag">कलम हमारी • आवाज आपकी</div>
-<div class="tag">Think ANTIQUE, Build the Future.</div>
-<p>An independent Indian political discussion community built around constitutional values, respectful debate and informed citizenship.</p>
-<a class="btn" href="#manifesto">Explore</a>
+
+<h1>
+ANTIQUE JANTA PARTY
+</h1>
+
+<div class="tagline">
+कलम हमारी • आवाज आपकी
 </div>
+
+<div class="tagline">
+Think ANTIQUE, Build the Future.
+</div>
+
+<p>
+
+An independent Indian political discussion community dedicated to constitutional values, respectful dialogue and meaningful debate.
+
+</p>
+
+<div class="hero-buttons">
+
+<a href="#" class="btn btn-gold">
+JOIN OUR DISCORD COMMUNITY
+</a>
+
+<a href="#leadership" class="btn btn-outline">
+MEET THE LEADERSHIP
+</a>
+
+</div>
+
+</div>
+
 </section>
 
-<section id="about" class="reveal">
-<div class="container">
-<h2 class="title">About Us</h2>
-<div class="card">
-Antique Janta Party is a political discussion community where ideas matter more than blind support. We welcome constitutional viewpoints, healthy disagreement and respectful dialogue.
+<section id="leadership">
+
+<h2 class="section-title">
+Leadership
+</h2>
+
+<div class="leaders">
+
+<div class="leader-card">
+
+<div class="role">
+PRESIDENT
 </div>
+
+<h3>Obtt</h3>
+
+<p class="handle">
+@obtt_x_void
+</p>
+
 </div>
+
+<div class="leader-card">
+
+<div class="role">
+VICE PRESIDENT
+</div>
+
+<h3>Nulleather</h3>
+
+<p class="handle">
+@nullleather07
+</p>
+
+</div>
+
+<div class="leader-card">
+
+<div class="role">
+GENERAL SECRETARY
+</div>
+
+<h3>Ryuk</h3>
+
+<p class="handle">
+@ryuk_1202
+</p>
+
+</div>
+
+</div>
+
+</section>
+<!-- ABOUT -->
+
+<section id="about">
+
+<h2 class="section-title">
+About Antique Janta Party
+</h2>
+
+<div class="about-box reveal">
+
+<p>
+
+Antique Janta Party is not a political party.
+
+We are an independent Indian political discussion community where people can exchange ideas, debate respectfully and discuss national issues through the lens of constitutional values.
+
+We neither blindly support nor blindly oppose any political party.
+
+Our focus remains on facts, democratic principles, informed citizenship and meaningful dialogue.
+
+</p>
+
+</div>
+
 </section>
 
-<section class="reveal">
-<div class="container">
-<h2 class="title">Community Principles</h2>
-<div class="stats">
-<div class="stat"><div class="num">100%</div>Respect</div>
-<div class="stat"><div class="num">0%</div>Discrimination</div>
-<div class="stat"><div class="num">1</div>Constitution</div>
+<!-- VALUES -->
+
+<section id="values">
+
+<h2 class="section-title">
+Our Core Values
+</h2>
+
+<div class="values-grid">
+
+<div class="value-card reveal">
+⚖
+<h3>Constitution First</h3>
+<p>We respect and uphold the Constitution of India.</p>
 </div>
+
+<div class="value-card reveal">
+🕊
+<h3>Respect For All</h3>
+<p>No discrimination based on caste, religion, language or identity.</p>
 </div>
+
+<div class="value-card reveal">
+🗣
+<h3>Open Discussion</h3>
+<p>Healthy disagreement is encouraged.</p>
+</div>
+
+<div class="value-card reveal">
+📚
+<h3>Evidence Based Debate</h3>
+<p>Facts matter more than propaganda.</p>
+</div>
+
+<div class="value-card reveal">
+🇮🇳
+<h3>Democratic Values</h3>
+<p>Freedom, participation and responsibility.</p>
+</div>
+
+<div class="value-card reveal">
+🤝
+<h3>Unity Above Division</h3>
+<p>India grows stronger through unity.</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="leaders" class="reveal">
-<div class="container">
-<h2 class="title">Leadership</h2>
-<div class="grid">
-<div class="card"><h3>President</h3><b>Obtt</b><br>@obtt_x_void</div>
-<div class="card"><h3>Vice President</h3><b>Nulleather</b><br>@nullleather07</div>
-<div class="card"><h3>General Secretary</h3><b>Ryuk</b><br>@ryuk_1202</div>
-</div>
-</div>
-</section>
+<!-- STATS -->
 
-<section id="manifesto" class="reveal">
-<div class="container">
-<h2 class="title">Manifesto</h2>
+<section id="stats">
+
+<h2 class="section-title">
+Community Principles
+</h2>
+
+<div class="stats-grid">
+
+<div class="stat-card reveal">
+<h3 class="counter" data-target="100">0</h3>
+<p>Respect</p>
+</div>
+
+<div class="stat-card reveal">
+<h3 class="counter" data-target="0">0</h3>
+<p>Discrimination</p>
+</div>
+
+<div class="stat-card reveal">
+<h3 class="counter" data-target="1">0</h3>
+<p>Constitution</p>
+</div>
+
+<div class="stat-card reveal">
+<h3>∞</h3>
+<p>Ideas</p>
+</div>
+
+</div>
+
+</section>
+<!-- MANIFESTO -->
+
+<section id="manifesto">
+
+<h2 class="section-title">
+Manifesto
+</h2>
+
 <div class="timeline">
-<div class="event">Respect for the Constitution of India.</div>
-<div class="event">No blind support for any political party or leader.</div>
-<div class="event">No discrimination based on religion, caste, language, gender or region.</div>
-<div class="event">Respect for all freedom fighters and democratic values.</div>
-<div class="event">Evidence-based discussions over propaganda.</div>
-<div class="event">All constitutional ideologies are welcome.</div>
+
+<div class="timeline-item reveal">
+<h3>Constitution Above Everything</h3>
+<p>We respect and uphold the Constitution of India.</p>
 </div>
+
+<div class="timeline-item reveal">
+<h3>No Blind Support</h3>
+<p>We neither blindly support nor blindly oppose any political party.</p>
 </div>
+
+<div class="timeline-item reveal">
+<h3>Respect For All Communities</h3>
+<p>Every religion, caste and language deserves dignity and respect.</p>
+</div>
+
+<div class="timeline-item reveal">
+<h3>Freedom Of Thought</h3>
+<p>Constructive disagreement is encouraged.</p>
+</div>
+
+<div class="timeline-item reveal">
+<h3>Evidence Over Propaganda</h3>
+<p>Facts should guide discussion.</p>
+</div>
+
+<div class="timeline-item reveal">
+<h3>Democratic India</h3>
+<p>A stronger India is built through informed citizens.</p>
+</div>
+
+</div>
+
 </section>
 
-<section id="faq" class="reveal">
-<div class="container">
-<h2 class="title">FAQ</h2>
-<div class="faq">
-<details><summary>Are you a political party?</summary><p>No. We are a political discussion community.</p></details>
-<details><summary>Do you support any party?</summary><p>No. We encourage independent thinking.</p></details>
-<details><summary>Who can join?</summary><p>Anyone willing to respect the Constitution and others.</p></details>
+<!-- FAQ -->
+
+<section id="faq">
+
+<h2 class="section-title">
+Frequently Asked Questions
+</h2>
+
+<div class="faq-container">
+
+<div class="faq-item">
+<button class="faq-btn">
+Is Antique Janta Party a political party?
+</button>
+<div class="faq-content">
+No. We are a political discussion community.
 </div>
 </div>
+
+<div class="faq-item">
+<button class="faq-btn">
+Do you support any political party?
+</button>
+<div class="faq-content">
+No. Members may hold different views.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-btn">
+Can I criticize political parties?
+</button>
+<div class="faq-content">
+Yes, respectfully and with facts.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-btn">
+Is discrimination allowed?
+</button>
+<div class="faq-content">
+No discrimination of any kind is tolerated.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-btn">
+Who can join?
+</button>
+<div class="faq-content">
+Anyone who respects our values.
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-btn">
+Can different ideologies coexist here?
+</button>
+<div class="faq-content">
+Yes, constitutional ideologies are welcome.
+</div>
+</div>
+
+</div>
+
 </section>
 
-<section class="reveal">
-<div class="container">
-<h2 class="title">Contact</h2>
-<div class="grid">
-<div class="card"><h3>Instagram</h3>@_antique_janta_party_</div>
-<div class="card"><h3>Email</h3>antique.janta.party@gmail.com</div>
-<div class="card"><h3>Discord</h3>https://discord.gg/GqdhVpkX8B</div>
+<!-- DISCORD -->
+
+<section id="discord">
+
+<h2 class="section-title">
+Join Our Discord Community
+</h2>
+
+<div class="discord-box reveal">
+
+<h2>
+Become Part Of The Discussion
+</h2>
+
+<p>
+
+Join our official Discord server and participate in debates,
+community events, civic discussions and meaningful conversations.
+
+</p>
+
+<a href="YOUR_DISCORD_INVITE"
+class="discord-btn"
+target="_blank">
+
+JOIN OUR DISCORD COMMUNITY
+
+</a>
+
 </div>
-</div>
+
 </section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+
+<h2 class="section-title">
+Contact
+</h2>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<h3>Instagram</h3>
+
+<p>
+@_antique_janta_party_
+</p>
+
+</div>
+
+<div class="contact-card">
+
+<h3>Email</h3>
+
+<p>
+antique.janta.party@gmail.com
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BACK TO TOP -->
+
+<button id="topBtn">
+↑
+</button>
+
+<!-- FOOTER -->
 
 <footer>
-<h2>ANTIQUE JANTA PARTY</h2>
-<p>कलम हमारी • आवाज आपकी</p>
-<p>Think ANTIQUE, Build the Future.</p>
+
+<h2>
+ANTIQUE JANTA PARTY
+</h2>
+
+<p>
+कलम हमारी • आवाज आपकी
+</p>
+
+<p>
+Think ANTIQUE, Build the Future.
+</p>
+
+<br>
+
+<p>
+© 2026 Antique Janta Party
+</p>
+
 </footer>
-
-<script>
-const r=document.querySelectorAll('.reveal');
-window.addEventListener('scroll',()=>{
-r.forEach(e=>{
-if(e.getBoundingClientRect().top<window.innerHeight-100)e.classList.add('active');
-});
-});
-
-const c=document.getElementById('particles');
-const x=c.getContext('2d');
-function resize(){c.width=innerWidth;c.height=innerHeight}
-resize();addEventListener('resize',resize);
-const p=[...Array(60)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*3+1,v:Math.random()+0.3}));
-function draw(){
-x.clearRect(0,0,c.width,c.height);
-x.fillStyle='rgba(212,175,55,.5)';
-p.forEach(a=>{a.y-=a.v;if(a.y<0)a.y=innerHeight;x.beginPath();x.arc(a.x,a.y,a.r,0,6.28);x.fill();});
-requestAnimationFrame(draw);
-}
-draw();
-</script>
-</body>
-</html>
