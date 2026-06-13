@@ -47,7 +47,6 @@ animation:floatLogo 15s ease-in-out infinite;
 .hero h1{font-size:5rem;color:var(--gold2);letter-spacing:2px}
 .tag{font-size:1.3rem;color:var(--gold2);font-weight:700;margin:10px 0}
 
-/* Button Container & Animations */
 .btn-group{
 display:flex;
 gap:15px;
@@ -110,7 +109,58 @@ transition:.4s;
 .card:hover{transform:translateY(-10px)}
 .card h3{color:var(--gold2)}
 
-/* Custom Discord Style Card Contact Section */
+/* --- UPGRADED LEADERSHIP ANIMATIONS --- */
+.leader-grid {
+perspective: 1000px;
+}
+.leader-card {
+position: relative;
+overflow: hidden;
+transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.4s, box-shadow 0.5s;
+transform-style: preserve-3d;
+background: linear-gradient(145deg, rgba(255,255,255,0.9), rgba(254,251,240,0.85));
+}
+.leader-card::before {
+content: '';
+position: absolute;
+top: 0; left: -100%;
+width: 50%; height: 100%;
+background: linear-gradient(90deg, transparent, rgba(212,175,55,0.15), transparent);
+transition: none;
+}
+.leader-card:hover {
+transform: translateY(-12px) rotateX(4deg) rotateY(-2deg);
+border-color: var(--gold);
+box-shadow: 0 20px 40px rgba(212,175,55,0.25);
+}
+.leader-card:hover::before {
+left: 150%;
+transition: 0.8s ease-in-out;
+}
+.leader-card h3 {
+font-size: 1.1rem;
+text-transform: uppercase;
+letter-spacing: 1px;
+margin-bottom: 8px;
+opacity: 0.8;
+}
+.leader-card b {
+font-size: 1.6rem;
+color: #111;
+display: inline-block;
+margin-bottom: 4px;
+transition: color 0.3s;
+}
+.leader-card:hover b {
+color: var(--gold2);
+}
+.leader-card span {
+color: #666;
+font-size: 0.95rem;
+font-family: monospace;
+}
+/* -------------------------------------- */
+
 .card.discord-card:hover{
 border-color:var(--discord);
 box-shadow:0 15px 35px rgba(88,101,242,.2);
@@ -198,10 +248,9 @@ nav{flex-direction:column}
 <p>An independent Indian political discussion community built around constitutional values, respectful debate and informed citizenship.</p>
 <div class="btn-group">
 <a class="btn" href="#manifesto">Explore</a>
-<!-- Discord Button with Pulse Animation & Embedded SVG Icon -->
 <a class="btn btn-discord" href="YOUR_DISCORD_INVITE_LINK_HERE" target="_blank" rel="noopener noreferrer">
 <svg viewBox="0 0 127.14 96.36">
-<path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.71-11,68.6,68.6,0,0,1-10.57-5c.89-.65,1.75-1.34,2.58-2A75.31,75.31,0,0,0,96.4,78.3c.84.69,1.7,1.38,2.59,2a68.64,68.64,0,0,1-10.57,5,74.91,74.91,0,0,0,6.72,11,105.51,105.51,0,0,0,31-18.83C129.87,50.7,123.75,27.82,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.94,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.17,46,96,53,91,65.69,84.69,65.69Z"/>
+<path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.71-11,68.6,68.6,0,0,1-10.57-5c.89-.65,1.75-1.34,2.58-2A75.31,75.31,0,0,0,96.4,78.3c.84.69,1.7,1.38,2.59,2a68.64,68.64,0,0,1-10.57,5,74.91,74.91,0,0,0,6.72,11,105.51,105.51,0,0,0,31-18.83C129.87,50.7,123.75,27.82,107.7,8.07ZM42.45,65.69C36.18,36.18,31,60,31,53S36.18,40.36,42.45,40.36,53.94,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.17,46,96,53,91,65.69,84.69,65.69Z"/>
 </svg>
 Join Discord
 </a>
@@ -229,13 +278,26 @@ Antique Janta Party is a political discussion community where ideas matter more 
 </div>
 </section>
 
+<!-- Upgraded Leadership Section HTML Structure -->
 <section id="leaders" class="reveal">
 <div class="container">
 <h2 class="title">Leadership</h2>
-<div class="grid">
-<div class="card"><h3>President</h3><b>Obtt</b><br>@obtt_x_void</div>
-<div class="card"><h3>Vice President</h3><b>Nulleather</b><br>@nullleather07</div>
-<div class="card"><h3>General Secretary</h3><b>Ryuk</b><br>@ryuk_1202</div>
+<div class="grid leader-grid">
+<div class="card leader-card">
+<h3>President</h3>
+<b>Obtt</b><br>
+<span>@obtt_x_void</span>
+</div>
+<div class="card leader-card">
+<h3>Vice President</h3>
+<b>Nulleather</b><br>
+<span>@nullleather07</span>
+</div>
+<div class="card leader-card">
+<h3>General Secretary</h3>
+<b>Ryuk</b><br>
+<span>@ryuk_1202</span>
+</div>
 </div>
 </div>
 </section>
@@ -272,7 +334,7 @@ Antique Janta Party is a political discussion community where ideas matter more 
 <div class="card"><h3>Instagram</h3>@_antique_janta_party_</div>
 <div class="card discord-card">
 <h3>Discord Server</h3>
-<a href="YOUR_DISCORD_INVITE_LINK_HERE" target="_blank" rel="noopener noreferrer">Click to Join Server</a>
+<a href="https://discord.gg/GqdhVpkX8B" target="_blank" rel="noopener noreferrer">Click to Join Server</a>
 </div>
 <div class="card"><h3>Email</h3>antique.janta.party@gmail.com</div>
 </div>
@@ -294,17 +356,3 @@ if(e.getBoundingClientRect().top<window.innerHeight-100)e.classList.add('active'
 });
 
 const c=document.getElementById('particles');
-const x=c.getContext('2d');
-function resize(){c.width=innerWidth;c.height=innerHeight}
-resize();addEventListener('resize',resize);
-const p=[...Array(60)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*3+1,v:Math.random()+0.3}));
-function draw(){
-x.clearRect(0,0,c.width,c.height);
-x.fillStyle='rgba(212,175,55,.5)';
-p.forEach(a=>{a.y-=a.v;if(a.y<0)a.y=innerHeight;x.beginPath();x.arc(a.x,a.y,a.r,0,6.28);x.fill();});
-requestAnimationFrame(draw);
-}
-draw();
-</script>
-</body>
-</html>
