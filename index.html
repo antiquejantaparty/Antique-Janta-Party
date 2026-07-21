@@ -109,6 +109,97 @@ transition:.4s;
 }
 .card:hover{transform:translateY(-10px)}
 .card h3{color:var(--gold2)}
+  .leadership-grid{
+gap:30px;
+}
+
+.leader{
+text-align:center;
+padding:35px 25px;
+transition:.4s;
+position:relative;
+overflow:hidden;
+}
+
+.leader:hover{
+transform:translateY(-12px) scale(1.03);
+}
+
+/* President */
+.president{
+background:linear-gradient(135deg,#000,#252525);
+border:2px solid gold;
+color:gold;
+}
+
+/* Vice President */
+.vice-president{
+background:linear-gradient(135deg,#2a2a2a,#555);
+border:2px solid silver;
+color:#e5e5e5;
+}
+
+/* General Secretary */
+.secretary{
+background:linear-gradient(135deg,#fff4c4,#f0d77a);
+color:#8b6508;
+}
+
+/* Media Head */
+.media{
+background:linear-gradient(135deg,#ff8a00,#ff5e62);
+color:white;
+}
+
+/* Advisor */
+.advisor{
+background:linear-gradient(135deg,#4e54c8,#8f94fb);
+color:white;
+}
+
+/* Public Relations */
+.relations{
+background:linear-gradient(135deg,#11998e,#38ef7d);
+color:white;
+}
+
+/* Research */
+.research{
+background:linear-gradient(135deg,#8e2de2,#c471ed);
+color:white;
+}
+
+.leader h3{
+margin-bottom:15px;
+font-size:1.3rem;
+}
+
+.leader b{
+font-size:1.15rem;
+}
+
+/* Shine Effect */
+.leader::before{
+content:'';
+position:absolute;
+top:-100%;
+left:-100%;
+width:200%;
+height:200%;
+background:
+linear-gradient(
+45deg,
+transparent,
+rgba(255,255,255,.18),
+transparent
+);
+transition:1s;
+}
+
+.leader:hover::before{
+top:100%;
+left:100%;
+}
 
 /* Custom Discord Style Card Contact Section */
 .card.discord-card:hover{
