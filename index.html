@@ -113,86 +113,8 @@ transition:.4s;
 gap:30px;
 }
 
-/* 👑 President - Royal Red */
-.president{
-background:linear-gradient(135deg,#ff3131,#8b0000);
-color:white;
-border:2px solid rgba(255,255,255,.2);
-box-shadow:0 15px 35px rgba(139,0,0,.45);
-}
-
-/* 🥈 Vice President - Silver */
-.vice-president{
-background:linear-gradient(135deg,#d9d9d9,#7a7a7a);
-color:white;
-box-shadow:0 15px 35px rgba(120,120,120,.35);
-}
-
-/* 🖋 General Secretary - Gold */
-.secretary{
-background:linear-gradient(135deg,#ffe259,#ffa751);
-color:#fff;
-box-shadow:0 15px 35px rgba(255,167,81,.35);
-}
-
-/* 📢 Media Head - Blue */
-.media-head{
-background:linear-gradient(135deg,#00c6ff,#0072ff);
-color:white;
-box-shadow:0 15px 35px rgba(0,114,255,.35);
-}
-
-/* ⚖ Constitutional Advisor - Purple */
-.advisor{
-background:linear-gradient(135deg,#8E2DE2,#4A00E0);
-color:white;
-box-shadow:0 15px 35px rgba(74,0,224,.35);
-}
-
-/* 🤝 Public Relations Head - Emerald */
-.pr-head{
-background:linear-gradient(135deg,#11998e,#38ef7d);
-color:white;
-box-shadow:0 15px 35px rgba(56,239,125,.35);
-}
-
-/* 📚 Research & Policy Head - Teal */
-.research-head{
-background:linear-gradient(135deg,#136a8a,#267871);
-color:white;
-box-shadow:0 15px 35px rgba(38,120,113,.35);
-}
-
-/* 🛡 Community Affairs Head - Orange */
-.community-head{
-background:linear-gradient(135deg,#f7971e,#ff512f);
-color:white;
-box-shadow:0 15px 35px rgba(255,81,47,.35);
-}
-
-/* Shine Effect */
-.leader::before{
-content:'';
-position:absolute;
-top:-100%;
-left:-100%;
-width:200%;
-height:200%;
-background:
-linear-gradient(
-45deg,
-transparent,
-rgba(255,255,255,.18),
-transparent
-);
-transition:1s;
-}
-
-.leader:hover::before{
-top:100%;
-left:100%;
-}
-  .president,
+/* Shared Leadership Card Style */
+.president,
 .vice-president,
 .secretary,
 .media-head,
@@ -200,11 +122,63 @@ left:100%;
 .pr-head,
 .research-head,
 .community-head{
-position:relative;
-overflow:hidden;
-transition:.45s;
+    position:relative;
+    overflow:hidden;
+    border:none;
+    border-radius:28px;
+    color:white;
+    transition:all .5s ease;
+    backdrop-filter:blur(15px);
 }
 
+/* 👑 President */
+.president{
+    background:linear-gradient(135deg,#ff4d4d,#b30000,#4a0000);
+    box-shadow:0 15px 40px rgba(139,0,0,.45);
+}
+
+/* 🥈 Vice President */
+.vice-president{
+    background:linear-gradient(135deg,#f5f5f5,#a8a8a8,#5c5c5c);
+    box-shadow:0 15px 40px rgba(120,120,120,.35);
+}
+
+/* 🖋 General Secretary */
+.secretary{
+    background:linear-gradient(135deg,#ffe27a,#d4af37,#9c6f00);
+    box-shadow:0 15px 40px rgba(212,175,55,.40);
+}
+
+/* 📢 Media Head */
+.media-head{
+    background:linear-gradient(135deg,#00d2ff,#3a7bd5,#142850);
+    box-shadow:0 15px 40px rgba(58,123,213,.40);
+}
+
+/* ⚖ Advisor */
+.advisor{
+    background:linear-gradient(135deg,#b06ab3,#4568dc,#2c0b59);
+    box-shadow:0 15px 40px rgba(69,104,220,.40);
+}
+
+/* 🤝 Public Relations */
+.pr-head{
+    background:linear-gradient(135deg,#11998e,#38ef7d,#0b6b5f);
+    box-shadow:0 15px 40px rgba(56,239,125,.35);
+}
+
+/* 📚 Research Head */
+.research-head{
+    background:linear-gradient(135deg,#8E2DE2,#C471ED,#4A00E0);
+    box-shadow:0 15px 40px rgba(142,45,226,.40);
+}
+
+/* 🛡 Community Affairs */
+.community-head{
+    background:linear-gradient(135deg,#ff9966,#ff5e62,#8e0e00);
+    box-shadow:0 15px 40px rgba(255,94,98,.40);
+}
+  /* Hover Animation */
 .president:hover,
 .vice-president:hover,
 .secretary:hover,
@@ -213,9 +187,16 @@ transition:.45s;
 .pr-head:hover,
 .research-head:hover,
 .community-head:hover{
-transform:translateY(-12px) scale(1.04);
+    transform:
+        translateY(-15px)
+        scale(1.05)
+        rotateX(6deg);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.25);
 }
 
+/* Premium Shine */
 .president::before,
 .vice-president::before,
 .secretary::before,
@@ -224,20 +205,21 @@ transform:translateY(-12px) scale(1.04);
 .pr-head::before,
 .research-head::before,
 .community-head::before{
-content:'';
-position:absolute;
-top:-100%;
-left:-100%;
-width:250%;
-height:250%;
-background:
-linear-gradient(
-45deg,
-transparent,
-rgba(255,255,255,.25),
-transparent
-);
-transition:1s;
+    content:'';
+    position:absolute;
+    top:-150%;
+    left:-150%;
+    width:300%;
+    height:300%;
+    background:
+        linear-gradient(
+            45deg,
+            transparent,
+            rgba(255,255,255,.35),
+            transparent
+        );
+    transform:rotate(25deg);
+    transition:1s;
 }
 
 .president:hover::before,
@@ -248,10 +230,41 @@ transition:1s;
 .pr-head:hover::before,
 .research-head:hover::before,
 .community-head:hover::before{
-top:100%;
-left:100%;
+    top:100%;
+    left:100%;
 }
 
+/* Floating Glow */
+@keyframes premiumFloat{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-6px);
+    }
+}
+
+.president,
+.vice-president,
+.secretary,
+.media-head,
+.advisor,
+.pr-head,
+.research-head,
+.community-head{
+    animation:premiumFloat 5s ease-in-out infinite;
+}
+  .card h3{
+    font-size:1.35rem;
+    margin-bottom:15px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+}
+
+.card b{
+    font-size:1.2rem;
+    font-weight:800;
+}
 /* Custom Discord Style Card Contact Section */
 .card.discord-card:hover{
 border-color:var(--discord);
