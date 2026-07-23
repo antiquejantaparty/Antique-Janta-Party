@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Constitution | Antique Janta Party</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fff;
+color:#222;
+overflow-x:hidden;
+}
+
+:root{
+--gold:#d4af37;
+--gold2:#b8860b;
+--glass:rgba(255,255,255,.80);
+}
+
+#particles{
+position:fixed;
+inset:0;
+z-index:-1;
+}
+
+header{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(212,175,55,.35);
+z-index:1000;
+}
+
+nav{
+max-width:1200px;
+margin:auto;
+padding:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+font-size:1.4rem;
+font-weight:800;
+color:var(--gold2);
+}
+
+nav a{
+text-decoration:none;
+color:#222;
+font-weight:600;
+margin-left:20px;
+transition:.3s;
+}
+
+nav a:hover{
+color:var(--gold2);
+}
+
+.hero{
+
+height:60vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+background:
+
+linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.90)),
+
+url("logo.png") center/40% no-repeat;
+
+animation:floatLogo 14s ease-in-out infinite;
+
+}
+
+@keyframes floatLogo{
+
+50%{
+
+transform:scale(1.05);
+
+}
+
+}
+
+.hero-content{
+
+position:relative;
+
+z-index:2;
+
+max-width:900px;
+
+padding:20px;
+
+}
+
+.hero h1{
+
+font-size:4rem;
+
+color:var(--gold2);
+
+}
+
+.hero p{
+
+font-size:1.2rem;
+
+margin-top:10px;
+
+color:#555;
+
+}
+
+section{
+
+padding:80px 20px;
+
+}
+
+.container{
+
+max-width:1100px;
+
+margin:auto;
+
+}
+
+.title{
+
+text-align:center;
+
+font-size:2.5rem;
+
+color:var(--gold2);
+
+margin-bottom:40px;
+
+}
+
+.article{
+
+background:var(--glass);
+
+backdrop-filter:blur(12px);
+
+border:1px solid rgba(212,175,55,.3);
+
+padding:35px;
+
+border-radius:22px;
+
+margin-bottom:30px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+transition:.4s;
+
+}
+
+.article:hover{
+
+transform:translateY(-8px);
+
+}
+
+.article h2{
+
+color:var(--gold2);
+
+margin-bottom:20px;
+
+}
+
+.article h3{
+
+margin-top:20px;
+
+margin-bottom:10px;
+
+color:#444;
+
+}
+
+.article p{
+
+line-height:1.9;
+
+}
+
+.article ul{
+
+margin-top:15px;
+
+padding-left:25px;
+
+line-height:2;
+
+}
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:1s;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:none;
+
+}
+
+footer{
+
+background:linear-gradient(45deg,var(--gold2),var(--gold));
+
+color:white;
+
+padding:45px;
+
+text-align:center;
+
+margin-top:80px;
+
+}
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:2.4rem;
+
+}
+
+nav{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<header>
+
+<nav>
+
+<div class="logo">
+
+ANTIQUE JANTA PARTY
+
+</div>
+
+<div>
+
+<a href="index.html">Home</a>
+
+<a href="#preamble">Preamble</a>
+
+<a href="#articles">Articles</a>
+
+<a href="#oath">Oath</a>
+
+</div>
+
+</nav>
+
+</header>
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Constitution of the Antique Janta Party</h1>
+
+<p>
+
+कलम हमारी • आवाज आपकी
+
+</p>
+
+</div>
+
+</section>
+
+<section id="preamble" class="reveal">
+
+<div class="container">
+
+<h2 class="title">
+
+Preamble
+
+</h2>
+
+<div class="article">
+
+<p>
+
+We, the members of the <b>Antique Janta Party (AJP)</b>, united by our commitment to the Constitution of India, democratic values, respectful dialogue and informed citizenship, hereby adopt this Constitution to establish a disciplined, impartial and inclusive political discussion community.
+
+</p>
+
+<br>
+
+<p>
+
+AJP exists to promote constitutional awareness, encourage meaningful political discourse, protect freedom of expression within the limits of respectful conduct, and inspire independent thinking over blind political support or hatred.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="articles" class="reveal">
+
+<div class="container">
+
+<h2 class="title">
+
+Constitution
+
+</h2>
+<!-- ARTICLE I -->
+
+<div class="article">
+
+<h2>Article I — Name & Identity</h2>
+
+<h3>Section 1. Name</h3>
+
+<p>
+The official name of the organisation shall be
+<b>Antique Janta Party (AJP)</b>.
+</p>
+
+<h3>Section 2. Motto</h3>
+
+<p>
+<b>"कलम हमारी • आवाज आपकी"</b>
+</p>
+
+<h3>Section 3. Nature</h3>
+
+<p>
+AJP shall function as an independent political discussion and civic awareness community committed to constitutional values, informed citizenship and respectful democratic dialogue.
+</p>
+
+<h3>Section 4. Official Language</h3>
+
+<p>
+The primary working language of AJP shall be English. Other languages may be used where appropriate.
+</p>
+
+</div>
+
+<!-- ARTICLE II -->
+
+<div class="article">
+
+<h2>Article II — Fundamental Principles</h2>
+
+<p>
+The following principles shall guide all activities of AJP:
+</p>
+
+<ul>
+
+<li>Respect for the Constitution of India.</li>
+
+<li>Freedom of expression with responsibility.</li>
+
+<li>Equality and non-discrimination.</li>
+
+<li>Independent thinking over blind support.</li>
+
+<li>Evidence-based discussion.</li>
+
+<li>Transparency and accountability.</li>
+
+<li>Respectful democratic dialogue.</li>
+
+<li>National unity and constitutional values.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE III -->
+
+<div class="article">
+
+<h2>Article III — Objectives</h2>
+
+<p>
+The objectives of Antique Janta Party shall be:
+</p>
+
+<ul>
+
+<li>
+Promote informed political discussion and constitutional awareness.
+</li>
+
+<li>
+Encourage respectful debate among individuals with diverse viewpoints.
+</li>
+
+<li>
+Strengthen democratic participation and civic responsibility.
+</li>
+
+<li>
+Combat misinformation through evidence-based discussion.
+</li>
+
+<li>
+Encourage critical thinking instead of blind political support or hatred.
+</li>
+
+<li>
+Provide a safe platform for constructive public discourse.
+</li>
+
+<li>
+Promote mutual respect regardless of religion, caste, language, region, gender or ideology.
+</li>
+
+<li>
+Build a disciplined, transparent and inclusive community.
+</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE IV -->
+
+<div class="article">
+
+<h2>Article IV — Membership</h2>
+
+<h3>Section 1. Eligibility</h3>
+
+<p>
+Any individual may become a member of AJP provided that he or she:
+</p>
+
+<ul>
+
+<li>Accepts this Constitution.</li>
+
+<li>Agrees to follow community rules.</li>
+
+<li>Supports democratic and constitutional values.</li>
+
+<li>Maintains respectful conduct.</li>
+
+<li>Has not been permanently removed for serious misconduct.</li>
+
+</ul>
+
+<h3>Section 2. Rights of Members</h3>
+
+<ul>
+
+<li>Participate in discussions and activities.</li>
+
+<li>Express opinions respectfully.</li>
+
+<li>Propose suggestions and initiatives.</li>
+
+<li>Seek clarification regarding administrative actions.</li>
+
+<li>Contest internal positions where eligible.</li>
+
+</ul>
+
+<h3>Section 3. Duties of Members</h3>
+
+<ul>
+
+<li>Respect fellow members.</li>
+
+<li>Maintain discipline.</li>
+
+<li>Follow community guidelines.</li>
+
+<li>Protect the reputation of AJP.</li>
+
+<li>Promote constructive and informed discussion.</li>
+
+</ul>
+
+</div>
+<!-- ARTICLE V -->
+
+<div class="article">
+
+<h2>Article V — Organisational Structure</h2>
+
+<p>
+The governing structure of the Antique Janta Party (AJP) shall consist of the following constitutional offices:
+</p>
+
+<ol>
+
+<li>President</li>
+
+<li>Vice-President</li>
+
+<li>Executive Director</li>
+
+<li>Deputy Chairperson</li>
+
+<li>Secretary-General</li>
+
+<li>Chief Whip</li>
+
+<li>Media Head</li>
+
+<li>Chief Admin</li>
+
+</ol>
+
+<p>
+
+Additional constitutional offices may be established by amendment whenever necessary for the effective functioning of the organisation.
+
+</p>
+
+</div>
+
+<!-- ARTICLE VI -->
+
+<div class="article">
+
+<h2>Article VI — President</h2>
+
+<p>
+
+The President shall be the Head of the Antique Janta Party and shall safeguard its vision, constitutional values and organisational integrity.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Provide overall leadership and direction.</li>
+
+<li>Represent the organisation publicly.</li>
+
+<li>Preside over constitutional meetings.</li>
+
+<li>Approve major organisational decisions.</li>
+
+<li>Ensure that every action remains consistent with this Constitution.</li>
+
+<li>Promote unity, discipline and democratic values.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE VII -->
+
+<div class="article">
+
+<h2>Article VII — Vice-President</h2>
+
+<p>
+
+The Vice-President shall serve as the second-highest constitutional office and shall assist the President in carrying out the objectives of AJP.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Assist the President in executive responsibilities.</li>
+
+<li>Act on behalf of the President during absence or incapacity.</li>
+
+<li>Coordinate organisational activities assigned by the President.</li>
+
+<li>Support constitutional governance and internal administration.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE VIII -->
+
+<div class="article">
+
+<h2>Article VIII — Executive Director</h2>
+
+<p>
+
+The Executive Director shall supervise the execution of organisational policies and ensure efficient administration of AJP.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Implement decisions approved by the leadership.</li>
+
+<li>Coordinate major organisational projects.</li>
+
+<li>Oversee day-to-day administrative functions.</li>
+
+<li>Monitor organisational performance and recommend improvements.</li>
+
+<li>Ensure effective coordination between departments.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE IX -->
+
+<div class="article">
+
+<h2>Article IX — Deputy Chairperson</h2>
+
+<p>
+
+The Deputy Chairperson shall assist the senior leadership in organisational affairs and provide guidance in constitutional matters.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Support the President and Vice-President.</li>
+
+<li>Coordinate internal organisational affairs.</li>
+
+<li>Assist during executive meetings.</li>
+
+<li>Promote discipline and institutional stability.</li>
+
+<li>Perform duties assigned by the President.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE X -->
+
+<div class="article">
+
+<h2>Article X — Secretary-General</h2>
+
+<p>
+
+The Secretary-General shall serve as the principal administrative officer responsible for official documentation and internal communication.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Maintain official records.</li>
+
+<li>Prepare meeting agendas and minutes.</li>
+
+<li>Issue official notices.</li>
+
+<li>Maintain constitutional documents.</li>
+
+<li>Coordinate communication between leadership and members.</li>
+
+</ul>
+
+</div>
+<!-- ARTICLE XI -->
+
+<div class="article">
+
+<h2>Article XI — Chief Whip</h2>
+
+<p>
+
+The Chief Whip shall be responsible for maintaining discipline, order and adherence to the Constitution and community guidelines within the organisation.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Promote discipline and respectful conduct among members.</li>
+
+<li>Ensure compliance with constitutional provisions and Party rules.</li>
+
+<li>Assist in resolving internal disagreements through fair and impartial means.</li>
+
+<li>Report serious disciplinary matters to the President and Executive Leadership.</li>
+
+<li>Encourage unity, professionalism and constructive participation.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XII -->
+
+<div class="article">
+
+<h2>Article XII — Media Head</h2>
+
+<p>
+
+The Media Head shall oversee the public communication of AJP and ensure that all official information reflects the organisation's constitutional principles and objectives.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Manage official announcements and publications.</li>
+
+<li>Supervise social media and digital communication.</li>
+
+<li>Protect the public image of the organisation.</li>
+
+<li>Ensure accuracy and neutrality in official statements.</li>
+
+<li>Coordinate media campaigns approved by the leadership.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XIII -->
+
+<div class="article">
+
+<h2>Article XIII — Chief Admin</h2>
+
+<p>
+
+The Chief Admin shall oversee the administration of the Party's official platforms and ensure their secure, organised and efficient operation.
+
+</p>
+
+<h3>Powers & Responsibilities</h3>
+
+<ul>
+
+<li>Manage official community platforms and infrastructure.</li>
+
+<li>Supervise moderators and administrative staff.</li>
+
+<li>Maintain security and operational stability.</li>
+
+<li>Implement administrative policies approved by the leadership.</li>
+
+<li>Protect organisational resources and records.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XIV -->
+
+<div class="article">
+
+<h2>Article XIV — Meetings</h2>
+
+<h3>Regular Meetings</h3>
+
+<p>
+
+Regular meetings shall be conducted at intervals determined by the Executive Leadership to review organisational progress, discuss public affairs and strengthen internal coordination.
+
+</p>
+
+<h3>Emergency Meetings</h3>
+
+<p>
+
+The President may convene an emergency meeting whenever circumstances require immediate constitutional or administrative action.
+
+</p>
+
+<h3>Quorum</h3>
+
+<p>
+
+No constitutional decision shall be considered valid unless at least one-half of the eligible leadership members are present, unless otherwise provided by this Constitution.
+
+</p>
+
+</div>
+
+<!-- ARTICLE XV -->
+
+<div class="article">
+
+<h2>Article XV — Elections</h2>
+
+<ul>
+
+<li>Leadership appointments or elections shall be conducted fairly and transparently.</li>
+
+<li>Every eligible member shall have equal voting rights whenever elections are held.</li>
+
+<li>Election procedures shall be announced before the commencement of voting.</li>
+
+<li>The Executive Leadership shall ensure the integrity of every electoral process.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XVI -->
+
+<div class="article">
+
+<h2>Article XVI — Code of Conduct</h2>
+
+<p>
+
+Every member of Antique Janta Party shall uphold the dignity of the organisation by adhering to the following principles:
+
+</p>
+
+<ul>
+
+<li>Treat every individual with dignity and respect.</li>
+
+<li>No discrimination on the basis of religion, caste, language, ethnicity, gender or region.</li>
+
+<li>No hate speech or personal attacks.</li>
+
+<li>No deliberate spread of misinformation.</li>
+
+<li>Criticise ideas and policies rather than individuals.</li>
+
+<li>Encourage evidence-based discussion.</li>
+
+<li>Respect differing political opinions while maintaining civility.</li>
+
+<li>Protect confidential organisational information.</li>
+
+<li>Maintain professionalism on all official platforms.</li>
+
+</ul>
+
+</div>
+<!-- ARTICLE XVII -->
+
+<div class="article">
+
+<h2>Article XVII — Discipline</h2>
+
+<p>
+
+Discipline is fundamental to the integrity and effectiveness of the Antique Janta Party. Every member shall conduct themselves with honesty, maturity and respect.
+
+</p>
+
+<h3>Disciplinary Measures</h3>
+
+<ul>
+
+<li>Verbal or written warning.</li>
+
+<li>Temporary suspension from organisational activities.</li>
+
+<li>Removal from an office or responsibility.</li>
+
+<li>Permanent termination of membership in cases of severe misconduct.</li>
+
+</ul>
+
+<p>
+
+No member shall be permanently removed without being given an opportunity to present their explanation, except in extraordinary circumstances involving serious violations.
+
+</p>
+
+</div>
+
+<!-- ARTICLE XVIII -->
+
+<div class="article">
+
+<h2>Article XVIII — Finance</h2>
+
+<p>
+
+The organisation may obtain resources through lawful and transparent means including voluntary contributions, fundraising activities and other approved sources.
+
+</p>
+
+<ul>
+
+<li>All financial records shall be maintained accurately.</li>
+
+<li>Any expenditure shall be properly documented.</li>
+
+<li>Financial transparency shall be maintained whenever applicable.</li>
+
+<li>No funds shall be used against the objectives of this Constitution.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XIX -->
+
+<div class="article">
+
+<h2>Article XIX — Constitutional Amendments</h2>
+
+<p>
+
+This Constitution may be amended whenever necessary to meet the evolving needs of the organisation.
+
+</p>
+
+<ul>
+
+<li>Any amendment proposal may be submitted before the Executive Leadership.</li>
+
+<li>A two-thirds majority of the Executive Leadership shall be required for adoption.</li>
+
+<li>Every amendment shall become effective immediately upon approval unless otherwise specified.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XX -->
+
+<div class="article">
+
+<h2>Article XX — Dissolution</h2>
+
+<p>
+
+The Antique Janta Party shall only be dissolved by an extraordinary resolution supported by not less than three-fourths of the Executive Leadership after consultation with the membership.
+
+</p>
+
+</div>
+
+<!-- ARTICLE XXI -->
+
+<div class="article">
+
+<h2>Article XXI — Constitutional Supremacy</h2>
+
+<p>
+
+This Constitution shall remain the supreme governing document of the Antique Janta Party.
+
+</p>
+
+<p>
+
+Every policy, decision, regulation and administrative action undertaken by the organisation shall remain consistent with the provisions contained herein.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- OATH -->
+
+<section id="oath" class="reveal">
+
+<div class="container">
+
+<h2 class="title">
+
+Oath of Membership
+
+</h2>
+
+<div class="article">
+
+<p style="font-size:1.15rem;text-align:center;font-style:italic;line-height:2">
+
+"I solemnly affirm that I shall uphold the Constitution of India and the Constitution of the Antique Janta Party; respect democratic values; promote truth, justice, equality and respectful dialogue; reject blind political support and misinformation; perform my duties with honesty, integrity and impartiality; and faithfully work towards building an informed, united and constitutionally aware society."
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- HOME BUTTON -->
+
+<section class="reveal">
+
+<div class="container" style="text-align:center">
+
+<a href="index.html" class="home-btn">
+
+← Return to Home
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<h2>Antique Janta Party</h2>
+
+<p style="margin-top:10px">
+
+"कलम हमारी • आवाज आपकी"
+
+</p>
+
+<p style="margin-top:20px">
+
+© 2026 Antique Janta Party. All Rights Reserved.
+
+</p>
+
+</footer>
