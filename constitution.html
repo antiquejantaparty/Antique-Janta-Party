@@ -107,97 +107,85 @@ z-index:-5;
 /*======================
 NAVBAR
 ======================*/
-
+  
 header{
-
 position:fixed;
-
 top:0;
-
 left:0;
-
 width:100%;
-
 background:rgba(255,255,255,.88);
-
 backdrop-filter:blur(18px);
-
-border-bottom:1px solid rgba(212,175,55,.18);
-
+border-bottom:1px solid rgba(212,175,55,.20);
+box-shadow:0 8px 30px rgba(0,0,0,.04);
 z-index:9999;
-
 }
 
 nav{
-
 max-width:1250px;
-
 height:72px;
-
 margin:auto;
-
 padding:0 22px;
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 }
 
 .logo{
-
 display:flex;
-
 align-items:center;
-
-gap:12px;
-
+gap:14px;
 font-size:2rem;
-
 font-weight:800;
-
 color:var(--gold-dark);
-
+letter-spacing:-.5px;
+user-select:none;
 }
 
 .logo img{
-
-width:44px;
-
-height:44px;
-
+width:46px;
+height:46px;
+object-fit:contain;
 }
 
 nav ul{
-
 display:flex;
-
+align-items:center;
 list-style:none;
-
 gap:34px;
+}
 
+nav ul li{
+list-style:none;
 }
 
 nav ul li a{
-
+position:relative;
 text-decoration:none;
-
 font-weight:700;
-
 font-size:1.05rem;
-
 color:#2e2e2e;
-
 transition:.3s;
+padding:5px 0;
+}
 
+nav ul li a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-5px;
+width:0%;
+height:3px;
+border-radius:50px;
+background:linear-gradient(90deg,var(--gold),var(--gold-dark));
+transition:.35s;
 }
 
 nav ul li a:hover{
-
 color:var(--gold-dark);
+}
 
+nav ul li a:hover::after{
+width:100%;
 }
 
 /*======================
@@ -463,66 +451,48 @@ transform:none;
 /*======================
 RESPONSIVE
 ======================*/
-
 @media(max-width:900px){
 
-.hero h1{
-
-font-size:3rem;
-
-}
-
-.hero::before{
-
-background:
-
-linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.95)),
-
-url("logo.png") center/240px no-repeat;
-
-}
-
 nav{
-
-flex-direction:column;
-
 height:auto;
-
 padding:18px;
+flex-direction:column;
+gap:18px;
+}
 
-gap:15px;
+.logo{
+font-size:1.5rem;
+}
 
+.logo img{
+width:40px;
+height:40px;
 }
 
 nav ul{
-
 flex-wrap:wrap;
-
 justify-content:center;
-
 gap:18px;
+}
 
+.hero h1{
+font-size:3rem;
+}
+
+.hero::before{
+background:
+linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.95)),
+url("logo.png") center/240px no-repeat;
 }
 
 }
-
-</style>
-
-</head>
-
-<body>
-
-<div id="progress"></div>
-
-<canvas id="particles"></canvas>
-
 <header>
 
 <nav>
 
 <div class="logo">
 
-<img src="logo.png" alt="Logo">
+<img src="logo.png" alt="Antique Janta Party Logo">
 
 <span>ANTIQUE JANTA PARTY</span>
 
