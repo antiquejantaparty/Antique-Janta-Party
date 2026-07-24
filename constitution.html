@@ -19,8 +19,8 @@
 
 --gold:#D4AF37;
 --gold-dark:#B8860B;
---black:#1d1d1d;
---text:#4b4b4b;
+--black:#1c1c1c;
+--text:#505050;
 --border:rgba(212,175,55,.22);
 
 }
@@ -36,17 +36,15 @@ scroll-behavior:smooth;
 }
 
 body{
-
 font-family:"Poppins",sans-serif;
-background:#fff;
+background:#ffffff;
 color:var(--black);
 overflow-x:hidden;
-
 }
 
-/*======================
+/*==============================
 SCROLLBAR
-======================*/
+==============================*/
 
 ::-webkit-scrollbar{
 width:10px;
@@ -54,174 +52,120 @@ width:10px;
 
 ::-webkit-scrollbar-thumb{
 background:linear-gradient(var(--gold),var(--gold-dark));
-border-radius:50px;
+border-radius:100px;
 }
 
-/*======================
-PROGRESS BAR
-======================*/
+/*==============================
+SCROLL PROGRESS
+==============================*/
 
 #progress{
-
 position:fixed;
 top:0;
 left:0;
-height:4px;
 width:0;
+height:4px;
 background:linear-gradient(90deg,var(--gold),var(--gold-dark));
-z-index:99999;
-
+z-index:999999;
 }
 
-/*======================
+/*==============================
 PARTICLES
-======================*/
+==============================*/
 
 #particles{
-
 position:fixed;
 inset:0;
 pointer-events:none;
-z-index:-5;
-
+z-index:-10;
 }
 
-/*======================
-PREMIUM NAVBAR
-======================*/
+/*==============================
+NAVBAR
+==============================*/
 
 header{
-
 position:fixed;
 top:0;
 left:0;
 width:100%;
-
-background:rgba(255,255,255,.90);
+background:rgba(255,255,255,.88);
 backdrop-filter:blur(18px);
-
 border-bottom:1px solid rgba(212,175,55,.18);
-
-box-shadow:0 8px 25px rgba(0,0,0,.04);
-
+box-shadow:0 8px 28px rgba(0,0,0,.05);
 z-index:9999;
-
 }
 
 nav{
-
-max-width:1250px;
+max-width:1280px;
 height:74px;
-
 margin:auto;
-
 padding:0 25px;
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 }
 
 .logo{
-
 display:flex;
 align-items:center;
 gap:14px;
-
 font-size:1.9rem;
 font-weight:800;
-
 color:var(--gold-dark);
-
 letter-spacing:-.5px;
-
 }
 
 .logo img{
-
-width:48px;
-height:48px;
+width:46px;
+height:46px;
 object-fit:contain;
-
 }
 
 nav ul{
-
 display:flex;
+align-items:center;
+gap:35px;
 list-style:none;
-gap:34px;
-
-}
-
-nav ul li{
-
-list-style:none;
-
 }
 
 nav ul li a{
-
 position:relative;
-
 text-decoration:none;
-
 font-weight:700;
-
-font-size:1.03rem;
-
-color:#2f2f2f;
-
+color:#333;
+font-size:1.02rem;
 transition:.35s;
-
 padding:5px 0;
-
 }
 
 nav ul li a::after{
-
 content:"";
-
 position:absolute;
-
 left:0;
 bottom:-6px;
-
 width:0%;
-
 height:3px;
-
-border-radius:30px;
-
 background:linear-gradient(90deg,var(--gold),var(--gold-dark));
-
+border-radius:100px;
 transition:.35s;
-
 }
 
 nav ul li a:hover{
-
 color:var(--gold-dark);
-
 }
 
 nav ul li a:hover::after{
-
 width:100%;
-
 }
 
-/*======================
+/*==============================
 HERO
-======================*/
+==============================*/
 
 .hero{
 
 position:relative;
-
-min-height:520px;
 
 display:flex;
 
@@ -231,7 +175,7 @@ align-items:center;
 
 text-align:center;
 
-padding:150px 20px 100px;
+padding:170px 20px 120px;
 
 overflow:hidden;
 
@@ -249,26 +193,22 @@ background:
 
 linear-gradient(rgba(255,255,255,.93),rgba(255,255,255,.95)),
 
-url("logo.png") center/370px no-repeat;
+url("logo.png") center center/380px no-repeat;
 
 opacity:.12;
 
-animation:floatLogo 14s ease-in-out infinite;
+animation:logoFloat 12s ease-in-out infinite;
 
 }
 
-@keyframes floatLogo{
+@keyframes logoFloat{
 
 0%,100%{
-
-transform:translateY(0) scale(1);
-
+transform:translateY(0px) scale(1);
 }
 
 50%{
-
 transform:translateY(-12px) scale(1.05);
-
 }
 
 }
@@ -276,6 +216,7 @@ transform:translateY(-12px) scale(1.05);
 .hero-content{
 
 position:relative;
+
 z-index:2;
 
 max-width:950px;
@@ -298,13 +239,13 @@ color:var(--gold-dark);
 
 .hero p{
 
-margin-top:20px;
+margin-top:24px;
 
 font-size:1.18rem;
 
 line-height:1.9;
 
-color:#555;
+color:#5c5c5c;
 
 max-width:760px;
 
@@ -312,35 +253,57 @@ margin-inline:auto;
 
 }
 
-/*======================
+.hero-btn{
+
+display:inline-block;
+
+margin-top:38px;
+
+padding:18px 42px;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+
+text-decoration:none;
+
+color:#fff;
+
+font-weight:700;
+
+box-shadow:0 15px 35px rgba(212,175,55,.28);
+
+transition:.35s;
+
+}
+
+.hero-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 20px 45px rgba(212,175,55,.42);
+
+}
+
+/*==============================
 COMMON
-======================*/
+==============================*/
 
 section{
-
 padding:90px 20px;
-
 }
 
 .container{
-
 max-width:1150px;
 margin:auto;
-
 }
 
 .title{
-
 font-size:2.8rem;
-
-text-align:center;
-
 font-weight:800;
-
+text-align:center;
 color:var(--gold-dark);
-
 margin-bottom:45px;
-
 }
 
 .article{
@@ -357,7 +320,7 @@ margin-bottom:35px;
 
 box-shadow:
 0 15px 40px rgba(0,0,0,.06),
-0 0 0 1px rgba(212,175,55,.04);
+0 0 0 1px rgba(212,175,55,.05);
 
 transition:.35s;
 
@@ -368,16 +331,16 @@ transition:.35s;
 transform:translateY(-8px);
 
 box-shadow:
-0 25px 55px rgba(0,0,0,.10),
+0 25px 60px rgba(0,0,0,.10),
 0 0 25px rgba(212,175,55,.15);
 
 }
 
 .article h2{
 
-font-size:2rem;
-
 color:var(--gold-dark);
+
+font-size:2rem;
 
 margin-bottom:18px;
 
@@ -385,7 +348,7 @@ margin-bottom:18px;
 
 .article h3{
 
-margin-top:24px;
+margin-top:25px;
 
 margin-bottom:10px;
 
@@ -403,7 +366,7 @@ color:var(--text);
 
 .article ul{
 
-margin-top:12px;
+margin-top:15px;
 
 padding-left:25px;
 
@@ -413,81 +376,231 @@ color:var(--text);
 
 }
 
-/*======================
+/*==============================
 REVEAL
-======================*/
+==============================*/
 
 .reveal{
-
 opacity:0;
-
 transform:translateY(60px);
-
 transition:1s;
-
 }
 
 .reveal.active{
-
 opacity:1;
-
 transform:none;
+}
+
+/*==============================
+RETURN BUTTON
+==============================*/
+
+.home-section{
+padding:40px 20px 70px;
+text-align:center;
+}
+
+.home-btn{
+
+display:inline-flex;
+
+justify-content:center;
+
+align-items:center;
+
+padding:18px 44px;
+
+background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+
+color:#fff;
+
+font-weight:700;
+
+text-decoration:none;
+
+border-radius:50px;
+
+box-shadow:0 15px 35px rgba(212,175,55,.30);
+
+transition:.35s;
 
 }
 
-/*======================
+.home-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 20px 45px rgba(212,175,55,.45);
+
+}
+
+/*==============================
+FOOTER
+==============================*/
+
+footer{
+
+margin-top:70px;
+
+background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+
+padding:60px 20px;
+
+text-align:center;
+
+color:#fff;
+
+}
+
+footer h2{
+
+font-size:2rem;
+
+font-weight:800;
+
+margin-bottom:12px;
+
+}
+
+footer p{
+
+line-height:1.8;
+
+}
+ /* ==========================
+RETURN HOME BUTTON
+========================== */
+
+.home-section{
+
+padding:40px 20px 70px;
+
+}
+
+.home-btn{
+
+display:inline-block;
+
+padding:16px 42px;
+
+border-radius:50px;
+
+background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+
+color:#fff;
+
+font-weight:700;
+
+text-decoration:none;
+
+transition:.35s;
+
+box-shadow:0 15px 35px rgba(212,175,55,.28);
+
+}
+
+.home-btn:hover{
+
+transform:translateY(-5px);
+
+box-shadow:0 20px 45px rgba(212,175,55,.42);
+
+}
+
+
+/* ==========================
+FOOTER
+========================== */
+
+footer{
+
+background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+
+color:#fff;
+
+text-align:center;
+
+padding:55px 20px;
+
+margin-top:70px;
+
+}
+
+footer h2{
+
+font-size:2rem;
+
+margin-bottom:10px;
+
+}
+
+footer p{
+
+line-height:1.8;
+
+}
+
+
+/* ==========================
+NAV ACTIVE
+========================== */
+
+nav ul li a.active{
+
+color:var(--gold-dark);
+
+}
+
+nav ul li a.active::after{
+
+width:100%;
+
+}
+
+/*==============================
 RESPONSIVE
-======================*/
+==============================*/
 
 @media(max-width:900px){
 
 nav{
-
 height:auto;
-
 padding:18px;
-
 flex-direction:column;
-
 gap:18px;
-
 }
 
 .logo{
-
 font-size:1.45rem;
-
 }
 
 .logo img{
-
 width:40px;
 height:40px;
-
 }
 
 nav ul{
-
 flex-wrap:wrap;
-
 justify-content:center;
-
 gap:18px;
+}
 
+.hero{
+padding:150px 20px 80px;
 }
 
 .hero h1{
-
 font-size:3rem;
+}
 
+.hero p{
+font-size:1rem;
 }
 
 .hero::before{
-
 background:
 linear-gradient(rgba(255,255,255,.94),rgba(255,255,255,.95)),
 url("logo.png") center/240px no-repeat;
-
 }
 
 }
@@ -531,50 +644,34 @@ url("logo.png") center/240px no-repeat;
 
 <div class="hero-content">
 
-<h1>Constitution of the Antique Janta Party</h1>
+<h1>Constitution of the<br>Antique Janta Party</h1>
 
 <p>
 
-कलम हमारी • आवाज आपकी
+The supreme governing document of the Antique Janta Party, founded upon constitutional values, democratic principles, integrity, transparency and informed civic participation.
 
 </p>
+
+<a href="#preamble" class="hero-btn">
+
+Read Constitution
+
+</a>
 
 </div>
 
 </section>
-<section id="preamble" class="reveal">
-
-<div class="container">
-
-<h2 class="title">Preamble</h2>
-
-<div class="article">
-
-<p>
-
-We, the members of the <b>Antique Janta Party (AJP)</b>, united by our commitment to the Constitution of India, democratic values, respectful dialogue and informed citizenship, hereby adopt this Constitution to establish a disciplined, impartial and inclusive political discussion community.
-
-</p>
-
-<br>
-
-<p>
-
-AJP exists to promote constitutional awareness, encourage meaningful political discourse, protect freedom of expression within the limits of respectful conduct, inspire independent thinking over blind political support or blind political opposition, and strengthen democratic participation through informed public discussion.
-
-</p>
-
-</div>
-
-</div>
-
-</section>
+<!-- ==========================
+ARTICLES
+========================== -->
 
 <section id="articles" class="reveal">
 
 <div class="container">
 
-<h2 class="title">Constitution</h2>
+<h2 class="title">
+Articles
+</h2>
 
 <!-- ARTICLE I -->
 
@@ -582,36 +679,28 @@ AJP exists to promote constitutional awareness, encourage meaningful political d
 
 <h2>Article I — Name & Identity</h2>
 
-<h3>Section 1. Name</h3>
+<h3>Section 1 — Name</h3>
 
 <p>
-
-The official name of the organisation shall be <b>Antique Janta Party (AJP)</b>.
-
+The official name of the organisation shall be <strong>Antique Janta Party (AJP)</strong>.
 </p>
 
-<h3>Section 2. Motto</h3>
+<h3>Section 2 — Motto</h3>
 
 <p>
-
-<b>"कलम हमारी • आवाज आपकी"</b>
-
+<strong>“कलम हमारी • आवाज आपकी”</strong>
 </p>
 
-<h3>Section 3. Nature</h3>
+<h3>Section 3 — Nature</h3>
 
 <p>
-
-AJP shall function as an independent civic and political discussion organisation committed to constitutional values, democratic participation and responsible public discourse.
-
+Antique Janta Party shall function as an independent civic and political discussion organisation founded upon constitutional values, democratic participation, respectful dialogue and informed citizenship.
 </p>
 
-<h3>Section 4. Official Language</h3>
+<h3>Section 4 — Official Language</h3>
 
 <p>
-
-The official working language shall be English. Additional languages may be used whenever appropriate.
-
+English shall remain the principal working language of the organisation. Other languages may be used wherever appropriate.
 </p>
 
 </div>
@@ -626,21 +715,19 @@ The official working language shall be English. Additional languages may be used
 
 <li>Respect for the Constitution of India.</li>
 
-<li>Democracy above personality.</li>
-
-<li>Independent thinking over blind political support.</li>
-
 <li>Freedom of expression with responsibility.</li>
 
-<li>Equality before law.</li>
+<li>Equality before every member.</li>
+
+<li>No discrimination based upon religion, caste, language, ethnicity, gender or region.</li>
 
 <li>Evidence-based discussion.</li>
 
 <li>Transparency and accountability.</li>
 
-<li>Respectful democratic dialogue.</li>
+<li>Democratic participation.</li>
 
-<li>National unity beyond religion, caste, gender or region.</li>
+<li>Independent thinking over blind political support.</li>
 
 </ul>
 
@@ -656,19 +743,19 @@ The official working language shall be English. Additional languages may be used
 
 <li>Promote constitutional awareness.</li>
 
-<li>Encourage respectful political discussion.</li>
+<li>Encourage informed political discussion.</li>
 
-<li>Develop informed citizens.</li>
+<li>Strengthen democratic participation.</li>
 
-<li>Strengthen democratic values.</li>
+<li>Provide a respectful platform for debate.</li>
 
-<li>Encourage critical thinking instead of blind political support.</li>
+<li>Reject misinformation through factual discussion.</li>
 
-<li>Counter misinformation through facts and evidence.</li>
+<li>Promote civic responsibility.</li>
 
-<li>Promote equality and justice.</li>
+<li>Maintain organisational neutrality.</li>
 
-<li>Maintain an organised, transparent and disciplined community.</li>
+<li>Protect freedom of expression within constitutional limits.</li>
 
 </ul>
 
@@ -684,15 +771,15 @@ The official working language shall be English. Additional languages may be used
 
 <ul>
 
-<li>Accepts this Constitution.</li>
+<li>Accept this Constitution.</li>
 
-<li>Supports democratic principles.</li>
+<li>Follow organisational rules.</li>
 
-<li>Agrees to follow Party regulations.</li>
+<li>Maintain respectful conduct.</li>
 
-<li>Maintains respectful conduct.</li>
+<li>Support democratic and constitutional values.</li>
 
-<li>Has not been permanently removed for serious misconduct.</li>
+<li>Not have been permanently removed for serious misconduct.</li>
 
 </ul>
 
@@ -700,15 +787,15 @@ The official working language shall be English. Additional languages may be used
 
 <ul>
 
-<li>Participate in Party discussions.</li>
+<li>Participate in organisational discussions.</li>
 
 <li>Vote whenever eligible.</li>
 
-<li>Contest constitutional positions where permitted.</li>
+<li>Contest eligible constitutional offices.</li>
 
-<li>Express opinions respectfully.</li>
+<li>Submit suggestions and proposals.</li>
 
-<li>Appeal disciplinary decisions.</li>
+<li>Receive equal treatment without discrimination.</li>
 
 </ul>
 
@@ -720,11 +807,11 @@ The official working language shall be English. Additional languages may be used
 
 <li>Protect the reputation of AJP.</li>
 
-<li>Follow constitutional provisions.</li>
-
 <li>Maintain discipline.</li>
 
 <li>Promote constructive discussion.</li>
+
+<li>Follow this Constitution faithfully.</li>
 
 </ul>
 
@@ -734,12 +821,10 @@ The official working language shall be English. Additional languages may be used
 
 <div class="article">
 
-<h2>Article V — Organisational Structure</h2>
+<h2>Article V — Constitutional Offices</h2>
 
 <p>
-
-The constitutional leadership of the Antique Janta Party shall consist of:
-
+The governing structure of Antique Janta Party shall consist of the following constitutional offices:
 </p>
 
 <ol>
@@ -750,29 +835,27 @@ The constitutional leadership of the Antique Janta Party shall consist of:
 
 <li>Executive Director</li>
 
-<li>Board Chairperson</li>
-
 <li>Deputy Chairperson</li>
 
 <li>Secretary-General</li>
 
+<li>Chief Whip</li>
+
 <li>Media Director</li>
 
-<li>Neutrality Guardian</li>
-
-<li>Session Scribe</li>
-
-<li>Chief Operations Officer (COO)</li>
+<li>Director of Administration</li>
 
 </ol>
 
 <p>
-
-Additional constitutional offices may be established through constitutional amendment whenever necessary for the efficient functioning of the organisation.
-
+Additional constitutional offices may be created only through constitutional amendment whenever organisational requirements demand.
 </p>
 
 </div>
+
+</div>
+
+</section>
 <!-- ARTICLE VI -->
 
 <div class="article">
@@ -780,35 +863,31 @@ Additional constitutional offices may be established through constitutional amen
 <h2>Article VI — President</h2>
 
 <p>
-
-The President shall be the constitutional Head of the Antique Janta Party and the guardian of its vision, principles and constitutional integrity.
-
+The President shall be the Head of the Antique Janta Party and the highest constitutional authority responsible for preserving the vision, integrity and constitutional values of the organisation.
 </p>
 
-<h3>Constitutional Powers</h3>
+<h3>Powers & Responsibilities</h3>
 
 <ul>
 
-<li>Provide overall leadership to the organisation.</li>
+<li>Provide overall leadership and strategic direction.</li>
 
-<li>Safeguard the Constitution and Party principles.</li>
-
-<li>Represent the organisation before the public.</li>
+<li>Represent AJP before the public.</li>
 
 <li>Preside over constitutional meetings.</li>
 
-<li>Exercise constitutional authority jointly with the Vice-President and Executive Director where required.</li>
+<li>Approve major organisational decisions.</li>
 
-<li>Ensure that all Party decisions remain consistent with this Constitution.</li>
+<li>Safeguard this Constitution.</li>
+
+<li>Maintain unity and organisational discipline.</li>
 
 </ul>
 
-<h3>Tenure</h3>
+<h3>Constitutional Protection</h3>
 
 <p>
-
-The office of the President is a permanent constitutional office and shall not be removed through ordinary constitutional procedures.
-
+The office of the President shall remain constitutionally protected and cannot be removed through any ordinary vote, election or disciplinary process. The office shall only become vacant upon voluntary resignation or permanent inability to continue.
 </p>
 
 </div>
@@ -820,31 +899,29 @@ The office of the President is a permanent constitutional office and shall not b
 <h2>Article VII — Vice-President</h2>
 
 <p>
-
-The Vice-President shall serve as the second-highest constitutional authority and shall assist the President in preserving the objectives and constitutional values of AJP.
-
+The Vice-President shall serve as the second-highest constitutional authority and shall assist the President in carrying out the administration of AJP.
 </p>
 
-<h3>Constitutional Powers</h3>
+<h3>Powers & Responsibilities</h3>
 
 <ul>
 
-<li>Assist the President in constitutional responsibilities.</li>
+<li>Assist the President in executive functions.</li>
 
-<li>Exercise presidential authority whenever authorised.</li>
+<li>Act as President whenever required.</li>
 
-<li>Participate in appointments and removals of constitutional office bearers.</li>
+<li>Coordinate constitutional activities.</li>
 
-<li>Support the Executive Director in organisational administration.</li>
+<li>Supervise organisational projects assigned by the President.</li>
+
+<li>Promote unity and constitutional governance.</li>
 
 </ul>
 
-<h3>Tenure</h3>
+<h3>Constitutional Protection</h3>
 
 <p>
-
-The office of the Vice-President is a permanent constitutional office and shall not be removed through ordinary constitutional procedures.
-
+The Vice-President shall remain constitutionally protected and may not be removed through any ordinary vote, election or disciplinary proceeding except by voluntary resignation or permanent inability to continue.
 </p>
 
 </div>
@@ -856,48 +933,30 @@ The office of the Vice-President is a permanent constitutional office and shall 
 <h2>Article VIII — Executive Director</h2>
 
 <p>
-
-The Executive Director shall be the chief executive authority responsible for implementing organisational policies and supervising the day-to-day administration of AJP.
-
+The Executive Director shall serve as the Chief Executive Officer of the organisation and shall supervise the implementation of policies and constitutional decisions.
 </p>
 
 <h3>Election</h3>
 
 <p>
-
-The Executive Director shall be elected through a democratic vote conducted among eligible Party members.
-
+The Executive Director shall be elected directly by the members of the Antique Janta Party through a free, fair and transparent democratic vote.
 </p>
 
 <h3>Powers & Responsibilities</h3>
 
 <ul>
 
-<li>Implement constitutional decisions.</li>
+<li>Execute decisions approved by the leadership.</li>
 
-<li>Coordinate organisational departments.</li>
+<li>Supervise day-to-day administration.</li>
 
-<li>Supervise administrative affairs.</li>
+<li>Coordinate departments.</li>
 
-<li>Lead executive projects.</li>
+<li>Manage constitutional implementation.</li>
 
-<li>Recommend reforms for organisational improvement.</li>
+<li>Report organisational progress to the President and Vice-President.</li>
 
 </ul>
-
-<h3>Appointment & Removal of Officials</h3>
-
-<p>
-
-The President, Vice-President and Executive Director shall jointly possess the constitutional authority to appoint or remove all remaining constitutional office bearers.
-
-</p>
-
-<p>
-
-Any such appointment or removal shall require the approval of not less than <b>two-thirds (2/3)</b> of these three constitutional authorities.
-
-</p>
 
 </div>
 
@@ -905,229 +964,18 @@ Any such appointment or removal shall require the approval of not less than <b>t
 
 <div class="article">
 
-<h2>Article IX — Board Chairperson & Deputy Chairperson</h2>
+<h2>Article IX — Appointment & Removal of Constitutional Officers</h2>
+
+<h3>Appointment</h3>
 
 <p>
-
-The Board Chairperson and Deputy Chairperson shall assist the constitutional leadership by maintaining organisational stability, advising on governance matters and strengthening institutional coordination.
-
+Appointments to every constitutional office, except that of the President, Vice-President and Executive Director, shall require the approval of the President, the Vice-President and the Executive Director.
 </p>
 
-<ul>
-
-<li>Provide constitutional guidance.</li>
-
-<li>Assist during executive meetings.</li>
-
-<li>Support organisational development.</li>
-
-<li>Carry out responsibilities assigned by the constitutional leadership.</li>
-
-</ul>
-
-</div>
-
-<!-- ARTICLE X -->
-
-<div class="article">
-
-<h2>Article X — Secretary-General</h2>
+<h3>Removal</h3>
 
 <p>
-
-The Secretary-General shall serve as the principal administrative officer responsible for maintaining official records and ensuring effective internal communication.
-
-</p>
-
-<ul>
-
-<li>Maintain constitutional records.</li>
-
-<li>Prepare meeting agendas and minutes.</li>
-
-<li>Issue official notices.</li>
-
-<li>Maintain Party documentation.</li>
-
-<li>Coordinate communication between leadership and members.</li>
-
-</ul>
-
-</div>
-
-<!-- ARTICLE XI -->
-
-<div class="article">
-
-<h2>Article XI — Executive Offices</h2>
-
-<p>
-
-The following constitutional offices shall function under the authority of the Executive Leadership:
-
-</p>
-
-<h3>Media Director</h3>
-
-<ul>
-
-<li>Manage official communications.</li>
-
-<li>Supervise public relations and digital media.</li>
-
-<li>Protect the Party's public image.</li>
-
-</ul>
-
-<h3>Neutrality Guardian</h3>
-
-<ul>
-
-<li>Ensure political neutrality during internal proceedings.</li>
-
-<li>Monitor fairness in discussions and decisions.</li>
-
-<li>Report constitutional violations impartially.</li>
-
-</ul>
-
-<h3>Session Scribe</h3>
-
-<ul>
-
-<li>Record proceedings of official meetings.</li>
-
-<li>Maintain archives of resolutions and debates.</li>
-
-<li>Preserve official constitutional records.</li>
-
-</ul>
-
-<h3>Chief Operations Officer (COO)</h3>
-
-<ul>
-
-<li>Supervise administrative operations.</li>
-
-<li>Manage official platforms and organisational infrastructure.</li>
-
-<li>Coordinate moderators and administrative staff.</li>
-
-<li>Maintain operational efficiency and security.</li>
-
-</ul>
-
-</div>
-<!-- ARTICLE XII -->
-
-<div class="article">
-
-<h2>Article XII — Executive Leadership Council</h2>
-
-<p>
-
-The Executive Leadership Council shall be the principal governing body responsible for overseeing the administration, constitutional compliance and long-term development of the Antique Janta Party.
-
-</p>
-
-<h3>Functions</h3>
-
-<ul>
-
-<li>Develop organisational policies.</li>
-
-<li>Approve strategic initiatives.</li>
-
-<li>Review constitutional matters.</li>
-
-<li>Supervise implementation of Party programmes.</li>
-
-<li>Protect the integrity and stability of the organisation.</li>
-
-</ul>
-
-</div>
-
-<!-- ARTICLE XIII -->
-
-<div class="article">
-
-<h2>Article XIII — Meetings</h2>
-
-<h3>Regular Meetings</h3>
-
-<p>
-
-Regular meetings shall be conducted periodically as determined by the Executive Leadership to review organisational progress, discuss public affairs and evaluate future initiatives.
-
-</p>
-
-<h3>Emergency Meetings</h3>
-
-<p>
-
-The President or Executive Director may convene an emergency meeting whenever immediate constitutional or administrative action becomes necessary.
-
-</p>
-
-<h3>Quorum</h3>
-
-<p>
-
-No constitutional decision shall be valid unless at least one-half of the eligible Executive Leadership is present unless otherwise provided under this Constitution.
-
-</p>
-
-</div>
-
-<!-- ARTICLE XIV -->
-
-<div class="article">
-
-<h2>Article XIV — Elections</h2>
-
-<h3>Executive Director Election</h3>
-
-<p>
-
-The Executive Director shall be elected through a free, fair and transparent election conducted among eligible Party members.
-
-</p>
-
-<h3>Voting Principles</h3>
-
-<ul>
-
-<li>Every eligible member shall possess one vote.</li>
-
-<li>Voting shall remain confidential unless otherwise announced.</li>
-
-<li>The candidate receiving the highest valid votes shall be declared elected.</li>
-
-<li>The Election Authority shall ensure impartiality throughout the electoral process.</li>
-
-</ul>
-
-</div>
-
-<!-- ARTICLE XV -->
-
-<div class="article">
-
-<h2>Article XV — Appointments & Removal of Office Bearers</h2>
-
-<p>
-
-Except for the offices of President, Vice-President and Executive Director, every constitutional office shall be filled through appointment.
-
-</p>
-
-<h3>Appointment Authority</h3>
-
-<p>
-
-Appointments shall require the approval of at least two of the following constitutional authorities:
-
+Any constitutional office below the Executive Director may be removed only upon receiving a two-thirds (2/3) majority decision of the following Constitutional Executive Council:
 </p>
 
 <ul>
@@ -1140,12 +988,165 @@ Appointments shall require the approval of at least two of the following constit
 
 </ul>
 
-<h3>Removal</h3>
+<p>
+The decision of the Constitutional Executive Council shall be final and binding.
+</p>
 
 <p>
+Neither the President nor the Vice-President shall be subject to removal under this Article.
+</p>
 
-The removal of any appointed office bearer shall likewise require a two-thirds (2/3) decision of the President, Vice-President and Executive Director.
+</div>
 
+<!-- ARTICLE X -->
+
+<div class="article">
+
+<h2>Article X — Deputy Chairperson</h2>
+
+<p>
+The Deputy Chairperson shall assist the Executive Leadership in organisational coordination and constitutional administration.
+</p>
+
+<ul>
+
+<li>Support executive meetings.</li>
+
+<li>Coordinate internal affairs.</li>
+
+<li>Assist constitutional administration.</li>
+
+<li>Perform duties assigned by the Executive Leadership.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XI -->
+
+<div class="article">
+
+<h2>Article XI — Secretary-General</h2>
+
+<p>
+The Secretary-General shall serve as the principal administrative officer responsible for maintaining the official records of the organisation.
+</p>
+
+<ul>
+
+<li>Maintain official documents.</li>
+
+<li>Prepare meeting minutes.</li>
+
+<li>Issue official notices.</li>
+
+<li>Maintain constitutional records.</li>
+
+<li>Coordinate internal communication.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XII -->
+
+<div class="article">
+
+<h2>Article XII — Chief Whip</h2>
+
+<p>
+The Chief Whip shall maintain discipline, order and constitutional compliance throughout the organisation.
+</p>
+
+<ul>
+
+<li>Maintain organisational discipline.</li>
+
+<li>Ensure adherence to the Constitution.</li>
+
+<li>Report disciplinary matters.</li>
+
+<li>Promote professionalism.</li>
+
+<li>Assist in conflict resolution.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XIII -->
+
+<div class="article">
+
+<h2>Article XIII — Media Director</h2>
+
+<p>
+The Media Director shall supervise the public communication, branding and official publications of the organisation.
+</p>
+
+<ul>
+
+<li>Manage official announcements.</li>
+
+<li>Supervise social media.</li>
+
+<li>Protect organisational reputation.</li>
+
+<li>Coordinate approved campaigns.</li>
+
+<li>Ensure factual public communication.</li>
+
+</ul>
+
+</div>
+
+<!-- ARTICLE XIV -->
+
+<div class="article">
+
+<h2>Article XIV — Director of Administration</h2>
+
+<p>
+The Director of Administration shall supervise the administrative infrastructure, official platforms and operational management of the organisation.
+</p>
+
+<ul>
+
+<li>Manage official community platforms.</li>
+
+<li>Supervise administrative staff.</li>
+
+<li>Maintain organisational security.</li>
+
+<li>Protect organisational resources.</li>
+
+<li>Implement administrative policies.</li>
+
+</ul>
+
+</div>
+<!-- ARTICLE XV -->
+
+<div class="article">
+
+<h2>Article XV — Meetings</h2>
+
+<h3>Regular Meetings</h3>
+
+<p>
+Regular meetings shall be conducted periodically to review organisational progress, discuss public affairs and strengthen coordination between constitutional offices.
+</p>
+
+<h3>Emergency Meetings</h3>
+
+<p>
+The President may convene an emergency meeting whenever immediate constitutional or administrative action becomes necessary.
+</p>
+
+<h3>Quorum</h3>
+
+<p>
+No constitutional decision shall be valid unless at least one-half of the eligible constitutional officers are present unless otherwise provided by this Constitution.
 </p>
 
 </div>
@@ -1154,31 +1155,23 @@ The removal of any appointed office bearer shall likewise require a two-thirds (
 
 <div class="article">
 
-<h2>Article XVI — Code of Conduct</h2>
+<h2>Article XVI — Elections</h2>
 
 <p>
-
-Every member of the Antique Janta Party shall uphold the dignity of the organisation by observing the following principles:
-
+The Executive Director shall be elected through a free, fair and democratic vote conducted among eligible members.
 </p>
 
 <ul>
 
-<li>Respect every individual regardless of religion, caste, ethnicity, language, gender or region.</li>
+<li>Every eligible member shall possess one equal vote.</li>
 
-<li>Maintain civil and respectful discussion.</li>
+<li>Voting shall remain confidential.</li>
 
-<li>Criticise policies and ideas rather than individuals.</li>
+<li>Election dates shall be officially announced.</li>
 
-<li>Reject blind political support and blind political hatred.</li>
+<li>The candidate securing the highest valid votes shall be declared elected.</li>
 
-<li>Avoid misinformation and deliberate falsehoods.</li>
-
-<li>Encourage fact-based discussion.</li>
-
-<li>Protect confidential Party information.</li>
-
-<li>Maintain professionalism on all official platforms.</li>
+<li>Election procedures shall remain impartial and transparent.</li>
 
 </ul>
 
@@ -1188,33 +1181,27 @@ Every member of the Antique Janta Party shall uphold the dignity of the organisa
 
 <div class="article">
 
-<h2>Article XVII — Discipline</h2>
-
-<p>
-
-Discipline shall remain essential to the effective functioning of the Antique Janta Party.
-
-</p>
-
-<h3>Disciplinary Measures</h3>
+<h2>Article XVII — Code of Conduct</h2>
 
 <ul>
 
-<li>Official Warning.</li>
+<li>Treat every member with dignity and respect.</li>
 
-<li>Temporary Suspension.</li>
+<li>No hate speech or harassment.</li>
 
-<li>Removal from Constitutional Office.</li>
+<li>No discrimination.</li>
 
-<li>Permanent Termination of Membership.</li>
+<li>No misinformation or deliberate propaganda.</li>
+
+<li>Criticise ideas respectfully rather than attacking individuals.</li>
+
+<li>Maintain professionalism on every official platform.</li>
+
+<li>Respect organisational decisions.</li>
+
+<li>Protect confidential information.</li>
 
 </ul>
-
-<p>
-
-No member shall be permanently removed without being given an opportunity to present a defence except in extraordinary circumstances involving severe misconduct.
-
-</p>
 
 </div>
 
@@ -1222,25 +1209,31 @@ No member shall be permanently removed without being given an opportunity to pre
 
 <div class="article">
 
-<h2>Article XVIII — Finance & Transparency</h2>
+<h2>Article XVIII — Discipline</h2>
 
 <p>
-
-The Party may receive lawful financial support through voluntary contributions, fundraising activities and other approved sources.
-
+Every member shall maintain discipline, honesty and maturity while representing Antique Janta Party.
 </p>
+
+<h3>Disciplinary Measures</h3>
 
 <ul>
 
-<li>Maintain complete financial records.</li>
+<li>Verbal Warning</li>
 
-<li>Ensure transparency wherever applicable.</li>
+<li>Written Warning</li>
 
-<li>Prevent misuse of Party resources.</li>
+<li>Temporary Suspension</li>
 
-<li>Use organisational funds solely for constitutional objectives.</li>
+<li>Removal from Office</li>
+
+<li>Termination of Membership</li>
 
 </ul>
+
+<p>
+Every disciplinary proceeding shall follow fairness and natural justice before any final decision is taken.
+</p>
 
 </div>
 
@@ -1248,21 +1241,21 @@ The Party may receive lawful financial support through voluntary contributions, 
 
 <div class="article">
 
-<h2>Article XIX — Constitutional Amendments</h2>
+<h2>Article XIX — Finance</h2>
 
 <p>
-
-This Constitution may be amended whenever necessary to meet the evolving needs of the organisation.
-
+The organisation may obtain resources through lawful voluntary contributions, approved fundraising activities and other transparent constitutional sources.
 </p>
 
 <ul>
 
-<li>Any amendment may be proposed before the Executive Leadership.</li>
+<li>Financial records shall remain accurate.</li>
 
-<li>A two-thirds majority shall be required for approval.</li>
+<li>Every expenditure shall be documented.</li>
 
-<li>Approved amendments shall become effective immediately unless otherwise stated.</li>
+<li>Financial transparency shall be maintained.</li>
+
+<li>No funds shall be used contrary to the objectives of this Constitution.</li>
 
 </ul>
 
@@ -1272,13 +1265,21 @@ This Constitution may be amended whenever necessary to meet the evolving needs o
 
 <div class="article">
 
-<h2>Article XX — Dissolution</h2>
+<h2>Article XX — Constitutional Amendments</h2>
 
 <p>
-
-The Antique Janta Party shall only be dissolved through an extraordinary constitutional resolution supported by not less than three-fourths of the Executive Leadership after consultation with the membership.
-
+This Constitution may be amended whenever necessary to meet the evolving requirements of the organisation.
 </p>
+
+<ul>
+
+<li>Any amendment may be proposed before the Executive Leadership.</li>
+
+<li>A two-thirds majority shall be required for adoption.</li>
+
+<li>An amendment shall become effective immediately unless otherwise specified.</li>
+
+</ul>
 
 </div>
 
@@ -1289,15 +1290,11 @@ The Antique Janta Party shall only be dissolved through an extraordinary constit
 <h2>Article XXI — Constitutional Supremacy</h2>
 
 <p>
-
 This Constitution shall remain the supreme governing document of the Antique Janta Party.
-
 </p>
 
 <p>
-
-Every regulation, policy, appointment and administrative action undertaken by the organisation shall remain consistent with its provisions.
-
+Every office, regulation, decision, policy and administrative action shall remain subordinate to and consistent with this Constitution.
 </p>
 
 </div>
@@ -1305,9 +1302,10 @@ Every regulation, policy, appointment and administrative action undertaken by th
 </div>
 
 </section>
-<!-- ===========================
-OATH OF MEMBERSHIP
-=========================== -->
+
+<!-- ==========================
+OATH
+========================== -->
 
 <section id="oath" class="reveal">
 
@@ -1319,9 +1317,9 @@ Oath of Membership
 
 <div class="article">
 
-<p style="font-size:1.15rem;text-align:center;font-style:italic;line-height:2">
+<p style="font-size:1.18rem;line-height:2;text-align:center;font-style:italic">
 
-"I solemnly affirm that I shall uphold the Constitution of India and the Constitution of the Antique Janta Party; respect democratic values; protect freedom of expression with responsibility; reject discrimination, hatred and misinformation; perform my duties honestly, impartially and with integrity; and faithfully serve the ideals, objectives and constitutional principles of the Antique Janta Party."
+"I solemnly affirm that I shall faithfully uphold the Constitution of India and the Constitution of the Antique Janta Party; respect democratic values; promote truth, justice, equality and responsible public discourse; reject hatred and misinformation; discharge my duties with honesty, integrity and impartiality; and work towards building a disciplined, informed and constitutionally aware society."
 
 </p>
 
@@ -1331,15 +1329,13 @@ Oath of Membership
 
 </section>
 
-<!-- ===========================
-RETURN HOME
-=========================== -->
+<!-- RETURN TO HOME -->
 
-<section class="reveal">
+<section class="home-section reveal">
 
-<div class="container" style="text-align:center">
+<div class="container" style="text-align:center;">
 
-<a href="index.html" class="hero-btn">
+<a href="index.html" class="home-btn">
 
 ← Return to Home
 
@@ -1349,143 +1345,113 @@ RETURN HOME
 
 </section>
 
-<!-- ===========================
-FOOTER
-=========================== -->
+<!-- FOOTER -->
 
 <footer>
 
 <h2>Antique Janta Party</h2>
 
-<p style="margin-top:15px">
-कलम हमारी • आवाज आपकी
+<p style="margin-top:10px;">
+<strong>कलम हमारी • आवाज आपकी</strong>
 </p>
 
-<p style="margin-top:20px">
+<p style="margin-top:20px;">
 © 2026 Antique Janta Party. All Rights Reserved.
 </p>
 
 </footer>
-
 <script>
 
-// ===========================
-// Reveal Animation
-// ===========================
+/* ==========================
+SCROLL PROGRESS BAR
+========================== */
 
-const reveals=document.querySelectorAll(".reveal");
-
-function revealSections(){
-
-reveals.forEach(section=>{
-
-const windowHeight=window.innerHeight;
-
-const revealTop=section.getBoundingClientRect().top;
-
-if(revealTop<windowHeight-100){
-
-section.classList.add("active");
-
-}
-
-});
-
-}
-
-window.addEventListener("scroll",revealSections);
-
-revealSections();
-
-
-// ===========================
-// Progress Bar
-// ===========================
-
-const progress=document.getElementById("progress");
+const progress = document.getElementById("progress");
 
 window.addEventListener("scroll",()=>{
 
-const scroll=document.documentElement.scrollTop;
+const scroll =
+document.documentElement.scrollTop;
 
-const height=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+const height =
+document.documentElement.scrollHeight -
+document.documentElement.clientHeight;
 
-progress.style.width=(scroll/height)*100+"%";
+progress.style.width =
+(scroll/height)*100 + "%";
 
 });
 
 
-// ===========================
-// Gold Particle Animation
-// ===========================
+/* ==========================
+REVEAL ANIMATION
+========================== */
 
-const canvas=document.getElementById("particles");
+const reveals =
+document.querySelectorAll(".reveal");
 
-const ctx=canvas.getContext("2d");
+function reveal(){
 
-let particles=[];
+reveals.forEach(item=>{
 
-function resizeCanvas(){
+const top =
+item.getBoundingClientRect().top;
 
-canvas.width=innerWidth;
+if(top < window.innerHeight-120){
 
-canvas.height=innerHeight;
-
-}
-
-resizeCanvas();
-
-window.addEventListener("resize",resizeCanvas);
-
-class Particle{
-
-constructor(){
-
-this.x=Math.random()*canvas.width;
-
-this.y=Math.random()*canvas.height;
-
-this.r=Math.random()*2+1;
-
-this.dx=(Math.random()-.5)*0.4;
-
-this.dy=(Math.random()-.5)*0.4;
-
-this.a=Math.random()*0.5+.3;
+item.classList.add("active");
 
 }
 
-draw(){
-
-ctx.beginPath();
-
-ctx.arc(this.x,this.y,this.r,0,Math.PI*2);
-
-ctx.fillStyle=`rgba(212,175,55,${this.a})`;
-
-ctx.fill();
+});
 
 }
 
-update(){
+window.addEventListener("scroll",reveal);
 
-this.x+=this.dx;
+reveal();
 
-this.y+=this.dy;
 
-if(this.x<0||this.x>canvas.width)this.dx*=-1;
+/* ==========================
+GOLD PARTICLES
+========================== */
 
-if(this.y<0||this.y>canvas.height)this.dy*=-1;
+const canvas =
+document.getElementById("particles");
 
-this.draw();
+const ctx =
+canvas.getContext("2d");
+
+function resize(){
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
 }
 
-}
+resize();
+
+window.addEventListener("resize",resize);
+
+const particles=[];
 
 for(let i=0;i<70;i++){
 
-particles.push(new Particle());
+particles.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*3+1,
+
+dx:(Math.random()-.5)*0.4,
+
+dy:(Math.random()-.5)*0.4,
+
+a:Math.random()*0.5+0.2
+
+});
 
 }
 
@@ -1493,7 +1459,28 @@ function animate(){
 
 ctx.clearRect(0,0,canvas.width,canvas.height);
 
-particles.forEach(p=>p.update());
+particles.forEach(p=>{
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+
+ctx.fillStyle=
+`rgba(212,175,55,${p.a})`;
+
+ctx.fill();
+
+p.x+=p.dx;
+
+p.y+=p.dy;
+
+if(p.x<0)p.x=canvas.width;
+if(p.x>canvas.width)p.x=0;
+
+if(p.y<0)p.y=canvas.height;
+if(p.y>canvas.height)p.y=0;
+
+});
 
 requestAnimationFrame(animate);
 
@@ -1502,27 +1489,22 @@ requestAnimationFrame(animate);
 animate();
 
 
-// ===========================
-// Navbar Shadow
-// ===========================
+/* ==========================
+SMOOTH NAV ACTIVE
+========================== */
 
-const header=document.querySelector("header");
+const links =
+document.querySelectorAll("nav a");
 
-window.addEventListener("scroll",()=>{
+links.forEach(link=>{
 
-if(window.scrollY>40){
+link.addEventListener("click",()=>{
 
-header.style.boxShadow="0 10px 35px rgba(0,0,0,.08)";
+links.forEach(a=>a.classList.remove("active"));
 
-header.style.background="rgba(255,255,255,.93)";
+link.classList.add("active");
 
-}else{
-
-header.style.boxShadow="none";
-
-header.style.background="rgba(255,255,255,.88)";
-
-}
+});
 
 });
 
