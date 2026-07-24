@@ -13,15 +13,106 @@ body{font-family:'Poppins',sans-serif;background:#fff;color:#222;overflow-x:hidd
 #particles{position:fixed;inset:0;z-index:-1}
 
 header{
-position:fixed;top:0;width:100%;
-background:rgba(255,255,255,.8);
-backdrop-filter:blur(15px);
-border-bottom:1px solid rgba(212,175,55,.4);
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:rgba(255,255,255,.92);
+backdrop-filter:blur(16px);
+border-bottom:1px solid rgba(212,175,55,.35);
 z-index:1000;
 }
-nav{max-width:1200px;margin:auto;padding:18px;display:flex;justify-content:space-between;align-items:center}
-.logo{font-weight:800;color:var(--gold2);font-size:1.5rem}
-nav a{text-decoration:none;color:#333;margin-left:18px;font-weight:600}
+
+nav{
+max-width:1280px;
+margin:auto;
+padding:14px 32px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:16px;
+text-decoration:none;
+font-weight:800;
+font-size:1.55rem;
+color:var(--gold2);
+}
+
+.logo img{
+width:52px;
+height:52px;
+border-radius:50%;
+object-fit:cover;
+box-shadow:0 0 10px rgba(0,0,0,.15);
+}
+
+.logo span{
+color:var(--gold2);
+letter-spacing:.8px;
+}
+
+.links{
+display:flex;
+align-items:center;
+gap:35px;
+}
+
+.links a{
+text-decoration:none;
+color:#333;
+font-weight:700;
+font-size:1.08rem;
+position:relative;
+transition:.3s;
+}
+
+.links a:hover{
+color:var(--gold2);
+}
+
+.links a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:-6px;
+width:0;
+height:2px;
+background:var(--gold2);
+transition:.3s;
+}
+
+.links a:hover::after{
+width:100%;
+}
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+gap:16px;
+padding:15px;
+}
+
+.logo{
+font-size:1.3rem;
+}
+
+.logo img{
+width:45px;
+height:45px;
+}
+
+.links{
+gap:18px;
+flex-wrap:wrap;
+justify-content:center;
+}
+
+}
 
 .hero{
 height:100vh;
@@ -330,17 +421,29 @@ nav{flex-direction:column}
 <canvas id="particles"></canvas>
 
 <header>
+
 <nav>
-<div class="logo">ANTIQUE JANTA PARTY</div>
-<div>
+
+<a href="#" class="logo">
+
+<img src="logo.png" alt="AJP Logo">
+
+<span>ANTIQUE JANTA PARTY</span>
+
+</a>
+
+<div class="links">
+
 <a href="#about">About</a>
 <a href="#leaders">Leadership</a>
 <a href="#manifesto">Manifesto</a>
 <a href="#faq">FAQ</a>
-</div>
-</nav>
-</header>
 
+</div>
+
+</nav>
+
+</header>
 <section class="hero">
 <div class="hero-content">
 <h1>ANTIQUE JANTA PARTY</h1>
