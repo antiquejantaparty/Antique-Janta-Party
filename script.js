@@ -1,7 +1,7 @@
 /* =========================================================
    ANTIQUE ASSOCIATION
    script.js
-   PART 3 — INTERACTION ENGINE
+   PREMIUM INTERACTION SYSTEM
 ========================================================= */
 
 
@@ -15,14 +15,16 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeader();
     initMobileMenu();
     initScrollProgress();
-    initRevealAnimations();
+    initScrollReveal();
     initCounters();
     initParticles();
-    initSmoothNavigation();
-    initRippleButtons();
+    initSmoothScroll();
     initActiveNavigation();
-    initParallax();
     initCardTilt();
+    initButtonRipple();
+    initParallax();
+    initBackToTop();
+    initKeyboardAccessibility();
 
 });
 
@@ -44,9 +46,7 @@ function initLoader() {
             loader.classList.add("hide");
 
             setTimeout(() => {
-
-                loader.style.display = "none";
-
+                loader.remove();
             }, 900);
 
         }, 700);
@@ -57,29 +57,26 @@ function initLoader() {
 
 
 /* =========================================================
-   03. HEADER SCROLL EFFECT
+   03. HEADER
 ========================================================= */
 
 function initHeader() {
 
-    const header =
-        document.getElementById("mainHeader");
+    const header = document.getElementById("mainHeader");
 
     if (!header) return;
 
     function updateHeader() {
 
-        if (window.scrollY > 40) {
-
+        if (window.scrollY > 50) {
             header.classList.add("scrolled");
-
         } else {
-
             header.classList.remove("scrolled");
-
         }
 
     }
+
+    updateHeader();
 
     window.addEventListener(
         "scroll",
@@ -87,13 +84,11 @@ function initHeader() {
         { passive: true }
     );
 
-    updateHeader();
-
 }
 
 
 /* =========================================================
-   04. MOBILE NAVIGATION
+   04. MOBILE MENU
 ========================================================= */
 
 function initMobileMenu() {
@@ -139,46 +134,37 @@ function initMobileMenu() {
     });
 
 
-    navLinks.querySelectorAll("a")
-        .forEach(link => {
+    navLinks.querySelectorAll("a").forEach(link => {
 
-            link.addEventListener(
-                "click",
-                closeMenu
-            );
+        link.addEventListener(
+            "click",
+            closeMenu
+        );
 
-        });
+    });
 
 
-    document.addEventListener(
-        "click",
-        event => {
+    document.addEventListener("click", event => {
 
-            if (
-                !navLinks.contains(event.target) &&
-                !menuBtn.contains(event.target)
-            ) {
+        if (
+            !navLinks.contains(event.target) &&
+            !menuBtn.contains(event.target)
+        ) {
 
-                closeMenu();
-
-            }
+            closeMenu();
 
         }
-    );
+
+    });
 
 
-    window.addEventListener(
-        "resize",
-        () => {
+    window.addEventListener("resize", () => {
 
-            if (window.innerWidth > 850) {
-
-                closeMenu();
-
-            }
-
+        if (window.innerWidth > 850) {
+            closeMenu();
         }
-    );
+
+    });
 
 }
 
@@ -202,30 +188,26 @@ function initScrollProgress() {
         const scrollTop =
             window.scrollY;
 
-        const pageHeight =
+        const scrollHeight =
             document.documentElement.scrollHeight
             -
-            window.innerHeight;
+            document.documentElement.clientHeight;
 
-        if (pageHeight <= 0) {
+
+        if (scrollHeight <= 0) {
 
             progress.style.width = "0%";
-
             return;
 
         }
 
+
         const percentage =
-            Math.min(
-                100,
-                Math.max(
-                    0,
-                    (scrollTop / pageHeight) * 100
-                )
-            );
+            (scrollTop / scrollHeight) * 100;
+
 
         progress.style.width =
-            percentage + "%";
+            `${Math.min(100, percentage)}%`;
 
     }
 
@@ -245,18 +227,21 @@ function initScrollProgress() {
    06. SCROLL REVEAL
 ========================================================= */
 
-function initRevealAnimations() {
+function initScrollReveal() {
 
     const elements =
         document.querySelectorAll(
             ".reveal, .reveal-left, .reveal-right"
         );
 
+
     if (!elements.length) return;
 
 
     if (
-        !("IntersectionObserver" in window)
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
     ) {
 
         elements.forEach(element => {
@@ -295,7 +280,7 @@ function initRevealAnimations() {
             },
             {
                 threshold: 0.12,
-                rootMargin: "0px 0px -40px 0px"
+                rootMargin: "0px 0px -50px 0px"
             }
         );
 
@@ -310,15 +295,16 @@ function initRevealAnimations() {
 
 
 /* =========================================================
-   07. ANIMATED NUMBERS
+   07. ANIMATED COUNTERS
 ========================================================= */
 
 function initCounters() {
 
     const counters =
         document.querySelectorAll(
-            ".stat-card .number"
+            ".stat-card .number[data-target]"
         );
+
 
     if (!counters.length) return;
 
@@ -327,8 +313,14 @@ function initCounters() {
 
         const target =
             Number(
-                element.dataset.target || 0
+                element.dataset.target
             );
+
+
+        if (
+            Number.isNaN(target)
+        ) return;
+
 
         const duration = 1600;
 
@@ -338,12 +330,11 @@ function initCounters() {
 
         function update(currentTime) {
 
-            const elapsed =
-                currentTime - startTime;
-
             const progress =
                 Math.min(
-                    elapsed / duration,
+                    (currentTime - startTime)
+                    /
+                    duration,
                     1
                 );
 
@@ -356,14 +347,14 @@ function initCounters() {
                 );
 
 
-            const current =
+            const value =
                 Math.floor(
                     target * eased
                 );
 
 
             element.textContent =
-                current.toLocaleString();
+                value.toLocaleString();
 
 
             if (progress < 1) {
@@ -383,19 +374,6 @@ function initCounters() {
 
 
         requestAnimationFrame(update);
-
-    }
-
-
-    if (
-        !("IntersectionObserver" in window)
-    ) {
-
-        counters.forEach(
-            animateCounter
-        );
-
-        return;
 
     }
 
@@ -424,7 +402,7 @@ function initCounters() {
 
             },
             {
-                threshold: 0.5
+                threshold: .7
             }
         );
 
@@ -439,7 +417,164 @@ function initCounters() {
 
 
 /* =========================================================
-   08. PARTICLE SYSTEM
+   08. ACTIVE NAVIGATION
+========================================================= */
+
+function initActiveNavigation() {
+
+    const sections =
+        document.querySelectorAll(
+            "main section[id]"
+        );
+
+    const links =
+        document.querySelectorAll(
+            ".nav-links a[href^='#']"
+        );
+
+
+    if (!sections.length || !links.length)
+        return;
+
+
+    const sectionObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        entry.isIntersecting
+                    ) {
+
+                        const id =
+                            entry.target.id;
+
+
+                        links.forEach(link => {
+
+                            link.classList.remove(
+                                "active"
+                            );
+
+
+                            if (
+                                link.getAttribute(
+                                    "href"
+                                ) === `#${id}`
+                            ) {
+
+                                link.classList.add(
+                                    "active"
+                                );
+
+                            }
+
+                        });
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: .35
+            }
+        );
+
+
+    sections.forEach(section => {
+
+        sectionObserver.observe(section);
+
+    });
+
+}
+
+
+/* =========================================================
+   09. SMOOTH SCROLL
+========================================================= */
+
+function initSmoothScroll() {
+
+    const links =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+
+    links.forEach(link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const targetID =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    !targetID ||
+                    targetID === "#"
+                ) return;
+
+
+                const target =
+                    document.querySelector(
+                        targetID
+                    );
+
+
+                if (!target) return;
+
+
+                event.preventDefault();
+
+
+                const header =
+                    document.getElementById(
+                        "mainHeader"
+                    );
+
+
+                const headerHeight =
+                    header
+                        ? header.offsetHeight
+                        : 0;
+
+
+                const position =
+                    target.getBoundingClientRect()
+                        .top
+                    +
+                    window.scrollY
+                    -
+                    headerHeight
+                    -
+                    15;
+
+
+                window.scrollTo({
+
+                    top: position,
+
+                    behavior: "smooth"
+
+                });
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   10. PARTICLE SYSTEM
 ========================================================= */
 
 function initParticles() {
@@ -449,11 +584,13 @@ function initParticles() {
             "particles"
         );
 
+
     if (!canvas) return;
 
 
     const ctx =
         canvas.getContext("2d");
+
 
     if (!ctx) return;
 
@@ -479,10 +616,10 @@ function initParticles() {
             window.innerHeight * ratio;
 
         canvas.style.width =
-            window.innerWidth + "px";
+            `${window.innerWidth}px`;
 
         canvas.style.height =
-            window.innerHeight + "px";
+            `${window.innerHeight}px`;
 
 
         ctx.setTransform(
@@ -534,24 +671,33 @@ function initParticles() {
 
                 radius:
                     Math.random()
-                    * 1.8
-                    + .4,
+                    *
+                    1.8
+                    +
+                    .4,
 
                 speed:
                     Math.random()
-                    * .35
-                    + .08,
+                    *
+                    .35
+                    +
+                    .08,
 
                 opacity:
                     Math.random()
-                    * .35
-                    + .08,
+                    *
+                    .35
+                    +
+                    .08,
 
                 drift:
                     (
                         Math.random()
-                        - .5
-                    ) * .15
+                        -
+                        .5
+                    )
+                    *
+                    .25
 
             });
 
@@ -560,7 +706,7 @@ function initParticles() {
     }
 
 
-    function draw() {
+    function animate() {
 
         ctx.clearRect(
             0,
@@ -586,7 +732,8 @@ function initParticles() {
 
                 particle.y =
                     window.innerHeight
-                    + 10;
+                    +
+                    10;
 
             }
 
@@ -598,7 +745,8 @@ function initParticles() {
 
                 particle.x =
                     window.innerWidth
-                    + 10;
+                    +
+                    10;
 
             }
 
@@ -606,7 +754,8 @@ function initParticles() {
             if (
                 particle.x >
                 window.innerWidth
-                + 10
+                +
+                10
             ) {
 
                 particle.x = -10;
@@ -615,6 +764,7 @@ function initParticles() {
 
 
             ctx.beginPath();
+
 
             ctx.arc(
                 particle.x,
@@ -628,13 +778,16 @@ function initParticles() {
             ctx.fillStyle =
                 `rgba(18,107,73,${particle.opacity})`;
 
+
             ctx.fill();
 
         });
 
 
         animationFrame =
-            requestAnimationFrame(draw);
+            requestAnimationFrame(
+                animate
+            );
 
     }
 
@@ -643,7 +796,7 @@ function initParticles() {
 
     createParticles();
 
-    draw();
+    animate();
 
 
     window.addEventListener(
@@ -672,7 +825,7 @@ function initParticles() {
 
             } else {
 
-                draw();
+                animate();
 
             }
 
@@ -683,408 +836,22 @@ function initParticles() {
 
 
 /* =========================================================
-   09. SMOOTH NAVIGATION
-========================================================= */
-
-function initSmoothNavigation() {
-
-    const links =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    links.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
-
-                const targetId =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-
-                    return;
-
-                }
-
-
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
-
-
-                if (!target) return;
-
-
-                event.preventDefault();
-
-
-                const header =
-                    document.getElementById(
-                        "mainHeader"
-                    );
-
-
-                const offset =
-                    header
-                        ? header.offsetHeight + 20
-                        : 20;
-
-
-                const position =
-                    target.getBoundingClientRect()
-                        .top
-                    +
-                    window.scrollY
-                    -
-                    offset;
-
-
-                window.scrollTo({
-
-                    top: position,
-
-                    behavior: "smooth"
-
-                });
-
-
-                history.replaceState(
-                    null,
-                    "",
-                    targetId
-                );
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   10. BUTTON RIPPLE EFFECT
-========================================================= */
-
-function initRippleButtons() {
-
-    const buttons =
-        document.querySelectorAll(
-            ".btn, .nav-join"
-        );
-
-
-    buttons.forEach(button => {
-
-        button.addEventListener(
-            "click",
-            event => {
-
-                const ripple =
-                    document.createElement(
-                        "span"
-                    );
-
-
-                const rect =
-                    button.getBoundingClientRect();
-
-
-                const size =
-                    Math.max(
-                        rect.width,
-                        rect.height
-                    );
-
-
-                ripple.style.position =
-                    "absolute";
-
-                ripple.style.width =
-                    size + "px";
-
-                ripple.style.height =
-                    size + "px";
-
-                ripple.style.left =
-                    (
-                        event.clientX
-                        -
-                        rect.left
-                        -
-                        size / 2
-                    )
-                    + "px";
-
-                ripple.style.top =
-                    (
-                        event.clientY
-                        -
-                        rect.top
-                        -
-                        size / 2
-                    )
-                    + "px";
-
-                ripple.style.borderRadius =
-                    "50%";
-
-                ripple.style.background =
-                    "rgba(255,255,255,.22)";
-
-                ripple.style.transform =
-                    "scale(0)";
-
-                ripple.style.pointerEvents =
-                    "none";
-
-                ripple.style.transition =
-                    "transform .6s ease, opacity .6s ease";
-
-
-                button.appendChild(
-                    ripple
-                );
-
-
-                requestAnimationFrame(() => {
-
-                    ripple.style.transform =
-                        "scale(2)";
-
-                    ripple.style.opacity =
-                        "0";
-
-                });
-
-
-                setTimeout(() => {
-
-                    ripple.remove();
-
-                }, 700);
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   11. ACTIVE NAVIGATION
-========================================================= */
-
-function initActiveNavigation() {
-
-    const sections =
-        document.querySelectorAll(
-            "main section[id]"
-        );
-
-    const links =
-        document.querySelectorAll(
-            ".nav-links a[href^='#']"
-        );
-
-
-    if (
-        !sections.length ||
-        !links.length
-    ) return;
-
-
-    const sectionObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        !entry.isIntersecting
-                    ) return;
-
-
-                    const id =
-                        entry.target.id;
-
-
-                    links.forEach(link => {
-
-                        link.classList.remove(
-                            "active"
-                        );
-
-
-                        if (
-                            link.getAttribute(
-                                "href"
-                            )
-                            ===
-                            "#" + id
-                        ) {
-
-                            link.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                    });
-
-                });
-
-            },
-            {
-                threshold: 0,
-                rootMargin:
-                    "-35% 0px -55% 0px"
-            }
-        );
-
-
-    sections.forEach(section => {
-
-        sectionObserver.observe(
-            section
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   12. HERO PARALLAX
-========================================================= */
-
-function initParallax() {
-
-    const hero =
-        document.querySelector(
-            ".hero"
-        );
-
-    if (!hero) return;
-
-
-    const orbs =
-        hero.querySelectorAll(
-            ".hero-orb"
-        );
-
-    const rings =
-        hero.querySelectorAll(
-            ".hero-ring"
-        );
-
-
-    if (
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-
-        return;
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        () => {
-
-            const scroll =
-                window.scrollY;
-
-
-            if (
-                scroll >
-                window.innerHeight
-            ) return;
-
-
-            orbs.forEach(
-                (orb, index) => {
-
-                    const speed =
-                        index === 0
-                            ? 0.08
-                            : 0.13;
-
-
-                    orb.style.transform =
-                        `translateY(${scroll * speed}px)`;
-
-                }
-            );
-
-
-            rings.forEach(
-                (ring, index) => {
-
-                    const speed =
-                        index === 0
-                            ? 0.04
-                            : -0.05;
-
-
-                    ring.style.transform =
-                        `translateY(${scroll * speed}px)`;
-
-                }
-            );
-
-        },
-        { passive: true }
-    );
-
-}
-
-
-/* =========================================================
-   13. PREMIUM CARD TILT
+   11. PREMIUM CARD TILT
 ========================================================= */
 
 function initCardTilt() {
-
-    if (
-        window.matchMedia(
-            "(pointer: coarse)"
-        ).matches
-    ) {
-
-        return;
-
-    }
-
-
-    if (
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-
-        return;
-
-    }
-
 
     const cards =
         document.querySelectorAll(
             ".premium-card"
         );
+
+
+    if (
+        window.matchMedia(
+            "(hover: none)"
+        ).matches
+    ) return;
 
 
     cards.forEach(card => {
@@ -1119,7 +886,7 @@ function initCardTilt() {
 
                 const rotateX =
                     (
-                        y - centerY
+                        centerY - y
                     )
                     /
                     25;
@@ -1127,7 +894,7 @@ function initCardTilt() {
 
                 const rotateY =
                     (
-                        centerX - x
+                        x - centerX
                     )
                     /
                     25;
@@ -1136,9 +903,10 @@ function initCardTilt() {
                 card.style.transform =
                     `
                     translateY(-10px)
+                    perspective(800px)
                     rotateX(${rotateX}deg)
                     rotateY(${rotateY}deg)
-                    scale(1.01)
+                    scale(1.015)
                     `;
 
             }
@@ -1161,57 +929,310 @@ function initCardTilt() {
 
 
 /* =========================================================
-   14. KEYBOARD ACCESSIBILITY
+   12. BUTTON RIPPLE
 ========================================================= */
 
-document.addEventListener(
-    "keydown",
-    event => {
+function initButtonRipple() {
 
-        if (
-            event.key === "Escape"
-        ) {
+    const buttons =
+        document.querySelectorAll(
+            ".btn, .nav-join"
+        );
 
-            const menuBtn =
-                document.getElementById(
-                    "menuBtn"
-                );
 
-            const navLinks =
-                document.getElementById(
-                    "navLinks"
-                );
+    buttons.forEach(button => {
+
+        button.addEventListener(
+            "click",
+            event => {
+
+                const ripple =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                const rect =
+                    button.getBoundingClientRect();
+
+
+                const size =
+                    Math.max(
+                        rect.width,
+                        rect.height
+                    );
+
+
+                ripple.style.width =
+                    `${size}px`;
+
+                ripple.style.height =
+                    `${size}px`;
+
+
+                ripple.style.position =
+                    "absolute";
+
+                ripple.style.borderRadius =
+                    "50%";
+
+                ripple.style.background =
+                    "rgba(255,255,255,.25)";
+
+                ripple.style.pointerEvents =
+                    "none";
+
+                ripple.style.left =
+                    `${event.clientX - rect.left - size / 2}px`;
+
+                ripple.style.top =
+                    `${event.clientY - rect.top - size / 2}px`;
+
+                ripple.style.transform =
+                    "scale(0)";
+
+                ripple.style.opacity =
+                    "1";
+
+                ripple.style.transition =
+                    "transform .6s ease, opacity .6s ease";
+
+
+                button.appendChild(ripple);
+
+
+                requestAnimationFrame(() => {
+
+                    ripple.style.transform =
+                        "scale(1.8)";
+
+                    ripple.style.opacity =
+                        "0";
+
+                });
+
+
+                setTimeout(() => {
+
+                    ripple.remove();
+
+                }, 700);
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   13. HERO PARALLAX
+========================================================= */
+
+function initParallax() {
+
+    const hero =
+        document.querySelector(
+            ".hero"
+        );
+
+
+    if (!hero) return;
+
+
+    const orbs =
+        hero.querySelectorAll(
+            ".hero-orb, .hero-ring"
+        );
+
+
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) return;
+
+
+    window.addEventListener(
+        "scroll",
+        () => {
+
+            const scroll =
+                window.scrollY;
 
 
             if (
-                menuBtn &&
-                navLinks
-            ) {
+                scroll >
+                window.innerHeight
+            ) return;
 
-                navLinks.classList.remove(
-                    "open"
-                );
 
-                menuBtn.classList.remove(
-                    "active"
-                );
+            orbs.forEach(
+                (element, index) => {
 
-                menuBtn.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+                    const speed =
+                        index % 2 === 0
+                            ? .08
+                            : -.05;
 
-            }
+
+                    element.style.translate =
+                        `0 ${scroll * speed}px`;
+
+                }
+            );
+
+        },
+        {
+            passive: true
+        }
+    );
+
+}
+
+
+/* =========================================================
+   14. BACK TO TOP
+========================================================= */
+
+function initBackToTop() {
+
+    const button =
+        document.createElement(
+            "button"
+        );
+
+
+    button.className =
+        "back-to-top";
+
+
+    button.setAttribute(
+        "aria-label",
+        "Back to top"
+    );
+
+
+    button.innerHTML =
+        "↑";
+
+
+    document.body.appendChild(
+        button
+    );
+
+
+    function update() {
+
+        if (
+            window.scrollY >
+            600
+        ) {
+
+            button.classList.add(
+                "show"
+            );
+
+        } else {
+
+            button.classList.remove(
+                "show"
+            );
 
         }
 
     }
-);
+
+
+    window.addEventListener(
+        "scroll",
+        update,
+        { passive: true }
+    );
+
+
+    button.addEventListener(
+        "click",
+        () => {
+
+            window.scrollTo({
+
+                top: 0,
+
+                behavior: "smooth"
+
+            });
+
+        }
+    );
+
+
+    update();
+
+}
 
 
 /* =========================================================
-   15. DYNAMIC YEAR
+   15. KEYBOARD ACCESSIBILITY
 ========================================================= */
+
+function initKeyboardAccessibility() {
+
+    document.addEventListener(
+        "keydown",
+        event => {
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                const navLinks =
+                    document.getElementById(
+                        "navLinks"
+                    );
+
+                const menuBtn =
+                    document.getElementById(
+                        "menuBtn"
+                    );
+
+
+                if (
+                    navLinks &&
+                    menuBtn
+                ) {
+
+                    navLinks.classList.remove(
+                        "open"
+                    );
+
+                    menuBtn.classList.remove(
+                        "active"
+                    );
+
+                    menuBtn.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   16. YEAR AUTO UPDATE
+========================================================= */
+
+const currentYear =
+    new Date().getFullYear();
+
 
 document
     .querySelectorAll(
@@ -1220,26 +1241,40 @@ document
     .forEach(element => {
 
         element.textContent =
-            new Date()
-                .getFullYear();
+            currentYear;
 
     });
 
 
 /* =========================================================
-   16. PAGE READY
+   17. PAGE VISIBILITY
 ========================================================= */
 
-window.setTimeout(() => {
+document.addEventListener(
+    "visibilitychange",
+    () => {
 
-    document.body.classList.add(
-        "page-ready"
-    );
+        if (
+            document.hidden
+        ) {
 
-}, 100);
+            document.body.classList.add(
+                "page-hidden"
+            );
+
+        } else {
+
+            document.body.classList.remove(
+                "page-hidden"
+            );
+
+        }
+
+    }
+);
 
 
 /* =========================================================
    ANTIQUE ASSOCIATION
-   INTERACTION ENGINE COMPLETE
+   END OF SCRIPT
 ========================================================= */
