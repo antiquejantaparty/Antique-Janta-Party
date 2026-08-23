@@ -1,8 +1,10 @@
 /* =========================================================
    ANTIQUE ASSOCIATION
    script.js
-   PREMIUM INTERACTION SYSTEM
+   PART 3 — INTERACTION & ANIMATION ENGINE
 ========================================================= */
+
+"use strict";
 
 
 /* =========================================================
@@ -15,13 +17,13 @@ document.addEventListener("DOMContentLoaded", () => {
     initHeader();
     initMobileMenu();
     initScrollProgress();
-    initScrollReveal();
+    initRevealAnimations();
     initCounters();
     initParticles();
-    initSmoothScroll();
+    initSmoothNavigation();
     initActiveNavigation();
     initCardTilt();
-    initButtonRipple();
+    initButtonEffects();
     initParallax();
     initBackToTop();
     initKeyboardAccessibility();
@@ -45,11 +47,9 @@ function initLoader() {
 
             loader.classList.add("hide");
 
-            setTimeout(() => {
-                loader.remove();
-            }, 900);
+            document.body.classList.add("page-loaded");
 
-        }, 700);
+        }, 650);
 
     });
 
@@ -66,15 +66,19 @@ function initHeader() {
 
     if (!header) return;
 
-    function updateHeader() {
+    const updateHeader = () => {
 
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
+
             header.classList.add("scrolled");
+
         } else {
+
             header.classList.remove("scrolled");
+
         }
 
-    }
+    };
 
     updateHeader();
 
@@ -93,11 +97,8 @@ function initHeader() {
 
 function initMobileMenu() {
 
-    const menuBtn =
-        document.getElementById("menuBtn");
-
-    const navLinks =
-        document.getElementById("navLinks");
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
 
     if (!menuBtn || !navLinks) return;
 
@@ -118,17 +119,17 @@ function initMobileMenu() {
 
     menuBtn.addEventListener("click", () => {
 
-        const open =
+        const opened =
             navLinks.classList.toggle("open");
 
         menuBtn.classList.toggle(
             "active",
-            open
+            opened
         );
 
         menuBtn.setAttribute(
             "aria-expanded",
-            String(open)
+            String(opened)
         );
 
     });
@@ -161,7 +162,9 @@ function initMobileMenu() {
     window.addEventListener("resize", () => {
 
         if (window.innerWidth > 850) {
+
             closeMenu();
+
         }
 
     });
@@ -176,9 +179,7 @@ function initMobileMenu() {
 function initScrollProgress() {
 
     const progress =
-        document.getElementById(
-            "scrollProgress"
-        );
+        document.getElementById("scrollProgress");
 
     if (!progress) return;
 
@@ -188,26 +189,24 @@ function initScrollProgress() {
         const scrollTop =
             window.scrollY;
 
-        const scrollHeight =
+        const pageHeight =
             document.documentElement.scrollHeight
             -
-            document.documentElement.clientHeight;
+            window.innerHeight;
 
-
-        if (scrollHeight <= 0) {
+        if (pageHeight <= 0) {
 
             progress.style.width = "0%";
+
             return;
 
         }
 
-
         const percentage =
-            (scrollTop / scrollHeight) * 100;
-
+            (scrollTop / pageHeight) * 100;
 
         progress.style.width =
-            `${Math.min(100, percentage)}%`;
+            Math.min(100, percentage) + "%";
 
     }
 
@@ -227,13 +226,12 @@ function initScrollProgress() {
    06. SCROLL REVEAL
 ========================================================= */
 
-function initScrollReveal() {
+function initRevealAnimations() {
 
     const elements =
         document.querySelectorAll(
             ".reveal, .reveal-left, .reveal-right"
         );
-
 
     if (!elements.length) return;
 
@@ -261,19 +259,15 @@ function initScrollReveal() {
 
                 entries.forEach(entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                    if (!entry.isIntersecting) return;
 
-                        entry.target.classList.add(
-                            "active"
-                        );
+                    entry.target.classList.add(
+                        "active"
+                    );
 
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
+                    observer.unobserve(
+                        entry.target
+                    );
 
                 });
 
@@ -295,25 +289,27 @@ function initScrollReveal() {
 
 
 /* =========================================================
-   07. ANIMATED COUNTERS
+   07. ANIMATED STAT COUNTERS
 ========================================================= */
 
 function initCounters() {
 
     const counters =
         document.querySelectorAll(
-            ".stat-card .number[data-target]"
+            ".number[data-target]"
         );
-
 
     if (!counters.length) return;
 
 
-    function animateCounter(element) {
+    const duration = 1800;
+
+
+    function animateCounter(counter) {
 
         const target =
             Number(
-                element.dataset.target
+                counter.dataset.target
             );
 
 
@@ -322,22 +318,25 @@ function initCounters() {
         ) return;
 
 
-        const duration = 1600;
-
         const startTime =
             performance.now();
 
 
         function update(currentTime) {
 
+            const elapsed =
+                currentTime - startTime;
+
             const progress =
                 Math.min(
-                    (currentTime - startTime)
-                    /
-                    duration,
+                    elapsed / duration,
                     1
                 );
 
+
+            /*
+             * Smooth ease-out
+             */
 
             const eased =
                 1 -
@@ -349,11 +348,11 @@ function initCounters() {
 
             const value =
                 Math.floor(
-                    target * eased
+                    eased * target
                 );
 
 
-            element.textContent =
+            counter.textContent =
                 value.toLocaleString();
 
 
@@ -365,7 +364,7 @@ function initCounters() {
 
             } else {
 
-                element.textContent =
+                counter.textContent =
                     target.toLocaleString();
 
             }
@@ -384,25 +383,22 @@ function initCounters() {
 
                 entries.forEach(entry => {
 
-                    if (
-                        entry.isIntersecting
-                    ) {
+                    if (!entry.isIntersecting)
+                        return;
 
-                        animateCounter(
-                            entry.target
-                        );
+                    animateCounter(
+                        entry.target
+                    );
 
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
+                    observer.unobserve(
+                        entry.target
+                    );
 
                 });
 
             },
             {
-                threshold: .7
+                threshold: 0.65
             }
         );
 
@@ -417,164 +413,7 @@ function initCounters() {
 
 
 /* =========================================================
-   08. ACTIVE NAVIGATION
-========================================================= */
-
-function initActiveNavigation() {
-
-    const sections =
-        document.querySelectorAll(
-            "main section[id]"
-        );
-
-    const links =
-        document.querySelectorAll(
-            ".nav-links a[href^='#']"
-        );
-
-
-    if (!sections.length || !links.length)
-        return;
-
-
-    const sectionObserver =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (
-                        entry.isIntersecting
-                    ) {
-
-                        const id =
-                            entry.target.id;
-
-
-                        links.forEach(link => {
-
-                            link.classList.remove(
-                                "active"
-                            );
-
-
-                            if (
-                                link.getAttribute(
-                                    "href"
-                                ) === `#${id}`
-                            ) {
-
-                                link.classList.add(
-                                    "active"
-                                );
-
-                            }
-
-                        });
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: .35
-            }
-        );
-
-
-    sections.forEach(section => {
-
-        sectionObserver.observe(section);
-
-    });
-
-}
-
-
-/* =========================================================
-   09. SMOOTH SCROLL
-========================================================= */
-
-function initSmoothScroll() {
-
-    const links =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    links.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            event => {
-
-                const targetID =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                if (
-                    !targetID ||
-                    targetID === "#"
-                ) return;
-
-
-                const target =
-                    document.querySelector(
-                        targetID
-                    );
-
-
-                if (!target) return;
-
-
-                event.preventDefault();
-
-
-                const header =
-                    document.getElementById(
-                        "mainHeader"
-                    );
-
-
-                const headerHeight =
-                    header
-                        ? header.offsetHeight
-                        : 0;
-
-
-                const position =
-                    target.getBoundingClientRect()
-                        .top
-                    +
-                    window.scrollY
-                    -
-                    headerHeight
-                    -
-                    15;
-
-
-                window.scrollTo({
-
-                    top: position,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   10. PARTICLE SYSTEM
+   08. PARTICLE SYSTEM
 ========================================================= */
 
 function initParticles() {
@@ -583,7 +422,6 @@ function initParticles() {
         document.getElementById(
             "particles"
         );
-
 
     if (!canvas) return;
 
@@ -600,7 +438,22 @@ function initParticles() {
     let animationFrame;
 
 
-    function resize() {
+    const reduceMotion =
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches;
+
+
+    if (reduceMotion) {
+
+        canvas.style.display = "none";
+
+        return;
+
+    }
+
+
+    function resizeCanvas() {
 
         const ratio =
             Math.min(
@@ -616,10 +469,10 @@ function initParticles() {
             window.innerHeight * ratio;
 
         canvas.style.width =
-            `${window.innerWidth}px`;
+            window.innerWidth + "px";
 
         canvas.style.height =
-            `${window.innerHeight}px`;
+            window.innerHeight + "px";
 
 
         ctx.setTransform(
@@ -643,9 +496,9 @@ function initParticles() {
             Math.min(
                 65,
                 Math.max(
-                    25,
+                    22,
                     Math.floor(
-                        window.innerWidth / 22
+                        window.innerWidth / 24
                     )
                 )
             );
@@ -669,35 +522,35 @@ function initParticles() {
                     *
                     window.innerHeight,
 
-                radius:
+                size:
                     Math.random()
                     *
-                    1.8
+                    2
                     +
-                    .4,
+                    0.4,
 
                 speed:
                     Math.random()
                     *
-                    .35
+                    0.35
                     +
-                    .08,
+                    0.08,
 
                 opacity:
                     Math.random()
                     *
-                    .35
+                    0.32
                     +
-                    .08,
+                    0.08,
 
                 drift:
                     (
                         Math.random()
                         -
-                        .5
+                        0.5
                     )
                     *
-                    .25
+                    0.18
 
             });
 
@@ -706,7 +559,7 @@ function initParticles() {
     }
 
 
-    function animate() {
+    function drawParticles() {
 
         ctx.clearRect(
             0,
@@ -731,9 +584,12 @@ function initParticles() {
             ) {
 
                 particle.y =
-                    window.innerHeight
-                    +
-                    10;
+                    window.innerHeight + 10;
+
+                particle.x =
+                    Math.random()
+                    *
+                    window.innerWidth;
 
             }
 
@@ -744,18 +600,14 @@ function initParticles() {
             ) {
 
                 particle.x =
-                    window.innerWidth
-                    +
-                    10;
+                    window.innerWidth + 10;
 
             }
 
 
             if (
                 particle.x >
-                window.innerWidth
-                +
-                10
+                window.innerWidth + 10
             ) {
 
                 particle.x = -10;
@@ -765,18 +617,22 @@ function initParticles() {
 
             ctx.beginPath();
 
-
             ctx.arc(
                 particle.x,
                 particle.y,
-                particle.radius,
+                particle.size,
                 0,
                 Math.PI * 2
             );
 
 
             ctx.fillStyle =
-                `rgba(18,107,73,${particle.opacity})`;
+                `rgba(
+                    18,
+                    107,
+                    73,
+                    ${particle.opacity}
+                )`;
 
 
             ctx.fill();
@@ -786,30 +642,48 @@ function initParticles() {
 
         animationFrame =
             requestAnimationFrame(
-                animate
+                drawParticles
             );
 
     }
 
 
-    resize();
+    resizeCanvas();
 
     createParticles();
 
-    animate();
+    drawParticles();
+
+
+    let resizeTimeout;
 
 
     window.addEventListener(
         "resize",
         () => {
 
-            resize();
+            clearTimeout(
+                resizeTimeout
+            );
 
-            createParticles();
+
+            resizeTimeout =
+                setTimeout(() => {
+
+                    resizeCanvas();
+
+                    createParticles();
+
+                }, 150);
 
         }
     );
 
+
+    /*
+     * Stop animation when page is hidden.
+     * Saves CPU and battery.
+     */
 
     document.addEventListener(
         "visibilitychange",
@@ -825,7 +699,7 @@ function initParticles() {
 
             } else {
 
-                animate();
+                drawParticles();
 
             }
 
@@ -836,22 +710,205 @@ function initParticles() {
 
 
 /* =========================================================
+   09. SMOOTH NAVIGATION
+========================================================= */
+
+function initSmoothNavigation() {
+
+    const links =
+        document.querySelectorAll(
+            'a[href^="#"]'
+        );
+
+
+    links.forEach(link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const targetId =
+                    link.getAttribute(
+                        "href"
+                    );
+
+
+                if (
+                    !targetId ||
+                    targetId === "#"
+                ) return;
+
+
+                const target =
+                    document.querySelector(
+                        targetId
+                    );
+
+
+                if (!target) return;
+
+
+                event.preventDefault();
+
+
+                const header =
+                    document.getElementById(
+                        "mainHeader"
+                    );
+
+
+                const headerHeight =
+                    header
+                        ? header.offsetHeight
+                        : 0;
+
+
+                const targetPosition =
+                    target.getBoundingClientRect()
+                        .top
+                    +
+                    window.scrollY
+                    -
+                    headerHeight
+                    -
+                    15;
+
+
+                window.scrollTo({
+
+                    top:
+                        Math.max(
+                            0,
+                            targetPosition
+                        ),
+
+                    behavior:
+                        "smooth"
+
+                });
+
+
+                /*
+                 * Update URL without jumping.
+                 */
+
+                history.replaceState(
+                    null,
+                    "",
+                    targetId
+                );
+
+            }
+        );
+
+    });
+
+}
+
+
+/* =========================================================
+   10. ACTIVE NAVIGATION
+========================================================= */
+
+function initActiveNavigation() {
+
+    const sections =
+        document.querySelectorAll(
+            "main section[id]"
+        );
+
+    const links =
+        document.querySelectorAll(
+            ".nav-links a[href^='#']"
+        );
+
+
+    if (
+        !sections.length ||
+        !links.length
+    ) return;
+
+
+    const sectionObserver =
+        new IntersectionObserver(
+            entries => {
+
+                entries.forEach(entry => {
+
+                    if (
+                        !entry.isIntersecting
+                    ) return;
+
+
+                    const id =
+                        entry.target.id;
+
+
+                    links.forEach(link => {
+
+                        link.classList.remove(
+                            "active"
+                        );
+
+
+                        if (
+                            link.getAttribute(
+                                "href"
+                            ) ===
+                            `#${id}`
+                        ) {
+
+                            link.classList.add(
+                                "active"
+                            );
+
+                        }
+
+                    });
+
+                });
+
+            },
+            {
+                rootMargin:
+                    "-35% 0px -55% 0px",
+                threshold: 0
+            }
+        );
+
+
+    sections.forEach(section => {
+
+        sectionObserver.observe(
+            section
+        );
+
+    });
+
+}
+
+
+/* =========================================================
    11. PREMIUM CARD TILT
 ========================================================= */
 
 function initCardTilt() {
 
-    const cards =
-        document.querySelectorAll(
-            ".premium-card"
-        );
-
+    /*
+     * Disable on touch devices.
+     */
 
     if (
         window.matchMedia(
             "(hover: none)"
         ).matches
     ) return;
+
+
+    const cards =
+        document.querySelectorAll(
+            ".premium-card"
+        );
 
 
     cards.forEach(card => {
@@ -865,14 +922,12 @@ function initCardTilt() {
 
 
                 const x =
-                    event.clientX
-                    -
+                    event.clientX -
                     rect.left;
 
 
                 const y =
-                    event.clientY
-                    -
+                    event.clientY -
                     rect.top;
 
 
@@ -886,24 +941,28 @@ function initCardTilt() {
 
                 const rotateX =
                     (
-                        centerY - y
+                        (y - centerY)
+                        /
+                        centerY
                     )
-                    /
-                    25;
+                    *
+                    -2.5;
 
 
                 const rotateY =
                     (
-                        x - centerX
+                        (x - centerX)
+                        /
+                        centerX
                     )
-                    /
-                    25;
+                    *
+                    2.5;
 
 
                 card.style.transform =
                     `
                     translateY(-10px)
-                    perspective(800px)
+                    perspective(900px)
                     rotateX(${rotateX}deg)
                     rotateY(${rotateY}deg)
                     scale(1.015)
@@ -917,8 +976,7 @@ function initCardTilt() {
             "mouseleave",
             () => {
 
-                card.style.transform =
-                    "";
+                card.style.transform = "";
 
             }
         );
@@ -929,10 +987,10 @@ function initCardTilt() {
 
 
 /* =========================================================
-   12. BUTTON RIPPLE
+   12. BUTTON RIPPLE EFFECT
 ========================================================= */
 
-function initButtonRipple() {
+function initButtonEffects() {
 
     const buttons =
         document.querySelectorAll(
@@ -952,64 +1010,35 @@ function initButtonRipple() {
                     );
 
 
+                ripple.className =
+                    "click-ripple";
+
+
                 const rect =
                     button.getBoundingClientRect();
 
 
-                const size =
-                    Math.max(
-                        rect.width,
-                        rect.height
-                    );
-
-
-                ripple.style.width =
-                    `${size}px`;
-
-                ripple.style.height =
-                    `${size}px`;
-
-
-                ripple.style.position =
-                    "absolute";
-
-                ripple.style.borderRadius =
-                    "50%";
-
-                ripple.style.background =
-                    "rgba(255,255,255,.25)";
-
-                ripple.style.pointerEvents =
-                    "none";
-
                 ripple.style.left =
-                    `${event.clientX - rect.left - size / 2}px`;
+                    (
+                        event.clientX -
+                        rect.left
+                    )
+                    +
+                    "px";
+
 
                 ripple.style.top =
-                    `${event.clientY - rect.top - size / 2}px`;
-
-                ripple.style.transform =
-                    "scale(0)";
-
-                ripple.style.opacity =
-                    "1";
-
-                ripple.style.transition =
-                    "transform .6s ease, opacity .6s ease";
+                    (
+                        event.clientY -
+                        rect.top
+                    )
+                    +
+                    "px";
 
 
-                button.appendChild(ripple);
-
-
-                requestAnimationFrame(() => {
-
-                    ripple.style.transform =
-                        "scale(1.8)";
-
-                    ripple.style.opacity =
-                        "0";
-
-                });
+                button.appendChild(
+                    ripple
+                );
 
 
                 setTimeout(() => {
@@ -1032,6 +1061,20 @@ function initButtonRipple() {
 
 function initParallax() {
 
+    if (
+        window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+        ).matches
+    ) return;
+
+
+    if (
+        window.matchMedia(
+            "(hover: none)"
+        ).matches
+    ) return;
+
+
     const hero =
         document.querySelector(
             ".hero"
@@ -1041,52 +1084,104 @@ function initParallax() {
     if (!hero) return;
 
 
-    const orbs =
-        hero.querySelectorAll(
-            ".hero-orb, .hero-ring"
+    const orbOne =
+        hero.querySelector(
+            ".hero-orb.one"
         );
 
 
-    if (
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) return;
+    const orbTwo =
+        hero.querySelector(
+            ".hero-orb.two"
+        );
+
+
+    const ringOne =
+        hero.querySelector(
+            ".ring-one"
+        );
+
+
+    const ringTwo =
+        hero.querySelector(
+            ".ring-two"
+        );
+
+
+    let ticking = false;
+
+
+    function updateParallax() {
+
+        const scroll =
+            window.scrollY;
+
+
+        if (
+            scroll >
+            window.innerHeight
+        ) {
+
+            ticking = false;
+
+            return;
+
+        }
+
+
+        if (orbOne) {
+
+            orbOne.style.transform =
+                `translateY(${scroll * 0.12}px)`;
+
+        }
+
+
+        if (orbTwo) {
+
+            orbTwo.style.transform =
+                `translateY(${scroll * -0.08}px)`;
+
+        }
+
+
+        if (ringOne) {
+
+            ringOne.style.transform =
+                `translateY(${scroll * 0.06}px)`;
+
+        }
+
+
+        if (ringTwo) {
+
+            ringTwo.style.transform =
+                `translateY(${scroll * -0.05}px)`;
+
+        }
+
+
+        ticking = false;
+
+    }
 
 
     window.addEventListener(
         "scroll",
         () => {
 
-            const scroll =
-                window.scrollY;
+            if (!ticking) {
 
+                requestAnimationFrame(
+                    updateParallax
+                );
 
-            if (
-                scroll >
-                window.innerHeight
-            ) return;
+                ticking = true;
 
-
-            orbs.forEach(
-                (element, index) => {
-
-                    const speed =
-                        index % 2 === 0
-                            ? .08
-                            : -.05;
-
-
-                    element.style.translate =
-                        `0 ${scroll * speed}px`;
-
-                }
-            );
+            }
 
         },
-        {
-            passive: true
-        }
+        { passive: true }
     );
 
 }
@@ -1104,18 +1199,17 @@ function initBackToTop() {
         );
 
 
+    button.type = "button";
+
     button.className =
         "back-to-top";
-
 
     button.setAttribute(
         "aria-label",
         "Back to top"
     );
 
-
-    button.innerHTML =
-        "↑";
+    button.innerHTML = "↑";
 
 
     document.body.appendChild(
@@ -1123,21 +1217,21 @@ function initBackToTop() {
     );
 
 
-    function update() {
+    function updateVisibility() {
 
         if (
             window.scrollY >
-            600
+            window.innerHeight * 0.7
         ) {
 
             button.classList.add(
-                "show"
+                "visible"
             );
 
         } else {
 
             button.classList.remove(
-                "show"
+                "visible"
             );
 
         }
@@ -1147,7 +1241,7 @@ function initBackToTop() {
 
     window.addEventListener(
         "scroll",
-        update,
+        updateVisibility,
         { passive: true }
     );
 
@@ -1167,9 +1261,6 @@ function initBackToTop() {
         }
     );
 
-
-    update();
-
 }
 
 
@@ -1183,14 +1274,13 @@ function initKeyboardAccessibility() {
         "keydown",
         event => {
 
+            /*
+             * Escape closes mobile menu.
+             */
+
             if (
                 event.key === "Escape"
             ) {
-
-                const navLinks =
-                    document.getElementById(
-                        "navLinks"
-                    );
 
                 const menuBtn =
                     document.getElementById(
@@ -1198,9 +1288,15 @@ function initKeyboardAccessibility() {
                     );
 
 
+                const navLinks =
+                    document.getElementById(
+                        "navLinks"
+                    );
+
+
                 if (
-                    navLinks &&
-                    menuBtn
+                    menuBtn &&
+                    navLinks
                 ) {
 
                     navLinks.classList.remove(
@@ -1227,54 +1323,21 @@ function initKeyboardAccessibility() {
 
 
 /* =========================================================
-   16. YEAR AUTO UPDATE
+   16. WINDOW LOAD POLISH
 ========================================================= */
 
-const currentYear =
-    new Date().getFullYear();
-
-
-document
-    .querySelectorAll(
-        "[data-current-year]"
-    )
-    .forEach(element => {
-
-        element.textContent =
-            currentYear;
-
-    });
-
-
-/* =========================================================
-   17. PAGE VISIBILITY
-========================================================= */
-
-document.addEventListener(
-    "visibilitychange",
+window.addEventListener(
+    "load",
     () => {
 
-        if (
-            document.hidden
-        ) {
-
-            document.body.classList.add(
-                "page-hidden"
-            );
-
-        } else {
-
-            document.body.classList.remove(
-                "page-hidden"
-            );
-
-        }
+        document.body.classList.add(
+            "loaded"
+        );
 
     }
 );
 
 
 /* =========================================================
-   ANTIQUE ASSOCIATION
-   END OF SCRIPT
+   END
 ========================================================= */
