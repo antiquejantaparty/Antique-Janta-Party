@@ -1,4 +1,4 @@
-```javascript
+
 /* =========================================================
    ANTIQUE ASSOCIATION
    MAIN JAVASCRIPT
@@ -1005,4 +1005,4 @@ document.addEventListener(
 
     }
 );
-```
+
