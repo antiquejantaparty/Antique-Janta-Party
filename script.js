@@ -1,794 +1,1176 @@
-/* =============================================================
+/* =========================================================
    ANTIQUE ASSOCIATION
-   INTERACTIONS & ANIMATIONS
-============================================================= */
+   PREMIUM INTERACTION ENGINE
+   Stable / Lightweight / GitHub Pages Ready
+========================================================= */
 
 "use strict";
 
 
-/* =============================================================
-   DOM READY
-============================================================= */
+/* =========================================================
+   APP
+========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+const AntiqueApp = {
 
-    initPreloader();
-    initNavigation();
-    initScrollHeader();
-    initRevealAnimations();
-    initCounters();
-    initFAQ();
-    initMembershipForm();
-    initBackToTop();
-    initCursor();
-    initSmoothLinks();
+    init() {
 
-});
+        this.cache();
 
+        this.navigation();
 
-/* =============================================================
-   PRELOADER
-============================================================= */
+        this.header();
 
-function initPreloader() {
+        this.scrollReveal();
 
-    const preloader = document.getElementById("preloader");
+        this.counters();
 
-    if (!preloader) {
-        return;
-    }
+        this.faq();
 
-    window.addEventListener("load", () => {
+        this.membershipForm();
 
-        setTimeout(() => {
-            preloader.classList.add("hidden");
-        }, 700);
+        this.backToTop();
 
-    });
+        this.cursor();
 
-}
+        this.parallax();
 
+        this.smoothScroll();
 
-/* =============================================================
-   NAVIGATION
-============================================================= */
+        this.loaded();
 
-function initNavigation() {
+    },
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navMenu = document.getElementById("navMenu");
 
-    if (!menuToggle || !navMenu) {
-        return;
-    }
+    /* =====================================================
+       CACHE DOM
+    ====================================================== */
 
-    menuToggle.addEventListener("click", () => {
+    cache() {
 
-        const isOpen = navMenu.classList.toggle("open");
+        this.headerElement =
+            document.getElementById("header");
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            String(isOpen)
-        );
+        this.menuToggle =
+            document.getElementById("menuToggle");
 
-        document.body.classList.toggle(
-            "menu-open",
-            isOpen
-        );
+        this.navMenu =
+            document.getElementById("navMenu");
 
-    });
+        this.backTop =
+            document.getElementById("backTop");
 
+        this.form =
+            document.getElementById("membershipForm");
 
-    const navLinks = navMenu.querySelectorAll("a");
+        this.success =
+            document.getElementById("formSuccess");
 
-    navLinks.forEach((link) => {
+        this.revealElements =
+            document.querySelectorAll(".reveal");
 
-        link.addEventListener("click", () => {
+        this.countersElements =
+            document.querySelectorAll(".counter");
 
-            navMenu.classList.remove("open");
+        this.sections =
+            document.querySelectorAll("main section[id]");
 
-            menuToggle.setAttribute(
-                "aria-expanded",
-                "false"
-            );
+        this.navLinks =
+            document.querySelectorAll(".nav-link");
 
-            document.body.classList.remove(
-                "menu-open"
-            );
+    },
 
-        });
 
-    });
+    /* =====================================================
+       PAGE LOAD
+    ====================================================== */
 
-}
+    loaded() {
 
+        /*
+         * IMPORTANT:
+         * No blocking preloader.
+         *
+         * The website becomes usable immediately.
+         */
 
-/* =============================================================
-   SCROLL HEADER
-============================================================= */
+        document.body.classList.add("page-ready");
 
-function initScrollHeader() {
+    },
 
-    const header = document.getElementById("header");
 
-    if (!header) {
-        return;
-    }
+    /* =====================================================
+       NAVIGATION
+    ====================================================== */
 
-    const updateHeader = () => {
+    navigation() {
 
-        if (window.scrollY > 40) {
-            header.classList.add("scrolled");
-        } else {
-            header.classList.remove("scrolled");
-        }
-
-    };
-
-    updateHeader();
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        { passive: true }
-    );
-
-}
-
-
-/* =============================================================
-   ACTIVE NAVIGATION
-============================================================= */
-
-function initSmoothLinks() {
-
-    const sections = document.querySelectorAll(
-        "main section[id]"
-    );
-
-    const navLinks = document.querySelectorAll(
-        ".nav-link"
-    );
-
-    if (!sections.length || !navLinks.length) {
-        return;
-    }
-
-    const updateActiveLink = () => {
-
-        let current = "";
-
-        sections.forEach((section) => {
-
-            const sectionTop =
-                section.offsetTop - 160;
-
-            if (window.scrollY >= sectionTop) {
-                current = section.id;
-            }
-
-        });
-
-        navLinks.forEach((link) => {
-
-            link.classList.remove("active");
-
-            const href = link.getAttribute("href");
-
-            if (href === `#${current}`) {
-                link.classList.add("active");
-            }
-
-        });
-
-    };
-
-    window.addEventListener(
-        "scroll",
-        updateActiveLink,
-        { passive: true }
-    );
-
-    updateActiveLink();
-
-}
-
-
-/* =============================================================
-   REVEAL ON SCROLL
-============================================================= */
-
-function initRevealAnimations() {
-
-    const elements = document.querySelectorAll(
-        ".reveal"
-    );
-
-    if (!elements.length) {
-        return;
-    }
-
-    if (
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches
-    ) {
-
-        elements.forEach((element) => {
-            element.classList.add("visible");
-        });
-
-        return;
-
-    }
-
-
-    const observer = new IntersectionObserver(
-        (entries, observerInstance) => {
-
-            entries.forEach((entry) => {
-
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                entry.target.classList.add("visible");
-
-                observerInstance.unobserve(
-                    entry.target
-                );
-
-            });
-
-        },
-        {
-            threshold: 0.12,
-            rootMargin: "0px 0px -40px 0px"
-        }
-    );
-
-
-    elements.forEach((element) => {
-        observer.observe(element);
-    });
-
-}
-
-
-/* =============================================================
-   COUNTERS
-============================================================= */
-
-function initCounters() {
-
-    const counters = document.querySelectorAll(
-        ".counter"
-    );
-
-    if (!counters.length) {
-        return;
-    }
-
-
-    const animateCounter = (element) => {
-
-        const target = Number(
-            element.dataset.target
-        );
-
-        if (!Number.isFinite(target)) {
+        if (!this.menuToggle || !this.navMenu) {
             return;
         }
 
-        const duration = 1600;
-        const startTime = performance.now();
+
+        this.menuToggle.addEventListener(
+            "click",
+            () => {
+
+                const open =
+                    this.navMenu.classList.toggle("open");
+
+                this.menuToggle.setAttribute(
+                    "aria-expanded",
+                    String(open)
+                );
+
+                document.body.classList.toggle(
+                    "menu-open",
+                    open
+                );
+
+            }
+        );
 
 
-        const update = (currentTime) => {
+        const links =
+            this.navMenu.querySelectorAll("a");
 
-            const elapsed =
-                currentTime - startTime;
 
-            const progress = Math.min(
-                elapsed / duration,
-                1
+        links.forEach(link => {
+
+            link.addEventListener(
+                "click",
+                () => {
+
+                    this.navMenu.classList.remove(
+                        "open"
+                    );
+
+                    this.menuToggle.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
+
+                    document.body.classList.remove(
+                        "menu-open"
+                    );
+
+                }
             );
 
-            const eased =
-                1 - Math.pow(1 - progress, 3);
+        });
 
-            const value = Math.floor(
-                target * eased
-            );
 
-            element.textContent =
-                value.toLocaleString();
+        /*
+         * Close mobile menu with ESC
+         */
 
-            if (progress < 1) {
-                requestAnimationFrame(update);
+        document.addEventListener(
+            "keydown",
+            event => {
+
+                if (event.key !== "Escape") {
+                    return;
+                }
+
+                this.navMenu.classList.remove(
+                    "open"
+                );
+
+                this.menuToggle.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                document.body.classList.remove(
+                    "menu-open"
+                );
+
+            }
+        );
+
+    },
+
+
+    /* =====================================================
+       HEADER
+    ====================================================== */
+
+    header() {
+
+        if (!this.headerElement) {
+            return;
+        }
+
+
+        const update = () => {
+
+            if (window.scrollY > 40) {
+
+                this.headerElement.classList.add(
+                    "scrolled"
+                );
+
             } else {
-                element.textContent =
-                    target.toLocaleString();
+
+                this.headerElement.classList.remove(
+                    "scrolled"
+                );
+
             }
 
         };
 
 
-        requestAnimationFrame(update);
-
-    };
+        update();
 
 
-    const observer = new IntersectionObserver(
-        (entries, observerInstance) => {
-
-            entries.forEach((entry) => {
-
-                if (!entry.isIntersecting) {
-                    return;
-                }
-
-                animateCounter(entry.target);
-
-                observerInstance.unobserve(
-                    entry.target
-                );
-
-            });
-
-        },
-        {
-            threshold: 0.5
-        }
-    );
-
-
-    counters.forEach((counter) => {
-        observer.observe(counter);
-    });
-
-}
-
-
-/* =============================================================
-   FAQ
-============================================================= */
-
-function initFAQ() {
-
-    const faqItems = document.querySelectorAll(
-        ".faq-item"
-    );
-
-    if (!faqItems.length) {
-        return;
-    }
-
-    faqItems.forEach((item) => {
-
-        const button =
-            item.querySelector(".faq-question");
-
-        if (!button) {
-            return;
-        }
-
-
-        button.addEventListener("click", () => {
-
-            const wasActive =
-                item.classList.contains("active");
-
-
-            faqItems.forEach((otherItem) => {
-
-                otherItem.classList.remove(
-                    "active"
-                );
-
-            });
-
-
-            if (!wasActive) {
-                item.classList.add("active");
-            }
-
-        });
-
-    });
-
-}
-
-
-/* =============================================================
-   MEMBERSHIP FORM
-============================================================= */
-
-function initMembershipForm() {
-
-    const form =
-        document.getElementById(
-            "membershipForm"
+        window.addEventListener(
+            "scroll",
+            update,
+            { passive: true }
         );
 
-    const success =
-        document.getElementById(
-            "formSuccess"
-        );
-
-    if (!form) {
-        return;
-    }
+    },
 
 
-    const fields = {
-        fullName:
-            document.getElementById("fullName"),
+    /* =====================================================
+       SCROLL REVEAL
+    ====================================================== */
 
-        email:
-            document.getElementById("email"),
+    scrollReveal() {
 
-        phone:
-            document.getElementById("phone"),
-
-        interest:
-            document.getElementById("interest"),
-
-        consent:
-            document.getElementById("consent")
-    };
-
-
-    const setError = (
-        field,
-        message
-    ) => {
-
-        if (!field) {
-            return;
-        }
-
-        const group =
-            field.closest(".form-group");
-
-        if (group) {
-            group.classList.add("invalid");
-
-            const error =
-                group.querySelector(
-                    ".error-message"
-                );
-
-            if (error) {
-                error.textContent = message;
-            }
-        }
-
-    };
-
-
-    const clearError = (field) => {
-
-        if (!field) {
-            return;
-        }
-
-        const group =
-            field.closest(".form-group");
-
-        if (group) {
-
-            group.classList.remove(
-                "invalid"
-            );
-
-            const error =
-                group.querySelector(
-                    ".error-message"
-                );
-
-            if (error) {
-                error.textContent = "";
-            }
-
-        }
-
-    };
-
-
-    Object.values(fields).forEach((field) => {
-
-        if (!field) {
-            return;
-        }
-
-        field.addEventListener("input", () => {
-            clearError(field);
-        });
-
-        field.addEventListener("change", () => {
-            clearError(field);
-        });
-
-    });
-
-
-    form.addEventListener("submit", (event) => {
-
-        event.preventDefault();
-
-
-        let valid = true;
-
-
-        if (
-            !fields.fullName ||
-            fields.fullName.value.trim().length < 2
-        ) {
-
-            setError(
-                fields.fullName,
-                "Please enter your full name."
-            );
-
-            valid = false;
-
-        }
-
-
-        if (
-            !fields.email ||
-            !isValidEmail(
-                fields.email.value.trim()
-            )
-        ) {
-
-            setError(
-                fields.email,
-                "Please enter a valid email."
-            );
-
-            valid = false;
-
-        }
-
-
-        if (
-            !fields.phone ||
-            fields.phone.value
-                .replace(/\D/g, "")
-                .length < 8
-        ) {
-
-            setError(
-                fields.phone,
-                "Please enter a valid phone number."
-            );
-
-            valid = false;
-
-        }
-
-
-        if (
-            !fields.interest ||
-            !fields.interest.value
-        ) {
-
-            setError(
-                fields.interest,
-                "Please select an area of interest."
-            );
-
-            valid = false;
-
-        }
-
-
-        if (
-            !fields.consent ||
-            !fields.consent.checked
-        ) {
-
-            valid = false;
-
-            if (fields.consent) {
-                fields.consent.focus();
-            }
-
-        }
-
-
-        if (!valid) {
+        if (!this.revealElements.length) {
             return;
         }
 
 
         /*
-         * FRONT-END DEMO SUCCESS
-         *
-         * This validates the application locally.
-         * A real database/email service can be connected later.
+         * Accessibility:
+         * If the user prefers reduced motion,
+         * show everything immediately.
          */
 
-        if (success) {
+        const reducedMotion =
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches;
 
-            success.classList.add("show");
 
-            success.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest"
-            });
+        if (reducedMotion) {
 
+            this.revealElements.forEach(
+                element => {
+
+                    element.classList.add(
+                        "visible"
+                    );
+
+                }
+            );
+
+            return;
         }
 
 
-        form.reset();
+        const observer =
+            new IntersectionObserver(
+                entries => {
 
-        setTimeout(() => {
+                    entries.forEach(entry => {
 
-            if (success) {
-                success.classList.remove(
-                    "show"
-                );
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+
+                        entry.target.classList.add(
+                            "visible"
+                        );
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    });
+
+                },
+                {
+                    threshold: 0.08,
+                    rootMargin:
+                        "0px 0px -50px 0px"
+                }
+            );
+
+
+        this.revealElements.forEach(
+            element => {
+
+                observer.observe(element);
+
+            }
+        );
+
+    },
+
+
+    /* =====================================================
+       COUNTERS
+    ====================================================== */
+
+    counters() {
+
+        if (!this.countersElements.length) {
+            return;
+        }
+
+
+        const animate = element => {
+
+            const target =
+                Number(element.dataset.target);
+
+
+            if (
+                !Number.isFinite(target) ||
+                target < 0
+            ) {
+                return;
             }
 
-        }, 6000);
 
-    });
+            const duration = 1500;
 
-}
-
-
-/* =============================================================
-   EMAIL VALIDATION
-============================================================= */
-
-function isValidEmail(email) {
-
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
-        email
-    );
-
-}
+            const start =
+                performance.now();
 
 
-/* =============================================================
-   BACK TO TOP
-============================================================= */
+            const update = now => {
 
-function initBackToTop() {
-
-    const backTop =
-        document.getElementById("backTop");
-
-    if (!backTop) {
-        return;
-    }
+                const progress =
+                    Math.min(
+                        (now - start) /
+                        duration,
+                        1
+                    );
 
 
-    const updateButton = () => {
+                /*
+                 * Smooth easing
+                 */
 
-        if (window.scrollY > 600) {
-            backTop.classList.add("show");
-        } else {
-            backTop.classList.remove("show");
+                const eased =
+                    1 -
+                    Math.pow(
+                        1 - progress,
+                        3
+                    );
+
+
+                const value =
+                    Math.floor(
+                        target * eased
+                    );
+
+
+                element.textContent =
+                    value.toLocaleString();
+
+
+                if (progress < 1) {
+
+                    requestAnimationFrame(
+                        update
+                    );
+
+                } else {
+
+                    element.textContent =
+                        target.toLocaleString();
+
+                }
+
+            };
+
+
+            requestAnimationFrame(update);
+
+        };
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (!entry.isIntersecting) {
+                            return;
+                        }
+
+
+                        animate(entry.target);
+
+
+                        observer.unobserve(
+                            entry.target
+                        );
+
+                    });
+
+                },
+                {
+                    threshold: 0.5
+                }
+            );
+
+
+        this.countersElements.forEach(
+            counter => {
+
+                observer.observe(counter);
+
+            }
+        );
+
+    },
+
+
+    /* =====================================================
+       FAQ
+    ====================================================== */
+
+    faq() {
+
+        const items =
+            document.querySelectorAll(
+                ".faq-item"
+            );
+
+
+        if (!items.length) {
+            return;
         }
 
-    };
+
+        items.forEach(item => {
+
+            const button =
+                item.querySelector(
+                    ".faq-question"
+                );
 
 
-    window.addEventListener(
-        "scroll",
-        updateButton,
-        { passive: true }
-    );
+            if (!button) {
+                return;
+            }
 
 
-    backTop.addEventListener("click", () => {
+            button.addEventListener(
+                "click",
+                () => {
 
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
+                    const alreadyOpen =
+                        item.classList.contains(
+                            "active"
+                        );
+
+
+                    /*
+                     * Close all FAQ items
+                     */
+
+                    items.forEach(
+                        other => {
+
+                            other.classList.remove(
+                                "active"
+                            );
+
+                        }
+                    );
+
+
+                    /*
+                     * Open selected item
+                     */
+
+                    if (!alreadyOpen) {
+
+                        item.classList.add(
+                            "active"
+                        );
+
+                    }
+
+                }
+            );
+
         });
 
-    });
+    },
 
 
-    updateButton();
+    /* =====================================================
+       MEMBERSHIP FORM
+    ====================================================== */
 
-}
+    membershipForm() {
 
-
-/* =============================================================
-   CUSTOM CURSOR
-============================================================= */
-
-function initCursor() {
-
-    const dot =
-        document.getElementById("cursorDot");
-
-    const ring =
-        document.getElementById("cursorRing");
-
-    if (!dot || !ring) {
-        return;
-    }
+        if (!this.form) {
+            return;
+        }
 
 
-    const finePointer =
-        window.matchMedia(
-            "(pointer: fine)"
-        ).matches;
+        const name =
+            document.getElementById(
+                "fullName"
+            );
+
+        const email =
+            document.getElementById(
+                "email"
+            );
+
+        const phone =
+            document.getElementById(
+                "phone"
+            );
+
+        const interest =
+            document.getElementById(
+                "interest"
+            );
+
+        const message =
+            document.getElementById(
+                "message"
+            );
+
+        const consent =
+            document.getElementById(
+                "consent"
+            );
 
 
-    if (!finePointer) {
-        return;
-    }
+        const clearErrors = () => {
+
+            this.form
+                .querySelectorAll(
+                    ".form-group.invalid"
+                )
+                .forEach(group => {
+
+                    group.classList.remove(
+                        "invalid"
+                    );
+
+                });
 
 
-    let mouseX = -100;
-    let mouseY = -100;
+            this.form
+                .querySelectorAll(
+                    ".error-message"
+                )
+                .forEach(error => {
 
-    let ringX = -100;
-    let ringY = -100;
+                    error.textContent = "";
+
+                });
+
+        };
 
 
-    document.addEventListener(
-        "mousemove",
-        (event) => {
+        const error = (
+            field,
+            text
+        ) => {
 
-            mouseX = event.clientX;
-            mouseY = event.clientY;
+            if (!field) {
+                return;
+            }
 
-            dot.style.transform =
-                `translate(${mouseX}px, ${mouseY}px)`;
+
+            const group =
+                field.closest(
+                    ".form-group"
+                );
+
+
+            if (!group) {
+                return;
+            }
+
+
+            group.classList.add(
+                "invalid"
+            );
+
+
+            const messageElement =
+                group.querySelector(
+                    ".error-message"
+                );
+
+
+            if (messageElement) {
+
+                messageElement.textContent =
+                    text;
+
+            }
+
+        };
+
+
+        this.form.addEventListener(
+            "submit",
+            event => {
+
+                event.preventDefault();
+
+                clearErrors();
+
+
+                let valid = true;
+
+
+                /* NAME */
+
+                if (
+                    !name ||
+                    name.value.trim().length < 2
+                ) {
+
+                    error(
+                        name,
+                        "Please enter your full name."
+                    );
+
+                    valid = false;
+
+                }
+
+
+                /* EMAIL */
+
+                if (
+                    !email ||
+                    !this.validEmail(
+                        email.value.trim()
+                    )
+                ) {
+
+                    error(
+                        email,
+                        "Please enter a valid email."
+                    );
+
+                    valid = false;
+
+                }
+
+
+                /* PHONE */
+
+                const phoneDigits =
+                    phone
+                        ? phone.value.replace(
+                            /\D/g,
+                            ""
+                        )
+                        : "";
+
+
+                if (
+                    phoneDigits.length < 8
+                ) {
+
+                    error(
+                        phone,
+                        "Please enter a valid phone number."
+                    );
+
+                    valid = false;
+
+                }
+
+
+                /* INTEREST */
+
+                if (
+                    !interest ||
+                    !interest.value
+                ) {
+
+                    error(
+                        interest,
+                        "Please select an area."
+                    );
+
+                    valid = false;
+
+                }
+
+
+                /* CONSENT */
+
+                if (
+                    !consent ||
+                    !consent.checked
+                ) {
+
+                    valid = false;
+
+                    if (consent) {
+                        consent.focus();
+                    }
+
+                }
+
+
+                if (!valid) {
+
+                    const firstInvalid =
+                        this.form.querySelector(
+                            ".invalid input, .invalid select"
+                        );
+
+
+                    if (firstInvalid) {
+
+                        firstInvalid.focus();
+
+                    }
+
+                    return;
+
+                }
+
+
+                /*
+                 * Collect application data.
+                 *
+                 * This is ready for connecting to a
+                 * backend / Formspree / Google Apps Script
+                 * later.
+                 */
+
+                const application = {
+
+                    name:
+                        name.value.trim(),
+
+                    email:
+                        email.value.trim(),
+
+                    phone:
+                        phone.value.trim(),
+
+                    interest:
+                        interest.value,
+
+                    message:
+                        message
+                            ? message.value.trim()
+                            : "",
+
+                    submittedAt:
+                        new Date().toISOString()
+
+                };
+
+
+                console.log(
+                    "Antique Association Membership:",
+                    application
+                );
+
+
+                /*
+                 * Show success message
+                 */
+
+                if (this.success) {
+
+                    this.success.classList.add(
+                        "show"
+                    );
+
+                }
+
+
+                this.form.reset();
+
+
+                /*
+                 * Automatically hide success
+                 * after a few seconds.
+                 */
+
+                setTimeout(() => {
+
+                    if (this.success) {
+
+                        this.success.classList.remove(
+                            "show"
+                        );
+
+                    }
+
+                }, 6000);
+
+            }
+        );
+
+    },
+
+
+    /* =====================================================
+       EMAIL VALIDATOR
+    ====================================================== */
+
+    validEmail(email) {
+
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+            email
+        );
+
+    },
+
+
+    /* =====================================================
+       BACK TO TOP
+    ====================================================== */
+
+    backToTop() {
+
+        if (!this.backTop) {
+            return;
+        }
+
+
+        const update = () => {
+
+            this.backTop.classList.toggle(
+                "show",
+                window.scrollY > 600
+            );
+
+        };
+
+
+        window.addEventListener(
+            "scroll",
+            update,
+            { passive: true }
+        );
+
+
+        this.backTop.addEventListener(
+            "click",
+            () => {
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: "smooth"
+                });
+
+            }
+        );
+
+
+        update();
+
+    },
+
+
+    /* =====================================================
+       CUSTOM CURSOR
+    ====================================================== */
+
+    cursor() {
+
+        const dot =
+            document.getElementById(
+                "cursorDot"
+            );
+
+        const ring =
+            document.getElementById(
+                "cursorRing"
+            );
+
+
+        if (!dot || !ring) {
+            return;
+        }
+
+
+        /*
+         * Disable custom cursor on touch devices.
+         */
+
+        if (
+            !window.matchMedia(
+                "(pointer: fine)"
+            ).matches
+        ) {
+
+            dot.style.display = "none";
+            ring.style.display = "none";
+
+            return;
 
         }
+
+
+        let x = 0;
+        let y = 0;
+
+        let ringX = 0;
+        let ringY = 0;
+
+
+        document.addEventListener(
+            "mousemove",
+            event => {
+
+                x = event.clientX;
+                y = event.clientY;
+
+
+                dot.style.transform =
+                    `translate(${x}px, ${y}px)`;
+
+            }
+        );
+
+
+        const animate = () => {
+
+            ringX +=
+                (x - ringX) * 0.15;
+
+            ringY +=
+                (y - ringY) * 0.15;
+
+
+            ring.style.left =
+                `${ringX}px`;
+
+            ring.style.top =
+                `${ringY}px`;
+
+
+            requestAnimationFrame(
+                animate
+            );
+
+        };
+
+
+        animate();
+
+
+        document
+            .querySelectorAll(
+                "a, button, input, textarea, select"
+            )
+            .forEach(element => {
+
+                element.addEventListener(
+                    "mouseenter",
+                    () => {
+
+                        ring.classList.add(
+                            "hover"
+                        );
+
+                    }
+                );
+
+
+                element.addEventListener(
+                    "mouseleave",
+                    () => {
+
+                        ring.classList.remove(
+                            "hover"
+                        );
+
+                    }
+                );
+
+            });
+
+    },
+
+
+    /* =====================================================
+       PARALLAX
+    ====================================================== */
+
+    parallax() {
+
+        const emblem =
+            document.querySelector(
+                ".hero-emblem"
+            );
+
+
+        if (!emblem) {
+            return;
+        }
+
+
+        /*
+         * Disable on mobile and reduced motion.
+         */
+
+        if (
+            window.innerWidth <= 800 ||
+            window.matchMedia(
+                "(prefers-reduced-motion: reduce)"
+            ).matches
+        ) {
+
+            return;
+
+        }
+
+
+        let ticking = false;
+
+
+        window.addEventListener(
+            "scroll",
+            () => {
+
+                if (ticking) {
+                    return;
+                }
+
+
+                ticking = true;
+
+
+                requestAnimationFrame(
+                    () => {
+
+                        const offset =
+                            window.scrollY * 0.08;
+
+
+                        if (offset < 100) {
+
+                            emblem.style.transform =
+                                `translateY(${offset}px)`;
+
+                        }
+
+
+                        ticking = false;
+
+                    }
+                );
+
+            },
+            { passive: true }
+        );
+
+    },
+
+
+    /* =====================================================
+       SMOOTH SCROLL
+    ====================================================== */
+
+    smoothScroll() {
+
+        document
+            .querySelectorAll(
+                'a[href^="#"]'
+            )
+            .forEach(link => {
+
+                link.addEventListener(
+                    "click",
+                    event => {
+
+                        const targetId =
+                            link.getAttribute(
+                                "href"
+                            );
+
+
+                        if (
+                            !targetId ||
+                            targetId === "#"
+                        ) {
+
+                            return;
+
+                        }
+
+
+                        const target =
+                            document.querySelector(
+                                targetId
+                            );
+
+
+                        if (!target) {
+                            return;
+                        }
+
+
+                        event.preventDefault();
+
+
+                        const header =
+                            this.headerElement
+                                ? this.headerElement
+                                    .offsetHeight
+                                : 0;
+
+
+                        const position =
+                            target.offsetTop -
+                            header;
+
+
+                        window.scrollTo({
+                            top: position,
+                            behavior: "smooth"
+                        });
+
+                    }
+                );
+
+            });
+
+    }
+
+};
+
+
+/* =========================================================
+   START APPLICATION
+========================================================= */
+
+if (
+    document.readyState === "loading"
+) {
+
+    document.addEventListener(
+        "DOMContentLoaded",
+        () => AntiqueApp.init(),
+        { once: true }
     );
 
+} else {
 
-    const animateRing = () => {
-
-        ringX += (mouseX - ringX) * 0.16;
-        ringY += (mouseY - ringY) * 0.16;
-
-        ring.style.left = `${ringX}px`;
-        ring.style.top = `${ringY}px`;
-
-        requestAnimationFrame(
-            animateRing
-        );
-
-    };
-
-
-    animateRing();
-
-
-    const interactiveElements =
-        document.querySelectorAll(
-            "a, button, input, textarea, select"
-        );
-
-
-    interactiveElements.forEach((element) => {
-
-        element.addEventListener(
-            "mouseenter",
-            () => {
-                ring.classList.add("hover");
-            }
-        );
-
-        element.addEventListener(
-            "mouseleave",
-            () => {
-                ring.classList.remove("hover");
-            }
-        );
-
-    });
+    AntiqueApp.init();
 
 }
