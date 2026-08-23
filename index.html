@@ -3,419 +3,506 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Antique Janta Party | Obtt </title>
-<style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Poppins',sans-serif;background:#fff;color:#222;overflow-x:hidden}
-:root{--gold:#d4af37;--gold2:#b8860b;--glass:rgba(255,255,255,.75);--discord:#5865F2;--discord-dark:#4752C4}
 
-#particles{position:fixed;inset:0;z-index:-1}
+<title>Antique Association | Serve • Connect • Impact</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f3ee;
+    color:#222;
+    overflow-x:hidden;
+}
+
+:root{
+    --gold:#d4af37;
+    --gold2:#a67c00;
+    --dark:#171717;
+    --dark2:#252525;
+    --cream:#f8f5ed;
+    --glass:rgba(255,255,255,.78);
+    --green:#176b45;
+    --green2:#0b4930;
+}
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+#particles{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+    pointer-events:none;
+}
+
+
+/* =========================
+   HEADER
+========================= */
 
 header{
-position:fixed;
-top:0;
-left:0;
-width:100%;
-background:rgba(255,255,255,.92);
-backdrop-filter:blur(16px);
-border-bottom:1px solid rgba(212,175,55,.35);
-z-index:1000;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid rgba(212,175,55,.35);
+    z-index:1000;
 }
 
 nav{
-max-width:1280px;
-margin:auto;
-padding:14px 32px;
-display:flex;
-justify-content:space-between;
-align-items:center;
+    max-width:1280px;
+    margin:auto;
+    padding:14px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
+
+/* LOGO */
+
 .logo{
-display:flex;
-align-items:center;
-gap:16px;
-text-decoration:none;
-font-weight:800;
-font-size:1.55rem;
-color:var(--gold2);
+    display:flex;
+    align-items:center;
+    gap:14px;
+    text-decoration:none;
+    font-weight:800;
+    font-size:1.45rem;
+    color:var(--gold2);
+    letter-spacing:.8px;
 }
 
 .logo img{
-width:52px;
-height:52px;
-border-radius:50%;
-object-fit:cover;
-box-shadow:0 0 10px rgba(0,0,0,.15);
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    object-fit:cover;
+    box-shadow:0 5px 18px rgba(0,0,0,.15);
 }
 
 .logo span{
-color:var(--gold2);
-letter-spacing:.8px;
+    color:var(--gold2);
 }
 
+
+/* NAVIGATION */
+
 .links{
-display:flex;
-align-items:center;
-gap:35px;
+    display:flex;
+    align-items:center;
+    gap:32px;
 }
 
 .links a{
-text-decoration:none;
-color:#333;
-font-weight:700;
-font-size:1.08rem;
-position:relative;
-transition:.3s;
+    text-decoration:none;
+    color:#333;
+    font-weight:700;
+    font-size:1rem;
+    position:relative;
+    transition:.3s;
 }
 
 .links a:hover{
-color:var(--gold2);
+    color:var(--gold2);
 }
 
 .links a::after{
-content:"";
-position:absolute;
-left:0;
-bottom:-6px;
-width:0;
-height:2px;
-background:var(--gold2);
-transition:.3s;
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-7px;
+    width:0;
+    height:2px;
+    background:var(--gold2);
+    transition:.3s;
 }
 
 .links a:hover::after{
-width:100%;
+    width:100%;
 }
 
-@media(max-width:768px){
 
-nav{
-flex-direction:column;
-gap:16px;
-padding:15px;
-}
-
-.logo{
-font-size:1.3rem;
-}
-
-.logo img{
-width:45px;
-height:45px;
-}
-
-.links{
-gap:18px;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-}
+/* =========================
+   HERO
+========================= */
 
 .hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-position:relative;
-overflow:hidden;
-}
-.hero::before{
-content:'';
-position:absolute;inset:0;
-background:
-linear-gradient(rgba(255,255,255,.85),rgba(255,255,255,.90)),
-url('logo.png') center/55% no-repeat;
-animation:floatLogo 15s ease-in-out infinite;
-}
-@keyframes floatLogo{
-50%{transform:scale(1.05)}
-}
-.hero-content{position:relative;z-index:2;max-width:900px;padding:20px}
-.hero h1{font-size:5rem;color:var(--gold2);letter-spacing:2px}
-.tag{font-size:1.3rem;color:var(--gold2);font-weight:700;margin:10px 0}
-
-/* Button Container & Animations */
-.btn-group{
-display:flex;
-gap:15px;
-justify-content:center;
-margin-top:25px;
-flex-wrap:wrap;
-}
-.btn{
-display:inline-flex;
-align-items:center;
-gap:10px;
-padding:15px 30px;
-border-radius:50px;
-background:linear-gradient(45deg,var(--gold),var(--gold2));
-color:white;text-decoration:none;
-font-weight:600;
-box-shadow:0 10px 25px rgba(212,175,55,.4);
-transition:all .3s ease;
-}
-.btn:hover{
-transform:translateY(-3px);
-box-shadow:0 15px 30px rgba(212,175,55,.6);
-}
-.btn-discord{
-background:linear-gradient(45deg,var(--discord),var(--discord-dark));
-box-shadow:0 10px 25px rgba(88,101,242,.4);
-animation:pulseDiscord 2s infinite;
-}
-.btn-discord:hover{
-box-shadow:0 15px 30px rgba(88,101,242,.7);
-}
-.btn-discord svg{
-width:20px;height:20px;fill:currentColor;
-transition:transform .3s ease;
-}
-.btn-discord:hover svg{
-transform:rotate(10deg) scale(1.1);
-}
-
-@keyframes pulseDiscord{
-0%{box-shadow:0 0 0 0 rgba(88,101,242,0.5)}
-70%{box-shadow:0 0 0 15px rgba(88,101,242,0)}
-100%{box-shadow:0 0 0 0 rgba(88,101,242,0)}
-}
-
-section{padding:100px 20px}
-.container{max-width:1200px;margin:auto}
-.title{text-align:center;font-size:2.7rem;color:var(--gold2);margin-bottom:40px}
-
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-.card{
-background:var(--glass);
-backdrop-filter:blur(12px);
-border:1px solid rgba(212,175,55,.4);
-padding:25px;
-border-radius:20px;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-transition:.4s;
-}
-.card:hover{transform:translateY(-10px)}
-.card h3{
-    color:#d8b55b;
-    text-shadow:
-        0 2px 12px rgba(0,0,0,.45);
-    letter-spacing:1px;
-}
-/* ===== PRESIDENT ===== */
-.president{
-background:linear-gradient(
-135deg,
-#5c0b0b 0%,
-#7d1414 50%,
-#3a0505 100%
-);
-color:#fff;
-}
-
-/* ===== EXECUTIVE DIRECTOR ===== */
-.vice-president{
-background:linear-gradient(
-135deg,
-#2a2a2a 0%,
-#454545 50%,
-#1a1a1a 100%
-);
-color:#fff;
-}
-
-/* ===== DEPUTY CHAIRPERSON ===== */
-.secretary{
-background:linear-gradient(
-135deg,
-#6b4d00 0%,
-#8f6900 50%,
-#4a3400 100%
-);
-color:#fff;
-}
-
-/* ===== SECRETARY-GENERAL ===== */
-.media-head{
-background:linear-gradient(
-135deg,
-#0b2d6d 0%,
-#1849a9 50%,
-#071b40 100%
-);
-color:#fff;
-}
-
-/* ===== MEDIA DIRECTOR ===== */
-.advisor{
-background:linear-gradient(
-135deg,
-#4a0d5c 0%,
-#6c1f88 50%,
-#2a0635 100%
-);
-color:#fff;
-}
-
-/* ===== NEUTRALITY GUARDIAN ===== */
-.pr-head{
-background:linear-gradient(
-135deg,
-#0f4d3c 0%,
-#1f7a5f 50%,
-#08261d 100%
-);
-color:#fff;
-}
-
-/* ===== SESSION SCRIBE ===== */
-.research-head{
-background:linear-gradient(
-135deg,
-#0b3b4f 0%,
-#13607f 50%,
-#051c26 100%
-);
-color:#fff;
-}
-
-/* ===== CHIEF ADMIN ===== */
-.community-head{
-background:linear-gradient(
-135deg,
-#6b3d00 0%,
-#9c5b00 50%,
-#4a2800 100%
-);
-color:#fff;
-}
-  .president,
-.vice-president,
-.secretary,
-.media-head,
-.advisor,
-.pr-head,
-.research-head,
-.community-head{
-    border:none;
-    border-radius:30px;
-    box-shadow:0 15px 40px rgba(0,0,0,.18);
-    transition:all .55s cubic-bezier(.22,1,.36,1);
-    overflow:hidden;
-    position:relative;
-}
-
-.president:hover,
-.vice-president:hover,
-.secretary:hover,
-.media-head:hover,
-.advisor:hover,
-.pr-head:hover,
-.research-head:hover,
-.community-head:hover{
-    transform:translateY(-14px) scale(1.04);
-    filter:brightness(1.07);
-    box-shadow:
-        0 30px 70px rgba(0,0,0,.28);
-}
-  body{
-background:
-radial-gradient(
-circle at top,
-#fffdf7,
-#f8f5ee 40%,
-#f1ece1 100%
-);
-}
-/* Custom Discord Style Card Contact Section */
-.card.discord-card:hover{
-border-color:var(--discord);
-box-shadow:0 15px 35px rgba(88,101,242,.2);
-}
-.card.discord-card h3{
-color:var(--discord);
-}
-.card.discord-card a{
-color:#222;text-decoration:none;font-weight:bold;display:block;margin-top:5px;
-}
-.card.discord-card a:hover{
-color:var(--discord);
-}
-.constitution-btn-section{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
-    padding:30px 20px 60px;
+    position:relative;
+    overflow:hidden;
+    padding:120px 20px 80px;
 }
 
-.constitution-btn{
-    display:inline-block;
-    padding:18px 40px;
-    font-size:1.1rem;
+.hero::before{
+    content:'';
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            rgba(255,255,255,.86),
+            rgba(248,245,237,.94)
+        ),
+        url('logo.png') center/55% no-repeat;
+
+    animation:floatLogo 15s ease-in-out infinite;
+}
+
+@keyframes floatLogo{
+
+    50%{
+        transform:scale(1.05);
+    }
+
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:950px;
+    padding:20px;
+}
+
+.hero h1{
+    font-size:5rem;
+    color:var(--gold2);
+    letter-spacing:3px;
+    font-weight:900;
+    line-height:1.05;
+    text-shadow:0 5px 20px rgba(0,0,0,.08);
+}
+
+.tag{
+    font-size:1.3rem;
+    color:var(--green);
     font-weight:700;
-    text-decoration:none;
-    color:#fff;
-    background:linear-gradient(45deg,var(--gold),var(--gold2));
-    border-radius:50px;
-    box-shadow:0 12px 30px rgba(212,175,55,.35);
-    transition:.35s ease;
+    margin:13px 0;
+    letter-spacing:.5px;
 }
 
-.constitution-btn:hover{
-    transform:translateY(-5px) scale(1.03);
-    box-shadow:0 18px 45px rgba(212,175,55,.45);
+.hero p{
+    max-width:800px;
+    margin:20px auto;
+    font-size:1.08rem;
+    line-height:1.8;
+    color:#444;
 }
+
+
+/* =========================
+   BUTTONS
+========================= */
+
+.btn-group{
+    display:flex;
+    gap:15px;
+    justify-content:center;
+    margin-top:30px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+
+    padding:15px 30px;
+    border-radius:50px;
+
+    background:linear-gradient(
+        45deg,
+        var(--gold),
+        var(--gold2)
+    );
+
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+
+    box-shadow:
+        0 10px 25px rgba(166,124,0,.3);
+
+    transition:.3s ease;
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:
+        0 15px 35px rgba(166,124,0,.45);
+}
+
+
+/* SECONDARY BUTTON */
+
+.btn-secondary{
+    background:linear-gradient(
+        45deg,
+        var(--green),
+        var(--green2)
+    );
+
+    box-shadow:
+        0 10px 25px rgba(23,107,69,.3);
+}
+
+.btn-secondary:hover{
+    box-shadow:
+        0 15px 35px rgba(23,107,69,.45);
+}
+
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section{
+    padding:100px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    font-size:2.7rem;
+    color:var(--gold2);
+    margin-bottom:45px;
+    font-weight:800;
+}
+
+
+/* =========================
+   GLASS CARDS
+========================= */
+
+.grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+}
+
+.card{
+    background:var(--glass);
+    backdrop-filter:blur(14px);
+
+    border:1px solid rgba(212,175,55,.35);
+
+    padding:30px;
+    border-radius:22px;
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.08);
+
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.13);
+}
+
+.card h3{
+    color:var(--gold2);
+    margin-bottom:10px;
+    letter-spacing:.7px;
+}
+
+.card p{
+    line-height:1.7;
+    color:#555;
+}
+
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-card{
+    max-width:950px;
+    margin:auto;
+    text-align:center;
+    font-size:1.05rem;
+    line-height:1.9;
+}
+
+
+/* =========================
+   MISSION / VISION
+========================= */
+
+.mission-grid{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(300px,1fr));
+
+    gap:25px;
+}
+
+.mission-card{
+    padding:35px;
+    border-radius:25px;
+    color:white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5c0b0b,
+            #7d1414,
+            #3a0505
+        );
+
+    box-shadow:
+        0 20px 45px rgba(0,0,0,.18);
+
+    transition:.45s;
+}
+
+.mission-card:nth-child(2){
+    background:
+        linear-gradient(
+            135deg,
+            #0f4d3c,
+            #1f7a5f,
+            #08261d
+        );
+}
+
+.mission-card:hover{
+    transform:translateY(-10px) scale(1.02);
+}
+
+.mission-card h3{
+    color:#fff;
+    font-size:1.5rem;
+    margin-bottom:15px;
+}
+
+.mission-card p{
+    color:rgba(255,255,255,.9);
+    line-height:1.8;
+}
+
+
+/* =========================
+   PRINCIPLES
+========================= */
 
 .stats{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:20px;
-text-align:center;
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit,minmax(200px,1fr));
+
+    gap:20px;
+    text-align:center;
 }
+
 .stat{
-padding:30px;
-border-radius:20px;
-background:linear-gradient(135deg,#fff,#faf4db);
-}
-.num{font-size:3rem;font-weight:800;color:var(--gold2)}
+    padding:30px;
+    border-radius:20px;
 
-.timeline{
-max-width:900px;
-margin:auto;
-}
-.event{
-margin:25px 0;
-padding:20px;
-border-left:4px solid var(--gold);
-background:#faf8f0;
-}
+    background:
+        linear-gradient(
+            135deg,
+            #fff,
+            #faf4db
+        );
 
-.faq details{
-margin:15px 0;
-padding:15px;
-border-radius:12px;
-background:#faf8f0;
+    border:1px solid rgba(212,175,55,.25);
+
+    box-shadow:
+        0 12px 30px rgba(0,0,0,.06);
+
+    transition:.3s;
 }
 
-footer{
-background:linear-gradient(45deg,var(--gold2),var(--gold));
-color:white;
-padding:50px;
-text-align:center;
+.stat:hover{
+    transform:translateY(-6px);
 }
 
-.reveal{opacity:0;transform:translateY(50px);transition:1s}
-.reveal.active{opacity:1;transform:none}
+.num{
+    font-size:2.5rem;
+    font-weight:900;
+    color:var(--gold2);
+    margin-bottom:5px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
 
 @media(max-width:768px){
-.hero h1{font-size:2.8rem}
-.hero::before{background-size:90%}
-nav{flex-direction:column}
-.btn-group{flex-direction:column;width:100%;max-width:300px;margin-inline:auto}
+
+    nav{
+        flex-direction:column;
+        gap:16px;
+        padding:15px;
+    }
+
+    .logo{
+        font-size:1.25rem;
+    }
+
+    .logo img{
+        width:45px;
+        height:45px;
+    }
+
+    .links{
+        gap:18px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        padding-top:170px;
+    }
+
+    .hero h1{
+        font-size:2.8rem;
+    }
+
+    .hero::before{
+        background-size:90%;
+    }
+
+    .btn-group{
+        flex-direction:column;
+        width:100%;
+        max-width:300px;
+        margin-inline:auto;
+    }
+
 }
+
 </style>
 </head>
+
 <body>
 
 <canvas id="particles"></canvas>
@@ -426,9 +513,9 @@ nav{flex-direction:column}
 
 <a href="#" class="logo">
 
-<img src="logo.png" alt="AJP Logo">
+<img src="logo.png" alt="Antique Association Logo">
 
-<span>ANTIQUE JANTA PARTY</span>
+<span>ANTIQUE ASSOCIATION</span>
 
 </a>
 
@@ -436,7 +523,8 @@ nav{flex-direction:column}
 
 <a href="#about">About</a>
 <a href="#leaders">Leadership</a>
-<a href="#manifesto">Manifesto</a>
+<a href="#service">Service</a>
+<a href="#membership">Membership</a>
 <a href="#faq">FAQ</a>
 
 </div>
@@ -444,175 +532,1349 @@ nav{flex-direction:column}
 </nav>
 
 </header>
-<section class="hero">
-<div class="hero-content">
-<h1>ANTIQUE JANTA PARTY</h1>
-<div class="tag">कलम हमारी • आवाज आपकी</div>
-<div class="tag">Think ANTIQUE, Build the Future.</div>
-<p>An independent Indian political discussion community built around constitutional values, respectful debate and informed citizenship.</p>
-<div class="btn-group">
-<a class="btn" href="#manifesto">Explore</a>
-<!-- Discord Button with Pulse Animation & Embedded SVG Icon -->
-<a class="btn btn-discord" href="https://discord.gg/GqdhVpkX8B" target="_blank" rel="noopener noreferrer">
-<svg viewBox="0 0 127.14 96.36">
-<path d="M107.7,8.07A105.15,105.15,0,0,0,77.26,0a77.19,77.19,0,0,0-3.3,6.83A96.67,96.67,0,0,0,53.22,6.83,77.19,77.19,0,0,0,49.88,0,105.15,105.15,0,0,0,19.44,8.07C3.66,31.58-1.86,54.65,1,77.53A105.73,105.73,0,0,0,32,96.36a74.37,74.37,0,0,0,6.71-11,68.6,68.6,0,0,1-10.57-5c.89-.65,1.75-1.34,2.58-2A75.31,75.31,0,0,0,96.4,78.3c.84.69,1.7,1.38,2.59,2a68.64,68.64,0,0,1-10.57,5,74.91,74.91,0,0,0,6.72,11,105.51,105.51,0,0,0,31-18.83C129.87,50.7,123.75,27.82,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53S36.18,40.36,42.45,40.36,53.94,46,53.72,53,48.72,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.24,60,73.24,53S78.41,40.36,84.69,40.36,96.17,46,96,53,91,65.69,84.69,65.69Z"/>
-</svg>
-Join Discord
-</a>
-</div>
-</div>
+<!-- =========================
+     HERO SECTION
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>ANTIQUE ASSOCIATION</h1>
+
+        <div class="tag">
+            Serve • Connect • Impact
+        </div>
+
+        <p>
+            A united association dedicated to bringing people together,
+            encouraging service, developing leadership and creating a
+            meaningful positive impact in society.
+        </p>
+
+        <div class="btn-group">
+
+            <a href="#membership" class="btn">
+                Become a Member
+            </a>
+
+            <a href="#about" class="btn btn-secondary">
+                Explore Association
+            </a>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section id="about" class="reveal">
-<div class="container">
-<h2 class="title">About Us</h2>
-<div class="card">
-Antique Janta Party is a political discussion community where ideas matter more than blind support. We welcome constitutional viewpoints, healthy disagreement and respectful dialogue.
-</div>
-</div>
-</section>
 
-<section class="reveal">
-<div class="container">
-<h2 class="title">Community Principles</h2>
-<div class="stats">
-<div class="stat"><div class="num">100%</div>Respect</div>
-<div class="stat"><div class="num">0%</div>Discrimination</div>
-<div class="stat"><div class="num">1</div>Constitution</div>
-</div>
-</div>
-</section>
+<!-- =========================
+     ABOUT SECTION
+========================= -->
 
-<section class="reveal constitution-btn-section">
+<section id="about">
+
     <div class="container">
-        <a href="constitution.html" class="constitution-btn">
-             Read the Constitution of AJP
-        </a>
+
+        <h2 class="title">
+            About Antique Association
+        </h2>
+
+        <div class="card about-card">
+
+            <p>
+                Antique Association is a community-driven organisation
+                built on the principles of service, fellowship,
+                leadership and responsibility. It brings together
+                individuals who believe that meaningful change begins
+                when people work together.
+            </p>
+
+            <br>
+
+            <p>
+                The Association provides a platform for members to
+                participate in social initiatives, community programmes,
+                leadership activities and projects designed to create
+                lasting positive impact.
+            </p>
+
+        </div>
+
     </div>
+
 </section>
 
-<section id="leaders" class="reveal">
-<div class="container">
-<h2 class="title">Leadership</h2>
 
-<div class="grid">
+<!-- =========================
+     MISSION & VISION
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="title">
+            Our Mission & Vision
+        </h2>
+
+        <div class="mission-grid">
+
+            <div class="mission-card">
+
+                <h3>
+                    Our Mission
+                </h3>
+
+                <p>
+                    To unite people through service, encourage
+                    responsible leadership and support initiatives
+                    that improve communities and strengthen society.
+                </p>
+
+            </div>
 
 
-    <div class="card president">
-        <h3>President</h3>
-        <b>Sikandar Kabir Ali</b><br>
-        The supreme leader of the organisation
+            <div class="mission-card">
+
+                <h3>
+                    Our Vision
+                </h3>
+
+                <p>
+                    To build a respected and united association where
+                    every member has the opportunity to serve,
+                    lead, contribute and make a meaningful difference.
+                </p>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="card vice-president">
-        <h3>Vice-President</h3>
-        <b>Avik Singh</b><br>
-        The Co-Founder of the party
-    </div>
-
-    <div class="card secretary">
-        <h3>Executive Director</h3>
-        <b>Election decides....</b><br>
-        Founding Member
-    </div>
-
-    <div class="card media-head">
-        <h3>Deputy Chairperson</h3>
-        <b>Sk Sarif</b><br>
-        Senior most leader
-    </div>
-
-
-    <div class="card advisor">
-        <h3>Secretary-General</h3>
-        <b>Rishav Kr. Agarwal</b>
-    </div>
-
-    <div class="card pr-head">
-        <h3>Chief Whip</h3>
-        <b>Hritik S Bhagat</b>
-    </div>
-
-    <div class="card research-head">
-        <h3>Media Head</h3>
-        <b>Ayush Singh</b>
-    </div>
-
-    <div class="card community-head">
-        <h3>Chief Admin</h3>
-        <b>Rohit Yadav, Ayush Das, Aashik Kr Shaw</b>
-    </div>
-
-</div>
-</div>
 </section>
 
-<section id="manifesto" class="reveal">
-<div class="container">
-<h2 class="title">Manifesto</h2>
-<div class="timeline">
-<div class="event">Respect for the Constitution of India.</div>
-<div class="event">No blind support for any political party or leader.</div>
-<div class="event">No discrimination based on religion, caste, language, gender or region.</div>
-<div class="event">Respect for all freedom fighters and democratic values.</div>
-<div class="event">Evidence-based discussions over propaganda.</div>
-<div class="event">All constitutional ideologies are welcome.</div>
-</div>
-</div>
+
+<!-- =========================
+     PRINCIPLES
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="title">
+            Our Core Principles
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>
+                    Service
+                </h3>
+
+                <p>
+                    We place community service and helping others
+                    at the heart of everything we do.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Fellowship
+                </h3>
+
+                <p>
+                    We create strong connections between members
+                    through cooperation, friendship and mutual respect.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Leadership
+                </h3>
+
+                <p>
+                    We encourage members to develop leadership,
+                    responsibility and decision-making skills.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Integrity
+                </h3>
+
+                <p>
+                    We believe that honesty, transparency and
+                    accountability must guide every action.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section id="faq" class="reveal">
-<div class="container">
-<h2 class="title">FAQ</h2>
-<div class="faq">
-<details><summary>Are you a political party?</summary><p>No. We are a political discussion community.</p></details>
-<details><summary>Do you support any party?</summary><p>No. We encourage independent thinking.</p></details>
-<details><summary>Who can join?</summary><p>Anyone willing to respect the Constitution and others.</p></details>
-</div>
-</div>
+
+<!-- =========================
+     ASSOCIATION AT A GLANCE
+========================= -->
+
+<section>
+
+    <div class="container">
+
+        <h2 class="title">
+            Association at a Glance
+        </h2>
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <div class="num">
+                    01
+                </div>
+
+                <p>
+                    Unified Association
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="num">
+                    08
+                </div>
+
+                <p>
+                    Executive Leadership Roles
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="num">
+                    04
+                </div>
+
+                <p>
+                    Core Principles
+                </p>
+
+            </div>
+
+
+            <div class="stat">
+
+                <div class="num">
+                    ∞
+                </div>
+
+                <p>
+                    Opportunities to Serve
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+     LEADERSHIP SECTION
+========================= -->
+
+<section id="leaders">
+
+    <div class="container">
+
+        <h2 class="title">
+            Association Leadership
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+                <h3>President</h3>
+                <p>
+                    Leads the Association and provides overall direction,
+                    coordination and representation.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Vice President</h3>
+                <p>
+                    Supports the President and assists in coordinating
+                    Association activities and programmes.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Secretary-General</h3>
+                <p>
+                    Manages official records, administration,
+                    communication and organisational coordination.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Parliamentary Leader</h3>
+                <p>
+                    Coordinates parliamentary affairs and represents
+                    the Association in formal deliberations.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Chief Whip</h3>
+                <p>
+                    Maintains coordination and discipline among
+                    Association representatives and members.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Chairperson of Policy & Strategy</h3>
+                <p>
+                    Leads policy development, strategic planning and
+                    long-term organisational initiatives.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Treasurer-General</h3>
+                <p>
+                    Oversees financial administration, budgeting and
+                    responsible management of Association funds.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>Secretary of Public Affairs & Outreach</h3>
+                <p>
+                    Manages public relations, outreach programmes and
+                    communication with the wider community.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
-<section class="reveal">
-<div class="container">
-<h2 class="title">Contact</h2>
-<div class="grid">
-<div class="card"><h3>Instagram</h3>@_antique_janta_party_</div>
-<div class="card discord-card">
-<h3>Discord Server</h3>
-<a href="https://discord.gg/GqdhVpkX8B" target="_blank" rel="noopener noreferrer">Click to Join Server</a>
-</div>
-<div class="card"><h3>Email</h3>antique.janta.party@gmail.com</div>
-</div>
-</div>
+
+<!-- =========================
+     SERVICE SECTION
+========================= -->
+
+<section id="service">
+
+    <div class="container">
+
+        <h2 class="title">
+            Service & Community Impact
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>
+                    Community Service
+                </h3>
+
+                <p>
+                    Organising initiatives that directly support local
+                    communities and people in need.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Education & Development
+                </h3>
+
+                <p>
+                    Supporting educational activities, awareness
+                    programmes and personal development.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Social Initiatives
+                </h3>
+
+                <p>
+                    Conducting programmes focused on creating positive
+                    social change and community participation.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Leadership Development
+                </h3>
+
+                <p>
+                    Giving members opportunities to develop leadership,
+                    teamwork and organisational skills.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
+
+
+<!-- =========================
+     MEMBERSHIP SECTION
+========================= -->
+
+<section id="membership">
+
+    <div class="container">
+
+        <h2 class="title">
+            Membership
+        </h2>
+
+        <div class="grid">
+
+            <div class="card">
+
+                <h3>
+                    Become a Member
+                </h3>
+
+                <p>
+                    Join Antique Association and become part of a
+                    community committed to service, fellowship,
+                    leadership and positive impact.
+                </p>
+
+                <div style="margin-top:20px;">
+
+                    <a href="#membership-form" class="btn">
+                        Apply for Membership
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Member Benefits
+                </h3>
+
+                <p>
+                    Members can participate in Association programmes,
+                    community initiatives, leadership activities,
+                    meetings and special events.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <h3>
+                    Member Responsibilities
+                </h3>
+
+                <p>
+                    Every member is expected to respect the Association,
+                    follow its principles and contribute positively
+                    to its activities.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMBERSHIP FORM
+========================= -->
+
+<section id="membership-form">
+
+    <div class="container">
+
+        <h2 class="title">
+            Membership Application
+        </h2>
+
+        <div class="card membership-form-card">
+
+            <form id="membershipForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="fullName">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="fullName"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="Enter your phone number"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="membershipType">
+                            Membership Type
+                        </label>
+
+                        <select
+                            id="membershipType"
+                            name="membershipType"
+                            required
+                        >
+
+                            <option value="">
+                                Select membership type
+                            </option>
+
+                            <option value="General Member">
+                                General Member
+                            </option>
+
+                            <option value="Volunteer Member">
+                                Volunteer Member
+                            </option>
+
+                            <option value="Youth Member">
+                                Youth Member
+                            </option>
+
+                            <option value="Associate Member">
+                                Associate Member
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="address">
+                            Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            placeholder="Enter your address"
+                            rows="4"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <div class="form-group full">
+
+                        <label for="reason">
+                            Why do you want to join?
+                        </label>
+
+                        <textarea
+                            id="reason"
+                            name="reason"
+                            placeholder="Tell us briefly about your interest in Antique Association"
+                            rows="5"
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-check">
+
+                    <input
+                        type="checkbox"
+                        id="agreement"
+                        required
+                    >
+
+                    <label for="agreement">
+                        I agree to follow the principles and rules
+                        of Antique Association.
+                    </label>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn form-submit"
+                >
+                    Submit Membership Application
+                </button>
+
+                <div
+                    id="formMessage"
+                    class="form-message"
+                ></div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- =========================
+     FAQ SECTION
+========================= -->
+
+<section id="faq">
+
+    <div class="container">
+
+        <h2 class="title">
+            Frequently Asked Questions
+        </h2>
+
+        <div class="faq-container">
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    What is Antique Association?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Antique Association is a community-driven
+                    organisation focused on service, fellowship,
+                    leadership and positive social impact.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    Who can become a member?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Anyone who supports the principles and objectives
+                    of Antique Association may apply for membership,
+                    subject to the Association's membership rules.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    What do members do?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Members can participate in community service,
+                    Association programmes, meetings, events and
+                    leadership activities.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    Is membership automatically approved?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    No. Membership applications are reviewed by the
+                    appropriate Association authority before approval.
+                </div>
+
+            </div>
+
+
+            <div class="faq-item">
+
+                <button class="faq-question">
+                    How can I contact the Association?
+                    <span>+</span>
+                </button>
+
+                <div class="faq-answer">
+                    Official contact information can be provided through
+                    the Association's designated communication channels.
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CALL TO ACTION
+========================= -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-card">
+
+            <h2>
+                Together, We Serve.
+            </h2>
+
+            <p>
+                Become part of Antique Association and contribute
+                towards a stronger, more connected community.
+            </p>
+
+            <a href="#membership-form" class="btn">
+                Join Antique Association
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
-<h2>ANTIQUE JANTA PARTY</h2>
-<p>कलम हमारी • आवाज आपकी</p>
-<p>Think ANTIQUE, Build the Future.</p>
-<p>© 2026 Antique Janta Party • Designed & Managed by Obtt • All Rights Reserved</p>
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <img
+                src="logo.png"
+                alt="Antique Association Logo"
+            >
+
+            <h3>
+                ANTIQUE ASSOCIATION
+            </h3>
+
+            <p>
+                Serve • Connect • Impact
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h4>
+                Quick Links
+            </h4>
+
+            <a href="#about">About</a>
+            <a href="#leaders">Leadership</a>
+            <a href="#service">Service</a>
+            <a href="#membership">Membership</a>
+            <a href="#faq">FAQ</a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <h4>
+                Association
+            </h4>
+
+            <a href="#home">Home</a>
+            <a href="#membership-form">Join Us</a>
+            <a href="#leaders">Our Leadership</a>
+            <a href="#service">Our Work</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            © 2026 Antique Association. All Rights Reserved.
+        </p>
+
+        <p>
+            Serve • Connect • Impact
+        </p>
+
+    </div>
+
 </footer>
 
+
+<!-- =========================
+     ADDITIONAL CSS
+========================= -->
+
+<style>
+
+/* =========================
+   FORM
+========================= */
+
+.membership-form-card{
+    max-width:1000px;
+    margin:auto;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:22px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+.form-group.full{
+    grid-column:1 / -1;
+}
+
+.form-group label{
+    font-weight:700;
+    color:#333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea{
+    width:100%;
+    padding:14px 16px;
+    border:1px solid rgba(166,124,0,.3);
+    border-radius:12px;
+    background:rgba(255,255,255,.9);
+    color:#222;
+    font-family:inherit;
+    font-size:.95rem;
+    outline:none;
+    transition:.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus{
+    border-color:var(--gold2);
+    box-shadow:0 0 0 3px rgba(212,175,55,.12);
+}
+
+.form-group textarea{
+    resize:vertical;
+}
+
+.form-check{
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    margin:25px 0;
+    color:#555;
+    line-height:1.5;
+}
+
+.form-check input{
+    margin-top:5px;
+    accent-color:var(--gold2);
+}
+
+.form-submit{
+    border:none;
+    cursor:pointer;
+    font-family:inherit;
+    font-size:1rem;
+}
+
+.form-message{
+    margin-top:18px;
+    text-align:center;
+    font-weight:700;
+}
+
+
+/* =========================
+   FAQ
+========================= */
+
+.faq-container{
+    max-width:900px;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.faq-item{
+    background:var(--glass);
+    border:1px solid rgba(212,175,55,.3);
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.faq-question{
+    width:100%;
+    border:none;
+    background:transparent;
+    padding:22px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    text-align:left;
+    font-family:inherit;
+    font-size:1rem;
+    font-weight:700;
+    color:#333;
+    cursor:pointer;
+}
+
+.faq-question span{
+    font-size:1.5rem;
+    color:var(--gold2);
+    transition:.3s;
+}
+
+.faq-item.active .faq-question span{
+    transform:rotate(45deg);
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    padding:0 25px;
+    color:#555;
+    line-height:1.7;
+    transition:.4s ease;
+}
+
+.faq-item.active .faq-answer{
+    max-height:200px;
+    padding:0 25px 22px;
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta-section{
+    padding-top:50px;
+    padding-bottom:100px;
+}
+
+.cta-card{
+    text-align:center;
+    padding:65px 30px;
+    border-radius:28px;
+    color:white;
+    background:
+        linear-gradient(
+            135deg,
+            #5c0b0b,
+            #7d1414,
+            #3a0505
+        );
+    box-shadow:0 25px 55px rgba(0,0,0,.18);
+}
+
+.cta-card h2{
+    font-size:2.6rem;
+    margin-bottom:15px;
+}
+
+.cta-card p{
+    max-width:650px;
+    margin:0 auto 28px;
+    color:rgba(255,255,255,.9);
+    line-height:1.8;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#171717;
+    color:white;
+    padding:65px 20px 0;
+}
+
+.footer-container{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+    padding-bottom:45px;
+}
+
+.footer-brand{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+}
+
+.footer-brand img{
+    width:65px;
+    height:65px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:15px;
+}
+
+.footer-brand h3{
+    color:var(--gold);
+    letter-spacing:1px;
+    margin-bottom:8px;
+}
+
+.footer-brand p{
+    color:#aaa;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.footer-links h4{
+    color:var(--gold);
+    margin-bottom:8px;
+}
+
+.footer-links a{
+    color:#bbb;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--gold);
+    transform:translateX(4px);
+}
+
+.footer-bottom{
+    max-width:1200px;
+    margin:auto;
+    padding:22px 0;
+    border-top:1px solid rgba(255,255,255,.1);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    color:#888;
+    font-size:.9rem;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .form-group.full{
+        grid-column:auto;
+    }
+
+    .cta-card h2{
+        font-size:2rem;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        text-align:center;
+    }
+
+}
+
+</style>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
 <script>
-const r=document.querySelectorAll('.reveal');
-window.addEventListener('scroll',()=>{
-r.forEach(e=>{
-if(e.getBoundingClientRect().top<window.innerHeight-100)e.classList.add('active');
-});
+
+/* =========================
+   FAQ ACCORDION
+========================= */
+
+document.querySelectorAll(".faq-question").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const item = button.parentElement;
+
+        document.querySelectorAll(".faq-item").forEach(other => {
+
+            if(other !== item){
+                other.classList.remove("active");
+            }
+
+        });
+
+        item.classList.toggle("active");
+
+    });
+
 });
 
-const c=document.getElementById('particles');
-const x=c.getContext('2d');
-function resize(){c.width=innerWidth;c.height=innerHeight}
-resize();addEventListener('resize',resize);
-const p=[...Array(60)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*3+1,v:Math.random()+0.3}));
-function draw(){
-x.clearRect(0,0,c.width,c.height);
-x.fillStyle='rgba(212,175,55,.5)';
-p.forEach(a=>{a.y-=a.v;if(a.y<0)a.y=innerHeight;x.beginPath();x.arc(a.x,a.y,a.r,0,6.28);x.fill();});
-requestAnimationFrame(draw);
+
+/* =========================
+   MEMBERSHIP FORM
+========================= */
+
+const membershipForm =
+    document.getElementById("membershipForm");
+
+const formMessage =
+    document.getElementById("formMessage");
+
+
+membershipForm.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("fullName").value.trim();
+
+    if(!name){
+        formMessage.textContent =
+            "Please enter your full name.";
+
+        return;
+    }
+
+    formMessage.textContent =
+        "Your membership application has been submitted successfully.";
+
+    formMessage.style.color =
+        "var(--green)";
+
+    membershipForm.reset();
+
+});
+
+
+/* =========================
+   PARTICLES
+========================= */
+
+const canvas =
+    document.getElementById("particles");
+
+const ctx =
+    canvas.getContext("2d");
+
+let particles = [];
+
+function resizeCanvas(){
+
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
+
 }
-draw();
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+for(let i = 0; i < 55; i++){
+
+    particles.push({
+
+        x:Math.random() * canvas.width,
+
+        y:Math.random() * canvas.height,
+
+        size:Math.random() * 2 + 1,
+
+        speedX:(Math.random() - .5) * .3,
+
+        speedY:(Math.random() - .5) * .3
+
+    });
+
+}
+
+
+function animateParticles(){
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach(p => {
+
+        p.x += p.speedX;
+        p.y += p.speedY;
+
+        if(p.x < 0) p.x = canvas.width;
+        if(p.x > canvas.width) p.x = 0;
+
+        if(p.y < 0) p.y = canvas.height;
+        if(p.y > canvas.height) p.y = 0;
+
+        ctx.beginPath();
+
+        ctx.arc(
+            p.x,
+            p.y,
+            p.size,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            "rgba(166,124,0,.25)";
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(
+        animateParticles
+    );
+
+}
+
+animateParticles();
+
 </script>
+
 </body>
 </html>
