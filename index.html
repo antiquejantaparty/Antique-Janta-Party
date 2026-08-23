@@ -1,11 +1,12 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
     <!-- =====================================================
-         BASIC META
+         ANTIQUE ASSOCIATION
+         OFFICIAL WEBSITE
+         PART 1 — CORE HTML STRUCTURE
     ====================================================== -->
 
     <meta charset="UTF-8">
@@ -17,12 +18,12 @@
 
     <meta
         name="description"
-        content="Antique Association — Building stronger communities through sports, culture, service and togetherness."
+        content="Antique Association — A community organization dedicated to sports, culture, social service and community development."
     >
 
     <meta
         name="theme-color"
-        content="#126b49"
+        content="#0b4d35"
     >
 
     <meta
@@ -36,7 +37,7 @@
 
 
     <!-- =====================================================
-         GOOGLE FONTS
+         FONTS
     ====================================================== -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +45,7 @@
     <link
         rel="preconnect"
         href="https://fonts.gstatic.com"
+        crossorigin
     >
 
     <link
@@ -53,7 +55,7 @@
 
 
     <!-- =====================================================
-         MAIN CSS
+         MAIN STYLESHEET
     ====================================================== -->
 
     <link
@@ -73,33 +75,39 @@
 
     <div
         id="pageLoader"
-        aria-label="Loading Antique Association"
+        class="page-loader"
     >
 
-        <img
-            src="logo.png"
-            alt="Antique Association Logo"
-            class="loader-logo"
-        >
+        <div class="loader-container">
 
-        <div class="loader-ring"></div>
+            <div class="loader-emblem">
 
-        <div class="loader-text">
-            ANTIQUE ASSOCIATION
+                <img
+                    src="logo.png"
+                    alt="Antique Association"
+                >
+
+            </div>
+
+            <div class="loader-ring"></div>
+
+            <div class="loader-name">
+                ANTIQUE ASSOCIATION
+            </div>
+
+            <div class="loader-line"></div>
+
+            <div class="loader-status">
+                BUILDING COMMUNITY
+            </div>
+
         </div>
 
     </div>
 
 
     <!-- =====================================================
-         SCROLL PROGRESS
-    ====================================================== -->
-
-    <div id="scrollProgress"></div>
-
-
-    <!-- =====================================================
-         BACKGROUND EFFECTS
+         GLOBAL BACKGROUND
     ====================================================== -->
 
     <canvas
@@ -108,21 +116,90 @@
     ></canvas>
 
     <div
-        class="bg-glow glow-one"
+        class="ambient-glow glow-one"
         aria-hidden="true"
     ></div>
 
     <div
-        class="bg-glow glow-two"
+        class="ambient-glow glow-two"
         aria-hidden="true"
     ></div>
+
+    <div
+        class="ambient-glow glow-three"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         SCROLL PROGRESS
+    ====================================================== -->
+
+    <div
+        id="scrollProgress"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =====================================================
+         TOP ANNOUNCEMENT BAR
+    ====================================================== -->
+
+    <div
+        class="announcement-bar"
+        id="announcementBar"
+    >
+
+        <div class="announcement-inner">
+
+            <span class="announcement-label">
+                ANNOUNCEMENT
+            </span>
+
+            <span class="announcement-dot"></span>
+
+            <div class="announcement-track">
+
+                <div class="announcement-content">
+
+                    <span>
+                        Antique Association — Building stronger
+                        communities together.
+                    </span>
+
+                    <span>
+                        Sports • Culture • Service • Community
+                    </span>
+
+                    <span>
+                        Membership applications are now open.
+                    </span>
+
+                </div>
+
+            </div>
+
+            <button
+                class="announcement-close"
+                id="announcementClose"
+                aria-label="Close announcement"
+            >
+                ×
+            </button>
+
+        </div>
+
+    </div>
 
 
     <!-- =====================================================
          HEADER
     ====================================================== -->
 
-    <header id="mainHeader">
+    <header
+        id="mainHeader"
+        class="site-header"
+    >
 
         <nav
             class="navbar"
@@ -130,100 +207,183 @@
         >
 
 
-            <!-- LOGO -->
+            <!-- BRAND -->
 
             <a
                 href="#home"
-                class="logo"
+                class="brand"
                 aria-label="Antique Association Home"
             >
 
-                <img
-                    src="logo.png"
-                    alt="Antique Association Logo"
-                    class="logo-image"
-                >
+                <div class="brand-logo">
 
-                <div class="logo-text">
+                    <img
+                        src="logo.png"
+                        alt="Antique Association Logo"
+                    >
 
-                    <div class="logo-title">
-                        ANTIQUE ASSOCIATION
-                    </div>
+                </div>
 
-                    <div class="logo-subtitle">
-                        SERVICE • CULTURE • SPORT
-                    </div>
+                <div class="brand-copy">
+
+                    <strong>
+                        ANTIQUE
+                    </strong>
+
+                    <span>
+                        ASSOCIATION
+                    </span>
 
                 </div>
 
             </a>
 
 
-            <!-- NAVIGATION -->
+            <!-- DESKTOP NAVIGATION -->
 
             <div
-                class="nav-links"
-                id="navLinks"
+                class="desktop-navigation"
+                id="desktopNavigation"
             >
 
-                <a href="#home">
+                <a
+                    href="#home"
+                    class="nav-link active"
+                >
                     Home
                 </a>
 
-                <a href="#about">
+                <a
+                    href="#about"
+                    class="nav-link"
+                >
                     About
                 </a>
 
-                <a href="#activities">
+                <a
+                    href="#activities"
+                    class="nav-link"
+                >
                     Activities
                 </a>
 
-                <a href="#events">
+                <a
+                    href="#events"
+                    class="nav-link"
+                >
                     Events
                 </a>
 
-                <a href="#community">
+                <a
+                    href="#community"
+                    class="nav-link"
+                >
                     Community
                 </a>
 
-                <a href="#leadership">
-                    Leadership
-                </a>
-
                 <a
-                    href="#membership"
-                    class="nav-join"
+                    href="#leadership"
+                    class="nav-link"
                 >
-                    Join Us
+                    Leadership
                 </a>
 
             </div>
 
 
-            <!-- MOBILE MENU -->
+            <!-- HEADER ACTIONS -->
 
-            <button
-                class="menu-btn"
-                id="menuBtn"
-                type="button"
-                aria-label="Open navigation menu"
-                aria-expanded="false"
-                aria-controls="navLinks"
-            >
+            <div class="header-actions">
 
-                <span></span>
-                <span></span>
-                <span></span>
+                <a
+                    href="#membership"
+                    class="header-join"
+                >
+                    <span>
+                        Join Us
+                    </span>
 
-            </button>
+                    <span class="arrow">
+                        →
+                    </span>
+
+                </a>
+
+
+                <button
+                    class="mobile-menu-button"
+                    id="menuBtn"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
 
         </nav>
+
+
+        <!-- MOBILE NAVIGATION -->
+
+        <div
+            class="mobile-navigation"
+            id="mobileNavigation"
+        >
+
+            <div class="mobile-navigation-inner">
+
+                <a href="#home">
+                    <span>01</span>
+                    Home
+                </a>
+
+                <a href="#about">
+                    <span>02</span>
+                    About
+                </a>
+
+                <a href="#activities">
+                    <span>03</span>
+                    Activities
+                </a>
+
+                <a href="#events">
+                    <span>04</span>
+                    Events
+                </a>
+
+                <a href="#community">
+                    <span>05</span>
+                    Community
+                </a>
+
+                <a href="#leadership">
+                    <span>06</span>
+                    Leadership
+                </a>
+
+                <a
+                    href="#membership"
+                    class="mobile-join"
+                >
+                    Join Antique Association
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
 
     </header>
 
 
     <!-- =====================================================
-         MAIN CONTENT
+         MAIN
     ====================================================== -->
 
     <main>
@@ -234,172 +394,294 @@
         ================================================== -->
 
         <section
-            class="hero"
             id="home"
+            class="hero-section"
         >
 
-            <!-- DECORATIVE ELEMENTS -->
+            <!-- HERO BACKGROUND -->
 
-            <div
-                class="hero-orb one"
-                aria-hidden="true"
-            ></div>
+            <div class="hero-background">
 
-            <div
-                class="hero-orb two"
-                aria-hidden="true"
-            ></div>
+                <div class="hero-grid"></div>
 
-            <div
-                class="hero-ring ring-one"
-                aria-hidden="true"
-            ></div>
+                <div class="hero-orb hero-orb-one"></div>
 
-            <div
-                class="hero-ring ring-two"
-                aria-hidden="true"
-            ></div>
+                <div class="hero-orb hero-orb-two"></div>
 
-            <div
-                class="hero-emblem"
-                aria-hidden="true"
-            ></div>
+                <div class="hero-ring hero-ring-one"></div>
+
+                <div class="hero-ring hero-ring-two"></div>
+
+            </div>
+
+
+            <!-- HERO SIDE LABEL -->
+
+            <div class="hero-side-label">
+
+                <span>
+                    EST.
+                </span>
+
+                <strong>
+                    2026
+                </strong>
+
+            </div>
 
 
             <!-- HERO CONTENT -->
 
-            <div class="hero-content">
+            <div class="hero-container">
 
-                <div class="hero-badge">
+                <div class="hero-content">
 
-                    <span
-                        class="hero-badge-dot"
-                        aria-hidden="true"
-                    ></span>
 
-                    A COMMUNITY FOR EVERYONE
+                    <!-- HERO EYEBROW -->
+
+                    <div
+                        class="hero-eyebrow"
+                        data-reveal
+                    >
+
+                        <span class="status-dot"></span>
+
+                        A COMMUNITY FOR EVERYONE
+
+                    </div>
+
+
+                    <!-- HERO TITLE -->
+
+                    <h1
+                        class="hero-title"
+                        data-reveal
+                    >
+
+                        Together,
+
+                        <span>
+                            We Make
+                        </span>
+
+                        A Difference.
+
+                    </h1>
+
+
+                    <!-- HERO TAGLINE -->
+
+                    <div
+                        class="hero-pillars"
+                        data-reveal
+                    >
+
+                        <span>
+                            SPORT
+                        </span>
+
+                        <i>•</i>
+
+                        <span>
+                            CULTURE
+                        </span>
+
+                        <i>•</i>
+
+                        <span>
+                            SERVICE
+                        </span>
+
+                        <i>•</i>
+
+                        <span>
+                            COMMUNITY
+                        </span>
+
+                    </div>
+
+
+                    <!-- HERO DESCRIPTION -->
+
+                    <p
+                        class="hero-description"
+                        data-reveal
+                    >
+
+                        Antique Association is a community-driven
+                        organization bringing people together through
+                        sports, culture, social service and meaningful
+                        community initiatives.
+
+                    </p>
+
+
+                    <!-- HERO ACTIONS -->
+
+                    <div
+                        class="hero-actions"
+                        data-reveal
+                    >
+
+                        <a
+                            href="#membership"
+                            class="btn btn-primary magnetic"
+                        >
+
+                            <span>
+                                Become a Member
+                            </span>
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </a>
+
+                        <a
+                            href="#activities"
+                            class="btn btn-outline magnetic"
+                        >
+
+                            <span>
+                                Explore Our Work
+                            </span>
+
+                            <strong>
+                                ↓
+                            </strong>
+
+                        </a>
+
+                    </div>
+
+
+                    <!-- HERO TRUST -->
+
+                    <div
+                        class="hero-trust"
+                        data-reveal
+                    >
+
+                        <div class="trust-avatars">
+
+                            <div>AA</div>
+                            <div>+</div>
+
+                        </div>
+
+                        <div class="trust-copy">
+
+                            <strong>
+                                One community.
+                            </strong>
+
+                            <span>
+                                Countless ways to contribute.
+                            </span>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
 
-                <h1>
+                <!-- HERO EMBLEM -->
 
-                    Together We
+                <div
+                    class="hero-emblem-container"
+                    data-parallax
+                >
 
-                    <span>
-                        Make a Difference.
+                    <div class="hero-emblem-ring outer"></div>
+
+                    <div class="hero-emblem-ring middle"></div>
+
+                    <div class="hero-emblem-ring inner"></div>
+
+                    <div class="hero-emblem-core">
+
+                        <img
+                            src="logo.png"
+                            alt=""
+                        >
+
+                    </div>
+
+                    <span class="emblem-label label-top">
+                        UNITY
                     </span>
 
-                </h1>
+                    <span class="emblem-label label-right">
+                        SERVICE
+                    </span>
 
+                    <span class="emblem-label label-bottom">
+                        COMMUNITY
+                    </span>
 
-                <div class="hero-tagline">
-
-                    <span>SPORT</span>
-
-                    •
-
-                    <span>CULTURE</span>
-
-                    •
-
-                    <span>SERVICE</span>
-
-                    •
-
-                    <span>UNITY</span>
+                    <span class="emblem-label label-left">
+                        CULTURE
+                    </span>
 
                 </div>
 
-
-                <p class="hero-description">
-
-                    Antique Association is a community-driven
-                    organization dedicated to bringing people
-                    together through sports, cultural activities,
-                    social service, community events and meaningful
-                    initiatives that create a stronger society.
-
-                </p>
+            </div>
 
 
-                <!-- HERO ACTIONS -->
+            <!-- HERO BOTTOM STATS -->
 
-                <div class="hero-actions">
+            <div
+                class="hero-stat-strip"
+                data-reveal
+            >
 
-                    <a
-                        href="#membership"
-                        class="btn btn-primary"
-                    >
-                        Become a Member
-                        <span>→</span>
-                    </a>
+                <div class="hero-stat">
 
-                    <a
-                        href="#activities"
-                        class="btn btn-secondary"
-                    >
-                        Explore Our Work
-                        <span>↓</span>
-                    </a>
+                    <span>
+                        01
+                    </span>
+
+                    <strong>
+                        Community
+                    </strong>
 
                 </div>
 
+                <div class="hero-stat">
 
-                <!-- HERO STATISTICS -->
+                    <span>
+                        04
+                    </span>
 
-                <div class="hero-stats">
+                    <strong>
+                        Core Pillars
+                    </strong>
 
-                    <div class="hero-stat">
+                </div>
 
-                        <div class="hero-stat-number">
-                            01
-                        </div>
+                <div class="hero-stat">
 
-                        <div class="hero-stat-label">
-                            Community
-                        </div>
+                    <span>
+                        ∞
+                    </span>
 
-                    </div>
+                    <strong>
+                        Possibilities
+                    </strong>
 
+                </div>
 
-                    <div class="hero-stat">
+                <div class="hero-stat">
 
-                        <div class="hero-stat-number">
-                            04
-                        </div>
+                    <span>
+                        24/7
+                    </span>
 
-                        <div class="hero-stat-label">
-                            Core Pillars
-                        </div>
-
-                    </div>
-
-
-                    <div class="hero-stat">
-
-                        <div class="hero-stat-number">
-                            ∞
-                        </div>
-
-                        <div class="hero-stat-label">
-                            Possibilities
-                        </div>
-
-                    </div>
-
-
-                    <div class="hero-stat">
-
-                        <div class="hero-stat-number">
-                            24/7
-                        </div>
-
-                        <div class="hero-stat-label">
-                            Together
-                        </div>
-
-                    </div>
+                    <strong>
+                        Together
+                    </strong>
 
                 </div>
 
@@ -408,11 +690,157 @@
 
             <!-- SCROLL INDICATOR -->
 
-            <div class="scroll-indicator">
+            <a
+                href="#about"
+                class="scroll-indicator"
+                aria-label="Scroll to About"
+            >
 
-                <div class="scroll-mouse"></div>
+                <span>
+                    SCROLL TO EXPLORE
+                </span>
 
-                Scroll to explore
+                <div class="scroll-line">
+
+                    <i></i>
+
+                </div>
+
+            </a>
+
+        </section>
+
+
+        <!-- =================================================
+             QUICK ACCESS
+        ================================================== -->
+
+        <section
+            class="quick-access-section"
+            aria-label="Quick access"
+        >
+
+            <div class="container">
+
+                <div class="quick-access-grid">
+
+
+                    <a
+                        href="#events"
+                        class="quick-card"
+                        data-reveal
+                    >
+
+                        <div class="quick-icon">
+                            🏆
+                        </div>
+
+                        <div>
+
+                            <small>
+                                PARTICIPATE
+                            </small>
+
+                            <strong>
+                                Sports & Events
+                            </strong>
+
+                        </div>
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#community"
+                        class="quick-card"
+                        data-reveal
+                    >
+
+                        <div class="quick-icon">
+                            ❤️
+                        </div>
+
+                        <div>
+
+                            <small>
+                                SERVE
+                            </small>
+
+                            <strong>
+                                Community Service
+                            </strong>
+
+                        </div>
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#activities"
+                        class="quick-card"
+                        data-reveal
+                    >
+
+                        <div class="quick-icon">
+                            🎭
+                        </div>
+
+                        <div>
+
+                            <small>
+                                CELEBRATE
+                            </small>
+
+                            <strong>
+                                Culture & Arts
+                            </strong>
+
+                        </div>
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+
+                    <a
+                        href="#membership"
+                        class="quick-card featured"
+                        data-reveal
+                    >
+
+                        <div class="quick-icon">
+                            ✦
+                        </div>
+
+                        <div>
+
+                            <small>
+                                GET INVOLVED
+                            </small>
+
+                            <strong>
+                                Become a Member
+                            </strong>
+
+                        </div>
+
+                        <span class="quick-arrow">
+                            →
+                        </span>
+
+                    </a>
+
+                </div>
 
             </div>
 
@@ -425,45 +853,65 @@
 
         <section
             id="about"
-            class="about-section"
+            class="about-section section"
         >
 
             <div class="container">
 
-                <div class="section-heading reveal">
 
-                    <div class="section-kicker">
-                        WHO WE ARE
-                    </div>
+                <div class="section-header split-header">
 
-                    <h2 class="section-title">
+                    <div>
 
-                        More Than an
-
-                        <span>
-                            Association.
+                        <span
+                            class="section-kicker"
+                            data-reveal
+                        >
+                            WHO WE ARE
                         </span>
 
-                    </h2>
+                        <h2
+                            class="section-title"
+                            data-reveal
+                        >
 
-                    <div class="gold-divider"></div>
+                            More Than An
+                            <span>
+                                Association.
+                            </span>
 
-                    <p class="section-description">
+                        </h2>
+
+                    </div>
+
+                    <p
+                        class="section-intro"
+                        data-reveal
+                    >
 
                         A platform where people come together,
-                        contribute their talents, celebrate their
-                        culture and work towards a better community.
+                        discover opportunities, celebrate culture,
+                        support one another and create meaningful
+                        change in their communities.
 
                     </p>
 
                 </div>
 
 
-                <div class="card-grid">
+                <div class="about-grid">
 
-                    <article class="premium-card reveal">
 
-                        <div class="card-icon">
+                    <div
+                        class="about-feature"
+                        data-reveal
+                    >
+
+                        <div class="feature-number">
+                            01
+                        </div>
+
+                        <div class="feature-icon">
                             🤝
                         </div>
 
@@ -472,20 +920,24 @@
                         </h3>
 
                         <p>
-
-                            We create opportunities for people
-                            from different backgrounds to meet,
-                            participate, cooperate and build
-                            meaningful connections.
-
+                            Creating meaningful connections and
+                            opportunities for people to participate,
+                            cooperate and grow together.
                         </p>
 
-                    </article>
+                    </div>
 
 
-                    <article class="premium-card reveal">
+                    <div
+                        class="about-feature"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="feature-number">
+                            02
+                        </div>
+
+                        <div class="feature-icon">
                             🏆
                         </div>
 
@@ -494,20 +946,24 @@
                         </h3>
 
                         <p>
-
-                            We encourage participation and
-                            excellence in sports, cultural
-                            activities, education and community
-                            initiatives.
-
+                            Encouraging excellence in sports,
+                            culture, education and community
+                            participation.
                         </p>
 
-                    </article>
+                    </div>
 
 
-                    <article class="premium-card reveal">
+                    <div
+                        class="about-feature"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="feature-number">
+                            03
+                        </div>
+
+                        <div class="feature-icon">
                             ❤️
                         </div>
 
@@ -516,20 +972,24 @@
                         </h3>
 
                         <p>
-
-                            From blood donation camps to
-                            community support programs, we
-                            believe that service is one of the
-                            strongest ways to create change.
-
+                            Turning compassion into action through
+                            social service, awareness campaigns and
+                            community initiatives.
                         </p>
 
-                    </article>
+                    </div>
 
 
-                    <article class="premium-card reveal">
+                    <div
+                        class="about-feature"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="feature-number">
+                            04
+                        </div>
+
+                        <div class="feature-icon">
                             🌏
                         </div>
 
@@ -538,14 +998,12 @@
                         </h3>
 
                         <p>
-
-                            We celebrate diversity, friendship,
-                            teamwork and the shared responsibility
-                            of building a stronger society.
-
+                            Celebrating diversity, friendship,
+                            teamwork and our shared responsibility
+                            towards society.
                         </p>
 
-                    </article>
+                    </div>
 
                 </div>
 
@@ -559,108 +1017,103 @@
         ================================================== -->
 
         <section
-            class="dark-section"
             id="mission"
+            class="mission-section dark-section section"
         >
+
+            <div class="mission-background">
+
+                <div class="mission-glow"></div>
+
+                <div class="mission-grid"></div>
+
+            </div>
+
 
             <div class="container">
 
-                <div class="section-heading reveal">
+                <div class="mission-layout">
 
-                    <div class="section-kicker">
-                        OUR PURPOSE
-                    </div>
 
-                    <h2 class="section-title">
+                    <div class="mission-heading">
 
-                        Built Around
-
-                        <span>
-                            People.
+                        <span
+                            class="section-kicker"
+                            data-reveal
+                        >
+                            OUR PURPOSE
                         </span>
 
-                    </h2>
+                        <h2
+                            class="section-title light"
+                            data-reveal
+                        >
 
-                    <div class="gold-divider"></div>
+                            Built Around
+                            <span>
+                                People.
+                            </span>
 
-                    <p class="section-description">
+                        </h2>
 
-                        Antique Association exists to encourage
-                        participation, promote community spirit
-                        and turn collective energy into positive
-                        action.
+                        <div
+                            class="gold-divider"
+                            data-reveal
+                        ></div>
 
-                    </p>
-
-                </div>
+                    </div>
 
 
-                <div class="card-grid">
+                    <div
+                        class="mission-content"
+                        data-reveal
+                    >
 
-                    <article class="premium-card reveal">
+                        <p class="mission-lead">
 
-                        <div class="card-icon">
-                            🎯
-                        </div>
-
-                        <h3>
-                            Our Mission
-                        </h3>
-
-                        <p>
-
-                            To organize and support meaningful
-                            activities that strengthen individuals,
-                            families and communities through
-                            sports, culture, service and cooperation.
+                            We believe strong communities are
+                            built when people have opportunities
+                            to participate, contribute and care
+                            for one another.
 
                         </p>
 
-                    </article>
-
-
-                    <article class="premium-card reveal">
-
-                        <div class="card-icon">
-                            🌟
-                        </div>
-
-                        <h3>
-                            Our Vision
-                        </h3>
-
                         <p>
 
-                            To build an active, inclusive and
-                            responsible community where everyone
-                            has an opportunity to participate,
-                            contribute and grow.
+                            Antique Association works to organize
+                            and support activities that bring
+                            people together through sports,
+                            cultural programs, social service,
+                            education and community development.
 
                         </p>
 
-                    </article>
 
+                        <div class="mission-values">
 
-                    <article class="premium-card reveal">
+                            <div>
+                                <span>✓</span>
+                                Inclusive
+                            </div>
 
-                        <div class="card-icon">
-                            🫱🏻‍🫲🏽
+                            <div>
+                                <span>✓</span>
+                                Community Driven
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Service Focused
+                            </div>
+
+                            <div>
+                                <span>✓</span>
+                                Open to Everyone
+                            </div>
+
                         </div>
 
-                        <h3>
-                            Our Promise
-                        </h3>
-
-                        <p>
-
-                            We aim to create activities that
-                            bring people together while promoting
-                            respect, teamwork, responsibility
-                            and service.
-
-                        </p>
-
-                    </article>
+                    </div>
 
                 </div>
 
@@ -675,129 +1128,165 @@
 
         <section
             id="activities"
-            class="activities-section"
+            class="activities-section section"
         >
 
             <div class="container">
 
-                <div class="section-heading reveal">
 
-                    <div class="section-kicker">
+                <div class="section-header centered">
+
+                    <span
+                        class="section-kicker"
+                        data-reveal
+                    >
                         WHAT WE DO
-                    </div>
+                    </span>
 
-                    <h2 class="section-title">
+                    <h2
+                        class="section-title"
+                        data-reveal
+                    >
 
                         Four Pillars.
-
                         <span>
                             One Community.
                         </span>
 
                     </h2>
 
-                    <div class="gold-divider"></div>
+                    <p
+                        class="section-intro centered"
+                        data-reveal
+                    >
 
-                    <p class="section-description">
-
-                        Our activities are designed around four
-                        major areas that bring energy, creativity,
-                        service and connection to the community.
+                        Our programs are built around participation,
+                        creativity, service and community development.
 
                     </p>
 
                 </div>
 
 
-                <div class="card-grid">
+                <!-- ACTIVITY FILTER -->
+
+                <div
+                    class="activity-tabs"
+                    id="activityTabs"
+                    data-reveal
+                >
+
+                    <button
+                        class="activity-tab active"
+                        data-activity="sports"
+                    >
+                        Sports
+                    </button>
+
+                    <button
+                        class="activity-tab"
+                        data-activity="culture"
+                    >
+                        Culture
+                    </button>
+
+                    <button
+                        class="activity-tab"
+                        data-activity="service"
+                    >
+                        Service
+                    </button>
+
+                    <button
+                        class="activity-tab"
+                        data-activity="development"
+                    >
+                        Development
+                    </button>
+
+                </div>
 
 
-                    <article class="premium-card reveal-left">
+                <!-- ACTIVITY CONTENT -->
 
-                        <div class="card-icon">
+                <div
+                    class="activity-panel"
+                    id="activityPanel"
+                    data-reveal
+                >
+
+                    <div class="activity-visual">
+
+                        <div class="activity-number">
+                            01
+                        </div>
+
+                        <div class="activity-big-icon">
                             ⚽
                         </div>
 
-                        <h3>
+                    </div>
+
+
+                    <div class="activity-information">
+
+                        <span class="activity-label">
+                            ANTIQUE ASSOCIATION
+                        </span>
+
+                        <h3 id="activityTitle">
                             Sports & Athletics
                         </h3>
 
-                        <p>
+                        <p id="activityDescription">
 
                             Organizing tournaments, friendly
                             matches, athletic activities, sports
-                            meets and opportunities for people
-                            of different ages and skill levels.
+                            meets and opportunities for people of
+                            different ages and skill levels.
 
                         </p>
 
-                    </article>
 
+                        <div
+                            class="activity-list"
+                            id="activityList"
+                        >
 
-                    <article class="premium-card reveal">
+                            <div>
+                                <span>01</span>
+                                Sports tournaments
+                            </div>
 
-                        <div class="card-icon">
-                            🎭
+                            <div>
+                                <span>02</span>
+                                Friendly competitions
+                            </div>
+
+                            <div>
+                                <span>03</span>
+                                Athletic activities
+                            </div>
+
+                            <div>
+                                <span>04</span>
+                                Youth participation
+                            </div>
+
                         </div>
 
-                        <h3>
-                            Culture & Arts
-                        </h3>
 
-                        <p>
+                        <a
+                            href="#events"
+                            class="text-link"
+                        >
 
-                            Celebrating music, dance, theatre,
-                            art, literature, festivals and the
-                            cultural traditions that make our
-                            communities unique.
+                            Explore Activities
+                            <span>→</span>
 
-                        </p>
+                        </a>
 
-                    </article>
-
-
-                    <article class="premium-card reveal">
-
-                        <div class="card-icon">
-                            🩸
-                        </div>
-
-                        <h3>
-                            Social Service
-                        </h3>
-
-                        <p>
-
-                            Supporting blood donation camps,
-                            awareness campaigns, community
-                            assistance and humanitarian
-                            initiatives.
-
-                        </p>
-
-                    </article>
-
-
-                    <article class="premium-card reveal-right">
-
-                        <div class="card-icon">
-                            🌱
-                        </div>
-
-                        <h3>
-                            Community Development
-                        </h3>
-
-                        <p>
-
-                            Supporting educational activities,
-                            environmental initiatives, public
-                            awareness programs and projects
-                            that benefit the community.
-
-                        </p>
-
-                    </article>
+                    </div>
 
                 </div>
 
@@ -811,102 +1300,137 @@
         ================================================== -->
 
         <section
-            class="dark-section"
             id="impact"
+            class="impact-section dark-section section"
         >
 
             <div class="container">
 
-                <div class="section-heading reveal">
+                <div class="section-header centered">
 
-                    <div class="section-kicker">
+                    <span
+                        class="section-kicker"
+                        data-reveal
+                    >
                         OUR IMPACT
-                    </div>
+                    </span>
 
-                    <h2 class="section-title">
+                    <h2
+                        class="section-title light"
+                        data-reveal
+                    >
 
                         Every Action
-
                         <span>
                             Matters.
                         </span>
 
                     </h2>
 
-                    <div class="gold-divider"></div>
+                    <p
+                        class="section-intro centered light-text"
+                        data-reveal
+                    >
 
-                    <p class="section-description">
-
-                        Our impact grows through every member,
-                        volunteer, event and community initiative.
+                        Every event, every volunteer and every
+                        contribution helps strengthen the community.
 
                     </p>
 
                 </div>
 
 
-                <div class="stat-grid">
+                <div class="impact-grid">
 
-                    <div class="stat-card reveal">
 
-                        <div
-                            class="number"
+                    <div
+                        class="impact-card"
+                        data-reveal
+                    >
+
+                        <span class="impact-icon">
+                            📅
+                        </span>
+
+                        <strong
+                            class="counter"
                             data-target="0"
                         >
                             0
-                        </div>
+                        </strong>
 
-                        <div class="label">
-                            Events Organized
-                        </div>
+                        <small>
+                            EVENTS ORGANIZED
+                        </small>
 
                     </div>
 
 
-                    <div class="stat-card reveal">
+                    <div
+                        class="impact-card"
+                        data-reveal
+                    >
 
-                        <div
-                            class="number"
+                        <span class="impact-icon">
+                            👥
+                        </span>
+
+                        <strong
+                            class="counter"
                             data-target="0"
                         >
                             0
-                        </div>
+                        </strong>
 
-                        <div class="label">
-                            Members
-                        </div>
+                        <small>
+                            MEMBERS
+                        </small>
 
                     </div>
 
 
-                    <div class="stat-card reveal">
+                    <div
+                        class="impact-card"
+                        data-reveal
+                    >
 
-                        <div
-                            class="number"
+                        <span class="impact-icon">
+                            🙌
+                        </span>
+
+                        <strong
+                            class="counter"
                             data-target="0"
                         >
                             0
-                        </div>
+                        </strong>
 
-                        <div class="label">
-                            Volunteers
-                        </div>
+                        <small>
+                            VOLUNTEERS
+                        </small>
 
                     </div>
 
 
-                    <div class="stat-card reveal">
+                    <div
+                        class="impact-card"
+                        data-reveal
+                    >
 
-                        <div
-                            class="number"
+                        <span class="impact-icon">
+                            🌱
+                        </span>
+
+                        <strong
+                            class="counter"
                             data-target="0"
                         >
                             0
-                        </div>
+                        </strong>
 
-                        <div class="label">
-                            Community Projects
-                        </div>
+                        <small>
+                            COMMUNITY PROJECTS
+                        </small>
 
                     </div>
 
@@ -921,123 +1445,198 @@
              EVENTS
         ================================================== -->
 
-        <section id="events">
+        <section
+            id="events"
+            class="events-section section"
+        >
 
             <div class="container">
 
-                <div class="section-heading reveal">
 
-                    <div class="section-kicker">
-                        WHAT'S HAPPENING
-                    </div>
+                <div class="section-header split-header">
 
-                    <h2 class="section-title">
+                    <div>
 
-                        Events That Bring
-
-                        <span>
-                            Us Together.
+                        <span
+                            class="section-kicker"
+                            data-reveal
+                        >
+                            WHAT'S HAPPENING
                         </span>
 
-                    </h2>
+                        <h2
+                            class="section-title"
+                            data-reveal
+                        >
 
-                    <div class="gold-divider"></div>
+                            Events That Bring
+                            <span>
+                                Us Together.
+                            </span>
 
-                    <p class="section-description">
+                        </h2>
 
-                        Sports tournaments, cultural celebrations,
-                        community programs, service campaigns
-                        and much more.
+                    </div>
+
+                    <p
+                        class="section-intro"
+                        data-reveal
+                    >
+
+                        From sporting tournaments to cultural
+                        celebrations and community service programs,
+                        there is always a way to participate.
 
                     </p>
 
                 </div>
 
 
-                <div class="card-grid">
+                <div class="event-grid">
 
 
-                    <article class="premium-card reveal-left">
+                    <article
+                        class="event-card featured-event"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
-                            🏆
+                        <div class="event-image event-sports">
+
+                            <span class="event-category">
+                                SPORTS
+                            </span>
+
+                            <span class="event-number">
+                                01
+                            </span>
+
                         </div>
 
-                        <h3>
-                            Sports Tournaments
-                        </h3>
+                        <div class="event-content">
 
-                        <p>
+                            <div class="event-date">
+                                <span>
+                                    UPCOMING
+                                </span>
+                            </div>
 
-                            Competitive and friendly sporting
-                            events designed to promote teamwork,
-                            discipline and healthy participation.
+                            <h3>
+                                Community Sports Tournament
+                            </h3>
 
-                        </p>
+                            <p>
+                                A community-focused sporting event
+                                promoting teamwork, participation
+                                and healthy competition.
+                            </p>
+
+                            <a
+                                href="#membership"
+                                class="text-link"
+                            >
+                                Get Involved
+                                <span>→</span>
+                            </a>
+
+                        </div>
 
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="event-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
-                            🎨
+                        <div class="event-image event-culture">
+
+                            <span class="event-category">
+                                CULTURE
+                            </span>
+
+                            <span class="event-number">
+                                02
+                            </span>
+
                         </div>
 
-                        <h3>
-                            Cultural Festivals
-                        </h3>
+                        <div class="event-content">
 
-                        <p>
+                            <div class="event-date">
+                                <span>
+                                    UPCOMING
+                                </span>
+                            </div>
 
-                            Events celebrating art, music, dance,
-                            literature, traditions and creativity.
+                            <h3>
+                                Cultural Celebration
+                            </h3>
 
-                        </p>
+                            <p>
+                                Music, art, dance and traditions
+                                brought together under one community.
+                            </p>
+
+                            <a
+                                href="#membership"
+                                class="text-link"
+                            >
+                                Participate
+                                <span>→</span>
+                            </a>
+
+                        </div>
 
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="event-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
-                            🩸
+                        <div class="event-image event-service">
+
+                            <span class="event-category">
+                                SERVICE
+                            </span>
+
+                            <span class="event-number">
+                                03
+                            </span>
+
                         </div>
 
-                        <h3>
-                            Blood Donation Camps
-                        </h3>
+                        <div class="event-content">
 
-                        <p>
+                            <div class="event-date">
+                                <span>
+                                    UPCOMING
+                                </span>
+                            </div>
 
-                            Community blood donation initiatives
-                            conducted with appropriate medical
-                            and organizational support.
+                            <h3>
+                                Blood Donation Camp
+                            </h3>
 
-                        </p>
+                            <p>
+                                A community service initiative
+                                organized with appropriate medical
+                                support.
+                            </p>
+
+                            <a
+                                href="#membership"
+                                class="text-link"
+                            >
+                                Support the Cause
+                                <span>→</span>
+                            </a>
+
+                        </div>
 
                     </article>
 
-
-                    <article class="premium-card reveal-right">
-
-                        <div class="card-icon">
-                            📢
-                        </div>
-
-                        <h3>
-                            Awareness Programs
-                        </h3>
-
-                        <p>
-
-                            Educational and awareness events
-                            focused on issues that matter to
-                            our communities.
-
-                        </p>
-
-                    </article>
 
                 </div>
 
@@ -1051,105 +1650,130 @@
         ================================================== -->
 
         <section
-            class="dark-section"
             id="community"
+            class="community-section dark-section section"
         >
 
             <div class="container">
 
-                <div class="section-heading reveal">
+                <div class="community-layout">
 
-                    <div class="section-kicker">
-                        COMMUNITY FIRST
-                    </div>
 
-                    <h2 class="section-title">
+                    <div class="community-heading">
 
-                        Be Part of
-
-                        <span>
-                            Something Bigger.
+                        <span
+                            class="section-kicker"
+                            data-reveal
+                        >
+                            COMMUNITY FIRST
                         </span>
 
-                    </h2>
+                        <h2
+                            class="section-title light"
+                            data-reveal
+                        >
 
-                    <div class="gold-divider"></div>
+                            Be Part of
+                            <span>
+                                Something Bigger.
+                            </span>
 
-                    <p class="section-description">
+                        </h2>
 
-                        Whether you are an athlete, artist,
-                        volunteer, organizer, student or simply
-                        someone who wants to contribute —
-                        there is a place for you here.
-
-                    </p>
-
-                </div>
-
-
-                <div class="card-grid">
+                    </div>
 
 
-                    <article class="premium-card reveal">
+                    <div class="community-actions">
 
-                        <div class="card-icon">
-                            🏃
+
+                        <div
+                            class="community-action"
+                            data-reveal
+                        >
+
+                            <span>
+                                01
+                            </span>
+
+                            <div>
+
+                                <h3>
+                                    Participate
+                                </h3>
+
+                                <p>
+                                    Take part in programs,
+                                    competitions and events.
+                                </p>
+
+                            </div>
+
+                            <strong>
+                                →
+                            </strong>
+
                         </div>
 
-                        <h3>
-                            Participate
-                        </h3>
 
-                        <p>
+                        <div
+                            class="community-action"
+                            data-reveal
+                        >
 
-                            Take part in sports, cultural programs,
-                            competitions and community events.
+                            <span>
+                                02
+                            </span>
 
-                        </p>
+                            <div>
 
-                    </article>
+                                <h3>
+                                    Volunteer
+                                </h3>
 
+                                <p>
+                                    Give your time and skills
+                                    to support our initiatives.
+                                </p>
 
-                    <article class="premium-card reveal">
+                            </div>
 
-                        <div class="card-icon">
-                            🙌
+                            <strong>
+                                →
+                            </strong>
+
                         </div>
 
-                        <h3>
-                            Volunteer
-                        </h3>
 
-                        <p>
+                        <div
+                            class="community-action"
+                            data-reveal
+                        >
 
-                            Give your time and skills to help
-                            organize activities and community
-                            initiatives.
+                            <span>
+                                03
+                            </span>
 
-                        </p>
+                            <div>
 
-                    </article>
+                                <h3>
+                                    Create
+                                </h3>
 
+                                <p>
+                                    Bring forward ideas that
+                                    can benefit the community.
+                                </p>
 
-                    <article class="premium-card reveal">
+                            </div>
 
-                        <div class="card-icon">
-                            💡
+                            <strong>
+                                →
+                            </strong>
+
                         </div>
 
-                        <h3>
-                            Create
-                        </h3>
 
-                        <p>
-
-                            Have an idea for an event or
-                            initiative? Bring it forward and
-                            help turn it into reality.
-
-                        </p>
-
-                    </article>
+                    </div>
 
                 </div>
 
@@ -1162,47 +1786,64 @@
              LEADERSHIP
         ================================================== -->
 
-        <section id="leadership">
+        <section
+            id="leadership"
+            class="leadership-section section"
+        >
 
             <div class="container">
 
-                <div class="section-heading reveal">
 
-                    <div class="section-kicker">
+                <div class="section-header centered">
+
+                    <span
+                        class="section-kicker"
+                        data-reveal
+                    >
                         OUR ORGANIZATION
-                    </div>
+                    </span>
 
-                    <h2 class="section-title">
+                    <h2
+                        class="section-title"
+                        data-reveal
+                    >
 
                         Leadership With
-
                         <span>
                             Responsibility.
                         </span>
 
                     </h2>
 
-                    <div class="gold-divider"></div>
+                    <p
+                        class="section-intro centered"
+                        data-reveal
+                    >
 
-                    <p class="section-description">
-
-                        A structured leadership system designed
-                        to coordinate activities, support members
-                        and serve the Association's mission.
+                        A structured leadership system dedicated
+                        to coordinating activities, supporting
+                        members and serving the association.
 
                     </p>
 
                 </div>
 
 
-                <div class="card-grid">
+                <div class="leadership-grid">
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="leader-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="leader-avatar">
                             👑
                         </div>
+
+                        <span class="leader-number">
+                            01
+                        </span>
 
                         <h3>
                             President
@@ -1210,35 +1851,49 @@
 
                         <p>
                             Provides overall leadership and
-                            represents the Association.
+                            represents the association.
                         </p>
 
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="leader-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="leader-avatar">
                             🤝
                         </div>
+
+                        <span class="leader-number">
+                            02
+                        </span>
 
                         <h3>
                             Vice President
                         </h3>
 
                         <p>
-                            Supports the President and helps
-                            coordinate Association activities.
+                            Supports the President and coordinates
+                            association activities.
                         </p>
 
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="leader-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="leader-avatar">
                             📋
                         </div>
+
+                        <span class="leader-number">
+                            03
+                        </span>
 
                         <h3>
                             Secretary-General
@@ -1246,18 +1901,24 @@
 
                         <p>
                             Coordinates administration,
-                            communication and organizational
-                            records.
+                            communication and records.
                         </p>
 
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="leader-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="leader-avatar">
                             🎪
                         </div>
+
+                        <span class="leader-number">
+                            04
+                        </span>
 
                         <h3>
                             Events Director
@@ -1265,17 +1926,24 @@
 
                         <p>
                             Oversees the planning and execution
-                            of Association events and programs.
+                            of association events.
                         </p>
 
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="leader-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="leader-avatar">
                             🏅
                         </div>
+
+                        <span class="leader-number">
+                            05
+                        </span>
 
                         <h3>
                             Sports Director
@@ -1289,11 +1957,18 @@
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article
+                        class="leader-card"
+                        data-reveal
+                    >
 
-                        <div class="card-icon">
+                        <div class="leader-avatar">
                             🎭
                         </div>
+
+                        <span class="leader-number">
+                            06
+                        </span>
 
                         <h3>
                             Cultural Director
@@ -1306,6 +1981,7 @@
 
                     </article>
 
+
                 </div>
 
             </div>
@@ -1314,122 +1990,76 @@
 
 
         <!-- =================================================
-             MEMBERSHIP
+             MEMBERSHIP CTA
         ================================================== -->
 
         <section
             id="membership"
-            class="dark-section"
+            class="membership-section dark-section section"
         >
+
+            <div class="membership-decoration">
+
+                <div></div>
+                <div></div>
+                <div></div>
+
+            </div>
+
 
             <div class="container">
 
-                <div class="section-heading reveal">
+                <div
+                    class="membership-content"
+                    data-reveal
+                >
 
-                    <div class="section-kicker">
+                    <span class="section-kicker">
                         BECOME A MEMBER
-                    </div>
+                    </span>
 
-                    <h2 class="section-title">
+                    <h2 class="section-title light">
 
                         Your Community.
-
                         <span>
                             Your Association.
                         </span>
 
                     </h2>
 
-                    <div class="gold-divider"></div>
+                    <p class="membership-description">
 
-                    <p class="section-description">
-
-                        Membership is about participation,
-                        friendship, service and helping create
-                        better experiences for everyone.
+                        Whether you want to participate in events,
+                        volunteer your time, support community
+                        initiatives or simply meet new people,
+                        there is a place for you at Antique Association.
 
                     </p>
 
-                </div>
 
+                    <div class="membership-actions">
 
-                <div class="card-grid">
+                        <a
+                            href="#join"
+                            class="btn btn-primary magnetic"
+                        >
 
+                            Apply for Membership
+                            <strong>→</strong>
 
-                    <article class="premium-card reveal-left">
+                        </a>
 
-                        <div class="card-icon">
-                            🌟
-                        </div>
+                        <a
+                            href="#community"
+                            class="btn btn-light magnetic"
+                        >
 
-                        <h3>
-                            Active Member
-                        </h3>
+                            Learn More
+                            <strong>→</strong>
 
-                        <p>
+                        </a>
 
-                            Participate in Association programs,
-                            events and activities.
-
-                        </p>
-
-                    </article>
-
-
-                    <article class="premium-card reveal">
-
-                        <div class="card-icon">
-                            🙋
-                        </div>
-
-                        <h3>
-                            Volunteer
-                        </h3>
-
-                        <p>
-
-                            Support event organization and
-                            community service initiatives.
-
-                        </p>
-
-                    </article>
-
-
-                    <article class="premium-card reveal-right">
-
-                        <div class="card-icon">
-                            🏆
-                        </div>
-
-                        <h3>
-                            Event Supporter
-                        </h3>
-
-                        <p>
-
-                            Help support and promote sports,
-                            cultural and community events.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-
-                <div class="hero-actions">
-
-                    <a
-                        href="#join"
-                        class="btn btn-primary"
-                    >
-
-                        Apply for Membership
-
-                        <span>→</span>
-
-                    </a>
+                    </div>
 
                 </div>
 
@@ -1439,72 +2069,77 @@
 
 
         <!-- =================================================
-             JOIN CTA
+             FINAL CTA
         ================================================== -->
 
-        <section id="join">
+        <section
+            id="join"
+            class="final-cta section"
+        >
 
             <div class="container">
 
-                <div class="section-heading reveal">
+                <div
+                    class="final-cta-box"
+                    data-reveal
+                >
 
-                    <div class="section-kicker">
-                        GET INVOLVED
-                    </div>
+                    <div class="final-cta-content">
 
-                    <h2 class="section-title">
-
-                        Let's Build
-
-                        <span>
-                            Together.
+                        <span class="section-kicker">
+                            GET INVOLVED
                         </span>
 
-                    </h2>
+                        <h2 class="section-title">
 
-                    <div class="gold-divider"></div>
+                            Let's Build
+                            <span>
+                                Together.
+                            </span>
 
-                    <p class="section-description">
+                        </h2>
 
-                        A better community doesn't happen by
-                        itself. It happens when people decide
-                        to participate.
+                        <p>
 
-                    </p>
+                            A stronger community begins with
+                            people who choose to participate.
 
-                </div>
+                        </p>
+
+                        <a
+                            href="#membership"
+                            class="btn btn-primary magnetic"
+                        >
+
+                            Join Antique Association
+
+                            <strong>
+                                →
+                            </strong>
+
+                        </a>
+
+                    </div>
 
 
-                <div class="hero-actions">
-
-                    <a
-                        href="#membership"
-                        class="btn btn-primary"
+                    <div
+                        class="final-emblem"
+                        data-parallax
                     >
 
-                        Join Antique Association
+                        <img
+                            src="logo.png"
+                            alt="Antique Association"
+                        >
 
-                        <span>→</span>
-
-                    </a>
-
-
-                    <a
-                        href="#events"
-                        class="btn btn-secondary"
-                    >
-
-                        View Events
-
-                        <span>→</span>
-
-                    </a>
+                    </div>
 
                 </div>
 
             </div>
 
         </section>
+
 
     </main>
 
@@ -1513,61 +2148,145 @@
          FOOTER
     ====================================================== -->
 
-    <footer>
+    <footer class="site-footer">
 
         <div class="container">
 
-            <div
-                style="
-                    text-align:center;
-                    padding:55px 20px;
-                    border-top:1px solid rgba(0,0,0,.08);
-                "
-            >
 
-                <img
-                    src="logo.png"
-                    alt="Antique Association Logo"
-                    style="
-                        width:70px;
-                        height:70px;
-                        object-fit:cover;
-                        border-radius:50%;
-                        margin:0 auto 18px;
-                    "
-                >
+            <div class="footer-main">
 
-                <h3
-                    style="
-                        font-family:'DM Serif Display',serif;
-                        font-size:2rem;
-                        font-weight:400;
-                        color:#101412;
-                    "
-                >
-                    Antique Association
-                </h3>
 
-                <p
-                    style="
-                        margin-top:10px;
-                        color:#69706a;
-                        font-size:.85rem;
-                    "
-                >
-                    Sport • Culture • Service • Unity
-                </p>
+                <!-- FOOTER BRAND -->
 
-                <p
-                    style="
-                        margin-top:25px;
-                        color:#8a8f89;
-                        font-size:.7rem;
-                    "
-                >
+                <div class="footer-brand">
+
+                    <a
+                        href="#home"
+                        class="brand"
+                    >
+
+                        <div class="brand-logo">
+
+                            <img
+                                src="logo.png"
+                                alt="Antique Association"
+                            >
+
+                        </div>
+
+                        <div class="brand-copy">
+
+                            <strong>
+                                ANTIQUE
+                            </strong>
+
+                            <span>
+                                ASSOCIATION
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                    <p>
+
+                        Building stronger communities through
+                        sports, culture, service and unity.
+
+                    </p>
+
+                </div>
+
+
+                <!-- FOOTER NAV -->
+
+                <div class="footer-column">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="#about">
+                        About Us
+                    </a>
+
+                    <a href="#activities">
+                        Activities
+                    </a>
+
+                    <a href="#events">
+                        Events
+                    </a>
+
+                    <a href="#community">
+                        Community
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Organization
+                    </h4>
+
+                    <a href="#leadership">
+                        Leadership
+                    </a>
+
+                    <a href="#membership">
+                        Membership
+                    </a>
+
+                    <a href="#impact">
+                        Our Impact
+                    </a>
+
+                    <a href="#join">
+                        Get Involved
+                    </a>
+
+                </div>
+
+
+                <!-- FOOTER CTA -->
+
+                <div class="footer-column footer-cta">
+
+                    <h4>
+                        Make a Difference
+                    </h4>
+
+                    <p>
+                        Find your place in the community.
+                    </p>
+
+                    <a
+                        href="#membership"
+                        class="footer-button"
+                    >
+                        Join Us
+                        <span>→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- FOOTER BOTTOM -->
+
+            <div class="footer-bottom">
+
+                <span>
                     © 2026 Antique Association.
                     All rights reserved.
-                </p>
+                </span>
+
+                <span>
+                    SPORT • CULTURE • SERVICE • COMMUNITY
+                </span>
 
             </div>
 
@@ -1577,7 +2296,24 @@
 
 
     <!-- =====================================================
-         EXTERNAL JAVASCRIPT
+         BACK TO TOP
+    ====================================================== -->
+
+    <button
+        id="backToTop"
+        class="back-to-top"
+        aria-label="Back to top"
+    >
+
+        ↑
+
+    </button>
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+         
+         PART 3 WILL CONTAIN THE COMPLETE INTERACTION ENGINE.
     ====================================================== -->
 
     <script src="script.js"></script>
@@ -1586,4 +2322,3 @@
 </body>
 
 </html>
-```
