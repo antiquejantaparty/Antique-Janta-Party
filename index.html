@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +25,14 @@
         content="#126b49"
     >
 
-    <title>Antique Association | Together We Make a Difference</title>
+    <meta
+        name="author"
+        content="Antique Association"
+    >
+
+    <title>
+        Antique Association | Together We Make a Difference
+    </title>
 
 
     <!-- =====================================================
@@ -33,7 +41,10 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700;800;900&family=Poppins:wght@500;600;700;800;900&display=swap"
@@ -45,7 +56,10 @@
          MAIN CSS
     ====================================================== -->
 
-    <link rel="stylesheet" href="style.css">
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
 
 </head>
 
@@ -57,7 +71,10 @@
          PAGE LOADER
     ====================================================== -->
 
-    <div id="pageLoader">
+    <div
+        id="pageLoader"
+        aria-label="Loading Antique Association"
+    >
 
         <img
             src="logo.png"
@@ -85,20 +102,32 @@
          BACKGROUND EFFECTS
     ====================================================== -->
 
-    <canvas id="particles"></canvas>
+    <canvas
+        id="particles"
+        aria-hidden="true"
+    ></canvas>
 
-    <div class="bg-glow glow-one"></div>
+    <div
+        class="bg-glow glow-one"
+        aria-hidden="true"
+    ></div>
 
-    <div class="bg-glow glow-two"></div>
+    <div
+        class="bg-glow glow-two"
+        aria-hidden="true"
+    ></div>
 
 
     <!-- =====================================================
-         HEADER / NAVIGATION
+         HEADER
     ====================================================== -->
 
     <header id="mainHeader">
 
-        <nav class="navbar">
+        <nav
+            class="navbar"
+            aria-label="Main navigation"
+        >
 
 
             <!-- LOGO -->
@@ -130,9 +159,12 @@
             </a>
 
 
-            <!-- DESKTOP / MOBILE NAVIGATION -->
+            <!-- NAVIGATION -->
 
-            <div class="nav-links" id="navLinks">
+            <div
+                class="nav-links"
+                id="navLinks"
+            >
 
                 <a href="#home">
                     Home
@@ -173,8 +205,10 @@
             <button
                 class="menu-btn"
                 id="menuBtn"
+                type="button"
                 aria-label="Open navigation menu"
                 aria-expanded="false"
+                aria-controls="navLinks"
             >
 
                 <span></span>
@@ -188,42 +222,60 @@
     </header>
 
 
-
     <!-- =====================================================
-         HERO SECTION
+         MAIN CONTENT
     ====================================================== -->
 
     <main>
 
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
 
         <section
             class="hero"
             id="home"
         >
 
-
             <!-- DECORATIVE ELEMENTS -->
 
-            <div class="hero-orb one"></div>
+            <div
+                class="hero-orb one"
+                aria-hidden="true"
+            ></div>
 
-            <div class="hero-orb two"></div>
+            <div
+                class="hero-orb two"
+                aria-hidden="true"
+            ></div>
 
-            <div class="hero-ring ring-one"></div>
+            <div
+                class="hero-ring ring-one"
+                aria-hidden="true"
+            ></div>
 
-            <div class="hero-ring ring-two"></div>
+            <div
+                class="hero-ring ring-two"
+                aria-hidden="true"
+            ></div>
 
-
-            <div class="hero-emblem"></div>
+            <div
+                class="hero-emblem"
+                aria-hidden="true"
+            ></div>
 
 
             <!-- HERO CONTENT -->
 
             <div class="hero-content">
 
-
                 <div class="hero-badge">
 
-                    <span class="hero-badge-dot"></span>
+                    <span
+                        class="hero-badge-dot"
+                        aria-hidden="true"
+                    ></span>
 
                     A COMMUNITY FOR EVERYONE
 
@@ -271,7 +323,7 @@
                 </p>
 
 
-                <!-- HERO BUTTONS -->
+                <!-- HERO ACTIONS -->
 
                 <div class="hero-actions">
 
@@ -279,23 +331,16 @@
                         href="#membership"
                         class="btn btn-primary"
                     >
-
                         Become a Member
-
                         <span>→</span>
-
                     </a>
-
 
                     <a
                         href="#activities"
                         class="btn btn-secondary"
                     >
-
                         Explore Our Work
-
                         <span>↓</span>
-
                     </a>
 
                 </div>
@@ -304,7 +349,6 @@
                 <!-- HERO STATISTICS -->
 
                 <div class="hero-stats">
-
 
                     <div class="hero-stat">
 
@@ -375,9 +419,8 @@
         </section>
 
 
-
         <!-- =================================================
-             ABOUT SECTION
+             ABOUT
         ================================================== -->
 
         <section
@@ -387,11 +430,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Who We Are
+                        WHO WE ARE
                     </div>
 
                     <h2 class="section-title">
@@ -418,7 +460,6 @@
 
 
                 <div class="card-grid">
-
 
                     <article class="premium-card reveal">
 
@@ -506,7 +547,6 @@
 
                     </article>
 
-
                 </div>
 
             </div>
@@ -514,9 +554,8 @@
         </section>
 
 
-
         <!-- =================================================
-             MISSION SECTION
+             MISSION
         ================================================== -->
 
         <section
@@ -526,11 +565,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Our Purpose
+                        OUR PURPOSE
                     </div>
 
                     <h2 class="section-title">
@@ -558,7 +596,6 @@
 
 
                 <div class="card-grid">
-
 
                     <article class="premium-card reveal">
 
@@ -625,7 +662,6 @@
 
                     </article>
 
-
                 </div>
 
             </div>
@@ -633,9 +669,8 @@
         </section>
 
 
-
         <!-- =================================================
-             FOUR PILLARS
+             ACTIVITIES
         ================================================== -->
 
         <section
@@ -645,11 +680,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        What We Do
+                        WHAT WE DO
                     </div>
 
                     <h2 class="section-title">
@@ -678,9 +712,7 @@
                 <div class="card-grid">
 
 
-                    <!-- SPORTS -->
-
-                    <article class="premium-card reveal">
+                    <article class="premium-card reveal-left">
 
                         <div class="card-icon">
                             ⚽
@@ -701,8 +733,6 @@
 
                     </article>
 
-
-                    <!-- CULTURE -->
 
                     <article class="premium-card reveal">
 
@@ -726,8 +756,6 @@
                     </article>
 
 
-                    <!-- SOCIAL SERVICE -->
-
                     <article class="premium-card reveal">
 
                         <div class="card-icon">
@@ -750,9 +778,7 @@
                     </article>
 
 
-                    <!-- COMMUNITY -->
-
-                    <article class="premium-card reveal">
+                    <article class="premium-card reveal-right">
 
                         <div class="card-icon">
                             🌱
@@ -773,7 +799,6 @@
 
                     </article>
 
-
                 </div>
 
             </div>
@@ -781,9 +806,8 @@
         </section>
 
 
-
         <!-- =================================================
-             ACTIVITIES STATISTICS
+             IMPACT
         ================================================== -->
 
         <section
@@ -793,11 +817,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Our Impact
+                        OUR IMPACT
                     </div>
 
                     <h2 class="section-title">
@@ -812,11 +835,17 @@
 
                     <div class="gold-divider"></div>
 
+                    <p class="section-description">
+
+                        Our impact grows through every member,
+                        volunteer, event and community initiative.
+
+                    </p>
+
                 </div>
 
 
                 <div class="stat-grid">
-
 
                     <div class="stat-card reveal">
 
@@ -881,7 +910,6 @@
 
                     </div>
 
-
                 </div>
 
             </div>
@@ -889,20 +917,18 @@
         </section>
 
 
-
         <!-- =================================================
-             EVENTS SECTION
+             EVENTS
         ================================================== -->
 
         <section id="events">
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        What's Happening
+                        WHAT'S HAPPENING
                     </div>
 
                     <h2 class="section-title">
@@ -931,7 +957,7 @@
                 <div class="card-grid">
 
 
-                    <article class="premium-card reveal">
+                    <article class="premium-card reveal-left">
 
                         <div class="card-icon">
                             🏆
@@ -993,7 +1019,7 @@
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article class="premium-card reveal-right">
 
                         <div class="card-icon">
                             📢
@@ -1013,7 +1039,6 @@
 
                     </article>
 
-
                 </div>
 
             </div>
@@ -1021,9 +1046,8 @@
         </section>
 
 
-
         <!-- =================================================
-             COMMUNITY SECTION
+             COMMUNITY
         ================================================== -->
 
         <section
@@ -1033,11 +1057,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Community First
+                        COMMUNITY FIRST
                     </div>
 
                     <h2 class="section-title">
@@ -1128,13 +1151,11 @@
 
                     </article>
 
-
                 </div>
 
             </div>
 
         </section>
-
 
 
         <!-- =================================================
@@ -1145,11 +1166,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Our Organization
+                        OUR ORGANIZATION
                     </div>
 
                     <h2 class="section-title">
@@ -1168,7 +1188,7 @@
 
                         A structured leadership system designed
                         to coordinate activities, support members
-                        and serve the association's mission.
+                        and serve the Association's mission.
 
                     </p>
 
@@ -1189,10 +1209,8 @@
                         </h3>
 
                         <p>
-
                             Provides overall leadership and
-                            represents the association.
-
+                            represents the Association.
                         </p>
 
                     </article>
@@ -1209,10 +1227,8 @@
                         </h3>
 
                         <p>
-
                             Supports the President and helps
-                            coordinate association activities.
-
+                            coordinate Association activities.
                         </p>
 
                     </article>
@@ -1229,11 +1245,9 @@
                         </h3>
 
                         <p>
-
                             Coordinates administration,
                             communication and organizational
                             records.
-
                         </p>
 
                     </article>
@@ -1250,10 +1264,8 @@
                         </h3>
 
                         <p>
-
                             Oversees the planning and execution
-                            of association events and programs.
-
+                            of Association events and programs.
                         </p>
 
                     </article>
@@ -1270,10 +1282,8 @@
                         </h3>
 
                         <p>
-
                             Coordinates sporting activities,
                             tournaments and athletic programs.
-
                         </p>
 
                     </article>
@@ -1290,21 +1300,17 @@
                         </h3>
 
                         <p>
-
                             Supports cultural, artistic and
                             creative programs.
-
                         </p>
 
                     </article>
-
 
                 </div>
 
             </div>
 
         </section>
-
 
 
         <!-- =================================================
@@ -1318,11 +1324,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Become a Member
+                        BECOME A MEMBER
                     </div>
 
                     <h2 class="section-title">
@@ -1351,7 +1356,7 @@
                 <div class="card-grid">
 
 
-                    <article class="premium-card reveal">
+                    <article class="premium-card reveal-left">
 
                         <div class="card-icon">
                             🌟
@@ -1363,7 +1368,7 @@
 
                         <p>
 
-                            Participate in association programs,
+                            Participate in Association programs,
                             events and activities.
 
                         </p>
@@ -1391,7 +1396,7 @@
                     </article>
 
 
-                    <article class="premium-card reveal">
+                    <article class="premium-card reveal-right">
 
                         <div class="card-icon">
                             🏆
@@ -1409,7 +1414,6 @@
                         </p>
 
                     </article>
-
 
                 </div>
 
@@ -1434,7 +1438,6 @@
         </section>
 
 
-
         <!-- =================================================
              JOIN CTA
         ================================================== -->
@@ -1443,11 +1446,10 @@
 
             <div class="container">
 
-
                 <div class="section-heading reveal">
 
                     <div class="section-kicker">
-                        Get Involved
+                        GET INVOLVED
                     </div>
 
                     <h2 class="section-title">
@@ -1504,9 +1506,7 @@
 
         </section>
 
-
     </main>
-
 
 
     <!-- =====================================================
@@ -1527,7 +1527,7 @@
 
                 <img
                     src="logo.png"
-                    alt="Antique Association"
+                    alt="Antique Association Logo"
                     style="
                         width:70px;
                         height:70px;
@@ -1576,326 +1576,14 @@
     </footer>
 
 
-
     <!-- =====================================================
-         JAVASCRIPT
-         Temporary inline functionality.
-         We will move this into script.js in the next part.
+         EXTERNAL JAVASCRIPT
     ====================================================== -->
 
-    <script>
-
-        /* =====================================================
-           PAGE LOADER
-        ====================================================== */
-
-        window.addEventListener("load", () => {
-
-            const loader =
-                document.getElementById("pageLoader");
-
-            setTimeout(() => {
-
-                loader.classList.add("hide");
-
-            }, 700);
-
-        });
-
-
-        /* =====================================================
-           HEADER SCROLL
-        ====================================================== */
-
-        const header =
-            document.getElementById("mainHeader");
-
-        window.addEventListener("scroll", () => {
-
-            if (window.scrollY > 50) {
-
-                header.classList.add("scrolled");
-
-            } else {
-
-                header.classList.remove("scrolled");
-
-            }
-
-        });
-
-
-        /* =====================================================
-           MOBILE MENU
-        ====================================================== */
-
-        const menuBtn =
-            document.getElementById("menuBtn");
-
-        const navLinks =
-            document.getElementById("navLinks");
-
-
-        menuBtn.addEventListener("click", () => {
-
-            const isOpen =
-                navLinks.classList.toggle("open");
-
-            menuBtn.classList.toggle(
-                "active",
-                isOpen
-            );
-
-            menuBtn.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-        });
-
-
-        /* Close mobile menu */
-
-        navLinks.querySelectorAll("a").forEach(link => {
-
-            link.addEventListener("click", () => {
-
-                navLinks.classList.remove("open");
-
-                menuBtn.classList.remove("active");
-
-                menuBtn.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            });
-
-        });
-
-
-        /* =====================================================
-           SCROLL REVEAL
-        ====================================================== */
-
-        const revealElements =
-            document.querySelectorAll(
-                ".reveal, .reveal-left, .reveal-right"
-            );
-
-
-        const revealObserver =
-            new IntersectionObserver(
-                entries => {
-
-                    entries.forEach(entry => {
-
-                        if (entry.isIntersecting) {
-
-                            entry.target.classList.add(
-                                "active"
-                            );
-
-                            revealObserver.unobserve(
-                                entry.target
-                            );
-
-                        }
-
-                    });
-
-                },
-                {
-                    threshold: .12
-                }
-            );
-
-
-        revealElements.forEach(element => {
-
-            revealObserver.observe(element);
-
-        });
-
-
-        /* =====================================================
-           SCROLL PROGRESS
-        ====================================================== */
-
-        const progress =
-            document.getElementById(
-                "scrollProgress"
-            );
-
-
-        window.addEventListener("scroll", () => {
-
-            const scrollTop =
-                window.scrollY;
-
-            const documentHeight =
-                document.documentElement.scrollHeight
-                -
-                document.documentElement.clientHeight;
-
-            const percentage =
-                (scrollTop / documentHeight) * 100;
-
-            progress.style.width =
-                percentage + "%";
-
-        });
-
-
-        /* =====================================================
-           PARTICLE BACKGROUND
-        ====================================================== */
-
-        const canvas =
-            document.getElementById("particles");
-
-        const ctx =
-            canvas.getContext("2d");
-
-
-        let particles = [];
-
-
-        function resizeCanvas() {
-
-            canvas.width =
-                window.innerWidth;
-
-            canvas.height =
-                window.innerHeight;
-
-        }
-
-
-        function createParticles() {
-
-            particles = [];
-
-            const amount =
-                Math.min(
-                    55,
-                    Math.floor(
-                        window.innerWidth / 25
-                    )
-                );
-
-
-            for (
-                let i = 0;
-                i < amount;
-                i++
-            ) {
-
-                particles.push({
-
-                    x:
-                        Math.random()
-                        *
-                        canvas.width,
-
-                    y:
-                        Math.random()
-                        *
-                        canvas.height,
-
-                    size:
-                        Math.random()
-                        * 2
-                        + 0.5,
-
-                    speed:
-                        Math.random()
-                        * .35
-                        + .08,
-
-                    opacity:
-                        Math.random()
-                        * .4
-                        + .1
-
-                });
-
-            }
-
-        }
-
-
-        function animateParticles() {
-
-            ctx.clearRect(
-                0,
-                0,
-                canvas.width,
-                canvas.height
-            );
-
-
-            particles.forEach(particle => {
-
-                particle.y -=
-                    particle.speed;
-
-
-                if (particle.y < -10) {
-
-                    particle.y =
-                        canvas.height + 10;
-
-                }
-
-
-                ctx.beginPath();
-
-                ctx.arc(
-                    particle.x,
-                    particle.y,
-                    particle.size,
-                    0,
-                    Math.PI * 2
-                );
-
-                ctx.fillStyle =
-                    `rgba(18,107,73,${particle.opacity})`;
-
-                ctx.fill();
-
-            });
-
-
-            requestAnimationFrame(
-                animateParticles
-            );
-
-        }
-
-
-        resizeCanvas();
-
-        createParticles();
-
-        animateParticles();
-
-
-        window.addEventListener(
-            "resize",
-            () => {
-
-                resizeCanvas();
-
-                createParticles();
-
-            }
-        );
-
-
-    </script>
+    <script src="script.js"></script>
 
 
 </body>
 
 </html>
+```
