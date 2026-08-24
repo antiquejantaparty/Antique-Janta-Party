@@ -1,729 +1,385 @@
 /* =========================================================
    ANTIQUE ASSOCIATION
-   MAIN JAVASCRIPT
-   Safe • Lightweight • Fail-Safe
+   PREMIUM WEBSITE SCRIPT
 ========================================================= */
-
-"use strict";
 
 
 /* =========================================================
-   DOM READY
+   SCROLL PROGRESS
 ========================================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+const progress = document.getElementById("progress");
 
-    /*
-        Every feature is isolated.
-        If one feature fails, the rest of the website continues.
-    */
+function updateProgress() {
 
-    safeRun(initLoader);
-    safeRun(initHeader);
-    safeRun(initMobileMenu);
-    safeRun(initRevealAnimations);
-    safeRun(initCounters);
-    safeRun(initActiveNavigation);
-    safeRun(initSmoothLinks);
-    safeRun(initCurrentYear);
+    const scrollTop =
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
 
-});
+    const scrollHeight =
+        document.documentElement.scrollHeight -
+        document.documentElement.clientHeight;
 
-
-/* =========================================================
-   SAFE FUNCTION RUNNER
-========================================================= */
-
-function safeRun(callback) {
-
-    try {
-
-        if (typeof callback === "function") {
-            callback();
-        }
-
-    } catch (error) {
-
-        console.warn(
-            "Antique Association:",
-            callback.name,
-            "could not initialize.",
-            error
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   PAGE LOADER
-========================================================= */
-
-function initLoader() {
-
-    const loader = document.getElementById("page-loader");
-
-    if (!loader) {
+    if (scrollHeight <= 0) {
+        progress.style.width = "0%";
         return;
     }
 
+    const percentage =
+        (scrollTop / scrollHeight) * 100;
 
-    /*
-        IMPORTANT:
-
-        The loader has a timeout fallback.
-
-        Even if another script or browser feature
-        behaves unexpectedly, the user will never
-        be trapped on the loading screen.
-    */
-
-    const hideLoader = () => {
-
-        if (!loader.classList.contains("loaded")) {
-            loader.classList.add("loaded");
-        }
-
-    };
-
-
-    /*
-        Normal loading.
-    */
-
-    if (document.readyState === "complete") {
-
-        setTimeout(hideLoader, 250);
-
-    } else {
-
-        window.addEventListener(
-            "load",
-            () => {
-                setTimeout(hideLoader, 250);
-            },
-            {
-                once: true
-            }
-        );
-
-    }
-
-
-    /*
-        Absolute fallback.
-
-        The page WILL become visible after 2.5 seconds.
-    */
-
-    setTimeout(hideLoader, 2500);
-
+    progress.style.width =
+        percentage + "%";
 }
+
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    { passive: true }
+);
+
+updateProgress();
 
 
 /* =========================================================
    HEADER SCROLL EFFECT
 ========================================================= */
 
-function initHeader() {
+const header =
+    document.getElementById("header");
 
-    const header =
-        document.getElementById("site-header");
+function updateHeader() {
 
-    if (!header) {
-        return;
+    if (window.scrollY > 40) {
+
+        header.style.background =
+            "rgba(255,252,245,.97)";
+
+        header.style.boxShadow =
+            "0 15px 40px rgba(70,50,20,.12)";
+
+    } else {
+
+        header.style.background =
+            "rgba(255,252,245,.90)";
+
+        header.style.boxShadow =
+            "0 10px 35px rgba(60,45,20,.06)";
     }
-
-
-    const updateHeader = () => {
-
-        if (window.scrollY > 35) {
-
-            header.classList.add("scrolled");
-
-        } else {
-
-            header.classList.remove("scrolled");
-
-        }
-
-    };
-
-
-    updateHeader();
-
-
-    window.addEventListener(
-        "scroll",
-        updateHeader,
-        {
-            passive: true
-        }
-    );
-
 }
 
-
-/* =========================================================
-   MOBILE MENU
-========================================================= */
-
-function initMobileMenu() {
-
-    const toggle =
-        document.getElementById("menu-toggle");
-
-    const menu =
-        document.getElementById("nav-menu");
-
-    if (!toggle || !menu) {
-        return;
-    }
-
-
-    const navLinks =
-        menu.querySelectorAll(".nav-link, .nav-button");
-
-
-    const closeMenu = () => {
-
-        menu.classList.remove("open");
-
-        toggle.classList.remove("active");
-
-        toggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        document.body.classList.remove("menu-open");
-
-    };
-
-
-    const openMenu = () => {
-
-        menu.classList.add("open");
-
-        toggle.classList.add("active");
-
-        toggle.setAttribute(
-            "aria-expanded",
-            "true"
-        );
-
-        document.body.classList.add("menu-open");
-
-    };
-
-
-    toggle.addEventListener("click", () => {
-
-        const isOpen =
-            menu.classList.contains("open");
-
-
-        if (isOpen) {
-
-            closeMenu();
-
-        } else {
-
-            openMenu();
-
-        }
-
-    });
-
-
-    navLinks.forEach(link => {
-
-        link.addEventListener(
-            "click",
-            closeMenu
-        );
-
-    });
-
-
-    /*
-        Close menu when clicking outside.
-    */
-
-    document.addEventListener("click", event => {
-
-        const clickedInsideMenu =
-            menu.contains(event.target);
-
-        const clickedToggle =
-            toggle.contains(event.target);
-
-
-        if (
-            menu.classList.contains("open") &&
-            !clickedInsideMenu &&
-            !clickedToggle
-        ) {
-
-            closeMenu();
-
-        }
-
-    });
-
-
-    /*
-        Close menu with Escape.
-    */
-
-    document.addEventListener("keydown", event => {
-
-        if (
-            event.key === "Escape" &&
-            menu.classList.contains("open")
-        ) {
-
-            closeMenu();
-
-        }
-
-    });
-
-
-    /*
-        Reset mobile menu if window becomes desktop size.
-    */
-
-    window.addEventListener(
-        "resize",
-        () => {
-
-            if (window.innerWidth > 760) {
-                closeMenu();
-            }
-
-        }
-    );
-
-}
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
+);
 
 
 /* =========================================================
    REVEAL ANIMATIONS
 ========================================================= */
 
-function initRevealAnimations() {
+const revealElements =
+    document.querySelectorAll(
+        ".section-heading, " +
+        ".about-card, " +
+        ".value-card, " +
+        ".stat-card, " +
+        ".leader-card, " +
+        ".initiative-card, " +
+        ".event-card, " +
+        ".glass-card, " +
+        ".gallery-box, " +
+        ".contact-card"
+    );
 
-    const elements =
-        document.querySelectorAll(".reveal");
 
+revealElements.forEach((element) => {
 
-    if (!elements.length) {
-        return;
-    }
+    element.classList.add("reveal");
 
+});
 
-    /*
-        If IntersectionObserver isn't supported,
-        simply show everything.
-    */
 
-    if (
-        !("IntersectionObserver" in window)
-    ) {
+function revealOnScroll() {
 
-        elements.forEach(element => {
-            element.classList.add("visible");
-        });
+    const trigger =
+        window.innerHeight - 90;
 
-        return;
-    }
+    revealElements.forEach((element) => {
 
+        const position =
+            element.getBoundingClientRect().top;
 
-    const observer =
-        new IntersectionObserver(
-            entries => {
+        if (position < trigger) {
 
-                entries.forEach(entry => {
-
-                    if (entry.isIntersecting) {
-
-                        entry.target.classList.add(
-                            "visible"
-                        );
-
-                        observer.unobserve(
-                            entry.target
-                        );
-
-                    }
-
-                });
-
-            },
-            {
-                threshold: 0.12,
-                rootMargin: "0px 0px -40px 0px"
-            }
-        );
-
-
-    elements.forEach(element => {
-
-        observer.observe(element);
-
-    });
-
-}
-
-
-/* =========================================================
-   NUMBER COUNTERS
-========================================================= */
-
-function initCounters() {
-
-    const counters =
-        document.querySelectorAll(
-            "[data-count]"
-        );
-
-
-    if (!counters.length) {
-        return;
-    }
-
-
-    /*
-        Reduced motion users get the final number directly.
-    */
-
-    const reduceMotion =
-        window.matchMedia &&
-        window.matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        ).matches;
-
-
-    if (reduceMotion) {
-
-        counters.forEach(counter => {
-
-            counter.textContent =
-                formatNumber(
-                    Number(counter.dataset.count)
-                );
-
-        });
-
-        return;
-    }
-
-
-    if (
-        !("IntersectionObserver" in window)
-    ) {
-
-        counters.forEach(counter => {
-
-            counter.textContent =
-                formatNumber(
-                    Number(counter.dataset.count)
-                );
-
-        });
-
-        return;
-    }
-
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
-
-
-                    const counter =
-                        entry.target;
-
-                    animateCounter(counter);
-
-                    observer.unobserve(counter);
-
-                });
-
-            },
-            {
-                threshold: 0.8
-            }
-        );
-
-
-    counters.forEach(counter => {
-
-        observer.observe(counter);
-
-    });
-
-}
-
-
-/* =========================================================
-   COUNTER ANIMATION
-========================================================= */
-
-function animateCounter(counter) {
-
-    const target =
-        Number(counter.dataset.count);
-
-
-    if (
-        !Number.isFinite(target) ||
-        target < 0
-    ) {
-
-        counter.textContent = "0";
-
-        return;
-    }
-
-
-    const duration = 1500;
-
-    const startTime =
-        performance.now();
-
-
-    const update = currentTime => {
-
-        const elapsed =
-            currentTime - startTime;
-
-
-        const progress =
-            Math.min(
-                elapsed / duration,
-                1
-            );
-
-
-        /*
-            Smooth ease-out.
-        */
-
-        const eased =
-            1 - Math.pow(
-                1 - progress,
-                3
-            );
-
-
-        const current =
-            Math.floor(
-                target * eased
-            );
-
-
-        counter.textContent =
-            formatNumber(current);
-
-
-        if (progress < 1) {
-
-            requestAnimationFrame(update);
-
-        } else {
-
-            counter.textContent =
-                formatNumber(target);
+            element.classList.add("active");
 
         }
 
-    };
-
-
-    requestAnimationFrame(update);
+    });
 
 }
+
+window.addEventListener(
+    "scroll",
+    revealOnScroll,
+    { passive: true }
+);
+
+revealOnScroll();
 
 
 /* =========================================================
-   NUMBER FORMATTER
+   PARTICLE SYSTEM
 ========================================================= */
 
-function formatNumber(number) {
+const canvas =
+    document.getElementById("particles");
 
-    if (!Number.isFinite(number)) {
-        return "0";
-    }
+const ctx =
+    canvas.getContext("2d");
 
+let particles = [];
 
-    return new Intl.NumberFormat(
-        "en-IN"
-    ).format(number);
+function resizeCanvas() {
 
+    canvas.width =
+        window.innerWidth;
+
+    canvas.height =
+        window.innerHeight;
 }
+
+resizeCanvas();
+
+window.addEventListener(
+    "resize",
+    resizeCanvas
+);
+
+
+/* CREATE PARTICLES */
+
+function createParticles() {
+
+    particles = [];
+
+    const amount =
+        Math.min(
+            65,
+            Math.floor(window.innerWidth / 22)
+        );
+
+    for (let i = 0; i < amount; i++) {
+
+        particles.push({
+
+            x:
+                Math.random() *
+                canvas.width,
+
+            y:
+                Math.random() *
+                canvas.height,
+
+            radius:
+                Math.random() * 2 + .5,
+
+            speedX:
+                (Math.random() - .5) * .35,
+
+            speedY:
+                (Math.random() - .5) * .35,
+
+            opacity:
+                Math.random() * .35 + .08
+
+        });
+
+    }
+}
+
+createParticles();
+
+
+/* DRAW PARTICLES */
+
+function animateParticles() {
+
+    ctx.clearRect(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+    );
+
+    particles.forEach((particle) => {
+
+        particle.x +=
+            particle.speedX;
+
+        particle.y +=
+            particle.speedY;
+
+
+        if (particle.x < -10)
+            particle.x =
+                canvas.width + 10;
+
+        if (particle.x > canvas.width + 10)
+            particle.x = -10;
+
+
+        if (particle.y < -10)
+            particle.y =
+                canvas.height + 10;
+
+        if (particle.y > canvas.height + 10)
+            particle.y = -10;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            particle.x,
+            particle.y,
+            particle.radius,
+            0,
+            Math.PI * 2
+        );
+
+        ctx.fillStyle =
+            `rgba(170,125,45,${particle.opacity})`;
+
+        ctx.fill();
+
+    });
+
+    requestAnimationFrame(
+        animateParticles
+    );
+}
+
+animateParticles();
 
 
 /* =========================================================
    ACTIVE NAVIGATION
 ========================================================= */
 
-function initActiveNavigation() {
+const navLinks =
+    document.querySelectorAll(
+        ".nav-links a"
+    );
 
-    const sections =
-        document.querySelectorAll(
-            "main section[id]"
-        );
-
-    const links =
-        document.querySelectorAll(
-            ".nav-link"
-        );
+const sections =
+    document.querySelectorAll(
+        "section[id]"
+    );
 
 
-    if (
-        !sections.length ||
-        !links.length
-    ) {
+function updateActiveNav() {
 
-        return;
+    let currentSection = "";
 
-    }
+    sections.forEach((section) => {
 
+        const sectionTop =
+            section.offsetTop - 180;
 
-    if (
-        !("IntersectionObserver" in window)
-    ) {
+        const sectionBottom =
+            sectionTop +
+            section.offsetHeight;
 
-        return;
+        if (
+            window.scrollY >= sectionTop &&
+            window.scrollY < sectionBottom
+        ) {
 
-    }
+            currentSection =
+                section.id;
+        }
 
-
-    const observer =
-        new IntersectionObserver(
-            entries => {
-
-                entries.forEach(entry => {
-
-                    if (!entry.isIntersecting) {
-                        return;
-                    }
+    });
 
 
-                    const currentId =
-                        entry.target.id;
+    navLinks.forEach((link) => {
 
+        link.classList.remove("active");
 
-                    links.forEach(link => {
+        const target =
+            link.getAttribute("href");
 
-                        link.classList.remove(
-                            "active"
-                        );
+        if (
+            target ===
+            "#" + currentSection
+        ) {
 
-
-                        const href =
-                            link.getAttribute(
-                                "href"
-                            );
-
-
-                        if (
-                            href ===
-                            `#${currentId}`
-                        ) {
-
-                            link.classList.add(
-                                "active"
-                            );
-
-                        }
-
-                    });
-
-                });
-
-            },
-            {
-                rootMargin:
-                    "-30% 0px -60% 0px",
-                threshold: 0
-            }
-        );
-
-
-    sections.forEach(section => {
-
-        observer.observe(section);
+            link.classList.add("active");
+        }
 
     });
 
 }
 
+window.addEventListener(
+    "scroll",
+    updateActiveNav,
+    { passive: true }
+);
+
+updateActiveNav();
+
 
 /* =========================================================
-   SMOOTH ANCHOR LINKS
+   SMOOTH NAVIGATION
 ========================================================= */
 
-function initSmoothLinks() {
-
-    const links =
-        document.querySelectorAll(
-            'a[href^="#"]'
-        );
-
-
-    links.forEach(link => {
+document
+    .querySelectorAll('a[href^="#"]')
+    .forEach((link) => {
 
         link.addEventListener(
             "click",
-            event => {
+            function (event) {
 
                 const targetId =
-                    link.getAttribute("href");
-
-
-                /*
-                    Ignore empty "#"
-                */
+                    this.getAttribute("href");
 
                 if (
                     !targetId ||
                     targetId === "#"
                 ) {
-
                     return;
-
                 }
-
 
                 const target =
                     document.querySelector(
                         targetId
                     );
 
-
                 if (!target) {
-
                     return;
-
                 }
-
 
                 event.preventDefault();
 
+                const headerHeight =
+                    header.offsetHeight;
 
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
+                const targetPosition =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    headerHeight -
+                    15;
+
+                window.scrollTo({
+
+                    top: targetPosition,
+
+                    behavior: "smooth"
+
                 });
 
             }
@@ -731,118 +387,180 @@ function initSmoothLinks() {
 
     });
 
-}
-
 
 /* =========================================================
-   CURRENT YEAR
+   STAT COUNTERS
 ========================================================= */
 
-function initCurrentYear() {
+const statElements =
+    document.querySelectorAll(
+        ".stat-card strong"
+    );
 
-    const year =
-        document.getElementById(
-            "current-year"
+let countersStarted = false;
+
+
+function startCounters() {
+
+    if (countersStarted)
+        return;
+
+    const statsSection =
+        document.querySelector(
+            ".stats-grid"
         );
 
+    if (!statsSection)
+        return;
 
-    if (!year) {
+
+    const position =
+        statsSection.getBoundingClientRect().top;
+
+
+    if (
+        position >
+        window.innerHeight - 100
+    ) {
         return;
     }
 
 
-    year.textContent =
-        new Date().getFullYear();
+    countersStarted = true;
+
+
+    statElements.forEach((element) => {
+
+        const original =
+            element.textContent.trim();
+
+        const number =
+            parseInt(
+                original.replace(/\D/g, "")
+            );
+
+
+        if (isNaN(number)) {
+            return;
+        }
+
+
+        let current = 0;
+
+        const hasPlus =
+            original.includes("+");
+
+
+        const duration = 1200;
+
+        const interval = 20;
+
+        const steps =
+            duration / interval;
+
+        const increment =
+            number / steps;
+
+
+        const timer =
+            setInterval(() => {
+
+                current += increment;
+
+                if (current >= number) {
+
+                    element.textContent =
+                        number +
+                        (hasPlus ? "+" : "");
+
+                    clearInterval(timer);
+
+                } else {
+
+                    element.textContent =
+                        Math.floor(current) +
+                        (hasPlus ? "+" : "");
+
+                }
+
+            }, interval);
+
+    });
+
+}
+
+
+window.addEventListener(
+    "scroll",
+    startCounters,
+    { passive: true }
+);
+
+startCounters();
+
+
+/* =========================================================
+   MOUSE PARALLAX ON HERO EMBLEM
+========================================================= */
+
+const hero =
+    document.querySelector(".hero");
+
+const emblem =
+    document.querySelector(".hero-emblem");
+
+
+if (hero && emblem) {
+
+    hero.addEventListener(
+        "mousemove",
+        (event) => {
+
+            const x =
+                (event.clientX /
+                    window.innerWidth -
+                    .5) * 12;
+
+            const y =
+                (event.clientY /
+                    window.innerHeight -
+                    .5) * 12;
+
+            emblem.style.transform =
+                `translate(${x}px, ${y}px)`;
+        }
+    );
+
+
+    hero.addEventListener(
+        "mouseleave",
+        () => {
+
+            emblem.style.transform =
+                "translate(0,0)";
+        }
+    );
 
 }
 
 
 /* =========================================================
-   KEYBOARD ACCESSIBILITY
-========================================================= */
-
-document.addEventListener(
-    "keydown",
-    event => {
-
-        /*
-            Allow users to close mobile menu
-            with Escape even if another initialization
-            failed.
-        */
-
-        if (event.key !== "Escape") {
-            return;
-        }
-
-
-        const menu =
-            document.getElementById(
-                "nav-menu"
-            );
-
-        const toggle =
-            document.getElementById(
-                "menu-toggle"
-            );
-
-
-        if (!menu || !toggle) {
-            return;
-        }
-
-
-        menu.classList.remove("open");
-
-        toggle.classList.remove("active");
-
-        toggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
-
-        document.body.classList.remove(
-            "menu-open"
-        );
-
-    }
-);
-
-
-/* =========================================================
-   GLOBAL ERROR PROTECTION
+   INITIALISE
 ========================================================= */
 
 window.addEventListener(
-    "error",
-    event => {
+    "load",
+    () => {
 
-        /*
-            We deliberately don't stop the website.
+        updateProgress();
 
-            This prevents a non-critical JavaScript
-            error from breaking the entire experience.
-        */
+        updateHeader();
 
-        console.warn(
-            "Antique Association encountered a non-critical error:",
-            event.error || event.message
-        );
+        revealOnScroll();
+
+        updateActiveNav();
+
+        createParticles();
 
     }
-);
-
-
-/* =========================================================
-   FINAL INITIALIZATION MESSAGE
-========================================================= */
-
-console.log(
-    "%cANTIQUE ASSOCIATION",
-    "color:#c9a227;font-size:18px;font-weight:bold;"
-);
-
-console.log(
-    "%cCommunity • Service • Unity",
-    "color:#f0d477;font-size:12px;"
 );
