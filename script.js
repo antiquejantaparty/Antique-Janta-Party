@@ -1,6 +1,6 @@
 /* =========================================================
    ANTIQUE ASSOCIATION
-   PREMIUM WEBSITE SCRIPT
+   PREMIUM WEBSITE JAVASCRIPT
 ========================================================= */
 
 
@@ -8,20 +8,23 @@
    SCROLL PROGRESS
 ========================================================= */
 
-const progress = document.getElementById("progress");
+const progress =
+    document.getElementById("progress");
 
-function updateProgress() {
+
+function updateProgress(){
 
     const scrollTop =
-        document.documentElement.scrollTop ||
-        document.body.scrollTop;
+        document.documentElement.scrollTop;
 
     const scrollHeight =
         document.documentElement.scrollHeight -
         document.documentElement.clientHeight;
 
-    if (scrollHeight <= 0) {
+    if(scrollHeight <= 0){
+
         progress.style.width = "0%";
+
         return;
     }
 
@@ -30,49 +33,59 @@ function updateProgress() {
 
     progress.style.width =
         percentage + "%";
+
 }
+
 
 window.addEventListener(
     "scroll",
     updateProgress,
-    { passive: true }
+    {passive:true}
 );
 
 updateProgress();
 
 
+
 /* =========================================================
-   HEADER SCROLL EFFECT
+   HEADER EFFECT
 ========================================================= */
 
 const header =
-    document.getElementById("header");
+    document.querySelector("header");
 
-function updateHeader() {
 
-    if (window.scrollY > 40) {
+function updateHeader(){
 
-        header.style.background =
-            "rgba(255,252,245,.97)";
-
-        header.style.boxShadow =
-            "0 15px 40px rgba(70,50,20,.12)";
-
-    } else {
+    if(window.scrollY > 50){
 
         header.style.background =
-            "rgba(255,252,245,.90)";
+            "rgba(255,255,255,.97)";
 
         header.style.boxShadow =
-            "0 10px 35px rgba(60,45,20,.06)";
+            "0 15px 40px rgba(0,0,0,.12)";
+
     }
+
+    else{
+
+        header.style.background =
+            "rgba(255,255,255,.92)";
+
+        header.style.boxShadow =
+            "0 10px 30px rgba(0,0,0,.06)";
+
+    }
+
 }
+
 
 window.addEventListener(
     "scroll",
     updateHeader,
-    { passive: true }
+    {passive:true}
 );
+
 
 
 /* =========================================================
@@ -81,57 +94,69 @@ window.addEventListener(
 
 const revealElements =
     document.querySelectorAll(
-        ".section-heading, " +
-        ".about-card, " +
-        ".value-card, " +
-        ".stat-card, " +
-        ".leader-card, " +
-        ".initiative-card, " +
-        ".event-card, " +
-        ".glass-card, " +
-        ".gallery-box, " +
+        ".section-heading," +
+        ".glass-card," +
+        ".dark-card," +
+        ".value-card," +
+        ".stat-card," +
+        ".leader-card," +
+        ".initiative-card," +
+        ".event," +
+        ".gallery-item," +
         ".contact-card"
     );
 
 
-revealElements.forEach((element) => {
+revealElements.forEach(
+    element => {
 
-    element.classList.add("reveal");
+        element.classList.add(
+            "reveal"
+        );
 
-});
+    }
+);
 
 
-function revealOnScroll() {
+function revealOnScroll(){
 
     const trigger =
         window.innerHeight - 90;
 
-    revealElements.forEach((element) => {
 
-        const position =
-            element.getBoundingClientRect().top;
+    revealElements.forEach(
+        element => {
 
-        if (position < trigger) {
+            const top =
+                element.getBoundingClientRect().top;
 
-            element.classList.add("active");
+
+            if(top < trigger){
+
+                element.classList.add(
+                    "active"
+                );
+
+            }
 
         }
-
-    });
+    );
 
 }
+
 
 window.addEventListener(
     "scroll",
     revealOnScroll,
-    { passive: true }
+    {passive:true}
 );
 
 revealOnScroll();
 
 
+
 /* =========================================================
-   PARTICLE SYSTEM
+   PARTICLES
 ========================================================= */
 
 const canvas =
@@ -140,18 +165,23 @@ const canvas =
 const ctx =
     canvas.getContext("2d");
 
+
 let particles = [];
 
-function resizeCanvas() {
+
+function resizeCanvas(){
 
     canvas.width =
         window.innerWidth;
 
     canvas.height =
         window.innerHeight;
+
 }
 
+
 resizeCanvas();
+
 
 window.addEventListener(
     "resize",
@@ -159,19 +189,21 @@ window.addEventListener(
 );
 
 
-/* CREATE PARTICLES */
 
-function createParticles() {
+function createParticles(){
 
     particles = [];
 
     const amount =
         Math.min(
             65,
-            Math.floor(window.innerWidth / 22)
+            Math.floor(
+                window.innerWidth / 20
+            )
         );
 
-    for (let i = 0; i < amount; i++) {
+
+    for(let i = 0; i < amount; i++){
 
         particles.push({
 
@@ -193,19 +225,20 @@ function createParticles() {
                 (Math.random() - .5) * .35,
 
             opacity:
-                Math.random() * .35 + .08
+                Math.random() * .35 + .05
 
         });
 
     }
+
 }
+
 
 createParticles();
 
 
-/* DRAW PARTICLES */
 
-function animateParticles() {
+function animateParticles(){
 
     ctx.clearRect(
         0,
@@ -214,54 +247,88 @@ function animateParticles() {
         canvas.height
     );
 
-    particles.forEach((particle) => {
 
-        particle.x +=
-            particle.speedX;
+    particles.forEach(
+        particle => {
 
-        particle.y +=
-            particle.speedY;
+            particle.x +=
+                particle.speedX;
 
-
-        if (particle.x < -10)
-            particle.x =
-                canvas.width + 10;
-
-        if (particle.x > canvas.width + 10)
-            particle.x = -10;
+            particle.y +=
+                particle.speedY;
 
 
-        if (particle.y < -10)
-            particle.y =
-                canvas.height + 10;
+            if(
+                particle.x < -10
+            ){
 
-        if (particle.y > canvas.height + 10)
-            particle.y = -10;
+                particle.x =
+                    canvas.width + 10;
+
+            }
 
 
-        ctx.beginPath();
+            if(
+                particle.x >
+                canvas.width + 10
+            ){
 
-        ctx.arc(
-            particle.x,
-            particle.y,
-            particle.radius,
-            0,
-            Math.PI * 2
-        );
+                particle.x = -10;
 
-        ctx.fillStyle =
-            `rgba(170,125,45,${particle.opacity})`;
+            }
 
-        ctx.fill();
 
-    });
+            if(
+                particle.y < -10
+            ){
+
+                particle.y =
+                    canvas.height + 10;
+
+            }
+
+
+            if(
+                particle.y >
+                canvas.height + 10
+            ){
+
+                particle.y = -10;
+
+            }
+
+
+            ctx.beginPath();
+
+
+            ctx.arc(
+                particle.x,
+                particle.y,
+                particle.radius,
+                0,
+                Math.PI * 2
+            );
+
+
+            ctx.fillStyle =
+                `rgba(196,154,74,${particle.opacity})`;
+
+
+            ctx.fill();
+
+        }
+    );
+
 
     requestAnimationFrame(
         animateParticles
     );
+
 }
 
+
 animateParticles();
+
 
 
 /* =========================================================
@@ -273,219 +340,278 @@ const navLinks =
         ".nav-links a"
     );
 
+
 const sections =
     document.querySelectorAll(
         "section[id]"
     );
 
 
-function updateActiveNav() {
+function updateActiveNavigation(){
 
-    let currentSection = "";
+    let current = "";
 
-    sections.forEach((section) => {
 
-        const sectionTop =
-            section.offsetTop - 180;
+    sections.forEach(
+        section => {
 
-        const sectionBottom =
-            sectionTop +
-            section.offsetHeight;
+            const top =
+                section.offsetTop - 180;
 
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionBottom
-        ) {
+            const bottom =
+                top +
+                section.offsetHeight;
 
-            currentSection =
-                section.id;
+
+            if(
+                window.scrollY >= top &&
+                window.scrollY < bottom
+            ){
+
+                current =
+                    section.id;
+
+            }
+
         }
+    );
 
-    });
+
+    navLinks.forEach(
+        link => {
+
+            link.classList.remove(
+                "active"
+            );
 
 
-    navLinks.forEach((link) => {
+            if(
+                link.getAttribute("href") ===
+                "#" + current
+            ){
 
-        link.classList.remove("active");
+                link.classList.add(
+                    "active"
+                );
 
-        const target =
-            link.getAttribute("href");
+            }
 
-        if (
-            target ===
-            "#" + currentSection
-        ) {
-
-            link.classList.add("active");
         }
-
-    });
+    );
 
 }
 
+
 window.addEventListener(
     "scroll",
-    updateActiveNav,
-    { passive: true }
+    updateActiveNavigation,
+    {passive:true}
 );
 
-updateActiveNav();
+updateActiveNavigation();
+
 
 
 /* =========================================================
-   SMOOTH NAVIGATION
+   SMOOTH ANCHOR SCROLL
 ========================================================= */
 
 document
-    .querySelectorAll('a[href^="#"]')
-    .forEach((link) => {
+    .querySelectorAll(
+        'a[href^="#"]'
+    )
+    .forEach(
+        link => {
 
-        link.addEventListener(
-            "click",
-            function (event) {
+            link.addEventListener(
+                "click",
+                event => {
 
-                const targetId =
-                    this.getAttribute("href");
+                    const targetID =
+                        link.getAttribute(
+                            "href"
+                        );
 
-                if (
-                    !targetId ||
-                    targetId === "#"
-                ) {
-                    return;
+
+                    if(
+                        !targetID ||
+                        targetID === "#"
+                    ){
+
+                        return;
+
+                    }
+
+
+                    const target =
+                        document.querySelector(
+                            targetID
+                        );
+
+
+                    if(!target){
+
+                        return;
+
+                    }
+
+
+                    event.preventDefault();
+
+
+                    const headerHeight =
+                        header.offsetHeight;
+
+
+                    const position =
+                        target.getBoundingClientRect().top +
+                        window.scrollY -
+                        headerHeight -
+                        15;
+
+
+                    window.scrollTo({
+
+                        top:position,
+
+                        behavior:"smooth"
+
+                    });
+
                 }
+            );
 
-                const target =
-                    document.querySelector(
-                        targetId
-                    );
+        }
+    );
 
-                if (!target) {
-                    return;
-                }
-
-                event.preventDefault();
-
-                const headerHeight =
-                    header.offsetHeight;
-
-                const targetPosition =
-                    target.getBoundingClientRect().top +
-                    window.scrollY -
-                    headerHeight -
-                    15;
-
-                window.scrollTo({
-
-                    top: targetPosition,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
-
-    });
 
 
 /* =========================================================
    STAT COUNTERS
 ========================================================= */
 
-const statElements =
+const statCounters =
     document.querySelectorAll(
-        ".stat-card strong"
+        ".stat-card h3[data-target]"
     );
+
 
 let countersStarted = false;
 
 
-function startCounters() {
+function startCounters(){
 
-    if (countersStarted)
+    if(countersStarted){
+
         return;
 
-    const statsSection =
+    }
+
+
+    const stats =
         document.querySelector(
             ".stats-grid"
         );
 
-    if (!statsSection)
+
+    if(!stats){
+
         return;
+
+    }
 
 
     const position =
-        statsSection.getBoundingClientRect().top;
+        stats.getBoundingClientRect().top;
 
 
-    if (
+    if(
         position >
         window.innerHeight - 100
-    ) {
+    ){
+
         return;
+
     }
 
 
     countersStarted = true;
 
 
-    statElements.forEach((element) => {
+    statCounters.forEach(
+        counter => {
 
-        const original =
-            element.textContent.trim();
-
-        const number =
-            parseInt(
-                original.replace(/\D/g, "")
-            );
+            const target =
+                parseInt(
+                    counter.dataset.target
+                );
 
 
-        if (isNaN(number)) {
-            return;
+            if(isNaN(target)){
+
+                return;
+
+            }
+
+
+            if(target === 2026){
+
+                counter.textContent =
+                    "2026";
+
+                return;
+
+            }
+
+
+            let value = 0;
+
+
+            const duration = 1100;
+
+            const interval = 20;
+
+            const steps =
+                duration / interval;
+
+            const increment =
+                target / steps;
+
+
+            const timer =
+                setInterval(
+                    () => {
+
+                        value += increment;
+
+
+                        if(
+                            value >= target
+                        ){
+
+                            counter.textContent =
+                                target + "+";
+
+                            clearInterval(
+                                timer
+                            );
+
+                        }
+
+                        else{
+
+                            counter.textContent =
+                                Math.floor(value) +
+                                "+";
+
+                        }
+
+                    },
+                    interval
+                );
+
         }
-
-
-        let current = 0;
-
-        const hasPlus =
-            original.includes("+");
-
-
-        const duration = 1200;
-
-        const interval = 20;
-
-        const steps =
-            duration / interval;
-
-        const increment =
-            number / steps;
-
-
-        const timer =
-            setInterval(() => {
-
-                current += increment;
-
-                if (current >= number) {
-
-                    element.textContent =
-                        number +
-                        (hasPlus ? "+" : "");
-
-                    clearInterval(timer);
-
-                } else {
-
-                    element.textContent =
-                        Math.floor(current) +
-                        (hasPlus ? "+" : "");
-
-                }
-
-            }, interval);
-
-    });
+    );
 
 }
 
@@ -493,41 +619,47 @@ function startCounters() {
 window.addEventListener(
     "scroll",
     startCounters,
-    { passive: true }
+    {passive:true}
 );
 
 startCounters();
 
 
+
 /* =========================================================
-   MOUSE PARALLAX ON HERO EMBLEM
+   HERO EMBLEM PARALLAX
 ========================================================= */
 
 const hero =
-    document.querySelector(".hero");
+    document.querySelector(
+        ".hero"
+    );
+
 
 const emblem =
-    document.querySelector(".hero-emblem");
+    document.querySelector(
+        ".main-emblem"
+    );
 
 
-if (hero && emblem) {
+if(hero && emblem){
 
     hero.addEventListener(
         "mousemove",
-        (event) => {
+        event => {
 
             const x =
                 (event.clientX /
-                    window.innerWidth -
-                    .5) * 12;
+                window.innerWidth - .5) * 10;
 
             const y =
                 (event.clientY /
-                    window.innerHeight -
-                    .5) * 12;
+                window.innerHeight - .5) * 10;
+
 
             emblem.style.transform =
-                `translate(${x}px, ${y}px)`;
+                `translate(${x}px,${y}px)`;
+
         }
     );
 
@@ -538,10 +670,12 @@ if (hero && emblem) {
 
             emblem.style.transform =
                 "translate(0,0)";
+
         }
     );
 
 }
+
 
 
 /* =========================================================
@@ -558,7 +692,7 @@ window.addEventListener(
 
         revealOnScroll();
 
-        updateActiveNav();
+        updateActiveNavigation();
 
         createParticles();
 
