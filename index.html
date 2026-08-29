@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="Antique Association — Community, Service, Sports, Culture and Unity.">
+content="Antique Association — Community, Service, Sports, Culture, Unity and Unsung Gems of India.">
 
 <title>Antique Association | Official Portal</title>
 
@@ -17,1625 +17,2069 @@ content="Antique Association — Community, Service, Sports, Culture and Unity."
 <style>
 
 /* =========================================================
-   ANTIQUE ASSOCIATION
-   COMPLETE ONE-FILE WEBSITE
+   ROOT
 ========================================================= */
 
-:root{
-    --gold:#c99a3d;
-    --gold-light:#e7c477;
-    --gold-dark:#8f6824;
+:root {
+    --gold: #c99a3d;
+    --gold-light: #e8c778;
+    --gold-dark: #8d651f;
 
-    --charcoal:#151515;
-    --charcoal-2:#1d1d1d;
-    --charcoal-3:#242424;
+    --black: #101010;
+    --dark: #181818;
+    --white: #ffffff;
+    --cream: #faf8f2;
 
-    --white:#ffffff;
-    --cream:#faf8f3;
-    --text:#555;
-    --muted:#8b8b8b;
+    --saffron: #ff9933;
+    --green: #138808;
+    --navy: #000080;
 
-    --shadow:0 25px 70px rgba(0,0,0,.12);
-    --gold-shadow:0 20px 60px rgba(201,154,61,.22);
-
-    --radius:24px;
-}
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    font-family:'Poppins',sans-serif;
-    background:var(--cream);
-    color:#171717;
-    overflow-x:hidden;
-}
-
-a{
-    color:inherit;
-    text-decoration:none;
-}
-
-button,
-a{
-    -webkit-tap-highlight-color:transparent;
+    --shadow: 0 25px 70px rgba(0,0,0,.13);
 }
 
 /* =========================================================
-   SCROLLBAR
+   RESET
 ========================================================= */
 
-::-webkit-scrollbar{
-    width:9px;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-::-webkit-scrollbar-track{
-    background:#111;
+html {
+    scroll-behavior: smooth;
 }
 
-::-webkit-scrollbar-thumb{
-    background:linear-gradient(
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--cream);
+    color: #171717;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* =========================================================
+   SCROLL BAR
+========================================================= */
+
+::-webkit-scrollbar {
+    width: 9px;
+}
+
+::-webkit-scrollbar-track {
+    background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(
         180deg,
-        var(--gold-light),
-        var(--gold),
-        var(--gold-dark)
+        var(--saffron),
+        white,
+        var(--green)
     );
-    border-radius:20px;
+    border-radius: 20px;
 }
 
 /* =========================================================
-   PROGRESS
+   SCROLL PROGRESS
 ========================================================= */
 
-#progress{
-    position:fixed;
-    top:0;
-    left:0;
-    width:0%;
-    height:4px;
-    background:linear-gradient(
+#progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 4px;
+    background: linear-gradient(
         90deg,
-        var(--gold-dark),
-        var(--gold-light),
-        var(--gold)
+        var(--saffron),
+        white,
+        var(--green)
     );
-    z-index:99999;
-}
-
-/* =========================================================
-   BACKGROUND
-========================================================= */
-
-#particles{
-    position:fixed;
-    inset:0;
-    width:100%;
-    height:100%;
-    pointer-events:none;
-    z-index:-3;
-    opacity:.3;
-}
-
-.background{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:-4;
-}
-
-.blob{
-    position:absolute;
-    border-radius:50%;
-    filter:blur(100px);
-    opacity:.12;
-    animation:blobMove 16s ease-in-out infinite alternate;
-}
-
-.blob.one{
-    width:500px;
-    height:500px;
-    background:var(--gold);
-    left:-250px;
-    top:-200px;
-}
-
-.blob.two{
-    width:450px;
-    height:450px;
-    background:#806020;
-    right:-200px;
-    top:40%;
-    animation-delay:3s;
-}
-
-.blob.three{
-    width:500px;
-    height:500px;
-    background:var(--gold-light);
-    left:35%;
-    bottom:-300px;
-    animation-delay:6s;
-}
-
-@keyframes blobMove{
-    from{
-        transform:translate(0,0) scale(1);
-    }
-    to{
-        transform:translate(80px,60px) scale(1.1);
-    }
+    z-index: 99999;
 }
 
 /* =========================================================
    HEADER
 ========================================================= */
 
-header{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    z-index:5000;
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5000;
 
-    background:rgba(255,255,255,.9);
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    background: rgba(255,255,255,.94);
+    backdrop-filter: blur(18px);
 
-    border-bottom:1px solid rgba(0,0,0,.07);
+    border-bottom: 1px solid rgba(0,0,0,.07);
 
-    transition:.35s ease;
+    transition: .35s ease;
 }
 
-header.scrolled{
-    background:rgba(255,255,255,.97);
-    box-shadow:0 15px 45px rgba(0,0,0,.12);
+header.scrolled {
+    box-shadow: 0 15px 45px rgba(0,0,0,.12);
 }
 
-.navbar{
-    width:min(1400px,94%);
-    height:88px;
-    margin:auto;
+.navbar {
+    width: min(1400px, 94%);
+    height: 88px;
+    margin: auto;
 
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
 }
 
 /* =========================================================
    LOGO
 ========================================================= */
 
-.logo{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    min-width:max-content;
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
 }
 
-.logo img{
-    width:58px;
-    height:58px;
-    object-fit:contain;
-    border-radius:50%;
-    transition:.4s;
+.logo img {
+    width: 58px;
+    height: 58px;
+    object-fit: contain;
+
+    transition: .4s;
 }
 
-.logo:hover img{
-    transform:rotate(-5deg) scale(1.06);
+.logo:hover img {
+    transform: scale(1.07) rotate(-4deg);
 }
 
-.logo-text h1{
-    font-family:'Cinzel',serif;
-    font-size:19px;
-    letter-spacing:1.3px;
-    font-weight:800;
+.logo-text h1 {
+    font-family: "Cinzel", serif;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
 }
 
-.logo-text p{
-    margin-top:2px;
-    color:var(--gold-dark);
-    font-size:9px;
-    font-weight:700;
-    letter-spacing:2.4px;
+.logo-text p {
+    color: var(--gold-dark);
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: 3px;
 }
 
 /* =========================================================
    NAVIGATION
 ========================================================= */
 
-.nav-links{
-    display:flex;
-    align-items:center;
-    gap:27px;
-    list-style:none;
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    list-style: none;
 }
 
-.nav-links a{
-    position:relative;
-    color:#333;
-    font-size:13px;
-    font-weight:600;
-    transition:.3s;
+.nav-links a {
+    position: relative;
+
+    color: #333;
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: .3s;
 }
 
 .nav-links a:hover,
-.nav-links a.active{
-    color:var(--gold-dark);
+.nav-links a.active {
+    color: var(--gold-dark);
 }
 
-.nav-links a::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    bottom:-10px;
-    width:0;
-    height:2px;
-    background:var(--gold);
-    transform:translateX(-50%);
-    transition:.3s;
+.nav-links a::after {
+    content: "";
+
+    position: absolute;
+    left: 50%;
+    bottom: -9px;
+
+    width: 0;
+    height: 2px;
+
+    background: var(--gold);
+
+    transform: translateX(-50%);
+    transition: .3s;
 }
 
 .nav-links a:hover::after,
-.nav-links a.active::after{
-    width:100%;
+.nav-links a.active::after {
+    width: 100%;
 }
 
-.nav-button{
-    padding:12px 22px;
-    border:1px solid var(--gold);
-    color:var(--gold-dark);
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:1px;
-    border-radius:30px;
-    transition:.3s;
+.nav-button {
+    padding: 12px 22px;
+
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+
+    color: var(--gold-dark);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    transition: .3s;
 }
 
-.nav-button:hover{
-    background:var(--gold);
-    color:white;
-    transform:translateY(-2px);
+.nav-button:hover {
+    background: var(--gold);
+    color: white;
+
+    transform: translateY(-2px);
 }
 
-/* MOBILE MENU */
+/* =========================================================
+   MOBILE MENU
+========================================================= */
 
-.menu-btn{
-    display:none;
-    width:44px;
-    height:44px;
-    border:1px solid #ddd;
-    border-radius:12px;
-    background:white;
-    cursor:pointer;
+.menu-btn {
+    display: none;
+
+    width: 44px;
+    height: 44px;
+
+    border: 1px solid #ddd;
+    border-radius: 12px;
+
+    background: white;
+
+    cursor: pointer;
 }
 
-.menu-btn span{
-    display:block;
-    width:21px;
-    height:2px;
-    background:#222;
-    margin:4px auto;
+.menu-btn span {
+    display: block;
+
+    width: 21px;
+    height: 2px;
+
+    background: #222;
+
+    margin: 4px auto;
 }
 
 /* =========================================================
    HERO
 ========================================================= */
 
-.hero{
-    min-height:100vh;
-    padding:150px 6% 90px;
+.hero {
+    min-height: 100vh;
 
-    display:grid;
-    grid-template-columns:1.2fr .8fr;
-    align-items:center;
-    gap:60px;
+    padding: 150px 6% 90px;
 
-    position:relative;
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+
+    align-items: center;
+
+    gap: 60px;
 }
 
-.hero::before{
-    content:"";
-    position:absolute;
-    width:1px;
-    height:180px;
-    background:linear-gradient(
-        transparent,
-        var(--gold),
-        transparent
-    );
-    left:4%;
-    top:25%;
+.hero-content {
+    max-width: 800px;
 }
 
-.hero-content{
-    max-width:800px;
+.hero-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 9px 17px;
+
+    border: 1px solid rgba(201,154,61,.35);
+    border-radius: 30px;
+
+    background: rgba(201,154,61,.08);
+
+    color: var(--gold-dark);
+
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    margin-bottom: 25px;
 }
 
-.hero-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:10px;
+.hero-tag::before {
+    content: "";
 
-    padding:9px 17px;
-    border:1px solid rgba(201,154,61,.35);
-    background:rgba(201,154,61,.08);
-    color:var(--gold-dark);
+    width: 7px;
+    height: 7px;
 
-    font-size:11px;
-    font-weight:800;
-    letter-spacing:2px;
+    border-radius: 50%;
 
-    border-radius:30px;
-    margin-bottom:25px;
+    background: var(--gold);
 }
 
-.hero-tag::before{
-    content:"";
-    width:7px;
-    height:7px;
-    border-radius:50%;
-    background:var(--gold);
-    box-shadow:0 0 0 5px rgba(201,154,61,.12);
+.hero h2 {
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(45px, 6vw, 80px);
+
+    line-height: 1.06;
+
+    letter-spacing: -2px;
+
+    margin-bottom: 28px;
 }
 
-.hero h2{
-    font-family:'Cinzel',serif;
-    font-size:clamp(45px,6vw,82px);
-    line-height:1.06;
-    letter-spacing:-2px;
-    margin-bottom:28px;
-}
-
-.gold-text{
-    background:linear-gradient(
+.gold-text {
+    background: linear-gradient(
         90deg,
         var(--gold-dark),
         var(--gold),
         var(--gold-light)
     );
-    -webkit-background-clip:text;
-    background-clip:text;
-    color:transparent;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
 }
 
-.hero-description{
-    max-width:700px;
-    color:#606060;
-    font-size:17px;
-    line-height:1.9;
+.hero-description {
+    max-width: 700px;
+
+    color: #606060;
+
+    font-size: 16px;
+
+    line-height: 1.9;
 }
 
-.hero-buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:15px;
-    margin-top:36px;
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 15px;
+
+    margin-top: 35px;
 }
 
-.btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
+.btn {
+    min-height: 52px;
 
-    min-height:52px;
-    padding:0 27px;
+    padding: 0 27px;
 
-    border-radius:50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-    font-size:12px;
-    font-weight:800;
-    letter-spacing:.8px;
+    border-radius: 50px;
 
-    transition:.35s;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .8px;
+
+    transition: .35s;
 }
 
-.btn-gold{
-    color:white;
-    background:linear-gradient(
+.btn-gold {
+    color: white;
+
+    background: linear-gradient(
         135deg,
         var(--gold-dark),
         var(--gold),
         var(--gold-light)
     );
-    box-shadow:var(--gold-shadow);
+
+    box-shadow: 0 20px 55px rgba(201,154,61,.25);
 }
 
-.btn-gold:hover{
-    transform:translateY(-5px);
-    box-shadow:0 25px 55px rgba(201,154,61,.35);
+.btn-gold:hover {
+    transform: translateY(-5px);
 }
 
-.btn-outline{
-    border:1px solid #aaa;
-    color:#333;
-    background:white;
+.btn-outline {
+    background: white;
+
+    border: 1px solid #aaa;
+
+    color: #333;
 }
 
-.btn-outline:hover{
-    border-color:var(--gold);
-    color:var(--gold-dark);
-    transform:translateY(-5px);
+.btn-outline:hover {
+    border-color: var(--gold);
+    color: var(--gold-dark);
+
+    transform: translateY(-5px);
 }
 
-.hero-stats{
-    display:flex;
-    gap:45px;
-    margin-top:55px;
+/* =========================================================
+   HERO STATS
+========================================================= */
+
+.hero-stats {
+    display: flex;
+    gap: 45px;
+
+    margin-top: 55px;
 }
 
-.hero-stat{
-    position:relative;
+.hero-stat strong {
+    display: block;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 25px;
+
+    color: var(--gold-dark);
 }
 
-.hero-stat:not(:last-child)::after{
-    content:"";
-    position:absolute;
-    right:-23px;
-    top:5px;
-    width:1px;
-    height:40px;
-    background:#d5d5d5;
-}
+.hero-stat span {
+    color: #777;
 
-.hero-stat strong{
-    display:block;
-    font-family:'Cinzel',serif;
-    font-size:25px;
-    color:var(--gold-dark);
-}
+    font-size: 10px;
+    font-weight: 600;
 
-.hero-stat span{
-    color:#777;
-    font-size:11px;
-    font-weight:600;
-    letter-spacing:1px;
+    letter-spacing: 1px;
 }
 
 /* =========================================================
    HERO LOGO
 ========================================================= */
 
-.hero-visual{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+.hero-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.logo-stage{
-    position:relative;
-    width:min(430px,80vw);
-    aspect-ratio:1;
-    display:grid;
-    place-items:center;
+.logo-stage {
+    position: relative;
+
+    width: min(430px, 80vw);
+
+    aspect-ratio: 1;
+
+    display: grid;
+    place-items: center;
 }
 
 .logo-stage::before,
-.logo-stage::after{
-    content:"";
-    position:absolute;
-    border-radius:50%;
-    border:1px solid rgba(201,154,61,.35);
+.logo-stage::after {
+    content: "";
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(201,154,61,.35);
 }
 
-.logo-stage::before{
-    inset:2%;
-    animation:spin 30s linear infinite;
+.logo-stage::before {
+    inset: 2%;
+
+    animation: spin 30s linear infinite;
 }
 
-.logo-stage::after{
-    inset:10%;
-    border-style:dashed;
-    opacity:.6;
-    animation:spinReverse 25s linear infinite;
+.logo-stage::after {
+    inset: 10%;
+
+    border-style: dashed;
+
+    animation: spinReverse 25s linear infinite;
 }
 
-@keyframes spin{
-    to{transform:rotate(360deg);}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
 }
 
-@keyframes spinReverse{
-    to{transform:rotate(-360deg);}
+@keyframes spinReverse {
+    to {
+        transform: rotate(-360deg);
+    }
 }
 
-.logo-halo{
-    position:absolute;
-    inset:17%;
-    border-radius:50%;
-    background:radial-gradient(
+.logo-halo {
+    position: absolute;
+
+    inset: 17%;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
         circle,
         rgba(201,154,61,.25),
-        rgba(201,154,61,.03) 60%,
         transparent 70%
     );
-    filter:blur(8px);
 }
 
-.hero-logo{
-    position:relative;
-    z-index:2;
+.hero-logo {
+    position: relative;
 
-    width:58%;
-    max-width:270px;
+    width: 58%;
+    max-width: 270px;
 
-    object-fit:contain;
+    object-fit: contain;
 
     filter:
-        drop-shadow(0 25px 35px rgba(0,0,0,.22))
-        drop-shadow(0 0 30px rgba(201,154,61,.18));
+        drop-shadow(0 25px 35px rgba(0,0,0,.2))
+        drop-shadow(0 0 30px rgba(201,154,61,.2));
 
-    animation:logoFloat 5s ease-in-out infinite;
+    animation: logoFloat 5s ease-in-out infinite;
 }
 
-@keyframes logoFloat{
-    0%,100%{
-        transform:translateY(0);
+@keyframes logoFloat {
+
+    0%,100% {
+        transform: translateY(0);
     }
-    50%{
-        transform:translateY(-13px);
+
+    50% {
+        transform: translateY(-13px);
     }
+
 }
 
-.logo-caption{
-    position:absolute;
-    bottom:2%;
-    left:50%;
-    transform:translateX(-50%);
-    width:100%;
-    text-align:center;
-    font-family:'Cinzel',serif;
-    font-size:11px;
-    letter-spacing:4px;
-    color:#806020;
+.logo-caption {
+    position: absolute;
+
+    bottom: 2%;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 100%;
+
+    text-align: center;
+
+    font-family: "Cinzel", serif;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    color: #806020;
 }
 
 /* =========================================================
    GENERAL SECTIONS
 ========================================================= */
 
-.section{
-    padding:110px 6%;
-    position:relative;
+.section {
+    padding: 110px 6%;
 }
 
-.white-section{
-    background:#fff;
+.white-section {
+    background: white;
 }
 
-.cream-section{
-    background:var(--cream);
+.cream-section {
+    background: var(--cream);
 }
 
-.charcoal-section{
-    background:var(--charcoal);
-    color:white;
+.dark-section {
+    background: var(--dark);
+    color: white;
 }
 
-.container{
-    width:min(1300px,100%);
-    margin:auto;
+.container {
+    width: min(1300px, 100%);
+    margin: auto;
 }
 
-.section-heading{
-    text-align:center;
-    max-width:800px;
-    margin:0 auto 65px;
+.section-heading {
+    max-width: 800px;
+
+    text-align: center;
+
+    margin: 0 auto 65px;
 }
 
-.section-label{
-    display:inline-block;
-    color:var(--gold-dark);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:3px;
-    margin-bottom:14px;
+.section-label {
+    display: inline-block;
+
+    color: var(--gold-dark);
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 14px;
 }
 
-.section-heading h2{
-    font-family:'Cinzel',serif;
-    font-size:clamp(34px,4vw,52px);
-    line-height:1.2;
-    margin-bottom:16px;
+.section-heading h2 {
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(34px, 4vw, 52px);
+
+    line-height: 1.2;
+
+    margin-bottom: 16px;
 }
 
-.section-heading h2 span{
-    color:var(--gold);
+.section-heading h2 span {
+    color: var(--gold);
 }
 
-.section-heading p{
-    color:#777;
-    line-height:1.8;
-    font-size:15px;
+.section-heading p {
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.8;
 }
 
-.dark-heading .section-label{
-    color:var(--gold-light);
+.dark-heading h2 {
+    color: white;
 }
 
-.dark-heading p{
-    color:#aaa;
+.dark-heading .section-label {
+    color: var(--gold-light);
 }
 
-.dark-heading h2{
-    color:white;
-}
-
-/* =========================================================
-   CARDS
-========================================================= */
-
-.card-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
-}
-
-.glass-card{
-    position:relative;
-    padding:38px;
-
-    background:rgba(250,248,243,.8);
-    border:1px solid rgba(201,154,61,.16);
-    border-radius:var(--radius);
-
-    box-shadow:var(--shadow);
-
-    overflow:hidden;
-    transition:.45s;
-}
-
-.glass-card::before{
-    content:"";
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:3px;
-    background:linear-gradient(
-        90deg,
-        transparent,
-        var(--gold),
-        transparent
-    );
-    transform:translateX(-100%);
-    transition:.5s;
-}
-
-.glass-card:hover{
-    transform:translateY(-12px);
-    box-shadow:0 30px 70px rgba(0,0,0,.14);
-    border-color:rgba(201,154,61,.4);
-}
-
-.glass-card:hover::before{
-    transform:translateX(0);
-}
-
-.card-icon{
-    width:58px;
-    height:58px;
-
-    display:grid;
-    place-items:center;
-
-    border-radius:16px;
-
-    background:rgba(201,154,61,.1);
-    color:var(--gold-dark);
-
-    font-size:24px;
-
-    margin-bottom:25px;
-}
-
-.glass-card h3{
-    font-family:'Cinzel',serif;
-    font-size:22px;
-    margin-bottom:15px;
-}
-
-.glass-card p{
-    color:#666;
-    line-height:1.85;
-    font-size:14px;
+.dark-heading p {
+    color: #aaa;
 }
 
 /* =========================================================
-   VISION DARK CARDS
+   ABOUT CARDS
 ========================================================= */
 
-.dark-card{
-    position:relative;
-    padding:38px;
+.card-grid {
+    display: grid;
 
-    background:linear-gradient(
-        145deg,
-        #202020,
-        #151515
-    );
+    grid-template-columns: repeat(3,1fr);
 
-    border:1px solid rgba(201,154,61,.18);
-    border-radius:var(--radius);
-
-    overflow:hidden;
-    transition:.45s;
+    gap: 25px;
 }
 
-.dark-card:hover{
-    transform:translateY(-10px);
-    border-color:rgba(201,154,61,.5);
-    box-shadow:var(--gold-shadow);
+.card {
+    padding: 38px;
+
+    background: rgba(250,248,243,.8);
+
+    border: 1px solid rgba(201,154,61,.16);
+
+    border-radius: 24px;
+
+    box-shadow: var(--shadow);
+
+    transition: .45s;
 }
 
-.dark-card .number{
-    font-family:'Cinzel',serif;
-    color:var(--gold);
-    font-size:14px;
-    letter-spacing:2px;
-    margin-bottom:28px;
+.card:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(201,154,61,.45);
 }
 
-.dark-card h3{
-    font-family:'Cinzel',serif;
-    font-size:25px;
-    margin-bottom:14px;
+.card-icon {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 16px;
+
+    background: rgba(201,154,61,.1);
+
+    color: var(--gold-dark);
+
+    font-size: 23px;
+
+    margin-bottom: 24px;
 }
 
-.dark-card p{
-    color:#aaa;
-    line-height:1.85;
-    font-size:14px;
+.card h3 {
+    font-family: "Cinzel", serif;
+
+    font-size: 22px;
+
+    margin-bottom: 14px;
+}
+
+.card p {
+    color: #666;
+
+    font-size: 13px;
+
+    line-height: 1.85;
 }
 
 /* =========================================================
    VALUES
 ========================================================= */
 
-.values-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:18px;
+.values-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 18px;
 }
 
-.value-card{
-    padding:30px;
-    background:#fff;
-    border:1px solid #e9e5dc;
-    transition:.4s;
-    position:relative;
-    overflow:hidden;
+.value-card {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e8e2d8;
+
+    transition: .4s;
 }
 
-.value-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(201,154,61,.5);
-    box-shadow:var(--shadow);
+.value-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--gold);
+
+    box-shadow: var(--shadow);
 }
 
-.value-card > span{
-    color:var(--gold);
-    font-family:'Cinzel',serif;
-    font-size:12px;
-    font-weight:800;
+.value-card span {
+    color: var(--gold);
+
+    font-family: "Cinzel", serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
 }
 
-.value-card h3{
-    margin:18px 0 10px;
-    font-size:19px;
+.value-card h3 {
+    margin: 18px 0 10px;
+
+    font-size: 19px;
 }
 
-.value-card p{
-    color:#777;
-    font-size:13px;
-    line-height:1.7;
-}
+.value-card p {
+    color: #777;
 
-/* =========================================================
-   STATS
-========================================================= */
+    font-size: 13px;
 
-.stats-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:20px;
-}
-
-.stat-card{
-    padding:42px 25px;
-    text-align:center;
-
-    background:#1c1c1c;
-    border:1px solid rgba(201,154,61,.18);
-    border-radius:22px;
-
-    transition:.4s;
-}
-
-.stat-card:hover{
-    transform:translateY(-8px);
-    border-color:var(--gold);
-}
-
-.stat-card h3{
-    font-family:'Cinzel',serif;
-    font-size:48px;
-    color:var(--gold-light);
-    margin-bottom:8px;
-}
-
-.stat-card span{
-    color:#aaa;
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:1px;
+    line-height: 1.7;
 }
 
 /* =========================================================
    LEADERSHIP
 ========================================================= */
 
-.leadership-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
+.leadership-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 25px;
 }
 
-.leader-card{
-    background:white;
-    border:1px solid #e8e3d9;
-    border-radius:25px;
-    padding:30px;
-    transition:.45s;
-    position:relative;
-    overflow:hidden;
+.leader {
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e8e2d9;
+
+    border-radius: 24px;
+
+    transition: .4s;
 }
 
-.leader-card:hover{
-    transform:translateY(-10px);
-    box-shadow:var(--shadow);
-    border-color:rgba(201,154,61,.45);
+.leader:hover {
+    transform: translateY(-9px);
+
+    box-shadow: var(--shadow);
+
+    border-color: var(--gold);
 }
 
-.leader-card.featured{
-    border-color:var(--gold);
-    box-shadow:0 20px 60px rgba(201,154,61,.12);
-}
+.avatar {
+    width: 70px;
+    height: 70px;
 
-.leader-top{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:25px;
-}
+    display: grid;
+    place-items: center;
 
-.leader-top span{
-    font-family:'Cinzel',serif;
-    color:var(--gold);
-    font-size:12px;
-    font-weight:800;
-}
+    border-radius: 50%;
 
-.leader-top small{
-    font-size:8px;
-    letter-spacing:1.5px;
-    color:#999;
-    font-weight:800;
-}
-
-.leader-avatar{
-    width:72px;
-    height:72px;
-    display:grid;
-    place-items:center;
-
-    border-radius:50%;
-
-    background:linear-gradient(
+    background: linear-gradient(
         135deg,
         var(--gold-dark),
         var(--gold-light)
     );
 
-    color:white;
-    font-family:'Cinzel',serif;
-    font-weight:800;
-    font-size:20px;
+    color: white;
 
-    margin-bottom:22px;
+    font-family: "Cinzel", serif;
 
-    box-shadow:0 12px 25px rgba(201,154,61,.2);
+    font-weight: 800;
+
+    margin-bottom: 20px;
 }
 
-.leader-card h3{
-    font-family:'Cinzel',serif;
-    font-size:22px;
-    margin-bottom:7px;
+.leader h3 {
+    font-family: "Cinzel", serif;
+
+    font-size: 21px;
+
+    margin-bottom: 7px;
 }
 
-.leader-card h4{
-    color:var(--gold-dark);
-    font-size:13px;
-    margin-bottom:15px;
+.leader h4 {
+    color: var(--gold-dark);
+
+    font-size: 13px;
+
+    margin-bottom: 14px;
 }
 
-.leader-card p{
-    color:#777;
-    font-size:13px;
-    line-height:1.8;
-}
+.leader p {
+    color: #777;
 
-/* =========================================================
-   INITIATIVES
-========================================================= */
+    font-size: 13px;
 
-.initiative-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-}
-
-.initiative-card{
-    padding:35px;
-    background:#1d1d1d;
-    border:1px solid rgba(255,255,255,.07);
-    border-radius:23px;
-    transition:.45s;
-}
-
-.initiative-card:hover{
-    transform:translateY(-10px);
-    border-color:rgba(201,154,61,.6);
-    background:#202020;
-}
-
-.initiative-icon{
-    font-size:32px;
-    margin-bottom:22px;
-}
-
-.initiative-card > span{
-    color:var(--gold);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:2px;
-}
-
-.initiative-card h3{
-    font-family:'Cinzel',serif;
-    font-size:23px;
-    margin:12px 0;
-}
-
-.initiative-card p{
-    color:#999;
-    font-size:13px;
-    line-height:1.8;
-    margin-bottom:20px;
-}
-
-.initiative-card a{
-    color:var(--gold-light);
-    font-size:12px;
-    font-weight:800;
+    line-height: 1.8;
 }
 
 /* =========================================================
-   EVENTS
+   ACTIVITIES
 ========================================================= */
 
-.events{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+.activity-grid {
+    display: grid;
+
+    grid-template-columns: repeat(3,1fr);
+
+    gap: 20px;
 }
 
-.event{
-    display:grid;
-    grid-template-columns:70px 1fr auto;
-    align-items:center;
-    gap:25px;
+.activity {
+    padding: 35px;
 
-    padding:25px 30px;
+    background: #202020;
 
-    border:1px solid #e5e1d9;
-    background:white;
+    border: 1px solid rgba(255,255,255,.07);
 
-    transition:.4s;
+    border-radius: 22px;
+
+    transition: .4s;
 }
 
-.event:hover{
-    transform:translateX(8px);
-    border-color:var(--gold);
-    box-shadow:var(--shadow);
+.activity:hover {
+    transform: translateY(-9px);
+
+    border-color: rgba(201,154,61,.55);
 }
 
-.event-number{
-    font-family:'Cinzel',serif;
-    color:var(--gold);
-    font-size:20px;
-    font-weight:800;
+.activity-icon {
+    font-size: 30px;
+
+    margin-bottom: 20px;
 }
 
-.event-info > span{
-    color:var(--gold-dark);
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:2px;
+.activity span {
+    color: var(--gold);
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
 }
 
-.event-info h3{
-    font-family:'Cinzel',serif;
-    font-size:20px;
-    margin:6px 0;
+.activity h3 {
+    font-family: "Cinzel", serif;
+
+    font-size: 22px;
+
+    margin: 12px 0;
 }
 
-.event-info p{
-    color:#777;
-    font-size:13px;
+.activity p {
+    color: #999;
+
+    font-size: 13px;
+
+    line-height: 1.8;
 }
 
-.event > a{
-    color:var(--gold-dark);
-    font-size:12px;
-    font-weight:800;
-    white-space:nowrap;
+/* =========================================================
+   🇮🇳 ULTIMATE UNSUNG HEROES
+   BLACK + TIRANGA + PREMIUM INDIAN DESIGN
+========================================================= */
+
+.gems-section {
+    position: relative;
+    overflow: hidden;
+
+    padding: 130px 6%;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(255,153,51,.08),
+            transparent 35%
+        ),
+        #000;
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   BACKGROUND TIRANGA PATTERN
+========================================================= */
+
+.gems-section::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            180deg,
+
+            rgba(255,153,51,.10) 0%,
+            rgba(255,153,51,.10) 18%,
+
+            transparent 18%,
+            transparent 39%,
+
+            rgba(255,255,255,.045) 39%,
+            rgba(255,255,255,.045) 61%,
+
+            transparent 61%,
+            transparent 82%,
+
+            rgba(19,136,8,.10) 82%,
+            rgba(19,136,8,.10) 100%
+        );
+
+    opacity: .8;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   TIRANGA DIAGONAL PATTERN
+========================================================= */
+
+.gems-section::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 90px,
+            rgba(255,153,51,.025) 91px,
+            rgba(255,153,51,.025) 93px,
+            transparent 94px,
+            transparent 180px
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.gems-section .container {
+    position: relative;
+    z-index: 5;
+}
+
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.gems-heading {
+    position: relative;
+    z-index: 10;
+
+    max-width: 900px;
+
+    text-align: center;
+
+    margin: 0 auto 80px;
+}
+
+.gems-heading .section-label {
+    color: #ffb45e;
+
+    letter-spacing: 4px;
+
+    text-shadow:
+        0 0 20px rgba(255,153,51,.35);
+}
+
+.gems-heading h2 {
+    font-family: "Cinzel", serif;
+
+    color: #fff;
+
+    font-size: clamp(40px,5vw,68px);
+
+    line-height: 1.1;
+
+    margin-bottom: 20px;
+}
+
+.gems-heading h2 span {
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933 0%,
+            #ffffff 48%,
+            #138808 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.gems-heading p {
+    max-width: 720px;
+
+    margin: auto;
+
+    color: #8d8d8d;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   HERO CARD
+========================================================= */
+
+.gem {
+    position: relative;
+    z-index: 10;
+
+    max-width: 1150px;
+
+    margin: 0 auto 45px;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #080808;
+
+    border: 1px solid rgba(255,255,255,.12);
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.8);
+
+    transition:
+        transform .5s ease,
+        border-color .5s ease,
+        box-shadow .5s ease;
+}
+
+.gem:hover {
+    transform: translateY(-10px);
+
+    border-color: rgba(201,154,61,.55);
+
+    box-shadow:
+        0 45px 110px rgba(0,0,0,.95),
+        0 0 55px rgba(201,154,61,.08);
+}
+
+
+/* =========================================================
+   TIRANGA STRIPE ON EVERY HERO
+========================================================= */
+
+.gem::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 0;
+
+    height: 9px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933 0%,
+            #ff9933 33.33%,
+
+            #ffffff 33.33%,
+            #ffffff 66.66%,
+
+            #138808 66.66%,
+            #138808 100%
+        );
+
+    box-shadow:
+        0 0 20px rgba(255,153,51,.15),
+        0 0 20px rgba(19,136,8,.15);
+}
+
+
+/* =========================================================
+   TIRANGA PATTERN INSIDE CARD
+========================================================= */
+
+.gem::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+
+        /* Saffron */
+        radial-gradient(
+            ellipse at 10% 0%,
+            rgba(255,153,51,.16),
+            transparent 30%
+        ),
+
+        /* White */
+        radial-gradient(
+            ellipse at 90% 50%,
+            rgba(255,255,255,.08),
+            transparent 32%
+        ),
+
+        /* Green */
+        radial-gradient(
+            ellipse at 10% 100%,
+            rgba(19,136,8,.15),
+            transparent 30%
+        ),
+
+        /* Subtle diagonal Tiranga texture */
+        repeating-linear-gradient(
+            135deg,
+            transparent 0px,
+            transparent 75px,
+            rgba(255,153,51,.025) 76px,
+            rgba(255,153,51,.025) 78px,
+            transparent 79px,
+            transparent 150px
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.gem-inner {
+    position: relative;
+    z-index: 3;
+
+    padding: 65px;
+
+    display: grid;
+
+    grid-template-columns: 145px 1fr;
+
+    gap: 45px;
+
+    align-items: center;
+}
+
+
+/* =========================================================
+   HERO SYMBOL
+========================================================= */
+
+.gem-number {
+    position: relative;
+
+    width: 125px;
+    height: 125px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #151515 0%,
+            #050505 72%
+        );
+
+    border: 2px solid rgba(201,154,61,.75);
+
+    color: #e4bd69;
+
+    font-size: 48px;
+
+    box-shadow:
+        0 0 0 7px rgba(255,255,255,.025),
+        0 0 40px rgba(201,154,61,.14),
+        inset 0 0 30px rgba(201,154,61,.08);
+
+    transition: .5s;
+}
+
+.gem:hover .gem-number {
+    transform: scale(1.06);
+
+    border-color: #e6bd68;
+
+    box-shadow:
+        0 0 0 8px rgba(255,255,255,.035),
+        0 0 55px rgba(201,154,61,.25),
+        inset 0 0 35px rgba(201,154,61,.12);
+}
+
+
+/* =========================================================
+   OUTER ROTATING RING
+========================================================= */
+
+.gem-number::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -13px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed rgba(201,154,61,.4);
+
+    animation:
+        chakraRotate 18s linear infinite;
+}
+
+@keyframes chakraRotate {
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+
+/* =========================================================
+   SYMBOL GLOW
+========================================================= */
+
+.gem-number::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(201,154,61,.10),
+            transparent 65%
+        );
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   CONTENT GLASS
+========================================================= */
+
+.gem-content {
+    position: relative;
+
+    padding: 38px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.065),
+            rgba(255,255,255,.018)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    border-radius: 22px;
+
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+
+/* =========================================================
+   CATEGORY
+========================================================= */
+
+.gem-tag {
+    display: inline-block;
+
+    color: #d7aa52;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+
+/* =========================================================
+   HERO NAME
+========================================================= */
+
+.gem-content h3 {
+    font-family: "Cinzel", serif;
+
+    color: #fff;
+
+    font-size: clamp(28px,4vw,46px);
+
+    line-height: 1.12;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================================================
+   SUBTITLE
+========================================================= */
+
+.gem-subtitle {
+    color: #d0a64f;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.gem-short {
+    color: #a5a5a5;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+}
+
+
+/* =========================================================
+   READ MORE
+========================================================= */
+
+.read-more {
+    position: relative;
+
+    margin-top: 25px;
+
+    padding: 13px 25px;
+
+    border: 1px solid rgba(201,154,61,.55);
+
+    border-radius: 50px;
+
+    background: #0c0c0c;
+
+    color: #e1b85e;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+    overflow: hidden;
+}
+
+.read-more:hover {
+    background:
+        linear-gradient(
+            90deg,
+            #9c701e,
+            #d1a546
+        );
+
+    color: #fff;
+
+    border-color: #dcb35b;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 35px rgba(201,154,61,.2);
+}
+
+
+/* =========================================================
+   EXPANDED CONTENT
+========================================================= */
+
+.gem-more {
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    border-top: 0 solid rgba(255,255,255,.08);
+
+    transition:
+        max-height .8s ease,
+        opacity .5s ease,
+        margin-top .5s ease,
+        padding-top .5s ease;
+}
+
+.gem-more.open {
+    max-height: 1200px;
+
+    opacity: 1;
+
+    margin-top: 28px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+}
+
+.gem-more p {
+    color: #969696;
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+    margin-bottom: 15px;
+}
+
+.gem-more strong {
+    color: #e3bd68;
+}
+
+
+/* =========================================================
+   INDIAN FLAG SYMBOL LINE
+========================================================= */
+
+.gem-content::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 30px;
+    right: 30px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff9933 0%,
+            #ff9933 33%,
+            #fff 33%,
+            #fff 66%,
+            #138808 66%,
+            #138808 100%
+        );
+
+    opacity: .45;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:850px) {
+
+    .gems-section {
+        padding: 100px 20px;
+    }
+
+    .gem-inner {
+        grid-template-columns: 1fr;
+
+        padding: 45px 25px;
+
+        text-align: center;
+    }
+
+    .gem-number {
+        margin: auto;
+    }
+
+    .gem-content {
+        text-align: left;
+    }
+
+}
+
+
+@media(max-width:600px) {
+
+    .gems-section {
+        padding: 85px 15px;
+    }
+
+    .gem {
+        border-radius: 22px;
+    }
+
+    .gem-inner {
+        padding: 35px 15px;
+    }
+
+    .gem-content {
+        padding: 25px 20px;
+    }
+
+    .gem-content h3 {
+        font-size: 28px;
+    }
+
+    .gem-number {
+        width: 105px;
+        height: 105px;
+
+        font-size: 40px;
+    }
+
 }
 
 /* =========================================================
    JOIN
 ========================================================= */
 
-.join-section{
-    padding:100px 6%;
+.join {
+    padding: 100px 6%;
+
     background:
         linear-gradient(
             135deg,
             #181818,
-            #28231a
-        );
-    color:white;
-    position:relative;
-    overflow:hidden;
-}
-
-.join-section::before{
-    content:"AA";
-    position:absolute;
-    right:4%;
-    top:-70px;
-
-    font-family:'Cinzel',serif;
-    font-size:280px;
-    font-weight:800;
-
-    color:rgba(201,154,61,.035);
-}
-
-.join-content{
-    width:min(1200px,100%);
-    margin:auto;
-
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:50px;
-}
-
-.join-content > div{
-    max-width:750px;
-}
-
-.join-content > div > span{
-    color:var(--gold-light);
-    font-size:10px;
-    font-weight:800;
-    letter-spacing:3px;
-}
-
-.join-content h2{
-    font-family:'Cinzel',serif;
-    font-size:clamp(35px,5vw,60px);
-    line-height:1.1;
-    margin:18px 0;
-}
-
-.join-content h2 span{
-    color:var(--gold-light);
-}
-
-.join-content p{
-    color:#aaa;
-    line-height:1.8;
-    font-size:14px;
-}
-
-.gold-button{
-    flex-shrink:0;
-    background:var(--gold);
-    color:#111;
-}
-
-.gold-button:hover{
-    background:var(--gold-light);
-}
-
-/* =========================================================
-   UPDATES
-========================================================= */
-
-.update-card{
-    min-height:280px;
-}
-
-.update-label{
-    color:var(--gold);
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:2px;
-}
-
-.update-card h3{
-    font-family:'Cinzel',serif;
-    font-size:23px;
-    margin:20px 0 12px;
-}
-
-.update-card p{
-    margin-bottom:22px;
-}
-
-.update-card a{
-    color:var(--gold-light);
-    font-size:12px;
-    font-weight:800;
-}
-
-/* =========================================================
-   GALLERY
-========================================================= */
-
-.gallery{
-    display:grid;
-    grid-template-columns:2fr 1fr 1fr;
-    grid-template-rows:250px 250px;
-    gap:15px;
-}
-
-.gallery-item{
-    position:relative;
-    overflow:hidden;
-    background:
-        linear-gradient(
-            135deg,
-            #292929,
-            #111
-        );
-    border-radius:22px;
-    display:flex;
-    align-items:flex-end;
-    padding:30px;
-    color:white;
-    transition:.45s;
-}
-
-.gallery-item::before{
-    content:"";
-    position:absolute;
-    inset:0;
-
-    background:
-        radial-gradient(
-            circle at 70% 20%,
-            rgba(201,154,61,.35),
-            transparent 40%
+            #292218
         );
 
-    opacity:.8;
+    color: white;
 }
 
-.gallery-item::after{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        transparent 30%,
-        rgba(0,0,0,.8)
-    );
+.join-content {
+    width: min(1200px,100%);
+
+    margin: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 50px;
 }
 
-.gallery-item > div{
-    position:relative;
-    z-index:2;
+.join-text {
+    max-width: 750px;
 }
 
-.gallery-item:hover{
-    transform:scale(1.015);
+.join-text span {
+    color: var(--gold-light);
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
 }
 
-.gallery-item.large{
-    grid-row:span 2;
+.join-text h2 {
+    font-family: "Cinzel", serif;
+
+    font-size: clamp(35px,5vw,60px);
+
+    line-height: 1.1;
+
+    margin: 18px 0;
 }
 
-.gallery-item span{
-    color:var(--gold-light);
-    font-size:9px;
-    font-weight:800;
-    letter-spacing:2px;
+.join-text h2 strong {
+    color: var(--gold-light);
 }
 
-.gallery-item h3{
-    font-family:'Cinzel',serif;
-    font-size:23px;
-    margin-top:7px;
+.join-text p {
+    color: #aaa;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.join-button {
+    flex-shrink: 0;
+
+    background: var(--gold);
+
+    color: #111;
+}
+
+.join-button:hover {
+    background: var(--gold-light);
 }
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
-.contact-section{
-    background:white;
+.contact {
+    padding: 110px 6%;
+
+    background: white;
 }
 
-.contact-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:18px;
+.contact-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4,1fr);
+
+    gap: 18px;
 }
 
-.contact-card{
-    padding:32px 25px;
-    text-align:center;
-    background:var(--cream);
-    border:1px solid #e8e2d7;
-    transition:.4s;
+.contact-card {
+    padding: 32px 25px;
+
+    text-align: center;
+
+    background: var(--cream);
+
+    border: 1px solid #e8e2d7;
+
+    transition: .4s;
 }
 
-.contact-card:hover{
-    transform:translateY(-8px);
-    border-color:var(--gold);
-    box-shadow:var(--shadow);
+.contact-card:hover {
+    transform: translateY(-8px);
+
+    border-color: var(--gold);
+
+    box-shadow: var(--shadow);
 }
 
-.contact-icon{
-    width:55px;
-    height:55px;
-    margin:0 auto 20px;
+.contact-icon {
+    width: 55px;
+    height: 55px;
 
-    display:grid;
-    place-items:center;
+    margin: 0 auto 20px;
 
-    border-radius:50%;
+    display: grid;
+    place-items: center;
 
-    color:var(--gold-dark);
-    background:rgba(201,154,61,.1);
+    border-radius: 50%;
 
-    font-size:21px;
+    color: var(--gold-dark);
+
+    background: rgba(201,154,61,.1);
+
+    font-size: 20px;
 }
 
-.contact-card h3{
-    font-family:'Cinzel',serif;
-    font-size:19px;
-    margin-bottom:10px;
+.contact-card h3 {
+    font-family: "Cinzel", serif;
+
+    font-size: 18px;
+
+    margin-bottom: 10px;
 }
 
-.contact-card p{
-    color:#777;
-    font-size:12px;
-    line-height:1.7;
+.contact-card p {
+    color: #777;
+
+    font-size: 12px;
+
+    line-height: 1.7;
 }
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
-footer{
-    background:#101010;
-    color:white;
-    text-align:center;
-    padding:75px 20px 35px;
-    position:relative;
+footer {
+    padding: 75px 20px 35px;
+
+    background: #101010;
+
+    color: white;
+
+    text-align: center;
 }
 
-.footer-logo img{
-    width:90px;
-    height:90px;
-    object-fit:contain;
-    margin-bottom:20px;
-    filter:drop-shadow(0 10px 25px rgba(201,154,61,.2));
+.footer-logo img {
+    width: 90px;
+    height: 90px;
+
+    object-fit: contain;
+
+    margin-bottom: 20px;
 }
 
-footer h2{
-    font-family:'Cinzel',serif;
-    font-size:28px;
-    letter-spacing:2px;
-    margin-bottom:10px;
+footer h2 {
+    font-family: "Cinzel", serif;
+
+    font-size: 28px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
 }
 
-footer > p{
-    color:#999;
-    font-size:12px;
+footer > p {
+    color: #999;
+
+    font-size: 12px;
 }
 
-.footer-links{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:25px;
-    margin:35px 0;
+.footer-links {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 25px;
+
+    margin: 35px 0;
 }
 
-.footer-links a{
-    color:#aaa;
-    font-size:11px;
-    font-weight:600;
-    transition:.3s;
+.footer-links a {
+    color: #aaa;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    transition: .3s;
 }
 
-.footer-links a:hover{
-    color:var(--gold-light);
+.footer-links a:hover {
+    color: var(--gold-light);
 }
 
-footer hr{
-    border:0;
-    height:1px;
-    width:min(700px,80%);
-    margin:25px auto;
-    background:rgba(255,255,255,.1);
+footer hr {
+    width: min(700px,80%);
+
+    height: 1px;
+
+    margin: 25px auto;
+
+    border: none;
+
+    background: rgba(255,255,255,.1);
 }
 
-.copyright{
-    color:#666!important;
+.copyright {
+    color: #666 !important;
 }
 
-.motto{
-    color:var(--gold)!important;
-    margin-top:10px;
-    font-size:9px!important;
-    font-weight:800;
-    letter-spacing:2px;
+.motto {
+    color: var(--gold) !important;
+
+    margin-top: 10px;
+
+    font-size: 9px !important;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
 }
 
 /* =========================================================
    REVEAL ANIMATION
 ========================================================= */
 
-.reveal{
-    opacity:0;
-    transform:translateY(45px);
+.reveal {
+    opacity: 0;
+
+    transform: translateY(40px);
+
     transition:
         opacity .8s ease,
         transform .8s ease;
 }
 
-.reveal.show{
-    opacity:1;
-    transform:translateY(0);
+.reveal.show {
+    opacity: 1;
+
+    transform: translateY(0);
 }
 
 /* =========================================================
    MOBILE
 ========================================================= */
 
-@media(max-width:1100px){
+@media(max-width: 1000px) {
 
-    .nav-links{
-        gap:17px;
+    .nav-links {
+        gap: 15px;
     }
 
-    .nav-links a{
-        font-size:11px;
+    .nav-links a {
+        font-size: 10px;
     }
 
     .card-grid,
     .leadership-grid,
-    .initiative-grid{
-        grid-template-columns:repeat(2,1fr);
+    .activity-grid {
+        grid-template-columns: repeat(2,1fr);
     }
 
-    .contact-grid{
-        grid-template-columns:repeat(2,1fr);
+    .contact-grid {
+        grid-template-columns: repeat(2,1fr);
     }
+
 }
 
-@media(max-width:850px){
+@media(max-width: 850px) {
 
-    .navbar{
-        height:76px;
+    .navbar {
+        height: 76px;
     }
 
     .nav-links,
-    .nav-button{
-        display:none;
+    .nav-button {
+        display: none;
     }
 
-    .menu-btn{
-        display:block;
+    .menu-btn {
+        display: block;
     }
 
-    .navbar.mobile-open .nav-links{
-        display:flex;
-        position:absolute;
-        left:3%;
-        right:3%;
-        top:85px;
+    .navbar.mobile-open .nav-links {
 
-        padding:25px;
+        display: flex;
 
-        background:white;
-        border:1px solid #eee;
-        border-radius:20px;
+        position: absolute;
 
-        box-shadow:var(--shadow);
+        left: 3%;
+        right: 3%;
 
-        flex-direction:column;
-        align-items:flex-start;
-        gap:20px;
+        top: 85px;
+
+        padding: 25px;
+
+        background: white;
+
+        border: 1px solid #eee;
+
+        border-radius: 20px;
+
+        box-shadow: var(--shadow);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 20px;
     }
 
-    .navbar.mobile-open .nav-button{
-        display:block;
-        position:absolute;
-        right:28px;
-        top:275px;
-        z-index:2;
+    .hero {
+
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding-top: 125px;
     }
 
-    .hero{
-        grid-template-columns:1fr;
-        text-align:center;
-        padding-top:130px;
+    .hero-content {
+        margin: auto;
     }
 
-    .hero-content{
-        margin:auto;
+    .hero-buttons {
+        justify-content: center;
     }
 
-    .hero-buttons{
-        justify-content:center;
+    .hero-stats {
+        justify-content: center;
     }
 
-    .hero-stats{
-        justify-content:center;
+    .hero-visual {
+        order: -1;
     }
 
-    .hero-visual{
-        order:-1;
+    .logo-stage {
+        width: 330px;
     }
 
-    .logo-stage{
-        width:330px;
+    .gem-inner {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding: 45px 25px;
     }
 
-    .hero::before{
-        display:none;
+    .gem-number {
+        margin: auto;
     }
 
-    .join-content{
-        flex-direction:column;
-        text-align:center;
+    .gem-content {
+        text-align: left;
     }
 
-    .gallery{
-        grid-template-columns:1fr 1fr;
-        grid-template-rows:220px 220px 220px;
+    .join-content {
+        flex-direction: column;
+
+        text-align: center;
     }
 
-    .gallery-item.large{
-        grid-column:span 2;
-        grid-row:span 1;
-    }
 }
 
-@media(max-width:600px){
+@media(max-width: 600px) {
 
-    .section{
-        padding:80px 20px;
+    .section,
+    .contact,
+    .gems-section {
+        padding: 80px 20px;
     }
 
-    .hero{
-        padding:120px 20px 70px;
+    .hero {
+        padding: 120px 20px 70px;
     }
 
-    .logo-text h1{
-        font-size:15px;
+    .logo img {
+        width: 48px;
+        height: 48px;
     }
 
-    .logo-text p{
-        font-size:7px;
-        letter-spacing:1.5px;
+    .logo-text h1 {
+        font-size: 14px;
     }
 
-    .logo img{
-        width:48px;
-        height:48px;
+    .logo-text p {
+        font-size: 7px;
     }
 
-    .hero h2{
-        font-size:43px;
-        letter-spacing:-1px;
+    .hero h2 {
+        font-size: 42px;
     }
 
-    .hero-description{
-        font-size:14px;
+    .hero-description {
+        font-size: 14px;
     }
 
-    .hero-stats{
-        gap:22px;
+    .hero-stats {
+        gap: 20px;
     }
 
-    .hero-stat strong{
-        font-size:20px;
-    }
-
-    .hero-stat span{
-        font-size:9px;
+    .hero-stat strong {
+        font-size: 20px;
     }
 
     .card-grid,
     .values-grid,
     .leadership-grid,
-    .initiative-grid,
-    .contact-grid,
-    .stats-grid{
-        grid-template-columns:1fr;
+    .activity-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
     }
 
-    .event{
-        grid-template-columns:45px 1fr;
-        gap:15px;
+    .logo-stage {
+        width: 280px;
     }
 
-    .event > a{
-        grid-column:2;
+    .gem-inner {
+        padding: 35px 18px;
     }
 
-    .gallery{
-        display:grid;
-        grid-template-columns:1fr;
-        grid-template-rows:220px 220px 220px 220px;
+    .gem-content {
+        padding: 25px;
     }
 
-    .gallery-item.large{
-        grid-column:auto;
-        grid-row:auto;
+    .gem-content h3 {
+        font-size: 28px;
     }
 
-    .join-section{
-        padding:80px 20px;
+    .join {
+        padding: 80px 20px;
     }
 
-    .join-content h2{
-        font-size:38px;
-    }
-
-    .logo-stage{
-        width:280px;
-    }
 }
 
 /* =========================================================
-   ACCESSIBILITY
+   REDUCED MOTION
 ========================================================= */
 
-@media(prefers-reduced-motion:reduce){
+@media(prefers-reduced-motion: reduce) {
 
     *,
     *::before,
-    *::after{
-        animation-duration:.01ms!important;
-        animation-iteration-count:1!important;
-        scroll-behavior:auto!important;
-        transition-duration:.01ms!important;
+    *::after {
+
+        animation-duration: .01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        scroll-behavior: auto !important;
+
+        transition-duration: .01ms !important;
     }
+
 }
 
 </style>
@@ -1643,24 +2087,16 @@ footer hr{
 
 <body>
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
+<!-- =========================================================
+     PROGRESS
+========================================================= -->
 
 <div id="progress"></div>
 
-<canvas id="particles"></canvas>
 
-<div class="background">
-    <div class="blob one"></div>
-    <div class="blob two"></div>
-    <div class="blob three"></div>
-</div>
-
-
-<!-- =====================================================
+<!-- =========================================================
      HEADER
-===================================================== -->
+========================================================= -->
 
 <header id="header">
 
@@ -1668,39 +2104,83 @@ footer hr{
 
 <a href="#home" class="logo">
 
-    <img src="logo1.png" alt="Antique Association Logo">
+<img
+    src="logo1.png"
+    alt="Antique Association Logo"
+>
 
-    <div class="logo-text">
-        <h1>ANTIQUE ASSOCIATION</h1>
-        <p>OFFICIAL COMMUNITY PORTAL</p>
-    </div>
+<div class="logo-text">
+
+<h1>ANTIQUE ASSOCIATION</h1>
+
+<p>OFFICIAL COMMUNITY PORTAL</p>
+
+</div>
 
 </a>
 
 
 <ul class="nav-links">
 
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#vision">Vision</a></li>
-    <li><a href="#leadership">Leadership</a></li>
-    <li><a href="#initiatives">Activities</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#contact">Contact</a></li>
+<li>
+<a href="#home" class="active">
+Home
+</a>
+</li>
+
+<li>
+<a href="#about">
+About
+</a>
+</li>
+
+<li>
+<a href="#vision">
+Vision
+</a>
+</li>
+
+<li>
+<a href="#leadership">
+Leadership
+</a>
+</li>
+
+<li>
+<a href="#activities">
+Activities
+</a>
+</li>
+
+<li>
+<a href="#gems">
+Unsung Gems
+</a>
+</li>
+
+<li>
+<a href="#contact">
+Contact
+</a>
+</li>
 
 </ul>
 
 
-<a href="#join" class="nav-button">
-    JOIN US
+<a href="#contact" class="nav-button">
+JOIN US
 </a>
 
 
-<button class="menu-btn" id="menuBtn" aria-label="Open navigation">
+<button
+    class="menu-btn"
+    id="menuBtn"
+    aria-label="Open menu"
+>
 
-    <span></span>
-    <span></span>
-    <span></span>
+<span></span>
+<span></span>
+<span></span>
 
 </button>
 
@@ -1709,61 +2189,63 @@ footer hr{
 </header>
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
 <section class="hero" id="home">
 
 <div class="hero-content">
 
 <span class="hero-tag">
-    OFFICIAL HEADQUARTERS
+OFFICIAL COMMUNITY ASSOCIATION
 </span>
-
 
 <h2>
 
-    Together for
+Together for
 
-    <span class="gold-text">
-        Community
-    </span>
+<span class="gold-text">
+Community
+</span>
 
-    <br>
+<br>
 
-    Driven by
+Driven by
 
-    <span class="gold-text">
-        Service
-    </span>
+<span class="gold-text">
+Service
+</span>
 
 </h2>
 
 
 <p class="hero-description">
 
-Antique Association is a community organisation dedicated
-to bringing people together through sports, cultural
-activities, social service, community events and meaningful
-initiatives.
-
-<br><br>
-
-We believe a stronger community begins with people
-working together.
+Antique Association is a community organisation
+dedicated to bringing people together through
+sports, cultural activities, social service,
+community initiatives and the recognition of
+extraordinary people whose stories deserve to
+be remembered.
 
 </p>
 
 
 <div class="hero-buttons">
 
-<a href="#about" class="btn btn-gold">
-    EXPLORE ASSOCIATION
+<a
+    href="#about"
+    class="btn btn-gold"
+>
+EXPLORE ASSOCIATION
 </a>
 
-<a href="#join" class="btn btn-outline">
-    BECOME A MEMBER
+<a
+    href="#gems"
+    class="btn btn-outline"
+>
+DISCOVER UNSUNG GEMS
 </a>
 
 </div>
@@ -1772,18 +2254,41 @@ working together.
 <div class="hero-stats">
 
 <div class="hero-stat">
-    <strong>2026</strong>
-    <span>FOUNDED</span>
+
+<strong>
+2026
+</strong>
+
+<span>
+FOUNDED
+</span>
+
 </div>
 
-<div class="hero-stat">
-    <strong>100+</strong>
-    <span>MEMBERS</span>
-</div>
 
 <div class="hero-stat">
-    <strong>25+</strong>
-    <span>ACTIVITIES</span>
+
+<strong>
+100+
+</strong>
+
+<span>
+MEMBERS
+</span>
+
+</div>
+
+
+<div class="hero-stat">
+
+<strong>
+25+
+</strong>
+
+<span>
+ACTIVITIES
+</span>
+
 </div>
 
 </div>
@@ -1795,17 +2300,17 @@ working together.
 
 <div class="logo-stage">
 
-    <div class="logo-halo"></div>
+<div class="logo-halo"></div>
 
-    <img
-        src="logo1.png"
-        alt="Antique Association Official Emblem"
-        class="hero-logo"
-    >
+<img
+    src="logo1.png"
+    alt="Antique Association"
+    class="hero-logo"
+>
 
-    <div class="logo-caption">
-        UNITY • SERVICE • CULTURE
-    </div>
+<div class="logo-caption">
+UNITY • SERVICE • CULTURE
+</div>
 
 </div>
 
@@ -1814,27 +2319,30 @@ working together.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      ABOUT
-===================================================== -->
+========================================================= -->
 
-<section class="section white-section" id="about">
+<section
+    class="section white-section"
+    id="about"
+>
 
 <div class="container">
 
 <div class="section-heading reveal">
 
 <span class="section-label">
-    WHO WE ARE
+WHO WE ARE
 </span>
 
 <h2>
-    About <span>Antique Association</span>
+About <span>Antique Association</span>
 </h2>
 
 <p>
-    Building stronger communities through participation,
-    service and unity.
+Building stronger communities through
+participation, service and unity.
 </p>
 
 </div>
@@ -1842,49 +2350,65 @@ working together.
 
 <div class="card-grid">
 
-<div class="glass-card reveal">
 
-<div class="card-icon">✦</div>
+<div class="card reveal">
 
-<h3>Who We Are</h3>
+<div class="card-icon">
+✦
+</div>
+
+<h3>
+Who We Are
+</h3>
 
 <p>
-Antique Association is a community-driven organisation
-that brings people together through sports, culture,
-social service and community activities.
+Antique Association is a community-driven
+organisation that brings people together
+through sports, culture, social service
+and community activities.
 </p>
 
 </div>
 
 
-<div class="glass-card reveal">
+<div class="card reveal">
 
-<div class="card-icon">◆</div>
+<div class="card-icon">
+◆
+</div>
 
-<h3>Our Mission</h3>
+<h3>
+Our Mission
+</h3>
 
 <p>
-Our mission is to encourage participation, promote
-community welfare and create opportunities for people
-to connect, contribute and grow.
+Our mission is to encourage participation,
+promote community welfare and create
+opportunities for people to connect,
+contribute and grow.
 </p>
 
 </div>
 
 
-<div class="glass-card reveal">
+<div class="card reveal">
 
-<div class="card-icon">✧</div>
+<div class="card-icon">
+✧
+</div>
 
-<h3>Our Foundation</h3>
+<h3>
+Our Foundation
+</h3>
 
 <p>
-Built on unity, respect, responsibility, teamwork,
-service and the belief that everyone can contribute
-to a stronger community.
+Our foundation is built upon unity,
+respect, responsibility, teamwork,
+service and community spirit.
 </p>
 
 </div>
+
 
 </div>
 
@@ -1893,28 +2417,31 @@ to a stronger community.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      VISION
-===================================================== -->
+========================================================= -->
 
-<section class="section charcoal-section" id="vision">
+<section
+    class="section dark-section"
+    id="vision"
+>
 
 <div class="container">
 
 <div class="section-heading dark-heading reveal">
 
 <span class="section-label">
-    OUR PURPOSE
+OUR PURPOSE
 </span>
 
 <h2>
-    Vision &
-    <span>Mission</span>
+Vision &
+<span>Mission</span>
 </h2>
 
 <p>
-    A roadmap for building an active, united and responsible
-    community.
+A stronger community built through
+participation and service.
 </p>
 
 </div>
@@ -1922,60 +2449,60 @@ to a stronger community.
 
 <div class="card-grid">
 
-<div class="dark-card reveal">
 
-<div class="number">01</div>
+<div class="card reveal">
 
-<h3>Unity</h3>
+<div class="card-icon">
+01
+</div>
+
+<h3>
+Unity
+</h3>
 
 <p>
-Bringing people together regardless of background
-and encouraging cooperation, friendship and mutual respect.
+Bringing people together and encouraging
+cooperation, friendship and mutual respect.
 </p>
 
 </div>
 
 
-<div class="dark-card reveal">
+<div class="card reveal">
 
-<div class="number">02</div>
+<div class="card-icon">
+02
+</div>
 
-<h3>Service</h3>
+<h3>
+Service
+</h3>
 
 <p>
-Encouraging members to participate in social welfare,
-blood donation and community service programmes.
+Encouraging members to participate in
+social welfare and community service.
 </p>
 
 </div>
 
 
-<div class="dark-card reveal">
+<div class="card reveal">
 
-<div class="number">03</div>
+<div class="card-icon">
+03
+</div>
 
-<h3>Participation</h3>
+<h3>
+Participation
+</h3>
 
 <p>
-Creating opportunities for members to actively participate
-in sports, culture, events and community programmes.
+Creating opportunities for members to
+actively participate in community life.
 </p>
 
 </div>
 
-
-<div class="dark-card reveal">
-
-<div class="number">04</div>
-
-<h3>Growth</h3>
-
-<p>
-Supporting personal development, teamwork, leadership
-and a positive environment for young people.
-</p>
-
-</div>
 
 </div>
 
@@ -1984,9 +2511,9 @@ and a positive environment for young people.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      VALUES
-===================================================== -->
+========================================================= -->
 
 <section class="section white-section">
 
@@ -1995,15 +2522,15 @@ and a positive environment for young people.
 <div class="section-heading reveal">
 
 <span class="section-label">
-    WHAT WE STAND FOR
+WHAT WE STAND FOR
 </span>
 
 <h2>
-    Our Core <span>Values</span>
+Our Core <span>Values</span>
 </h2>
 
 <p>
-    The principles that guide Antique Association.
+The principles that guide Antique Association.
 </p>
 
 </div>
@@ -2011,95 +2538,60 @@ and a positive environment for young people.
 
 <div class="values-grid">
 
-<div class="value-card reveal">
-    <span>01</span>
-    <h3> Unity</h3>
-    <p>Togetherness creates stronger communities.</p>
-</div>
 
 <div class="value-card reveal">
-    <span>02</span>
-    <h3> Service</h3>
-    <p>We believe in helping others and giving back.</p>
-</div>
-
-<div class="value-card reveal">
-    <span>03</span>
-    <h3> Sportsmanship</h3>
-    <p>Competition should build teamwork and character.</p>
-</div>
-
-<div class="value-card reveal">
-    <span>04</span>
-    <h3> Culture</h3>
-    <p>Celebrating creativity, traditions and community talent.</p>
-</div>
-
-<div class="value-card reveal">
-    <span>05</span>
-    <h3> Responsibility</h3>
-    <p>Every member can contribute to a better community.</p>
-</div>
-
-<div class="value-card reveal">
-    <span>06</span>
-    <h3> Integrity</h3>
-    <p>We promote honesty, respect and responsible participation.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     STATISTICS
-===================================================== -->
-
-<section class="section charcoal-section">
-
-<div class="container">
-
-<div class="section-heading dark-heading reveal">
-
-<span class="section-label">
-    OUR JOURNEY
-</span>
-
-<h2>
-    Association <span>Overview</span>
-</h2>
-
+<span>01</span>
+<h3>Unity</h3>
 <p>
-    Growing through dedication, participation and service.
+Togetherness creates stronger communities.
 </p>
-
 </div>
 
 
-<div class="stats-grid">
-
-<div class="stat-card reveal">
-    <h3 data-target="2026">2026</h3>
-    <span>FOUNDED</span>
+<div class="value-card reveal">
+<span>02</span>
+<h3>Service</h3>
+<p>
+We believe in helping others and giving back.
+</p>
 </div>
 
-<div class="stat-card reveal">
-    <h3 data-target="100">0+</h3>
-    <span>MEMBERS</span>
+
+<div class="value-card reveal">
+<span>03</span>
+<h3>Sportsmanship</h3>
+<p>
+Competition should build teamwork and character.
+</p>
 </div>
 
-<div class="stat-card reveal">
-    <h3 data-target="25">0+</h3>
-    <span>ACTIVITIES</span>
+
+<div class="value-card reveal">
+<span>04</span>
+<h3>Culture</h3>
+<p>
+Celebrating creativity and traditions.
+</p>
 </div>
 
-<div class="stat-card reveal">
-    <h3 data-target="10">0+</h3>
-    <span>COMMUNITY EVENTS</span>
+
+<div class="value-card reveal">
+<span>05</span>
+<h3>Responsibility</h3>
+<p>
+Every member can contribute positively.
+</p>
 </div>
+
+
+<div class="value-card reveal">
+<span>06</span>
+<h3>Integrity</h3>
+<p>
+Promoting honesty, respect and responsibility.
+</p>
+</div>
+
 
 </div>
 
@@ -2108,27 +2600,29 @@ and a positive environment for young people.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      LEADERSHIP
-===================================================== -->
+========================================================= -->
 
-<section class="section white-section" id="leadership">
+<section
+    class="section white-section"
+    id="leadership"
+>
 
 <div class="container">
 
 <div class="section-heading reveal">
 
 <span class="section-label">
-    THE TEAM
+THE TEAM
 </span>
 
 <h2>
-    Association <span>Leadership</span>
+Association <span>Leadership</span>
 </h2>
 
 <p>
-    The leadership team responsible for guiding Antique
-    Association.
+The leadership team guiding Antique Association.
 </p>
 
 </div>
@@ -2137,130 +2631,137 @@ and a positive environment for young people.
 <div class="leadership-grid">
 
 
-<div class="leader-card featured reveal">
+<div class="leader reveal">
 
-<div class="leader-top">
-    <span>01</span>
-    <small>EXECUTIVE COUNCIL</small>
+<div class="avatar">
+P
 </div>
 
-<div class="leader-avatar">P</div>
+<h3>
+President
+</h3>
 
-<h3>President</h3>
-
-<h4>Sikandar Kabir Ali</h4>
+<h4>
+Sikandar Kabir Ali
+</h4>
 
 <p>
-Heads the Association and provides overall
-leadership and direction.
+Provides overall leadership and direction
+for the Association.
 </p>
 
 </div>
 
 
-<div class="leader-card reveal">
+<div class="leader reveal">
 
-<div class="leader-top">
-    <span>02</span>
-    <small>EXECUTIVE COUNCIL</small>
+<div class="avatar">
+VP
 </div>
 
-<div class="leader-avatar">VP</div>
+<h3>
+Vice President
+</h3>
 
-<h3>Vice President</h3>
-
-<h4>Avik Singh</h4>
+<h4>
+Avik Singh
+</h4>
 
 <p>
 Supports the President and coordinates
-major Association activities.
+Association activities.
 </p>
 
 </div>
 
 
-<div class="leader-card reveal">
+<div class="leader reveal">
 
-<div class="leader-top">
-    <span>03</span>
-    <small>ADMINISTRATION</small>
+<div class="avatar">
+SG
 </div>
 
-<div class="leader-avatar">SG</div>
+<h3>
+Secretary-General
+</h3>
 
-<h3>Secretary-General</h3>
-
-<h4>Sk Sarif</h4>
+<h4>
+Sk Sarif
+</h4>
 
 <p>
 Responsible for administration,
-communication and organisational coordination.
+communication and coordination.
 </p>
 
 </div>
 
 
-<div class="leader-card reveal">
+<div class="leader reveal">
 
-<div class="leader-top">
-    <span>04</span>
-    <small>FINANCE</small>
+<div class="avatar">
+TG
 </div>
 
-<div class="leader-avatar">TG</div>
+<h3>
+Treasurer-General
+</h3>
 
-<h3>Treasurer-General</h3>
-
-<h4>Rohit Yadav</h4>
+<h4>
+Rohit Yadav
+</h4>
 
 <p>
-Oversees financial administration
-and responsible resource management.
+Oversees financial administration and
+responsible resource management.
 </p>
 
 </div>
 
 
-<div class="leader-card reveal">
+<div class="leader reveal">
 
-<div class="leader-top">
-    <span>05</span>
-    <small>SPORTS</small>
+<div class="avatar">
+SP
 </div>
 
-<div class="leader-avatar">SP</div>
+<h3>
+Sports Coordinator
+</h3>
 
-<h3>Sports Coordinator</h3>
-
-<h4>Ayush Das</h4>
+<h4>
+Ayush Das
+</h4>
 
 <p>
-Coordinates tournaments, sports events
-and recreational activities.
+Coordinates tournaments and sports
+programmes.
 </p>
 
 </div>
 
 
-<div class="leader-card reveal">
+<div class="leader reveal">
 
-<div class="leader-top">
-    <span>06</span>
-    <small>CULTURE</small>
+<div class="avatar">
+CU
 </div>
 
-<div class="leader-avatar">CU</div>
+<h3>
+Cultural Coordinator
+</h3>
 
-<h3>Cultural Coordinator</h3>
-
-<h4>Rishav Kumar Agarwal</h4>
+<h4>
+Rishav Kumar Agarwal
+</h4>
 
 <p>
-Leads cultural events, celebrations,
-creative programmes and performances.
+Leads cultural programmes and
+creative activities.
 </p>
 
 </div>
+
 
 </div>
 
@@ -2269,128 +2770,169 @@ creative programmes and performances.
 </section>
 
 
-<!-- =====================================================
-     INITIATIVES
-===================================================== -->
+<!-- =========================================================
+     ACTIVITIES
+========================================================= -->
 
-<section class="section charcoal-section" id="initiatives">
+<section
+    class="section dark-section"
+    id="activities"
+>
 
 <div class="container">
 
 <div class="section-heading dark-heading reveal">
 
 <span class="section-label">
-    WHAT WE DO
+WHAT WE DO
 </span>
 
 <h2>
-    Our <span>Initiatives</span>
+Our <span>Activities</span>
 </h2>
 
 <p>
-    Meaningful activities designed to bring people together.
+Meaningful activities designed to bring
+people together.
 </p>
 
 </div>
 
 
-<div class="initiative-grid">
+<div class="activity-grid">
 
 
-<div class="initiative-card reveal">
+<div class="activity reveal">
 
-<div class="initiative-icon">🩸</div>
-<span>01</span>
-<h3>Blood Donation</h3>
+<div class="activity-icon">
+🩸
+</div>
+
+<span>
+01
+</span>
+
+<h3>
+Blood Donation
+</h3>
 
 <p>
-Organising and supporting blood donation camps
-and encouraging voluntary contribution.
+Supporting blood donation camps and
+encouraging voluntary contribution.
 </p>
-
-<a href="#contact">Get Involved →</a>
 
 </div>
 
 
-<div class="initiative-card reveal">
+<div class="activity reveal">
 
-<div class="initiative-icon">🏆</div>
-<span>02</span>
-<h3>Sports</h3>
+<div class="activity-icon">
+🏆
+</div>
+
+<span>
+02
+</span>
+
+<h3>
+Sports
+</h3>
 
 <p>
-Organising tournaments, competitions and
-sports activities for members and the community.
+Organising tournaments, competitions
+and recreational activities.
 </p>
-
-<a href="#events">View Events →</a>
 
 </div>
 
 
-<div class="initiative-card reveal">
+<div class="activity reveal">
 
-<div class="initiative-icon">🎭</div>
-<span>03</span>
-<h3>Cultural Events</h3>
+<div class="activity-icon">
+🎭
+</div>
+
+<span>
+03
+</span>
+
+<h3>
+Cultural Programmes
+</h3>
 
 <p>
-Celebrating creativity, culture, traditions,
-music, arts and community talent.
+Celebrating culture, creativity,
+arts and community talent.
 </p>
-
-<a href="#events">Explore Events →</a>
 
 </div>
 
 
-<div class="initiative-card reveal">
+<div class="activity reveal">
 
-<div class="initiative-icon">🤲</div>
-<span>04</span>
-<h3>Social Service</h3>
+<div class="activity-icon">
+🤲
+</div>
+
+<span>
+04
+</span>
+
+<h3>
+Social Service
+</h3>
 
 <p>
-Supporting welfare programmes and initiatives
-that positively impact the community.
+Supporting welfare initiatives that
+positively impact the community.
 </p>
-
-<a href="#contact">Participate →</a>
 
 </div>
 
 
-<div class="initiative-card reveal">
+<div class="activity reveal">
 
-<div class="initiative-icon">🌱</div>
-<span>05</span>
-<h3>Environment</h3>
+<div class="activity-icon">
+🌱
+</div>
+
+<span>
+05
+</span>
+
+<h3>
+Environment
+</h3>
 
 <p>
 Promoting cleanliness, awareness and
-responsible environmental participation.
+environmental responsibility.
 </p>
-
-<a href="#contact">Join Activity →</a>
 
 </div>
 
 
-<div class="initiative-card reveal">
+<div class="activity reveal">
 
-<div class="initiative-icon">👥</div>
-<span>06</span>
-<h3>Youth Development</h3>
+<div class="activity-icon">
+👥
+</div>
+
+<span>
+06
+</span>
+
+<h3>
+Youth Development
+</h3>
 
 <p>
-Creating opportunities for young people to
-develop teamwork and leadership skills.
+Helping young people develop teamwork,
+confidence and leadership.
 </p>
 
-<a href="#join">Join Us →</a>
-
 </div>
+
 
 </div>
 
@@ -2399,137 +2941,524 @@ develop teamwork and leadership skills.
 </section>
 
 
-<!-- =====================================================
-     EVENTS
-===================================================== -->
+<!-- =========================================================
+     UNSUNG GEMS
+========================================================= -->
 
-<section class="section white-section" id="events">
+<section
+    class="gems-section"
+    id="gems"
+>
 
 <div class="container">
 
-<div class="section-heading reveal">
+<div class="gems-heading reveal">
 
 <span class="section-label">
-    COMMUNITY CALENDAR
+INDIA'S UNSUNG GEMS
 </span>
 
 <h2>
-    Upcoming <span>Events</span>
+Stories Worth <span>Remembering</span>
 </h2>
 
 <p>
-    Activities, programmes and events organised by the
-    Association.
+India has produced remarkable individuals whose
+contributions have shaped science, society and
+the world. Their stories deserve to be remembered.
 </p>
 
 </div>
 
 
-<div class="events">
+<!-- =====================================================
+     GEM 01
+===================================================== -->
 
-<div class="event reveal">
+<div class="gem reveal">
 
-<div class="event-number">01</div>
+<div class="gem-inner">
 
-<div class="event-info">
+<div class="gem-number">
+01
+</div>
 
-<span>SOCIAL SERVICE</span>
+
+<div class="gem-content">
+
+<span class="gem-tag">
+SCIENCE • NOBEL LAUREATE
+</span>
 
 <h3>
-    Community Blood Donation Camp
+Subrahmanyan Chandrasekhar
 </h3>
 
+<div class="gem-subtitle">
+The Indian-born astrophysicist who transformed
+our understanding of stars
+</div>
+
+<p class="gem-short">
+
+Subrahmanyan Chandrasekhar was an Indian-born
+astrophysicist whose pioneering work on the
+structure and evolution of stars became one of
+the foundations of modern astrophysics.
+
+</p>
+
+
+<button class="read-more">
+READ MORE ↓
+</button>
+
+
+<div class="gem-more">
+
 <p>
-    A community initiative encouraging voluntary blood donation.
+
+<strong>Subrahmanyan Chandrasekhar</strong>
+was born on 19 October 1910 in Lahore,
+then part of British India.
+
+</p>
+
+<p>
+
+He became one of the world's leading
+theoretical astrophysicists. One of his most
+famous contributions was his calculation of
+the maximum mass that a stable white dwarf
+star can have.
+
+</p>
+
+<p>
+
+This limit became known as the
+<strong>Chandrasekhar Limit</strong>.
+It is approximately 1.4 times the mass of
+the Sun.
+
+</p>
+
+<p>
+
+His work helped explain how stars evolve
+and what can happen to them after they
+exhaust their nuclear fuel.
+
+</p>
+
+<p>
+
+In <strong>1983</strong>, Chandrasekhar was
+awarded the <strong>Nobel Prize in Physics</strong>
+for his theoretical studies of the physical
+processes important to the structure and
+evolution of stars.
+
+</p>
+
+<p>
+
+He was the <strong>second Indian-born Nobel
+laureate in a scientific field</strong>, following
+C. V. Raman, who received the Nobel Prize
+in Physics in 1930.
+
+</p>
+
+<p>
+
+His legacy continues in modern astronomy,
+astrophysics and the study of stellar evolution.
+
 </p>
 
 </div>
 
-<a href="#contact">Details →</a>
+</div>
+
+</div>
 
 </div>
 
 
-<div class="event reveal">
+<!-- =====================================================
+     GEM 02
+===================================================== -->
 
-<div class="event-number">02</div>
+<div class="gem reveal">
 
-<div class="event-info">
+<div class="gem-inner">
 
-<span>SPORTS</span>
+<div class="gem-number">
+02
+</div>
+
+
+<div class="gem-content">
+
+<span class="gem-tag">
+SCIENCE • PHYSICS
+</span>
 
 <h3>
-    Antique Community Sports Meet
+Satyendra Nath Bose
 </h3>
 
+<div class="gem-subtitle">
+A pioneer of quantum statistics
+</div>
+
+<p class="gem-short">
+
+Satyendra Nath Bose was an Indian physicist
+whose work became a fundamental part of
+modern quantum mechanics.
+
+</p>
+
+
+<button class="read-more">
+READ MORE ↓
+</button>
+
+
+<div class="gem-more">
+
 <p>
-    A day of friendly competition, teamwork and sportsmanship.
+
+Bose made groundbreaking contributions to
+quantum statistics.
+
+</p>
+
+<p>
+
+His work was recognised by Albert Einstein,
+who translated and extended Bose's ideas.
+
+</p>
+
+<p>
+
+The class of particles known as
+<strong>bosons</strong> was named after him.
+
+</p>
+
+<p>
+
+Bose-Einstein statistics became one of
+the important foundations of quantum physics.
 </p>
 
 </div>
 
-<a href="#contact">Details →</a>
+</div>
+
+</div>
 
 </div>
 
 
-<div class="event reveal">
+<!-- =====================================================
+     GEM 03
+===================================================== -->
 
-<div class="event-number">03</div>
+<div class="gem reveal">
 
-<div class="event-info">
+<div class="gem-inner">
 
-<span>CULTURE</span>
+<div class="gem-number">
+03
+</div>
+
+
+<div class="gem-content">
+
+<span class="gem-tag">
+SPACE • SCIENCE
+</span>
 
 <h3>
-    Annual Cultural Celebration
+Vikram Sarabhai
 </h3>
 
+<div class="gem-subtitle">
+The father of India's space programme
+</div>
+
+<p class="gem-short">
+
+Vikram Sarabhai was a visionary physicist
+and institution builder who played a central
+role in establishing India's space programme.
+
+</p>
+
+
+<button class="read-more">
+READ MORE ↓
+</button>
+
+
+<div class="gem-more">
+
 <p>
-    Celebrating creativity, culture and community talent.
+
+Vikram Sarabhai believed that advanced
+science and technology could be used to
+solve real problems faced by society.
+
+</p>
+
+<p>
+
+He played a foundational role in the
+development of India's space programme.
+
+</p>
+
+<p>
+
+His vision contributed to the establishment
+and development of major Indian scientific
+institutions.
+
+</p>
+
+<p>
+
+His legacy remains deeply connected with
+India's journey in space science and
+technology.
 </p>
 
 </div>
 
-<a href="#contact">Details →</a>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     GEM 04
+===================================================== -->
+
+<div class="gem reveal">
+
+<div class="gem-inner">
+
+<div class="gem-number">
+04
+</div>
+
+
+<div class="gem-content">
+
+<span class="gem-tag">
+MEDICINE • BIOCHEMISTRY
+</span>
+
+<h3>
+Yellapragada Subbarow
+</h3>
+
+<div class="gem-subtitle">
+A pioneering Indian biochemist
+</div>
+
+<p class="gem-short">
+
+Yellapragada Subbarow was an Indian-born
+biochemist whose research contributed to
+important developments in medicine and
+biochemistry.
+
+</p>
+
+
+<button class="read-more">
+READ MORE ↓
+</button>
+
+
+<div class="gem-more">
+
+<p>
+
+Yellapragada Subbarow carried out important
+research in biochemistry after moving to
+the United States.
+
+</p>
+
+<p>
+
+His scientific work contributed to a deeper
+understanding of biochemical processes and
+helped influence the development of important
+medical treatments.
+
+</p>
+
+<p>
+
+His career represents the contribution of
+Indian scientists whose achievements were
+sometimes less widely known to the public.
+
+</p>
 
 </div>
 
 </div>
+
+</div>
+
+</div>
+
+
+<!-- =====================================================
+     GEM 05
+===================================================== -->
+
+<div class="gem reveal">
+
+<div class="gem-inner">
+
+<div class="gem-number">
+05
+</div>
+
+
+<div class="gem-content">
+
+<span class="gem-tag">
+AEROSPACE • INDIA
+</span>
+
+<h3>
+Satish Dhawan
+</h3>
+
+<div class="gem-subtitle">
+A key figure in India's aerospace journey
+</div>
+
+<p class="gem-short">
+
+Satish Dhawan was an Indian aerospace
+engineer and scientist who played an
+important role in strengthening India's
+space programme.
+
+</p>
+
+
+<button class="read-more">
+READ MORE ↓
+</button>
+
+
+<div class="gem-more">
+
+<p>
+
+Satish Dhawan was a distinguished aerospace
+engineer and scientist.
+
+</p>
+
+<p>
+
+He became Chairman of the Indian Space
+Research Organisation and played a major
+role in strengthening India's capabilities
+in space research and engineering.
+
+</p>
+
+<p>
+
+His leadership helped establish a strong
+scientific and engineering culture within
+India's space programme.
+
+</p>
+
+<p>
+
+His contribution remains an important part
+of the history of Indian space exploration.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
 
 </div>
 
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      JOIN
-===================================================== -->
+========================================================= -->
 
-<section class="join-section" id="join">
+<section
+    class="join"
+    id="join"
+>
 
 <div class="join-content">
 
-<div>
+<div class="join-text">
 
-<span>BECOME PART OF ANTIQUE</span>
+<span>
+BECOME PART OF ANTIQUE
+</span>
 
 <h2>
-    One Community.
-    <br>
-    <span>Many Contributions.</span>
+
+One Community.
+
+<br>
+
+<strong>
+Many Contributions.
+</strong>
+
 </h2>
 
 <p>
+
 Whether you want to participate in sports,
 support social service, contribute to cultural
-events or volunteer — there is a place for you.
+programmes, volunteer or help preserve inspiring
+stories — there is a place for you.
+
 </p>
 
 </div>
 
-<a href="#contact" class="btn gold-button">
-    JOIN ANTIQUE
+
+<a
+    href="#contact"
+    class="btn join-button"
+>
+JOIN ANTIQUE
 </a>
 
 </div>
@@ -2537,189 +3466,30 @@ events or volunteer — there is a place for you.
 </section>
 
 
-<!-- =====================================================
-     UPDATES
-===================================================== -->
-
-<section class="section charcoal-section" id="updates">
-
-<div class="container">
-
-<div class="section-heading dark-heading reveal">
-
-<span class="section-label">
-    LATEST NEWS
-</span>
-
-<h2>
-    Association <span>Updates</span>
-</h2>
-
-<p>
-    Official announcements and community updates.
-</p>
-
-</div>
-
-
-<div class="card-grid">
-
-
-<div class="dark-card update-card reveal">
-
-<span class="update-label">
-    ANNOUNCEMENT
-</span>
-
-<h3>Upcoming Activities</h3>
-
-<p>
-New sports, cultural and community programmes
-will be announced through official Association channels.
-</p>
-
-<a href="#contact">Read More →</a>
-
-</div>
-
-
-<div class="dark-card update-card reveal">
-
-<span class="update-label">
-    MEMBERS
-</span>
-
-<h3>Member Activities</h3>
-
-<p>
-Members are encouraged to participate actively
-in upcoming Association programmes.
-</p>
-
-<a href="#join">Become a Member →</a>
-
-</div>
-
-
-<div class="dark-card update-card reveal">
-
-<span class="update-label">
-    COMMUNITY
-</span>
-
-<h3>Future Projects</h3>
-
-<p>
-New initiatives and community programmes
-are being planned for the future.
-</p>
-
-<a href="#initiatives">Explore →</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
-     GALLERY
-===================================================== -->
-
-<section class="section white-section">
-
-<div class="container">
-
-<div class="section-heading reveal">
-
-<span class="section-label">
-    OUR MOMENTS
-</span>
-
-<h2>
-    Community <span>Gallery</span>
-</h2>
-
-<p>
-    Highlights from the people and activities of Antique
-    Association.
-</p>
-
-</div>
-
-
-<div class="gallery">
-
-<div class="gallery-item large reveal">
-
-<div>
-    <span>SPORTS</span>
-    <h3>Play Together</h3>
-</div>
-
-</div>
-
-
-<div class="gallery-item reveal">
-
-<div>
-    <span>CULTURE</span>
-    <h3>Celebrate Together</h3>
-</div>
-
-</div>
-
-
-<div class="gallery-item reveal">
-
-<div>
-    <span>SERVICE</span>
-    <h3>Serve Together</h3>
-</div>
-
-</div>
-
-
-<div class="gallery-item reveal">
-
-<div>
-    <span>COMMUNITY</span>
-    <h3>Grow Together</h3>
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =====================================================
+<!-- =========================================================
      CONTACT
-===================================================== -->
+========================================================= -->
 
-<section class="section contact-section" id="contact">
+<section
+    class="contact"
+    id="contact"
+>
 
 <div class="container">
 
 <div class="section-heading reveal">
 
 <span class="section-label">
-    GET IN TOUCH
+GET IN TOUCH
 </span>
 
 <h2>
-    Contact <span>Antique</span>
+Contact <span>Antique</span>
 </h2>
 
 <p>
-    Reach out to participate, volunteer, collaborate or
-    learn more.
+Reach out to participate, volunteer,
+collaborate or learn more.
 </p>
 
 </div>
@@ -2727,11 +3497,16 @@ are being planned for the future.
 
 <div class="contact-grid">
 
+
 <div class="contact-card reveal">
 
-<div class="contact-icon">✉</div>
+<div class="contact-icon">
+✉
+</div>
 
-<h3>Email</h3>
+<h3>
+Email
+</h3>
 
 <p>
 contact@antiqueassociation.org
@@ -2742,9 +3517,13 @@ contact@antiqueassociation.org
 
 <div class="contact-card reveal">
 
-<div class="contact-icon">⌂</div>
+<div class="contact-icon">
+⌂
+</div>
 
-<h3>Headquarters</h3>
+<h3>
+Headquarters
+</h3>
 
 <p>
 Official Antique Association Headquarters
@@ -2755,9 +3534,13 @@ Official Antique Association Headquarters
 
 <div class="contact-card reveal">
 
-<div class="contact-icon">◎</div>
+<div class="contact-icon">
+◎
+</div>
 
-<h3>Social Media</h3>
+<h3>
+Social Media
+</h3>
 
 <p>
 Follow official channels for announcements
@@ -2769,15 +3552,21 @@ and updates.
 
 <div class="contact-card reveal">
 
-<div class="contact-icon">+</div>
+<div class="contact-icon">
++
+</div>
 
-<h3>Membership</h3>
+<h3>
+Membership
+</h3>
 
 <p>
-Contact Association officials to become a member.
+Contact Association officials to become
+a member.
 </p>
 
 </div>
+
 
 </div>
 
@@ -2786,19 +3575,24 @@ Contact Association officials to become a member.
 </section>
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer>
 
 <div class="footer-logo">
 
-<img src="logo1.png" alt="Antique Association Logo">
+<img
+    src="logo1.png"
+    alt="Antique Association Logo"
+>
 
 </div>
 
-<h2>ANTIQUE ASSOCIATION</h2>
+<h2>
+ANTIQUE ASSOCIATION
+</h2>
 
 <p>
 Community • Service • Sports • Culture • Unity
@@ -2807,18 +3601,39 @@ Community • Service • Sports • Culture • Unity
 
 <div class="footer-links">
 
-<a href="#home">Home</a>
-<a href="#about">About</a>
-<a href="#vision">Vision</a>
-<a href="#leadership">Leadership</a>
-<a href="#initiatives">Activities</a>
-<a href="#events">Events</a>
-<a href="#contact">Contact</a>
+<a href="#home">
+Home
+</a>
+
+<a href="#about">
+About
+</a>
+
+<a href="#vision">
+Vision
+</a>
+
+<a href="#leadership">
+Leadership
+</a>
+
+<a href="#activities">
+Activities
+</a>
+
+<a href="#gems">
+Unsung Gems
+</a>
+
+<a href="#contact">
+Contact
+</a>
 
 </div>
 
 
 <hr>
+
 
 <p class="copyright">
 © 2026 Antique Association. All Rights Reserved.
@@ -2831,9 +3646,9 @@ TOGETHER WE SERVE • TOGETHER WE GROW
 </footer>
 
 
-<!-- =====================================================
+<!-- =========================================================
      JAVASCRIPT
-===================================================== -->
+========================================================= -->
 
 <script>
 
@@ -2841,7 +3656,8 @@ TOGETHER WE SERVE • TOGETHER WE GROW
    SCROLL PROGRESS
 ========================================================= */
 
-const progress = document.getElementById("progress");
+const progress =
+document.getElementById("progress");
 
 window.addEventListener("scroll", () => {
 
@@ -2856,7 +3672,8 @@ window.addEventListener("scroll", () => {
         ? (scrollTop / documentHeight) * 100
         : 0;
 
-    progress.style.width = percentage + "%";
+    progress.style.width =
+        percentage + "%";
 
 });
 
@@ -2865,14 +3682,19 @@ window.addEventListener("scroll", () => {
    HEADER
 ========================================================= */
 
-const header = document.getElementById("header");
+const header =
+document.getElementById("header");
 
 window.addEventListener("scroll", () => {
 
-    if(window.scrollY > 40){
+    if (window.scrollY > 40) {
+
         header.classList.add("scrolled");
-    }else{
+
+    } else {
+
         header.classList.remove("scrolled");
+
     }
 
 });
@@ -2882,8 +3704,11 @@ window.addEventListener("scroll", () => {
    MOBILE MENU
 ========================================================= */
 
-const menuBtn = document.getElementById("menuBtn");
-const navbar = document.getElementById("navbar");
+const menuBtn =
+document.getElementById("menuBtn");
+
+const navbar =
+document.getElementById("navbar");
 
 menuBtn.addEventListener("click", () => {
 
@@ -2891,7 +3716,10 @@ menuBtn.addEventListener("click", () => {
 
 });
 
-document.querySelectorAll(".nav-links a").forEach(link => {
+
+document
+.querySelectorAll(".nav-links a")
+.forEach(link => {
 
     link.addEventListener("click", () => {
 
@@ -2903,145 +3731,86 @@ document.querySelectorAll(".nav-links a").forEach(link => {
 
 
 /* =========================================================
-   REVEAL ANIMATION
+   REVEAL ANIMATIONS
 ========================================================= */
 
 const revealElements =
-    document.querySelectorAll(".reveal");
+document.querySelectorAll(".reveal");
 
-const revealObserver =
-    new IntersectionObserver(
-        entries => {
+const observer =
+new IntersectionObserver(
 
-            entries.forEach(entry => {
+    entries => {
 
-                if(entry.isIntersecting){
+        entries.forEach(entry => {
 
-                    entry.target.classList.add("show");
+            if (entry.isIntersecting) {
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
+                entry.target.classList.add("show");
 
-                }
+                observer.unobserve(
+                    entry.target
+                );
 
-            });
+            }
 
-        },
-        {
-            threshold:.12
-        }
-    );
+        });
+
+    },
+
+    {
+        threshold: 0.12
+    }
+
+);
+
 
 revealElements.forEach(element => {
 
-    revealObserver.observe(element);
+    observer.observe(element);
 
 });
 
 
 /* =========================================================
-   STAT COUNTERS
+   UNSUNG GEMS READ MORE
 ========================================================= */
 
-const counters =
-    document.querySelectorAll(
-        ".stat-card h3[data-target]"
-    );
+const readMoreButtons =
+document.querySelectorAll(".read-more");
 
-let countersStarted = false;
 
-const statsSection =
-    document.querySelector(".stats-grid");
+readMoreButtons.forEach(button => {
 
-const counterObserver =
-    new IntersectionObserver(
-        entries => {
+    button.addEventListener("click", () => {
 
-            if(
-                entries[0].isIntersecting &&
-                !countersStarted
-            ){
+        const content =
+            button.parentElement
+            .querySelector(".gem-more");
 
-                countersStarted = true;
+        const isOpen =
+            content.classList.contains("open");
 
-                counters.forEach(counter => {
 
-                    const target =
-                        Number(
-                            counter.dataset.target
-                        );
+        if (isOpen) {
 
-                    if(target === 2026){
+            content.classList.remove("open");
 
-                        counter.textContent =
-                            "2026";
+            button.textContent =
+                "READ MORE ↓";
 
-                        return;
+        } else {
 
-                    }
+            content.classList.add("open");
 
-                    let current = 0;
+            button.textContent =
+                "READ LESS ↑";
 
-                    const duration = 1300;
-
-                    const startTime =
-                        performance.now();
-
-                    function updateCounter(time){
-
-                        const progress =
-                            Math.min(
-                                (time - startTime) /
-                                duration,
-                                1
-                            );
-
-                        const eased =
-                            1 -
-                            Math.pow(
-                                1 - progress,
-                                3
-                            );
-
-                        current =
-                            Math.floor(
-                                target * eased
-                            );
-
-                        counter.textContent =
-                            current + "+";
-
-                        if(progress < 1){
-
-                            requestAnimationFrame(
-                                updateCounter
-                            );
-
-                        }else{
-
-                            counter.textContent =
-                                target + "+";
-
-                        }
-
-                    }
-
-                    requestAnimationFrame(
-                        updateCounter
-                    );
-
-                });
-
-            }
-
-        },
-        {
-            threshold:.4
         }
-    );
 
-counterObserver.observe(statsSection);
+    });
+
+});
 
 
 /* =========================================================
@@ -3049,209 +3818,112 @@ counterObserver.observe(statsSection);
 ========================================================= */
 
 const sections =
-    document.querySelectorAll("section[id]");
+document.querySelectorAll(
+    "section[id]"
+);
 
 const navLinks =
-    document.querySelectorAll(
-        ".nav-links a"
-    );
+document.querySelectorAll(
+    ".nav-links a"
+);
 
-function updateActiveNav(){
 
-    let current = "home";
+function updateNavigation() {
+
+    let current =
+        "home";
+
 
     sections.forEach(section => {
 
         const sectionTop =
             section.offsetTop - 180;
 
-        if(window.scrollY >= sectionTop){
 
-            current = section.id;
+        if (
+            window.scrollY >= sectionTop
+        ) {
+
+            current =
+                section.id;
 
         }
 
     });
+
 
     navLinks.forEach(link => {
 
-        link.classList.remove("active");
+        link.classList.remove(
+            "active"
+        );
 
-        if(
+
+        if (
             link.getAttribute("href") ===
             "#" + current
-        ){
+        ) {
 
-            link.classList.add("active");
+            link.classList.add(
+                "active"
+            );
 
         }
 
     });
 
 }
+
 
 window.addEventListener(
     "scroll",
-    updateActiveNav
+    updateNavigation
 );
 
-updateActiveNav();
+updateNavigation();
 
 
 /* =========================================================
-   PARTICLES
+   SMOOTH SCROLL
 ========================================================= */
 
-const canvas =
-    document.getElementById("particles");
+document
+.querySelectorAll("a[href^='#']")
+.forEach(link => {
 
-const ctx =
-    canvas.getContext("2d");
+    link.addEventListener(
+        "click",
+        event => {
 
-let particles = [];
-
-function resizeCanvas(){
-
-    canvas.width =
-        window.innerWidth;
-
-    canvas.height =
-        window.innerHeight;
-
-}
-
-resizeCanvas();
-
-window.addEventListener(
-    "resize",
-    resizeCanvas
-);
+            const targetID =
+                link.getAttribute("href");
 
 
-function createParticles(){
-
-    particles = [];
-
-    const amount =
-        window.innerWidth < 600
-        ? 25
-        : 55;
-
-    for(let i = 0; i < amount; i++){
-
-        particles.push({
-
-            x:
-                Math.random() *
-                canvas.width,
-
-            y:
-                Math.random() *
-                canvas.height,
-
-            radius:
-                Math.random() * 1.7 + .4,
-
-            speedX:
-                (Math.random() - .5) * .25,
-
-            speedY:
-                (Math.random() - .5) * .25,
-
-            opacity:
-                Math.random() * .35 + .08
-
-        });
-
-    }
-
-}
-
-createParticles();
+            if (targetID === "#") {
+                return;
+            }
 
 
-function drawParticles(){
-
-    ctx.clearRect(
-        0,
-        0,
-        canvas.width,
-        canvas.height
-    );
-
-    particles.forEach(p => {
-
-        ctx.beginPath();
-
-        ctx.arc(
-            p.x,
-            p.y,
-            p.radius,
-            0,
-            Math.PI * 2
-        );
-
-        ctx.fillStyle =
-            "rgba(201,154,61," +
-            p.opacity +
-            ")";
-
-        ctx.fill();
-
-        p.x += p.speedX;
-        p.y += p.speedY;
-
-        if(p.x < 0)
-            p.x = canvas.width;
-
-        if(p.x > canvas.width)
-            p.x = 0;
-
-        if(p.y < 0)
-            p.y = canvas.height;
-
-        if(p.y > canvas.height)
-            p.y = 0;
-
-    });
-
-    requestAnimationFrame(
-        drawParticles
-    );
-
-}
-
-drawParticles();
+            const target =
+                document.querySelector(
+                    targetID
+                );
 
 
-/* =========================================================
-   SMOOTH BUTTON FEEDBACK
-========================================================= */
+            if (target) {
 
-document.querySelectorAll("a[href^='#']").forEach(link => {
+                event.preventDefault();
 
-    link.addEventListener("click", event => {
 
-        const targetId =
-            link.getAttribute("href");
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
 
-        if(targetId === "#") return;
-
-        const target =
-            document.querySelector(targetId);
-
-        if(target){
-
-            event.preventDefault();
-
-            target.scrollIntoView({
-                behavior:"smooth",
-                block:"start"
-            });
+            }
 
         }
-
-    });
+    );
 
 });
 
