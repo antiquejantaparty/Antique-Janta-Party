@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <meta name="description"
-content="Antique Association — Community, Service, Sports, Culture, Unity and Unsung Gems of India.">
+content="Antique Association — A community organisation dedicated to service, sports, culture, unity and recognising India's unsung gems.">
 
 <title>Antique Association | Official Portal</title>
 
@@ -20,1465 +20,1662 @@ content="Antique Association — Community, Service, Sports, Culture, Unity and 
    ROOT
 ========================================================= */
 
-:root {
-    --gold: #c99a3d;
-    --gold-light: #e8c778;
-    --gold-dark: #8d651f;
+:root{
 
-    --black: #101010;
-    --dark: #181818;
-    --white: #ffffff;
-    --cream: #faf8f2;
+    --gold:#c99a3d;
+    --gold-light:#e8c778;
+    --gold-dark:#87601e;
 
-    --saffron: #ff9933;
-    --green: #138808;
-    --navy: #000080;
+    --black:#080808;
+    --black-soft:#101010;
+    --dark:#151515;
+    --dark-card:#1b1b1b;
 
-    --shadow: 0 25px 70px rgba(0,0,0,.13);
+    --white:#ffffff;
+    --cream:#f7f4ed;
+
+    --grey:#777;
+    --border:#e7e0d2;
+
+    --shadow:0 25px 70px rgba(0,0,0,.12);
+    --shadow-dark:0 30px 90px rgba(0,0,0,.55);
+
 }
 
 /* =========================================================
    RESET
 ========================================================= */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html {
-    scroll-behavior: smooth;
+html{
+    scroll-behavior:smooth;
 }
 
-body {
-    font-family: "Poppins", sans-serif;
-    background: var(--cream);
-    color: #171717;
-    overflow-x: hidden;
+body{
+    font-family:"Poppins",sans-serif;
+    background:var(--cream);
+    color:#171717;
+    overflow-x:hidden;
 }
 
-a {
-    text-decoration: none;
-    color: inherit;
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-button {
-    font-family: inherit;
+button{
+    font-family:inherit;
 }
 
-img {
-    max-width: 100%;
+img{
+    max-width:100%;
 }
 
 /* =========================================================
-   SCROLL BAR
+   SCROLLBAR
 ========================================================= */
 
-::-webkit-scrollbar {
-    width: 9px;
+::-webkit-scrollbar{
+    width:8px;
 }
 
-::-webkit-scrollbar-track {
-    background: #111;
+::-webkit-scrollbar-track{
+    background:#090909;
 }
 
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(
+::-webkit-scrollbar-thumb{
+    background:linear-gradient(
         180deg,
-        var(--saffron),
-        white,
-        var(--green)
+        var(--gold-light),
+        var(--gold-dark)
     );
-    border-radius: 20px;
+    border-radius:20px;
 }
 
 /* =========================================================
-   SCROLL PROGRESS
+   PROGRESS
 ========================================================= */
 
-#progress {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 0%;
-    height: 4px;
-    background: linear-gradient(
+#progress{
+    position:fixed;
+    top:0;
+    left:0;
+    width:0;
+    height:3px;
+    background:linear-gradient(
         90deg,
-        var(--saffron),
-        white,
-        var(--green)
+        var(--gold-dark),
+        var(--gold-light),
+        var(--gold)
     );
-    z-index: 99999;
+    z-index:99999;
 }
 
 /* =========================================================
    HEADER
 ========================================================= */
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 5000;
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:5000;
 
-    background: rgba(255,255,255,.94);
-    backdrop-filter: blur(18px);
+    background:rgba(255,255,255,.93);
+    backdrop-filter:blur(20px);
 
-    border-bottom: 1px solid rgba(0,0,0,.07);
+    border-bottom:1px solid rgba(0,0,0,.06);
 
-    transition: .35s ease;
+    transition:.35s ease;
 }
 
-header.scrolled {
-    box-shadow: 0 15px 45px rgba(0,0,0,.12);
+header.scrolled{
+    box-shadow:0 15px 45px rgba(0,0,0,.13);
 }
 
-.navbar {
-    width: min(1400px, 94%);
-    height: 88px;
-    margin: auto;
+.navbar{
+    width:min(1450px,94%);
+    height:88px;
+    margin:auto;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
 
-    gap: 30px;
+    gap:25px;
 }
 
 /* =========================================================
    LOGO
 ========================================================= */
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+.logo{
+    display:flex;
+    align-items:center;
+    gap:13px;
 }
 
-.logo img {
-    width: 58px;
-    height: 58px;
-    object-fit: contain;
+.logo img{
+    width:56px;
+    height:56px;
+    object-fit:contain;
 
-    transition: .4s;
+    transition:.4s;
 }
 
-.logo:hover img {
-    transform: scale(1.07) rotate(-4deg);
+.logo:hover img{
+    transform:scale(1.07) rotate(-3deg);
 }
 
-.logo-text h1 {
-    font-family: "Cinzel", serif;
-    font-size: 19px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
+.logo-text h1{
+    font-family:"Cinzel",serif;
+
+    font-size:18px;
+    font-weight:800;
+
+    letter-spacing:1.2px;
 }
 
-.logo-text p {
-    color: var(--gold-dark);
-    font-size: 9px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-top: 3px;
+.logo-text p{
+    color:var(--gold-dark);
+
+    font-size:8px;
+    font-weight:800;
+
+    letter-spacing:2.5px;
+
+    margin-top:3px;
 }
 
 /* =========================================================
    NAVIGATION
 ========================================================= */
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    list-style: none;
+.nav-links{
+    list-style:none;
+
+    display:flex;
+    align-items:center;
+
+    gap:23px;
 }
 
-.nav-links a {
-    position: relative;
+.nav-links a{
+    position:relative;
 
-    color: #333;
-    font-size: 12px;
-    font-weight: 600;
+    color:#333;
 
-    transition: .3s;
+    font-size:11px;
+    font-weight:600;
+
+    transition:.3s;
 }
 
 .nav-links a:hover,
-.nav-links a.active {
-    color: var(--gold-dark);
+.nav-links a.active{
+    color:var(--gold-dark);
 }
 
-.nav-links a::after {
-    content: "";
+.nav-links a::after{
+    content:"";
 
-    position: absolute;
-    left: 50%;
-    bottom: -9px;
+    position:absolute;
 
-    width: 0;
-    height: 2px;
+    left:50%;
+    bottom:-9px;
 
-    background: var(--gold);
+    width:0;
+    height:2px;
 
-    transform: translateX(-50%);
-    transition: .3s;
+    background:var(--gold);
+
+    transform:translateX(-50%);
+
+    transition:.3s;
 }
 
 .nav-links a:hover::after,
-.nav-links a.active::after {
-    width: 100%;
+.nav-links a.active::after{
+    width:100%;
 }
 
-.nav-button {
-    padding: 12px 22px;
+.nav-button{
+    padding:12px 22px;
 
-    border: 1px solid var(--gold);
-    border-radius: 30px;
+    border:1px solid var(--gold);
+    border-radius:30px;
 
-    color: var(--gold-dark);
+    color:var(--gold-dark);
 
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: 1px;
+    font-size:10px;
+    font-weight:800;
 
-    transition: .3s;
+    letter-spacing:1.2px;
+
+    transition:.35s;
 }
 
-.nav-button:hover {
-    background: var(--gold);
-    color: white;
+.nav-button:hover{
+    background:var(--gold);
+    color:#fff;
 
-    transform: translateY(-2px);
+    transform:translateY(-2px);
 }
 
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
-.menu-btn {
-    display: none;
+.menu-btn{
+    display:none;
 
-    width: 44px;
-    height: 44px;
+    width:44px;
+    height:44px;
 
-    border: 1px solid #ddd;
-    border-radius: 12px;
+    border:1px solid #ddd;
+    border-radius:12px;
 
-    background: white;
+    background:#fff;
 
-    cursor: pointer;
+    cursor:pointer;
 }
 
-.menu-btn span {
-    display: block;
+.menu-btn span{
+    display:block;
 
-    width: 21px;
-    height: 2px;
+    width:21px;
+    height:2px;
 
-    background: #222;
+    background:#222;
 
-    margin: 4px auto;
+    margin:4px auto;
+
+    transition:.3s;
 }
 
 /* =========================================================
    HERO
 ========================================================= */
 
-.hero {
-    min-height: 100vh;
+.hero{
+    min-height:100vh;
 
-    padding: 150px 6% 90px;
+    padding:155px 6% 100px;
 
-    display: grid;
-    grid-template-columns: 1.15fr .85fr;
+    display:grid;
 
-    align-items: center;
+    grid-template-columns:1.12fr .88fr;
 
-    gap: 60px;
+    align-items:center;
+
+    gap:70px;
+
+    position:relative;
+
+    overflow:hidden;
 }
 
-.hero-content {
-    max-width: 800px;
+.hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:700px;
+    height:700px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(201,154,61,.11),
+        transparent 70%
+    );
+
+    right:-250px;
+    top:-180px;
+
+    pointer-events:none;
 }
 
-.hero-tag {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 9px 17px;
-
-    border: 1px solid rgba(201,154,61,.35);
-    border-radius: 30px;
-
-    background: rgba(201,154,61,.08);
-
-    color: var(--gold-dark);
-
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 2px;
-
-    margin-bottom: 25px;
+.hero-content{
+    max-width:800px;
+    position:relative;
+    z-index:2;
 }
 
-.hero-tag::before {
-    content: "";
+.hero-tag{
+    display:inline-flex;
 
-    width: 7px;
-    height: 7px;
+    align-items:center;
+    gap:10px;
 
-    border-radius: 50%;
+    padding:9px 17px;
 
-    background: var(--gold);
+    border:1px solid rgba(201,154,61,.35);
+
+    border-radius:30px;
+
+    background:rgba(201,154,61,.07);
+
+    color:var(--gold-dark);
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:2px;
+
+    margin-bottom:27px;
 }
 
-.hero h2 {
-    font-family: "Cinzel", serif;
+.hero-tag::before{
+    content:"◆";
 
-    font-size: clamp(45px, 6vw, 80px);
-
-    line-height: 1.06;
-
-    letter-spacing: -2px;
-
-    margin-bottom: 28px;
+    font-size:7px;
 }
 
-.gold-text {
-    background: linear-gradient(
+.hero h2{
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(45px,6vw,82px);
+
+    line-height:1.05;
+
+    letter-spacing:-2.5px;
+
+    margin-bottom:27px;
+}
+
+.gold-text{
+    background:linear-gradient(
         90deg,
         var(--gold-dark),
         var(--gold),
         var(--gold-light)
     );
 
-    -webkit-background-clip: text;
-    background-clip: text;
+    -webkit-background-clip:text;
+    background-clip:text;
 
-    color: transparent;
+    color:transparent;
 }
 
-.hero-description {
-    max-width: 700px;
+.hero-description{
+    max-width:700px;
 
-    color: #606060;
+    color:#666;
 
-    font-size: 16px;
+    font-size:15px;
 
-    line-height: 1.9;
+    line-height:1.95;
 }
 
-.hero-buttons {
-    display: flex;
-    flex-wrap: wrap;
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
 
-    gap: 15px;
+    gap:14px;
 
-    margin-top: 35px;
+    margin-top:35px;
 }
 
-.btn {
-    min-height: 52px;
+.btn{
+    min-height:52px;
 
-    padding: 0 27px;
+    padding:0 27px;
 
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+    display:inline-flex;
 
-    border-radius: 50px;
+    align-items:center;
+    justify-content:center;
 
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .8px;
+    border-radius:50px;
 
-    transition: .35s;
+    font-size:10px;
+    font-weight:800;
+
+    letter-spacing:1px;
+
+    transition:.35s;
 }
 
-.btn-gold {
-    color: white;
+.btn-gold{
+    color:#fff;
 
-    background: linear-gradient(
+    background:linear-gradient(
         135deg,
         var(--gold-dark),
         var(--gold),
         var(--gold-light)
     );
 
-    box-shadow: 0 20px 55px rgba(201,154,61,.25);
+    box-shadow:0 20px 50px rgba(201,154,61,.25);
 }
 
-.btn-gold:hover {
-    transform: translateY(-5px);
+.btn-gold:hover{
+    transform:translateY(-5px);
+
+    box-shadow:0 25px 65px rgba(201,154,61,.35);
 }
 
-.btn-outline {
-    background: white;
+.btn-outline{
+    background:#fff;
 
-    border: 1px solid #aaa;
+    border:1px solid #aaa;
 
-    color: #333;
+    color:#333;
 }
 
-.btn-outline:hover {
-    border-color: var(--gold);
-    color: var(--gold-dark);
+.btn-outline:hover{
+    border-color:var(--gold);
 
-    transform: translateY(-5px);
+    color:var(--gold-dark);
+
+    transform:translateY(-5px);
 }
 
 /* =========================================================
    HERO STATS
 ========================================================= */
 
-.hero-stats {
-    display: flex;
-    gap: 45px;
+.hero-stats{
+    display:flex;
 
-    margin-top: 55px;
+    gap:48px;
+
+    margin-top:55px;
 }
 
-.hero-stat strong {
-    display: block;
+.hero-stat strong{
+    display:block;
 
-    font-family: "Cinzel", serif;
+    font-family:"Cinzel",serif;
 
-    font-size: 25px;
+    font-size:25px;
 
-    color: var(--gold-dark);
+    color:var(--gold-dark);
 }
 
-.hero-stat span {
-    color: #777;
+.hero-stat span{
+    color:#777;
 
-    font-size: 10px;
-    font-weight: 600;
+    font-size:9px;
+    font-weight:700;
 
-    letter-spacing: 1px;
+    letter-spacing:1.5px;
 }
 
 /* =========================================================
-   HERO LOGO
+   HERO VISUAL
 ========================================================= */
 
-.hero-visual {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.hero-visual{
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    position:relative;
 }
 
-.logo-stage {
-    position: relative;
+.logo-stage{
+    position:relative;
 
-    width: min(430px, 80vw);
+    width:min(450px,80vw);
 
-    aspect-ratio: 1;
+    aspect-ratio:1;
 
-    display: grid;
-    place-items: center;
+    display:grid;
+
+    place-items:center;
 }
 
 .logo-stage::before,
-.logo-stage::after {
-    content: "";
+.logo-stage::after{
+    content:"";
 
-    position: absolute;
+    position:absolute;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    border: 1px solid rgba(201,154,61,.35);
+    border:1px solid rgba(201,154,61,.35);
 }
 
-.logo-stage::before {
-    inset: 2%;
+.logo-stage::before{
+    inset:1%;
 
-    animation: spin 30s linear infinite;
+    animation:spin 30s linear infinite;
 }
 
-.logo-stage::after {
-    inset: 10%;
+.logo-stage::after{
+    inset:9%;
 
-    border-style: dashed;
+    border-style:dashed;
 
-    animation: spinReverse 25s linear infinite;
+    animation:spinReverse 22s linear infinite;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}
+.logo-halo{
+    position:absolute;
 
-@keyframes spinReverse {
-    to {
-        transform: rotate(-360deg);
-    }
-}
+    inset:18%;
 
-.logo-halo {
-    position: absolute;
+    border-radius:50%;
 
-    inset: 17%;
-
-    border-radius: 50%;
-
-    background: radial-gradient(
+    background:radial-gradient(
         circle,
-        rgba(201,154,61,.25),
+        rgba(201,154,61,.22),
         transparent 70%
     );
 }
 
-.hero-logo {
-    position: relative;
+.hero-logo{
+    position:relative;
 
-    width: 58%;
-    max-width: 270px;
+    width:58%;
+    max-width:280px;
 
-    object-fit: contain;
+    object-fit:contain;
 
     filter:
-        drop-shadow(0 25px 35px rgba(0,0,0,.2))
-        drop-shadow(0 0 30px rgba(201,154,61,.2));
+        drop-shadow(0 25px 40px rgba(0,0,0,.2))
+        drop-shadow(0 0 35px rgba(201,154,61,.2));
 
-    animation: logoFloat 5s ease-in-out infinite;
+    animation:floatLogo 5s ease-in-out infinite;
 }
 
-@keyframes logoFloat {
+.logo-caption{
+    position:absolute;
 
-    0%,100% {
-        transform: translateY(0);
-    }
+    bottom:3%;
 
-    50% {
-        transform: translateY(-13px);
-    }
+    width:100%;
 
+    text-align:center;
+
+    font-family:"Cinzel",serif;
+
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:#806020;
 }
 
-.logo-caption {
-    position: absolute;
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
 
-    bottom: 2%;
-    left: 50%;
+@keyframes spinReverse{
+    to{
+        transform:rotate(-360deg);
+    }
+}
 
-    transform: translateX(-50%);
+@keyframes floatLogo{
 
-    width: 100%;
+    0%,100%{
+        transform:translateY(0);
+    }
 
-    text-align: center;
+    50%{
+        transform:translateY(-14px);
+    }
 
-    font-family: "Cinzel", serif;
-
-    font-size: 10px;
-
-    letter-spacing: 4px;
-
-    color: #806020;
 }
 
 /* =========================================================
-   GENERAL SECTIONS
+   GENERAL
 ========================================================= */
 
-.section {
-    padding: 110px 6%;
+.section{
+    padding:115px 6%;
 }
 
-.white-section {
-    background: white;
+.white-section{
+    background:#fff;
 }
 
-.cream-section {
-    background: var(--cream);
+.cream-section{
+    background:var(--cream);
 }
 
-.dark-section {
-    background: var(--dark);
-    color: white;
+.dark-section{
+    background:var(--dark);
+
+    color:#fff;
 }
 
-.container {
-    width: min(1300px, 100%);
-    margin: auto;
+.container{
+    width:min(1350px,100%);
+    margin:auto;
 }
 
-.section-heading {
-    max-width: 800px;
+.section-heading{
+    max-width:820px;
 
-    text-align: center;
+    text-align:center;
 
-    margin: 0 auto 65px;
+    margin:0 auto 65px;
 }
 
-.section-label {
-    display: inline-block;
+.section-label{
+    display:inline-block;
 
-    color: var(--gold-dark);
+    color:var(--gold-dark);
 
-    font-size: 10px;
-    font-weight: 800;
+    font-size:9px;
+    font-weight:800;
 
-    letter-spacing: 3px;
+    letter-spacing:3.5px;
 
-    margin-bottom: 14px;
+    margin-bottom:14px;
 }
 
-.section-heading h2 {
-    font-family: "Cinzel", serif;
+.section-heading h2{
+    font-family:"Cinzel",serif;
 
-    font-size: clamp(34px, 4vw, 52px);
+    font-size:clamp(34px,4vw,54px);
 
-    line-height: 1.2;
+    line-height:1.18;
 
-    margin-bottom: 16px;
+    margin-bottom:16px;
 }
 
-.section-heading h2 span {
-    color: var(--gold);
+.section-heading h2 span{
+    color:var(--gold);
 }
 
-.section-heading p {
-    color: #777;
+.section-heading p{
+    color:#777;
 
-    font-size: 14px;
+    font-size:13px;
 
-    line-height: 1.8;
+    line-height:1.85;
 }
 
-.dark-heading h2 {
-    color: white;
+.dark-heading h2{
+    color:#fff;
 }
 
-.dark-heading .section-label {
-    color: var(--gold-light);
+.dark-heading p{
+    color:#999;
 }
 
-.dark-heading p {
-    color: #aaa;
+.dark-heading .section-label{
+    color:var(--gold-light);
 }
 
 /* =========================================================
-   ABOUT CARDS
+   ABOUT
 ========================================================= */
 
-.card-grid {
-    display: grid;
+.about-grid{
+    display:grid;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap: 25px;
+    gap:25px;
 }
 
-.card {
-    padding: 38px;
+.about-card{
+    position:relative;
 
-    background: rgba(250,248,243,.8);
+    padding:40px;
 
-    border: 1px solid rgba(201,154,61,.16);
+    background:linear-gradient(
+        145deg,
+        #fff,
+        #faf7ef
+    );
 
-    border-radius: 24px;
+    border:1px solid rgba(201,154,61,.16);
 
-    box-shadow: var(--shadow);
+    border-radius:24px;
 
-    transition: .45s;
+    box-shadow:var(--shadow);
+
+    overflow:hidden;
+
+    transition:.45s;
 }
 
-.card:hover {
-    transform: translateY(-10px);
+.about-card::before{
+    content:"";
 
-    border-color: rgba(201,154,61,.45);
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
+
+    opacity:.5;
 }
 
-.card-icon {
-    width: 58px;
-    height: 58px;
+.about-card:hover{
+    transform:translateY(-10px);
 
-    display: grid;
-    place-items: center;
-
-    border-radius: 16px;
-
-    background: rgba(201,154,61,.1);
-
-    color: var(--gold-dark);
-
-    font-size: 23px;
-
-    margin-bottom: 24px;
+    border-color:rgba(201,154,61,.5);
 }
 
-.card h3 {
-    font-family: "Cinzel", serif;
+.card-symbol{
+    width:58px;
+    height:58px;
 
-    font-size: 22px;
+    display:grid;
+    place-items:center;
 
-    margin-bottom: 14px;
+    border-radius:16px;
+
+    background:rgba(201,154,61,.1);
+
+    color:var(--gold-dark);
+
+    font-family:"Cinzel",serif;
+
+    font-size:19px;
+
+    margin-bottom:24px;
 }
 
-.card p {
-    color: #666;
+.about-card h3{
+    font-family:"Cinzel",serif;
 
-    font-size: 13px;
+    font-size:21px;
 
-    line-height: 1.85;
+    margin-bottom:14px;
+}
+
+.about-card p{
+    color:#666;
+
+    font-size:12px;
+
+    line-height:1.9;
+}
+
+/* =========================================================
+   VISION
+========================================================= */
+
+.vision-wrapper{
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:18px;
+}
+
+.vision-card{
+    position:relative;
+
+    padding:40px 32px;
+
+    background:#1c1c1c;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.4s;
+}
+
+.vision-card:hover{
+    transform:translateY(-8px);
+
+    border-color:rgba(201,154,61,.55);
+}
+
+.vision-number{
+    font-family:"Cinzel",serif;
+
+    color:var(--gold);
+
+    font-size:13px;
+
+    letter-spacing:2px;
+}
+
+.vision-card h3{
+    font-family:"Cinzel",serif;
+
+    font-size:22px;
+
+    margin:18px 0 12px;
+}
+
+.vision-card p{
+    color:#999;
+
+    font-size:12px;
+
+    line-height:1.85;
+}
+
+.vision-line{
+    width:55px;
+    height:1px;
+
+    background:var(--gold);
+
+    margin-top:25px;
 }
 
 /* =========================================================
    VALUES
 ========================================================= */
 
-.values-grid {
-    display: grid;
+.values-grid{
+    display:grid;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap: 18px;
+    gap:18px;
 }
 
-.value-card {
-    padding: 30px;
+.value-card{
+    padding:30px;
 
-    background: white;
+    border:1px solid var(--border);
 
-    border: 1px solid #e8e2d8;
+    background:#fff;
 
-    transition: .4s;
+    transition:.4s;
 }
 
-.value-card:hover {
-    transform: translateY(-8px);
+.value-card:hover{
+    transform:translateY(-8px);
 
-    border-color: var(--gold);
+    border-color:var(--gold);
 
-    box-shadow: var(--shadow);
+    box-shadow:var(--shadow);
 }
 
-.value-card span {
-    color: var(--gold);
+.value-number{
+    color:var(--gold);
 
-    font-family: "Cinzel", serif;
+    font-family:"Cinzel",serif;
 
-    font-size: 12px;
+    font-size:12px;
 
-    font-weight: 800;
+    letter-spacing:2px;
 }
 
-.value-card h3 {
-    margin: 18px 0 10px;
+.value-card h3{
+    font-size:18px;
 
-    font-size: 19px;
+    margin:17px 0 9px;
 }
 
-.value-card p {
-    color: #777;
+.value-card p{
+    color:#777;
 
-    font-size: 13px;
+    font-size:12px;
 
-    line-height: 1.7;
+    line-height:1.75;
 }
 
 /* =========================================================
-   LEADERSHIP
+   LEADERSHIP INTRO
 ========================================================= */
 
-.leadership-grid {
-    display: grid;
-
-    grid-template-columns: repeat(3,1fr);
-
-    gap: 25px;
+.leadership-section{
+    position:relative;
+    overflow:hidden;
 }
 
-.leader {
-    padding: 30px;
+.leadership-section::before{
+    content:"LEADERSHIP";
 
-    background: white;
+    position:absolute;
 
-    border: 1px solid #e8e2d9;
+    right:-100px;
+    top:70px;
 
-    border-radius: 24px;
+    font-family:"Cinzel",serif;
 
-    transition: .4s;
+    font-size:130px;
+
+    font-weight:800;
+
+    color:rgba(0,0,0,.025);
+
+    pointer-events:none;
 }
 
-.leader:hover {
-    transform: translateY(-9px);
+/* =========================================================
+   TOP LEADERSHIP
+========================================================= */
 
-    box-shadow: var(--shadow);
+.executive-grid{
+    display:grid;
 
-    border-color: var(--gold);
+    grid-template-columns:1fr 1fr;
+
+    gap:25px;
+
+    margin-bottom:28px;
 }
 
-.avatar {
-    width: 70px;
-    height: 70px;
+.executive{
+    position:relative;
 
-    display: grid;
-    place-items: center;
+    padding:42px;
 
-    border-radius: 50%;
+    min-height:260px;
 
-    background: linear-gradient(
-        135deg,
-        var(--gold-dark),
-        var(--gold-light)
+    border-radius:26px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #111,
+            #1c1810
+        );
+
+    color:#fff;
+
+    overflow:hidden;
+
+    border:1px solid rgba(201,154,61,.25);
+
+    box-shadow:var(--shadow-dark);
+
+    transition:.45s;
+}
+
+.executive:hover{
+    transform:translateY(-10px);
+
+    border-color:rgba(232,199,120,.65);
+}
+
+.executive::before{
+    content:"";
+
+    position:absolute;
+
+    width:280px;
+    height:280px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(201,154,61,.13);
+
+    right:-100px;
+    bottom:-120px;
+}
+
+.executive::after{
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:4px;
+    height:100%;
+
+    background:linear-gradient(
+        180deg,
+        var(--gold-light),
+        var(--gold-dark)
     );
-
-    color: white;
-
-    font-family: "Cinzel", serif;
-
-    font-weight: 800;
-
-    margin-bottom: 20px;
 }
 
-.leader h3 {
-    font-family: "Cinzel", serif;
+.rank{
+    color:var(--gold-light);
 
-    font-size: 21px;
+    font-size:9px;
+    font-weight:800;
 
-    margin-bottom: 7px;
+    letter-spacing:3px;
 }
 
-.leader h4 {
-    color: var(--gold-dark);
+.executive-symbol{
+    position:absolute;
 
-    font-size: 13px;
+    right:35px;
+    top:30px;
 
-    margin-bottom: 14px;
+    font-family:"Cinzel",serif;
+
+    font-size:42px;
+
+    color:rgba(201,154,61,.2);
 }
 
-.leader p {
-    color: #777;
+.executive h3{
+    font-family:"Cinzel",serif;
 
-    font-size: 13px;
+    font-size:30px;
 
-    line-height: 1.8;
+    margin:15px 0 6px;
+}
+
+.executive h4{
+    color:var(--gold-light);
+
+    font-size:12px;
+
+    font-weight:600;
+
+    margin-bottom:16px;
+}
+
+.executive p{
+    color:#999;
+
+    font-size:12px;
+
+    line-height:1.8;
+
+    max-width:550px;
+}
+
+/* =========================================================
+   SECONDARY LEADERS
+========================================================= */
+
+.leadership-grid{
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+}
+
+.leader{
+    position:relative;
+
+    padding:32px;
+
+    background:#fff;
+
+    border:1px solid #e5dfd3;
+
+    border-radius:22px;
+
+    transition:.4s;
+
+    overflow:hidden;
+}
+
+.leader:hover{
+    transform:translateY(-9px);
+
+    border-color:var(--gold);
+
+    box-shadow:var(--shadow);
+}
+
+.leader::after{
+    content:"";
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    border:1px solid rgba(201,154,61,.1);
+
+    right:-35px;
+    bottom:-35px;
+}
+
+.leader-rank{
+    color:var(--gold-dark);
+
+    font-size:8px;
+    font-weight:800;
+
+    letter-spacing:2px;
+}
+
+.avatar{
+    width:65px;
+    height:65px;
+
+    display:grid;
+    place-items:center;
+
+    border-radius:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold-dark),
+            var(--gold-light)
+        );
+
+    color:#fff;
+
+    font-family:"Cinzel",serif;
+
+    font-size:14px;
+    font-weight:800;
+
+    margin:18px 0;
+}
+
+.leader h3{
+    font-family:"Cinzel",serif;
+
+    font-size:20px;
+
+    margin-bottom:6px;
+}
+
+.leader h4{
+    color:var(--gold-dark);
+
+    font-size:11px;
+
+    margin-bottom:13px;
+}
+
+.leader p{
+    color:#777;
+
+    font-size:12px;
+
+    line-height:1.8;
 }
 
 /* =========================================================
    ACTIVITIES
 ========================================================= */
 
-.activity-grid {
-    display: grid;
+.activity-grid{
+    display:grid;
 
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns:repeat(3,1fr);
 
-    gap: 20px;
+    gap:20px;
 }
 
-.activity {
-    padding: 35px;
+.activity{
+    position:relative;
 
-    background: #202020;
+    padding:36px;
 
-    border: 1px solid rgba(255,255,255,.07);
+    background:#1c1c1c;
 
-    border-radius: 22px;
+    border:1px solid rgba(255,255,255,.07);
 
-    transition: .4s;
+    border-radius:22px;
+
+    transition:.4s;
+
+    overflow:hidden;
 }
 
-.activity:hover {
-    transform: translateY(-9px);
+.activity:hover{
+    transform:translateY(-9px);
 
-    border-color: rgba(201,154,61,.55);
+    border-color:rgba(201,154,61,.5);
 }
 
-.activity-icon {
-    font-size: 30px;
+.activity-number{
+    font-family:"Cinzel",serif;
 
-    margin-bottom: 20px;
+    color:var(--gold);
+
+    font-size:11px;
+
+    letter-spacing:2px;
 }
 
-.activity span {
-    color: var(--gold);
+.activity-symbol{
+    font-size:24px;
 
-    font-size: 9px;
+    color:var(--gold-light);
 
-    font-weight: 800;
-
-    letter-spacing: 2px;
+    margin:18px 0;
 }
 
-.activity h3 {
-    font-family: "Cinzel", serif;
+.activity h3{
+    font-family:"Cinzel",serif;
 
-    font-size: 22px;
+    font-size:21px;
 
-    margin: 12px 0;
+    margin-bottom:12px;
 }
 
-.activity p {
-    color: #999;
+.activity p{
+    color:#999;
 
-    font-size: 13px;
+    font-size:12px;
 
-    line-height: 1.8;
+    line-height:1.85;
 }
 
 /* =========================================================
-   🇮🇳 ULTIMATE UNSUNG HEROES
-   BLACK + TIRANGA + PREMIUM INDIAN DESIGN
+   IMPACT
 ========================================================= */
 
-.gems-section {
-    position: relative;
-    overflow: hidden;
-
-    padding: 130px 6%;
-
-    background:
-        radial-gradient(
-            circle at 50% 0%,
-            rgba(255,153,51,.08),
-            transparent 35%
-        ),
-        #000;
-
-    color: #fff;
-}
-
-
-/* =========================================================
-   BACKGROUND TIRANGA PATTERN
-========================================================= */
-
-.gems-section::before {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
+.impact-section{
     background:
         linear-gradient(
-            180deg,
-
-            rgba(255,153,51,.10) 0%,
-            rgba(255,153,51,.10) 18%,
-
-            transparent 18%,
-            transparent 39%,
-
-            rgba(255,255,255,.045) 39%,
-            rgba(255,255,255,.045) 61%,
-
-            transparent 61%,
-            transparent 82%,
-
-            rgba(19,136,8,.10) 82%,
-            rgba(19,136,8,.10) 100%
-        );
-
-    opacity: .8;
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   TIRANGA DIAGONAL PATTERN
-========================================================= */
-
-.gems-section::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-        repeating-linear-gradient(
             135deg,
-            transparent 0px,
-            transparent 90px,
-            rgba(255,153,51,.025) 91px,
-            rgba(255,153,51,.025) 93px,
-            transparent 94px,
-            transparent 180px
+            #f8f5ee,
+            #fff
         );
-
-    pointer-events: none;
 }
 
+.impact-grid{
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:18px;
+}
+
+.impact-card{
+    text-align:center;
+
+    padding:40px 20px;
+
+    border:1px solid var(--border);
+
+    background:#fff;
+
+    transition:.4s;
+}
+
+.impact-card:hover{
+    transform:translateY(-7px);
+
+    box-shadow:var(--shadow);
+
+    border-color:var(--gold);
+}
+
+.impact-number{
+    font-family:"Cinzel",serif;
+
+    font-size:38px;
+
+    color:var(--gold-dark);
+
+    font-weight:700;
+}
+
+.impact-card span{
+    display:block;
+
+    margin-top:8px;
+
+    color:#777;
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:2px;
+}
 
 /* =========================================================
-   CONTAINER
+   UNSUNG GEMS
 ========================================================= */
 
-.gems-section .container {
-    position: relative;
-    z-index: 5;
-}
+.gems-section{
+    position:relative;
 
-
-/* =========================================================
-   HEADING
-========================================================= */
-
-.gems-heading {
-    position: relative;
-    z-index: 10;
-
-    max-width: 900px;
-
-    text-align: center;
-
-    margin: 0 auto 80px;
-}
-
-.gems-heading .section-label {
-    color: #ffb45e;
-
-    letter-spacing: 4px;
-
-    text-shadow:
-        0 0 20px rgba(255,153,51,.35);
-}
-
-.gems-heading h2 {
-    font-family: "Cinzel", serif;
-
-    color: #fff;
-
-    font-size: clamp(40px,5vw,68px);
-
-    line-height: 1.1;
-
-    margin-bottom: 20px;
-}
-
-.gems-heading h2 span {
-    background:
-        linear-gradient(
-            90deg,
-            #ff9933 0%,
-            #ffffff 48%,
-            #138808 100%
-        );
-
-    -webkit-background-clip: text;
-    background-clip: text;
-
-    color: transparent;
-}
-
-.gems-heading p {
-    max-width: 720px;
-
-    margin: auto;
-
-    color: #8d8d8d;
-
-    font-size: 14px;
-
-    line-height: 1.9;
-}
-
-
-/* =========================================================
-   HERO CARD
-========================================================= */
-
-.gem {
-    position: relative;
-    z-index: 10;
-
-    max-width: 1150px;
-
-    margin: 0 auto 45px;
-
-    overflow: hidden;
-
-    border-radius: 28px;
-
-    background: #080808;
-
-    border: 1px solid rgba(255,255,255,.12);
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.8);
-
-    transition:
-        transform .5s ease,
-        border-color .5s ease,
-        box-shadow .5s ease;
-}
-
-.gem:hover {
-    transform: translateY(-10px);
-
-    border-color: rgba(201,154,61,.55);
-
-    box-shadow:
-        0 45px 110px rgba(0,0,0,.95),
-        0 0 55px rgba(201,154,61,.08);
-}
-
-
-/* =========================================================
-   TIRANGA STRIPE ON EVERY HERO
-========================================================= */
-
-.gem::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    top: 0;
-
-    height: 9px;
+    padding:135px 6%;
 
     background:
-        linear-gradient(
-            90deg,
-            #ff9933 0%,
-            #ff9933 33.33%,
-
-            #ffffff 33.33%,
-            #ffffff 66.66%,
-
-            #138808 66.66%,
-            #138808 100%
-        );
-
-    box-shadow:
-        0 0 20px rgba(255,153,51,.15),
-        0 0 20px rgba(19,136,8,.15);
-}
-
-
-/* =========================================================
-   TIRANGA PATTERN INSIDE CARD
-========================================================= */
-
-.gem::after {
-    content: "";
-
-    position: absolute;
-    inset: 0;
-
-    background:
-
-        /* Saffron */
         radial-gradient(
-            ellipse at 10% 0%,
-            rgba(255,153,51,.16),
+            circle at 15% 15%,
+            rgba(201,154,61,.12),
             transparent 30%
         ),
-
-        /* White */
         radial-gradient(
-            ellipse at 90% 50%,
-            rgba(255,255,255,.08),
-            transparent 32%
-        ),
-
-        /* Green */
-        radial-gradient(
-            ellipse at 10% 100%,
-            rgba(19,136,8,.15),
+            circle at 85% 80%,
+            rgba(201,154,61,.08),
             transparent 30%
         ),
+        #050505;
 
-        /* Subtle diagonal Tiranga texture */
-        repeating-linear-gradient(
-            135deg,
-            transparent 0px,
-            transparent 75px,
-            rgba(255,153,51,.025) 76px,
-            rgba(255,153,51,.025) 78px,
-            transparent 79px,
-            transparent 150px
-        );
+    color:#fff;
 
-    pointer-events: none;
+    overflow:hidden;
 }
 
+.gems-section::before{
+    content:"";
 
-/* =========================================================
-   CARD CONTENT
-========================================================= */
+    position:absolute;
 
-.gem-inner {
-    position: relative;
-    z-index: 3;
+    inset:0;
 
-    padding: 65px;
-
-    display: grid;
-
-    grid-template-columns: 145px 1fr;
-
-    gap: 45px;
-
-    align-items: center;
-}
-
-
-/* =========================================================
-   HERO SYMBOL
-========================================================= */
-
-.gem-number {
-    position: relative;
-
-    width: 125px;
-    height: 125px;
-
-    display: grid;
-    place-items: center;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            #151515 0%,
-            #050505 72%
-        );
-
-    border: 2px solid rgba(201,154,61,.75);
-
-    color: #e4bd69;
-
-    font-size: 48px;
-
-    box-shadow:
-        0 0 0 7px rgba(255,255,255,.025),
-        0 0 40px rgba(201,154,61,.14),
-        inset 0 0 30px rgba(201,154,61,.08);
-
-    transition: .5s;
-}
-
-.gem:hover .gem-number {
-    transform: scale(1.06);
-
-    border-color: #e6bd68;
-
-    box-shadow:
-        0 0 0 8px rgba(255,255,255,.035),
-        0 0 55px rgba(201,154,61,.25),
-        inset 0 0 35px rgba(201,154,61,.12);
-}
-
-
-/* =========================================================
-   OUTER ROTATING RING
-========================================================= */
-
-.gem-number::before {
-    content: "";
-
-    position: absolute;
-
-    inset: -13px;
-
-    border-radius: 50%;
-
-    border:
-        1px dashed rgba(201,154,61,.4);
-
-    animation:
-        chakraRotate 18s linear infinite;
-}
-
-@keyframes chakraRotate {
-
-    to {
-        transform: rotate(360deg);
-    }
-
-}
-
-
-/* =========================================================
-   SYMBOL GLOW
-========================================================= */
-
-.gem-number::after {
-    content: "";
-
-    position: absolute;
-
-    inset: 0;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(201,154,61,.10),
-            transparent 65%
-        );
-
-    pointer-events: none;
-}
-
-
-/* =========================================================
-   CONTENT GLASS
-========================================================= */
-
-.gem-content {
-    position: relative;
-
-    padding: 38px;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,.065),
-            rgba(255,255,255,.018)
-        );
-
-    border:
-        1px solid rgba(255,255,255,.09);
-
-    border-radius: 22px;
-
-    backdrop-filter: blur(12px);
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.05);
-}
-
-
-/* =========================================================
-   CATEGORY
-========================================================= */
-
-.gem-tag {
-    display: inline-block;
-
-    color: #d7aa52;
-
-    font-size: 9px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
-
-    margin-bottom: 12px;
-}
-
-
-/* =========================================================
-   HERO NAME
-========================================================= */
-
-.gem-content h3 {
-    font-family: "Cinzel", serif;
-
-    color: #fff;
-
-    font-size: clamp(28px,4vw,46px);
-
-    line-height: 1.12;
-
-    margin-bottom: 10px;
-}
-
-
-/* =========================================================
-   SUBTITLE
-========================================================= */
-
-.gem-subtitle {
-    color: #d0a64f;
-
-    font-size: 13px;
-
-    font-weight: 700;
-
-    margin-bottom: 20px;
-}
-
-
-/* =========================================================
-   DESCRIPTION
-========================================================= */
-
-.gem-short {
-    color: #a5a5a5;
-
-    font-size: 14px;
-
-    line-height: 1.9;
-}
-
-
-/* =========================================================
-   READ MORE
-========================================================= */
-
-.read-more {
-    position: relative;
-
-    margin-top: 25px;
-
-    padding: 13px 25px;
-
-    border: 1px solid rgba(201,154,61,.55);
-
-    border-radius: 50px;
-
-    background: #0c0c0c;
-
-    color: #e1b85e;
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-
-    cursor: pointer;
-
-    transition: .35s;
-
-    overflow: hidden;
-}
-
-.read-more:hover {
     background:
         linear-gradient(
             90deg,
-            #9c701e,
-            #d1a546
+            transparent 49.9%,
+            rgba(201,154,61,.035) 50%,
+            transparent 50.1%
+        ),
+        linear-gradient(
+            0deg,
+            transparent 49.9%,
+            rgba(201,154,61,.035) 50%,
+            transparent 50.1%
         );
 
-    color: #fff;
+    background-size:120px 120px;
 
-    border-color: #dcb35b;
-
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 35px rgba(201,154,61,.2);
+    pointer-events:none;
 }
 
+.gems-section::after{
+    content:"";
+
+    position:absolute;
+
+    width:650px;
+    height:650px;
+
+    border:1px solid rgba(201,154,61,.08);
+
+    border-radius:50%;
+
+    left:50%;
+    top:30%;
+
+    transform:translate(-50%,-50%);
+
+    box-shadow:
+        0 0 0 60px rgba(201,154,61,.015),
+        0 0 0 120px rgba(201,154,61,.01);
+
+    pointer-events:none;
+}
+
+.gems-section .container{
+    position:relative;
+
+    z-index:5;
+}
+
+.gems-heading{
+    max-width:900px;
+
+    text-align:center;
+
+    margin:0 auto 80px;
+}
+
+.gems-heading .section-label{
+    color:var(--gold-light);
+}
+
+.gems-heading h2{
+    font-family:"Cinzel",serif;
+
+    color:#fff;
+
+    font-size:clamp(40px,5vw,68px);
+
+    line-height:1.1;
+
+    margin-bottom:20px;
+}
+
+.gems-heading h2 span{
+    color:var(--gold-light);
+}
+
+.gems-heading p{
+    color:#888;
+
+    max-width:720px;
+
+    margin:auto;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
 
 /* =========================================================
-   EXPANDED CONTENT
+   GEM CARD
 ========================================================= */
 
-.gem-more {
-    max-height: 0;
+.gem{
+    position:relative;
 
-    overflow: hidden;
+    max-width:1180px;
 
-    opacity: 0;
+    margin:0 auto 35px;
 
-    border-top: 0 solid rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.1);
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d0d0d,
+            #080808
+        );
+
+    overflow:hidden;
+
+    box-shadow:
+        0 35px 100px rgba(0,0,0,.7);
+
+    transition:.5s;
+}
+
+.gem:hover{
+    transform:translateY(-9px);
+
+    border-color:rgba(201,154,61,.5);
+
+    box-shadow:
+        0 45px 110px rgba(0,0,0,.85),
+        0 0 50px rgba(201,154,61,.06);
+}
+
+.gem-top-line{
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:3px;
+
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        var(--gold-light),
+        transparent
+    );
+}
+
+.gem-inner{
+    padding:60px;
+
+    display:grid;
+
+    grid-template-columns:150px 1fr;
+
+    gap:45px;
+
+    align-items:center;
+}
+
+.gem-symbol{
+    width:120px;
+    height:120px;
+
+    display:grid;
+
+    place-items:center;
+
+    border-radius:50%;
+
+    background:#090909;
+
+    border:1px solid rgba(201,154,61,.65);
+
+    color:var(--gold-light);
+
+    font-family:"Cinzel",serif;
+
+    font-size:28px;
+
+    box-shadow:
+        0 0 0 8px rgba(255,255,255,.015),
+        0 0 45px rgba(201,154,61,.13);
+
+    position:relative;
+}
+
+.gem-symbol::before{
+    content:"";
+
+    position:absolute;
+
+    inset:-12px;
+
+    border-radius:50%;
+
+    border:1px dashed rgba(201,154,61,.32);
+
+    animation:spin 20s linear infinite;
+}
+
+.gem-symbol::after{
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    border-radius:50%;
+
+    background:var(--gold-light);
+
+    top:-15px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    box-shadow:0 0 15px var(--gold);
+}
+
+.gem-content{
+    padding:35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.045),
+            rgba(255,255,255,.012)
+        );
+
+    border:1px solid rgba(255,255,255,.07);
+
+    border-radius:22px;
+}
+
+.gem-tag{
+    color:var(--gold);
+
+    font-size:8px;
+
+    font-weight:800;
+
+    letter-spacing:3px;
+}
+
+.gem-content h3{
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(27px,4vw,45px);
+
+    line-height:1.12;
+
+    margin:12px 0 8px;
+}
+
+.gem-subtitle{
+    color:var(--gold-light);
+
+    font-size:12px;
+    font-weight:600;
+
+    margin-bottom:19px;
+}
+
+.gem-short{
+    color:#999;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+.read-more{
+    margin-top:24px;
+
+    padding:12px 23px;
+
+    border:1px solid rgba(201,154,61,.5);
+
+    border-radius:50px;
+
+    background:transparent;
+
+    color:var(--gold-light);
+
+    font-size:9px;
+    font-weight:800;
+
+    letter-spacing:1.5px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.read-more:hover{
+    background:var(--gold);
+
+    color:#fff;
+
+    transform:translateY(-3px);
+}
+
+.gem-more{
+    max-height:0;
+
+    overflow:hidden;
+
+    opacity:0;
+
+    border-top:0 solid rgba(255,255,255,.08);
 
     transition:
         max-height .8s ease,
@@ -1487,576 +1684,565 @@ header.scrolled {
         padding-top .5s ease;
 }
 
-.gem-more.open {
-    max-height: 1200px;
+.gem-more.open{
+    max-height:1200px;
 
-    opacity: 1;
+    opacity:1;
 
-    margin-top: 28px;
+    margin-top:28px;
 
-    padding-top: 25px;
+    padding-top:25px;
 
-    border-top: 1px solid rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.08);
 }
 
-.gem-more p {
-    color: #969696;
+.gem-more p{
+    color:#929292;
 
-    font-size: 13px;
+    font-size:12px;
 
-    line-height: 1.9;
+    line-height:1.9;
 
-    margin-bottom: 15px;
+    margin-bottom:14px;
 }
 
-.gem-more strong {
-    color: #e3bd68;
-}
-
-
-/* =========================================================
-   INDIAN FLAG SYMBOL LINE
-========================================================= */
-
-.gem-content::before {
-    content: "";
-
-    position: absolute;
-
-    top: 0;
-    left: 30px;
-    right: 30px;
-
-    height: 2px;
-
-    background:
-        linear-gradient(
-            90deg,
-            #ff9933 0%,
-            #ff9933 33%,
-            #fff 33%,
-            #fff 66%,
-            #138808 66%,
-            #138808 100%
-        );
-
-    opacity: .45;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media(max-width:850px) {
-
-    .gems-section {
-        padding: 100px 20px;
-    }
-
-    .gem-inner {
-        grid-template-columns: 1fr;
-
-        padding: 45px 25px;
-
-        text-align: center;
-    }
-
-    .gem-number {
-        margin: auto;
-    }
-
-    .gem-content {
-        text-align: left;
-    }
-
-}
-
-
-@media(max-width:600px) {
-
-    .gems-section {
-        padding: 85px 15px;
-    }
-
-    .gem {
-        border-radius: 22px;
-    }
-
-    .gem-inner {
-        padding: 35px 15px;
-    }
-
-    .gem-content {
-        padding: 25px 20px;
-    }
-
-    .gem-content h3 {
-        font-size: 28px;
-    }
-
-    .gem-number {
-        width: 105px;
-        height: 105px;
-
-        font-size: 40px;
-    }
-
+.gem-more strong{
+    color:var(--gold-light);
 }
 
 /* =========================================================
    JOIN
 ========================================================= */
 
-.join {
-    padding: 100px 6%;
+.join{
+    position:relative;
+
+    padding:105px 6%;
 
     background:
         linear-gradient(
             135deg,
-            #181818,
-            #292218
+            #111,
+            #211c13
         );
 
-    color: white;
+    color:#fff;
+
+    overflow:hidden;
 }
 
-.join-content {
-    width: min(1200px,100%);
+.join::before{
+    content:"";
 
-    margin: auto;
+    position:absolute;
 
-    display: flex;
+    width:500px;
+    height:500px;
 
-    align-items: center;
+    border-radius:50%;
 
-    justify-content: space-between;
+    border:1px solid rgba(201,154,61,.08);
 
-    gap: 50px;
+    right:-150px;
+    top:-200px;
 }
 
-.join-text {
-    max-width: 750px;
+.join-content{
+    width:min(1250px,100%);
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:50px;
 }
 
-.join-text span {
-    color: var(--gold-light);
-
-    font-size: 10px;
-
-    font-weight: 800;
-
-    letter-spacing: 3px;
+.join-text{
+    max-width:780px;
 }
 
-.join-text h2 {
-    font-family: "Cinzel", serif;
+.join-text span{
+    color:var(--gold-light);
 
-    font-size: clamp(35px,5vw,60px);
+    font-size:9px;
 
-    line-height: 1.1;
+    font-weight:800;
 
-    margin: 18px 0;
+    letter-spacing:3px;
 }
 
-.join-text h2 strong {
-    color: var(--gold-light);
+.join-text h2{
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(35px,5vw,61px);
+
+    line-height:1.1;
+
+    margin:17px 0;
 }
 
-.join-text p {
-    color: #aaa;
-
-    font-size: 14px;
-
-    line-height: 1.8;
+.join-text h2 strong{
+    color:var(--gold-light);
 }
 
-.join-button {
-    flex-shrink: 0;
+.join-text p{
+    color:#aaa;
 
-    background: var(--gold);
+    font-size:13px;
 
-    color: #111;
+    line-height:1.85;
 }
 
-.join-button:hover {
-    background: var(--gold-light);
+.join-button{
+    flex-shrink:0;
+
+    background:var(--gold);
+
+    color:#111;
+}
+
+.join-button:hover{
+    background:var(--gold-light);
 }
 
 /* =========================================================
    CONTACT
 ========================================================= */
 
-.contact {
-    padding: 110px 6%;
+.contact{
+    padding:115px 6%;
 
-    background: white;
+    background:#fff;
 }
 
-.contact-grid {
-    display: grid;
+.contact-grid{
+    display:grid;
 
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns:repeat(4,1fr);
 
-    gap: 18px;
+    gap:18px;
 }
 
-.contact-card {
-    padding: 32px 25px;
+.contact-card{
+    padding:35px 25px;
 
-    text-align: center;
+    text-align:center;
 
-    background: var(--cream);
+    background:var(--cream);
 
-    border: 1px solid #e8e2d7;
+    border:1px solid var(--border);
 
-    transition: .4s;
+    transition:.4s;
 }
 
-.contact-card:hover {
-    transform: translateY(-8px);
+.contact-card:hover{
+    transform:translateY(-8px);
 
-    border-color: var(--gold);
+    border-color:var(--gold);
 
-    box-shadow: var(--shadow);
+    box-shadow:var(--shadow);
 }
 
-.contact-icon {
-    width: 55px;
-    height: 55px;
+.contact-symbol{
+    width:55px;
+    height:55px;
 
-    margin: 0 auto 20px;
+    display:grid;
+    place-items:center;
 
-    display: grid;
-    place-items: center;
+    margin:0 auto 20px;
 
-    border-radius: 50%;
+    border-radius:50%;
 
-    color: var(--gold-dark);
+    background:rgba(201,154,61,.1);
 
-    background: rgba(201,154,61,.1);
+    color:var(--gold-dark);
 
-    font-size: 20px;
+    font-family:"Cinzel",serif;
+
+    font-size:18px;
 }
 
-.contact-card h3 {
-    font-family: "Cinzel", serif;
+.contact-card h3{
+    font-family:"Cinzel",serif;
 
-    font-size: 18px;
+    font-size:18px;
 
-    margin-bottom: 10px;
+    margin-bottom:9px;
 }
 
-.contact-card p {
-    color: #777;
+.contact-card p{
+    color:#777;
 
-    font-size: 12px;
+    font-size:11px;
 
-    line-height: 1.7;
+    line-height:1.75;
 }
 
 /* =========================================================
    FOOTER
 ========================================================= */
 
-footer {
-    padding: 75px 20px 35px;
+footer{
+    position:relative;
 
-    background: #101010;
+    padding:75px 20px 35px;
 
-    color: white;
+    background:#090909;
 
-    text-align: center;
+    color:#fff;
+
+    text-align:center;
+
+    overflow:hidden;
 }
 
-.footer-logo img {
-    width: 90px;
-    height: 90px;
+.footer-decoration{
+    width:70px;
+    height:1px;
 
-    object-fit: contain;
+    margin:0 auto 30px;
 
-    margin-bottom: 20px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        var(--gold),
+        transparent
+    );
 }
 
-footer h2 {
-    font-family: "Cinzel", serif;
+.footer-logo img{
+    width:82px;
+    height:82px;
 
-    font-size: 28px;
+    object-fit:contain;
 
-    letter-spacing: 2px;
-
-    margin-bottom: 10px;
+    margin-bottom:18px;
 }
 
-footer > p {
-    color: #999;
+footer h2{
+    font-family:"Cinzel",serif;
 
-    font-size: 12px;
+    font-size:27px;
+
+    letter-spacing:2px;
+
+    margin-bottom:9px;
 }
 
-.footer-links {
-    display: flex;
+footer > p{
+    color:#888;
 
-    justify-content: center;
-
-    flex-wrap: wrap;
-
-    gap: 25px;
-
-    margin: 35px 0;
+    font-size:10px;
 }
 
-.footer-links a {
-    color: #aaa;
+.footer-links{
+    display:flex;
 
-    font-size: 11px;
+    justify-content:center;
 
-    font-weight: 600;
+    flex-wrap:wrap;
 
-    transition: .3s;
+    gap:24px;
+
+    margin:34px 0;
 }
 
-.footer-links a:hover {
-    color: var(--gold-light);
+.footer-links a{
+    color:#999;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    transition:.3s;
 }
 
-footer hr {
-    width: min(700px,80%);
-
-    height: 1px;
-
-    margin: 25px auto;
-
-    border: none;
-
-    background: rgba(255,255,255,.1);
+.footer-links a:hover{
+    color:var(--gold-light);
 }
 
-.copyright {
-    color: #666 !important;
+footer hr{
+    width:min(700px,80%);
+
+    height:1px;
+
+    margin:25px auto;
+
+    border:none;
+
+    background:rgba(255,255,255,.08);
 }
 
-.motto {
-    color: var(--gold) !important;
+.copyright{
+    color:#555 !important;
+}
 
-    margin-top: 10px;
+.motto{
+    color:var(--gold) !important;
 
-    font-size: 9px !important;
+    margin-top:10px;
 
-    font-weight: 800;
+    font-size:8px !important;
 
-    letter-spacing: 2px;
+    font-weight:800;
+
+    letter-spacing:2.5px;
 }
 
 /* =========================================================
-   REVEAL ANIMATION
+   REVEAL
 ========================================================= */
 
-.reveal {
-    opacity: 0;
+.reveal{
+    opacity:0;
 
-    transform: translateY(40px);
+    transform:translateY(35px);
 
     transition:
         opacity .8s ease,
         transform .8s ease;
 }
 
-.reveal.show {
-    opacity: 1;
+.reveal.show{
+    opacity:1;
 
-    transform: translateY(0);
+    transform:translateY(0);
 }
 
 /* =========================================================
-   MOBILE
+   RESPONSIVE 1100
 ========================================================= */
 
-@media(max-width: 1000px) {
+@media(max-width:1100px){
 
-    .nav-links {
-        gap: 15px;
+    .nav-links{
+        gap:14px;
     }
 
-    .nav-links a {
-        font-size: 10px;
+    .nav-links a{
+        font-size:9px;
     }
 
-    .card-grid,
-    .leadership-grid,
-    .activity-grid {
-        grid-template-columns: repeat(2,1fr);
+    .hero{
+        gap:35px;
     }
 
-    .contact-grid {
-        grid-template-columns: repeat(2,1fr);
+    .leadership-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .contact-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
 }
 
-@media(max-width: 850px) {
+/* =========================================================
+   RESPONSIVE 900
+========================================================= */
 
-    .navbar {
-        height: 76px;
+@media(max-width:900px){
+
+    .navbar{
+        height:76px;
     }
 
     .nav-links,
-    .nav-button {
-        display: none;
+    .nav-button{
+        display:none;
     }
 
-    .menu-btn {
-        display: block;
+    .menu-btn{
+        display:block;
     }
 
-    .navbar.mobile-open .nav-links {
+    .navbar.mobile-open .nav-links{
 
-        display: flex;
+        display:flex;
 
-        position: absolute;
+        position:absolute;
 
-        left: 3%;
-        right: 3%;
+        left:3%;
+        right:3%;
 
-        top: 85px;
+        top:84px;
 
-        padding: 25px;
+        padding:25px;
 
-        background: white;
+        background:#fff;
 
-        border: 1px solid #eee;
+        border:1px solid #eee;
 
-        border-radius: 20px;
+        border-radius:20px;
 
-        box-shadow: var(--shadow);
+        box-shadow:var(--shadow);
 
-        flex-direction: column;
+        flex-direction:column;
 
-        align-items: flex-start;
+        align-items:flex-start;
 
-        gap: 20px;
+        gap:20px;
     }
 
-    .hero {
+    .hero{
+        grid-template-columns:1fr;
 
-        grid-template-columns: 1fr;
+        text-align:center;
 
-        text-align: center;
-
-        padding-top: 125px;
+        padding-top:125px;
     }
 
-    .hero-content {
-        margin: auto;
+    .hero-content{
+        margin:auto;
     }
 
-    .hero-buttons {
-        justify-content: center;
+    .hero-buttons{
+        justify-content:center;
     }
 
-    .hero-stats {
-        justify-content: center;
+    .hero-stats{
+        justify-content:center;
     }
 
-    .hero-visual {
-        order: -1;
+    .hero-visual{
+        order:-1;
     }
 
-    .logo-stage {
-        width: 330px;
+    .logo-stage{
+        width:330px;
     }
 
-    .gem-inner {
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-        padding: 45px 25px;
+    .about-grid,
+    .values-grid,
+    .activity-grid{
+        grid-template-columns:repeat(2,1fr);
     }
 
-    .gem-number {
-        margin: auto;
+    .vision-wrapper{
+        grid-template-columns:1fr;
     }
 
-    .gem-content {
-        text-align: left;
+    .executive-grid{
+        grid-template-columns:1fr;
     }
 
-    .join-content {
-        flex-direction: column;
+    .impact-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 
-        text-align: center;
+    .gem-inner{
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        padding:45px 25px;
+    }
+
+    .gem-symbol{
+        margin:auto;
+    }
+
+    .gem-content{
+        text-align:left;
+    }
+
+    .join-content{
+        flex-direction:column;
+
+        text-align:center;
     }
 
 }
 
-@media(max-width: 600px) {
+/* =========================================================
+   RESPONSIVE 600
+========================================================= */
+
+@media(max-width:600px){
 
     .section,
     .contact,
-    .gems-section {
-        padding: 80px 20px;
+    .gems-section{
+        padding:80px 18px;
     }
 
-    .hero {
-        padding: 120px 20px 70px;
+    .hero{
+        padding:115px 18px 70px;
     }
 
-    .logo img {
-        width: 48px;
-        height: 48px;
+    .logo img{
+        width:47px;
+        height:47px;
     }
 
-    .logo-text h1 {
-        font-size: 14px;
+    .logo-text h1{
+        font-size:13px;
     }
 
-    .logo-text p {
-        font-size: 7px;
+    .logo-text p{
+        font-size:6px;
     }
 
-    .hero h2 {
-        font-size: 42px;
+    .hero h2{
+        font-size:40px;
     }
 
-    .hero-description {
-        font-size: 14px;
+    .hero-description{
+        font-size:13px;
     }
 
-    .hero-stats {
-        gap: 20px;
+    .hero-stats{
+        gap:20px;
     }
 
-    .hero-stat strong {
-        font-size: 20px;
+    .hero-stat strong{
+        font-size:19px;
     }
 
-    .card-grid,
+    .about-grid,
     .values-grid,
     .leadership-grid,
     .activity-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
+    .contact-grid,
+    .impact-grid{
+        grid-template-columns:1fr;
     }
 
-    .logo-stage {
-        width: 280px;
+    .logo-stage{
+        width:275px;
     }
 
-    .gem-inner {
-        padding: 35px 18px;
+    .executive{
+        padding:30px 25px;
     }
 
-    .gem-content {
-        padding: 25px;
+    .executive h3{
+        font-size:25px;
     }
 
-    .gem-content h3 {
-        font-size: 28px;
+    .gem{
+        border-radius:22px;
     }
 
-    .join {
-        padding: 80px 20px;
+    .gem-inner{
+        padding:35px 15px;
+    }
+
+    .gem-content{
+        padding:25px 20px;
+    }
+
+    .gem-content h3{
+        font-size:27px;
+    }
+
+    .join{
+        padding:80px 20px;
     }
 
 }
@@ -2065,19 +2251,20 @@ footer hr {
    REDUCED MOTION
 ========================================================= */
 
-@media(prefers-reduced-motion: reduce) {
+@media(prefers-reduced-motion:reduce){
 
     *,
     *::before,
-    *::after {
+    *::after{
 
-        animation-duration: .01ms !important;
+        animation-duration:.01ms !important;
 
-        animation-iteration-count: 1 !important;
+        animation-iteration-count:1 !important;
 
-        scroll-behavior: auto !important;
+        scroll-behavior:auto !important;
 
-        transition-duration: .01ms !important;
+        transition-duration:.01ms !important;
+
     }
 
 }
@@ -2105,8 +2292,8 @@ footer hr {
 <a href="#home" class="logo">
 
 <img
-    src="logo1.png"
-    alt="Antique Association Logo"
+src="logo2.png"
+alt="Antique Association Logo"
 >
 
 <div class="logo-text">
@@ -2122,47 +2309,21 @@ footer hr {
 
 <ul class="nav-links">
 
-<li>
-<a href="#home" class="active">
-Home
-</a>
-</li>
+<li><a href="#home" class="active">Home</a></li>
 
-<li>
-<a href="#about">
-About
-</a>
-</li>
+<li><a href="#about">About</a></li>
 
-<li>
-<a href="#vision">
-Vision
-</a>
-</li>
+<li><a href="#vision">Vision</a></li>
 
-<li>
-<a href="#leadership">
-Leadership
-</a>
-</li>
+<li><a href="#values">Values</a></li>
 
-<li>
-<a href="#activities">
-Activities
-</a>
-</li>
+<li><a href="#leadership">Leadership</a></li>
 
-<li>
-<a href="#gems">
-Unsung Gems
-</a>
-</li>
+<li><a href="#activities">Activities</a></li>
 
-<li>
-<a href="#contact">
-Contact
-</a>
-</li>
+<li><a href="#gems">Unsung Gems</a></li>
+
+<li><a href="#contact">Contact</a></li>
 
 </ul>
 
@@ -2173,9 +2334,9 @@ JOIN US
 
 
 <button
-    class="menu-btn"
-    id="menuBtn"
-    aria-label="Open menu"
+class="menu-btn"
+id="menuBtn"
+aria-label="Open menu"
 >
 
 <span></span>
@@ -2219,75 +2380,57 @@ Service
 
 </h2>
 
-
 <p class="hero-description">
 
 Antique Association is a community organisation
-dedicated to bringing people together through
-sports, cultural activities, social service,
-community initiatives and the recognition of
-extraordinary people whose stories deserve to
-be remembered.
+dedicated to building stronger communities through
+sports, culture, social service, youth development,
+volunteering and the recognition of extraordinary
+people whose contributions deserve to be remembered.
 
 </p>
-
 
 <div class="hero-buttons">
 
 <a
-    href="#about"
-    class="btn btn-gold"
+href="#about"
+class="btn btn-gold"
 >
 EXPLORE ASSOCIATION
 </a>
 
 <a
-    href="#gems"
-    class="btn btn-outline"
+href="#gems"
+class="btn btn-outline"
 >
 DISCOVER UNSUNG GEMS
 </a>
 
 </div>
 
-
 <div class="hero-stats">
 
 <div class="hero-stat">
 
-<strong>
-2026
-</strong>
+<strong>2026</strong>
 
-<span>
-FOUNDED
-</span>
+<span>ESTABLISHED</span>
 
 </div>
 
-
 <div class="hero-stat">
 
-<strong>
-100+
-</strong>
+<strong>100+</strong>
 
-<span>
-MEMBERS
-</span>
+<span>COMMUNITY MEMBERS</span>
 
 </div>
 
-
 <div class="hero-stat">
 
-<strong>
-25+
-</strong>
+<strong>25+</strong>
 
-<span>
-ACTIVITIES
-</span>
+<span>INITIATIVES</span>
 
 </div>
 
@@ -2303,9 +2446,9 @@ ACTIVITIES
 <div class="logo-halo"></div>
 
 <img
-    src="logo1.png"
-    alt="Antique Association"
-    class="hero-logo"
+src="logo2.png"
+alt="Antique Association"
+class="hero-logo"
 >
 
 <div class="logo-caption">
@@ -2324,8 +2467,8 @@ UNITY • SERVICE • CULTURE
 ========================================================= -->
 
 <section
-    class="section white-section"
-    id="about"
+class="section white-section"
+id="about"
 >
 
 <div class="container">
@@ -2333,7 +2476,7 @@ UNITY • SERVICE • CULTURE
 <div class="section-heading reveal">
 
 <span class="section-label">
-WHO WE ARE
+01 — WHO WE ARE
 </span>
 
 <h2>
@@ -2341,20 +2484,20 @@ About <span>Antique Association</span>
 </h2>
 
 <p>
-Building stronger communities through
-participation, service and unity.
+A community built around participation,
+service, friendship and responsibility.
 </p>
 
 </div>
 
 
-<div class="card-grid">
+<div class="about-grid">
 
 
-<div class="card reveal">
+<div class="about-card reveal">
 
-<div class="card-icon">
-✦
+<div class="card-symbol">
+I
 </div>
 
 <h3>
@@ -2363,18 +2506,18 @@ Who We Are
 
 <p>
 Antique Association is a community-driven
-organisation that brings people together
-through sports, culture, social service
-and community activities.
+organisation bringing people together through
+sports, culture, social service, volunteering
+and meaningful community programmes.
 </p>
 
 </div>
 
 
-<div class="card reveal">
+<div class="about-card reveal">
 
-<div class="card-icon">
-◆
+<div class="card-symbol">
+II
 </div>
 
 <h3>
@@ -2382,19 +2525,19 @@ Our Mission
 </h3>
 
 <p>
-Our mission is to encourage participation,
-promote community welfare and create
-opportunities for people to connect,
-contribute and grow.
+We create opportunities for people to
+participate, contribute and grow while
+building a culture of responsibility,
+teamwork and service.
 </p>
 
 </div>
 
 
-<div class="card reveal">
+<div class="about-card reveal">
 
-<div class="card-icon">
-✧
+<div class="card-symbol">
+III
 </div>
 
 <h3>
@@ -2402,9 +2545,10 @@ Our Foundation
 </h3>
 
 <p>
-Our foundation is built upon unity,
-respect, responsibility, teamwork,
-service and community spirit.
+Our foundation rests upon unity, respect,
+integrity, responsibility, participation
+and the belief that every contribution
+can make a difference.
 </p>
 
 </div>
@@ -2422,8 +2566,8 @@ service and community spirit.
 ========================================================= -->
 
 <section
-    class="section dark-section"
-    id="vision"
+class="section dark-section"
+id="vision"
 >
 
 <div class="container">
@@ -2431,28 +2575,27 @@ service and community spirit.
 <div class="section-heading dark-heading reveal">
 
 <span class="section-label">
-OUR PURPOSE
+02 — OUR PURPOSE
 </span>
 
 <h2>
-Vision &
-<span>Mission</span>
+Vision & <span>Mission</span>
 </h2>
 
 <p>
-A stronger community built through
-participation and service.
+A stronger community begins with people
+who choose to participate and serve.
 </p>
 
 </div>
 
 
-<div class="card-grid">
+<div class="vision-wrapper">
 
 
-<div class="card reveal">
+<div class="vision-card reveal">
 
-<div class="card-icon">
+<div class="vision-number">
 01
 </div>
 
@@ -2461,16 +2604,19 @@ Unity
 </h3>
 
 <p>
-Bringing people together and encouraging
-cooperation, friendship and mutual respect.
+Bringing people together beyond differences
+and encouraging friendship, cooperation
+and mutual respect.
 </p>
+
+<div class="vision-line"></div>
 
 </div>
 
 
-<div class="card reveal">
+<div class="vision-card reveal">
 
-<div class="card-icon">
+<div class="vision-number">
 02
 </div>
 
@@ -2479,16 +2625,19 @@ Service
 </h3>
 
 <p>
-Encouraging members to participate in
-social welfare and community service.
+Encouraging individuals to contribute their
+time, energy and skills towards community
+welfare and social initiatives.
 </p>
+
+<div class="vision-line"></div>
 
 </div>
 
 
-<div class="card reveal">
+<div class="vision-card reveal">
 
-<div class="card-icon">
+<div class="vision-number">
 03
 </div>
 
@@ -2497,9 +2646,12 @@ Participation
 </h3>
 
 <p>
-Creating opportunities for members to
-actively participate in community life.
+Creating opportunities where members can
+actively participate, develop confidence
+and contribute to something larger than themselves.
 </p>
+
+<div class="vision-line"></div>
 
 </div>
 
@@ -2515,22 +2667,26 @@ actively participate in community life.
      VALUES
 ========================================================= -->
 
-<section class="section white-section">
+<section
+class="section cream-section"
+id="values"
+>
 
 <div class="container">
 
 <div class="section-heading reveal">
 
 <span class="section-label">
-WHAT WE STAND FOR
+03 — OUR PRINCIPLES
 </span>
 
 <h2>
-Our Core <span>Values</span>
+Core <span>Values</span>
 </h2>
 
 <p>
-The principles that guide Antique Association.
+The principles that guide every initiative
+undertaken by Antique Association.
 </p>
 
 </div>
@@ -2540,56 +2696,80 @@ The principles that guide Antique Association.
 
 
 <div class="value-card reveal">
-<span>01</span>
+
+<div class="value-number">01</div>
+
 <h3>Unity</h3>
+
 <p>
 Togetherness creates stronger communities.
 </p>
+
 </div>
 
 
 <div class="value-card reveal">
-<span>02</span>
+
+<div class="value-number">02</div>
+
 <h3>Service</h3>
+
 <p>
 We believe in helping others and giving back.
 </p>
+
 </div>
 
 
 <div class="value-card reveal">
-<span>03</span>
+
+<div class="value-number">03</div>
+
 <h3>Sportsmanship</h3>
+
 <p>
-Competition should build teamwork and character.
+Competition should develop teamwork and character.
 </p>
+
 </div>
 
 
 <div class="value-card reveal">
-<span>04</span>
+
+<div class="value-number">04</div>
+
 <h3>Culture</h3>
+
 <p>
-Celebrating creativity and traditions.
+We celebrate creativity, heritage and expression.
 </p>
+
 </div>
 
 
 <div class="value-card reveal">
-<span>05</span>
+
+<div class="value-number">05</div>
+
 <h3>Responsibility</h3>
+
 <p>
-Every member can contribute positively.
+Every member has the ability to contribute positively.
 </p>
+
 </div>
 
 
 <div class="value-card reveal">
-<span>06</span>
+
+<div class="value-number">06</div>
+
 <h3>Integrity</h3>
+
 <p>
-Promoting honesty, respect and responsibility.
+Honesty, respect and accountability guide our work.
 </p>
+
 </div>
 
 
@@ -2605,8 +2785,8 @@ Promoting honesty, respect and responsibility.
 ========================================================= -->
 
 <section
-    class="section white-section"
-    id="leadership"
+class="section white-section leadership-section"
+id="leadership"
 >
 
 <div class="container">
@@ -2614,7 +2794,7 @@ Promoting honesty, respect and responsibility.
 <div class="section-heading reveal">
 
 <span class="section-label">
-THE TEAM
+04 — THE INSTITUTION
 </span>
 
 <h2>
@@ -2622,19 +2802,27 @@ Association <span>Leadership</span>
 </h2>
 
 <p>
-The leadership team guiding Antique Association.
+A structured leadership system designed to
+guide the Association with responsibility,
+coordination and purpose.
 </p>
 
 </div>
 
 
-<div class="leadership-grid">
+<!-- TOP RANKS -->
+
+<div class="executive-grid">
 
 
-<div class="leader reveal">
+<div class="executive reveal">
 
-<div class="avatar">
-P
+<div class="rank">
+01 — HIGHEST OFFICE
+</div>
+
+<div class="executive-symbol">
+I
 </div>
 
 <h3>
@@ -2646,17 +2834,22 @@ Sikandar Kabir Ali
 </h4>
 
 <p>
-Provides overall leadership and direction
-for the Association.
+Provides the overall leadership, strategic
+direction and institutional representation
+of Antique Association.
 </p>
 
 </div>
 
 
-<div class="leader reveal">
+<div class="executive reveal">
 
-<div class="avatar">
-VP
+<div class="rank">
+02 — EXECUTIVE OFFICE
+</div>
+
+<div class="executive-symbol">
+II
 </div>
 
 <h3>
@@ -2668,14 +2861,27 @@ Avik Singh
 </h4>
 
 <p>
-Supports the President and coordinates
-Association activities.
+Supports the President, assists in executive
+decision-making and coordinates major
+Association initiatives.
 </p>
 
 </div>
 
 
+</div>
+
+
+<!-- SECRETARIAT -->
+
+<div class="leadership-grid">
+
+
 <div class="leader reveal">
+
+<div class="leader-rank">
+03 — SECRETARIAT
+</div>
 
 <div class="avatar">
 SG
@@ -2690,14 +2896,19 @@ Sk Sarif
 </h4>
 
 <p>
-Responsible for administration,
-communication and coordination.
+Leads administration, communication,
+coordination and implementation of
+Association decisions.
 </p>
 
 </div>
 
 
 <div class="leader reveal">
+
+<div class="leader-rank">
+04 — FINANCE
+</div>
 
 <div class="avatar">
 TG
@@ -2712,8 +2923,9 @@ Rohit Yadav
 </h4>
 
 <p>
-Oversees financial administration and
-responsible resource management.
+Oversees financial administration,
+resource management and responsible
+handling of Association funds.
 </p>
 
 </div>
@@ -2721,8 +2933,12 @@ responsible resource management.
 
 <div class="leader reveal">
 
+<div class="leader-rank">
+05 — SPORTS
+</div>
+
 <div class="avatar">
-SP
+SC
 </div>
 
 <h3>
@@ -2734,8 +2950,8 @@ Ayush Das
 </h4>
 
 <p>
-Coordinates tournaments and sports
-programmes.
+Coordinates tournaments, sporting events,
+competitions and recreational programmes.
 </p>
 
 </div>
@@ -2743,8 +2959,12 @@ programmes.
 
 <div class="leader reveal">
 
+<div class="leader-rank">
+06 — CULTURE
+</div>
+
 <div class="avatar">
-CU
+CC
 </div>
 
 <h3>
@@ -2756,8 +2976,60 @@ Rishav Kumar Agarwal
 </h4>
 
 <p>
-Leads cultural programmes and
-creative activities.
+Leads cultural programmes, creative events,
+performances and community celebrations.
+</p>
+
+</div>
+
+
+<div class="leader reveal">
+
+<div class="leader-rank">
+07 — OUTREACH
+</div>
+
+<div class="avatar">
+PO
+</div>
+
+<h3>
+Public Affairs & Outreach Secretary
+</h3>
+
+<h4>
+Association Secretariat
+</h4>
+
+<p>
+Develops community outreach, partnerships,
+public communication and external engagement.
+</p>
+
+</div>
+
+
+<div class="leader reveal">
+
+<div class="leader-rank">
+08 — YOUTH
+</div>
+
+<div class="avatar">
+YD
+</div>
+
+<h3>
+Youth Development Coordinator
+</h3>
+
+<h4>
+Association Secretariat
+</h4>
+
+<p>
+Develops youth participation, leadership,
+volunteering and educational initiatives.
 </p>
 
 </div>
@@ -2775,8 +3047,8 @@ creative activities.
 ========================================================= -->
 
 <section
-    class="section dark-section"
-    id="activities"
+class="section dark-section"
+id="activities"
 >
 
 <div class="container">
@@ -2784,7 +3056,7 @@ creative activities.
 <div class="section-heading dark-heading reveal">
 
 <span class="section-label">
-WHAT WE DO
+05 — WHAT WE DO
 </span>
 
 <h2>
@@ -2792,8 +3064,8 @@ Our <span>Activities</span>
 </h2>
 
 <p>
-Meaningful activities designed to bring
-people together.
+Programmes designed to create participation,
+service and positive community impact.
 </p>
 
 </div>
@@ -2804,21 +3076,21 @@ people together.
 
 <div class="activity reveal">
 
-<div class="activity-icon">
-🩸
+<div class="activity-number">
+01
 </div>
 
-<span>
-01
-</span>
+<div class="activity-symbol">
+◇
+</div>
 
 <h3>
 Blood Donation
 </h3>
 
 <p>
-Supporting blood donation camps and
-encouraging voluntary contribution.
+Supporting voluntary blood donation camps
+and awareness initiatives.
 </p>
 
 </div>
@@ -2826,21 +3098,21 @@ encouraging voluntary contribution.
 
 <div class="activity reveal">
 
-<div class="activity-icon">
-🏆
+<div class="activity-number">
+02
 </div>
 
-<span>
-02
-</span>
+<div class="activity-symbol">
+◆
+</div>
 
 <h3>
 Sports
 </h3>
 
 <p>
-Organising tournaments, competitions
-and recreational activities.
+Organising tournaments, competitions and
+recreational sporting programmes.
 </p>
 
 </div>
@@ -2848,21 +3120,21 @@ and recreational activities.
 
 <div class="activity reveal">
 
-<div class="activity-icon">
-🎭
+<div class="activity-number">
+03
 </div>
 
-<span>
-03
-</span>
+<div class="activity-symbol">
+◇
+</div>
 
 <h3>
 Cultural Programmes
 </h3>
 
 <p>
-Celebrating culture, creativity,
-arts and community talent.
+Celebrating culture, creativity, arts,
+talent and community traditions.
 </p>
 
 </div>
@@ -2870,21 +3142,21 @@ arts and community talent.
 
 <div class="activity reveal">
 
-<div class="activity-icon">
-🤲
+<div class="activity-number">
+04
 </div>
 
-<span>
-04
-</span>
+<div class="activity-symbol">
+◆
+</div>
 
 <h3>
 Social Service
 </h3>
 
 <p>
-Supporting welfare initiatives that
-positively impact the community.
+Supporting welfare initiatives that create
+meaningful benefits for the community.
 </p>
 
 </div>
@@ -2892,21 +3164,21 @@ positively impact the community.
 
 <div class="activity reveal">
 
-<div class="activity-icon">
-🌱
+<div class="activity-number">
+05
 </div>
 
-<span>
-05
-</span>
+<div class="activity-symbol">
+◇
+</div>
 
 <h3>
 Environment
 </h3>
 
 <p>
-Promoting cleanliness, awareness and
-environmental responsibility.
+Promoting cleanliness, awareness,
+responsibility and environmental action.
 </p>
 
 </div>
@@ -2914,22 +3186,112 @@ environmental responsibility.
 
 <div class="activity reveal">
 
-<div class="activity-icon">
-👥
+<div class="activity-number">
+06
 </div>
 
-<span>
-06
-</span>
+<div class="activity-symbol">
+◆
+</div>
 
 <h3>
 Youth Development
 </h3>
 
 <p>
-Helping young people develop teamwork,
-confidence and leadership.
+Encouraging teamwork, confidence,
+leadership and community participation.
 </p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
+     IMPACT
+========================================================= -->
+
+<section
+class="section impact-section"
+>
+
+<div class="container">
+
+<div class="section-heading reveal">
+
+<span class="section-label">
+06 — OUR IMPACT
+</span>
+
+<h2>
+Built Through <span>Participation</span>
+</h2>
+
+<p>
+Every initiative begins with people choosing
+to contribute their time and effort.
+</p>
+
+</div>
+
+
+<div class="impact-grid">
+
+
+<div class="impact-card reveal">
+
+<div class="impact-number">
+100+
+</div>
+
+<span>
+MEMBERS
+</span>
+
+</div>
+
+
+<div class="impact-card reveal">
+
+<div class="impact-number">
+25+
+</div>
+
+<span>
+INITIATIVES
+</span>
+
+</div>
+
+
+<div class="impact-card reveal">
+
+<div class="impact-number">
+06
+</div>
+
+<span>
+CORE AREAS
+</span>
+
+</div>
+
+
+<div class="impact-card reveal">
+
+<div class="impact-number">
+01
+</div>
+
+<span>
+COMMUNITY
+</span>
 
 </div>
 
@@ -2946,16 +3308,17 @@ confidence and leadership.
 ========================================================= -->
 
 <section
-    class="gems-section"
-    id="gems"
+class="gems-section"
+id="gems"
 >
 
 <div class="container">
 
+
 <div class="gems-heading reveal">
 
 <span class="section-label">
-INDIA'S UNSUNG GEMS
+07 — INDIA'S UNSUNG GEMS
 </span>
 
 <h2>
@@ -2963,31 +3326,31 @@ Stories Worth <span>Remembering</span>
 </h2>
 
 <p>
-India has produced remarkable individuals whose
-contributions have shaped science, society and
-the world. Their stories deserve to be remembered.
+Greatness is not always accompanied by fame.
+This collection honours remarkable Indians
+whose ideas, discoveries and contributions
+helped shape the world.
 </p>
 
 </div>
 
 
-<!-- =====================================================
-     GEM 01
-===================================================== -->
+<!-- GEM 01 -->
 
 <div class="gem reveal">
 
+<div class="gem-top-line"></div>
+
 <div class="gem-inner">
 
-<div class="gem-number">
-01
+<div class="gem-symbol">
+I
 </div>
-
 
 <div class="gem-content">
 
 <span class="gem-tag">
-SCIENCE • NOBEL LAUREATE
+SCIENCE — ASTROPHYSICS
 </span>
 
 <h3>
@@ -2995,86 +3358,57 @@ Subrahmanyan Chandrasekhar
 </h3>
 
 <div class="gem-subtitle">
-The Indian-born astrophysicist who transformed
-our understanding of stars
+The scientist who changed our understanding of stars
 </div>
 
 <p class="gem-short">
 
 Subrahmanyan Chandrasekhar was an Indian-born
-astrophysicist whose pioneering work on the
-structure and evolution of stars became one of
-the foundations of modern astrophysics.
+astrophysicist whose theoretical work transformed
+our understanding of stellar structure and evolution.
 
 </p>
 
-
 <button class="read-more">
-READ MORE ↓
+READ FULL STORY +
 </button>
-
 
 <div class="gem-more">
 
 <p>
-
 <strong>Subrahmanyan Chandrasekhar</strong>
 was born on 19 October 1910 in Lahore,
 then part of British India.
-
 </p>
 
 <p>
-
-He became one of the world's leading
-theoretical astrophysicists. One of his most
-famous contributions was his calculation of
-the maximum mass that a stable white dwarf
-star can have.
-
+His most famous contribution was his calculation
+of the maximum mass that a stable white dwarf
+star can possess.
 </p>
 
 <p>
-
-This limit became known as the
-<strong>Chandrasekhar Limit</strong>.
-It is approximately 1.4 times the mass of
-the Sun.
-
+This became known as the
+<strong>Chandrasekhar Limit</strong>,
+approximately 1.4 times the mass of the Sun.
 </p>
 
 <p>
-
-His work helped explain how stars evolve
-and what can happen to them after they
-exhaust their nuclear fuel.
-
+The concept became fundamental to understanding
+what happens to stars after they exhaust their
+nuclear fuel.
 </p>
 
 <p>
-
-In <strong>1983</strong>, Chandrasekhar was
-awarded the <strong>Nobel Prize in Physics</strong>
-for his theoretical studies of the physical
-processes important to the structure and
-evolution of stars.
-
+In <strong>1983</strong>, Chandrasekhar received
+the <strong>Nobel Prize in Physics</strong> for
+his theoretical studies of the physical processes
+important to the structure and evolution of stars.
 </p>
 
 <p>
-
-He was the <strong>second Indian-born Nobel
-laureate in a scientific field</strong>, following
-C. V. Raman, who received the Nobel Prize
-in Physics in 1930.
-
-</p>
-
-<p>
-
-His legacy continues in modern astronomy,
-astrophysics and the study of stellar evolution.
-
+His work remains fundamental to modern
+astrophysics and stellar evolution.
 </p>
 
 </div>
@@ -3086,23 +3420,22 @@ astrophysics and the study of stellar evolution.
 </div>
 
 
-<!-- =====================================================
-     GEM 02
-===================================================== -->
+<!-- GEM 02 -->
 
 <div class="gem reveal">
 
+<div class="gem-top-line"></div>
+
 <div class="gem-inner">
 
-<div class="gem-number">
-02
+<div class="gem-symbol">
+II
 </div>
-
 
 <div class="gem-content">
 
 <span class="gem-tag">
-SCIENCE • PHYSICS
+SCIENCE — QUANTUM PHYSICS
 </span>
 
 <h3>
@@ -3116,44 +3449,39 @@ A pioneer of quantum statistics
 <p class="gem-short">
 
 Satyendra Nath Bose was an Indian physicist
-whose work became a fundamental part of
-modern quantum mechanics.
+whose work became one of the foundations
+of modern quantum statistics.
 
 </p>
 
-
 <button class="read-more">
-READ MORE ↓
+READ FULL STORY +
 </button>
-
 
 <div class="gem-more">
 
 <p>
-
 Bose made groundbreaking contributions to
-quantum statistics.
-
+quantum statistics in the early development
+of quantum mechanics.
 </p>
 
 <p>
-
-His work was recognised by Albert Einstein,
-who translated and extended Bose's ideas.
-
+His work attracted the attention of
+<strong>Albert Einstein</strong>, who translated
+and extended Bose's ideas.
 </p>
 
 <p>
-
 The class of particles known as
-<strong>bosons</strong> was named after him.
-
+<strong>bosons</strong> was named in recognition
+of his contribution.
 </p>
 
 <p>
-
-Bose-Einstein statistics became one of
-the important foundations of quantum physics.
+Bose-Einstein statistics became an important
+part of modern quantum physics and continues
+to influence research today.
 </p>
 
 </div>
@@ -3165,23 +3493,22 @@ the important foundations of quantum physics.
 </div>
 
 
-<!-- =====================================================
-     GEM 03
-===================================================== -->
+<!-- GEM 03 -->
 
 <div class="gem reveal">
 
+<div class="gem-top-line"></div>
+
 <div class="gem-inner">
 
-<div class="gem-number">
-03
+<div class="gem-symbol">
+III
 </div>
-
 
 <div class="gem-content">
 
 <span class="gem-tag">
-SPACE • SCIENCE
+SPACE — INSTITUTION BUILDING
 </span>
 
 <h3>
@@ -3189,53 +3516,41 @@ Vikram Sarabhai
 </h3>
 
 <div class="gem-subtitle">
-The father of India's space programme
+A visionary behind India's space programme
 </div>
 
 <p class="gem-short">
 
-Vikram Sarabhai was a visionary physicist
-and institution builder who played a central
-role in establishing India's space programme.
-
+Vikram Sarabhai was a physicist and institution
+builder who played a foundational role in
+India's development of space science.
 </p>
 
-
 <button class="read-more">
-READ MORE ↓
+READ FULL STORY +
 </button>
-
 
 <div class="gem-more">
 
 <p>
-
-Vikram Sarabhai believed that advanced
-science and technology could be used to
-solve real problems faced by society.
-
+Sarabhai believed that advanced science and
+technology should help address real problems
+faced by society.
 </p>
 
 <p>
-
-He played a foundational role in the
-development of India's space programme.
-
+He played a central role in establishing the
+institutional foundations of India's space programme.
 </p>
 
 <p>
-
-His vision contributed to the establishment
-and development of major Indian scientific
-institutions.
-
+His leadership contributed to the development
+of major scientific and research institutions.
 </p>
 
 <p>
-
-His legacy remains deeply connected with
-India's journey in space science and
-technology.
+His vision became an important part of India's
+long-term journey in space science and technology.
 </p>
 
 </div>
@@ -3247,23 +3562,22 @@ technology.
 </div>
 
 
-<!-- =====================================================
-     GEM 04
-===================================================== -->
+<!-- GEM 04 -->
 
 <div class="gem reveal">
 
+<div class="gem-top-line"></div>
+
 <div class="gem-inner">
 
-<div class="gem-number">
-04
+<div class="gem-symbol">
+IV
 </div>
-
 
 <div class="gem-content">
 
 <span class="gem-tag">
-MEDICINE • BIOCHEMISTRY
+MEDICINE — BIOCHEMISTRY
 </span>
 
 <h3>
@@ -3279,41 +3593,30 @@ A pioneering Indian biochemist
 Yellapragada Subbarow was an Indian-born
 biochemist whose research contributed to
 important developments in medicine and
-biochemistry.
-
+biochemical science.
 </p>
 
-
 <button class="read-more">
-READ MORE ↓
+READ FULL STORY +
 </button>
-
 
 <div class="gem-more">
 
 <p>
-
-Yellapragada Subbarow carried out important
-research in biochemistry after moving to
-the United States.
-
+Subbarow conducted important biochemical
+research after moving to the United States.
 </p>
 
 <p>
-
-His scientific work contributed to a deeper
-understanding of biochemical processes and
-helped influence the development of important
-medical treatments.
-
+His scientific work contributed to understanding
+biochemical processes and influenced the
+development of important medical treatments.
 </p>
 
 <p>
-
-His career represents the contribution of
-Indian scientists whose achievements were
-sometimes less widely known to the public.
-
+His career demonstrates the international
+impact of Indian scientific talent during
+the twentieth century.
 </p>
 
 </div>
@@ -3325,23 +3628,22 @@ sometimes less widely known to the public.
 </div>
 
 
-<!-- =====================================================
-     GEM 05
-===================================================== -->
+<!-- GEM 05 -->
 
 <div class="gem reveal">
 
+<div class="gem-top-line"></div>
+
 <div class="gem-inner">
 
-<div class="gem-number">
-05
+<div class="gem-symbol">
+V
 </div>
-
 
 <div class="gem-content">
 
 <span class="gem-tag">
-AEROSPACE • INDIA
+AEROSPACE — ENGINEERING
 </span>
 
 <h3>
@@ -3349,54 +3651,44 @@ Satish Dhawan
 </h3>
 
 <div class="gem-subtitle">
-A key figure in India's aerospace journey
+A major architect of India's space capabilities
 </div>
 
 <p class="gem-short">
 
-Satish Dhawan was an Indian aerospace
-engineer and scientist who played an
-important role in strengthening India's
-space programme.
-
+Satish Dhawan was an Indian aerospace engineer
+and scientist who played a major role in
+strengthening India's space programme.
 </p>
 
-
 <button class="read-more">
-READ MORE ↓
+READ FULL STORY +
 </button>
-
 
 <div class="gem-more">
 
 <p>
-
 Satish Dhawan was a distinguished aerospace
-engineer and scientist.
-
+engineer and scientist who contributed greatly
+to Indian research and engineering.
 </p>
 
 <p>
-
-He became Chairman of the Indian Space
-Research Organisation and played a major
-role in strengthening India's capabilities
-in space research and engineering.
-
+He became Chairman of the
+<strong>Indian Space Research Organisation</strong>
+and played an important role in strengthening
+India's capabilities in space research.
 </p>
 
 <p>
-
 His leadership helped establish a strong
 scientific and engineering culture within
 India's space programme.
-
 </p>
 
 <p>
-
 His contribution remains an important part
-of the history of Indian space exploration.
+of the history of India's space exploration.
 </p>
 
 </div>
@@ -3418,8 +3710,8 @@ of the history of Indian space exploration.
 ========================================================= -->
 
 <section
-    class="join"
-    id="join"
+class="join"
+id="join"
 >
 
 <div class="join-content">
@@ -3427,36 +3719,27 @@ of the history of Indian space exploration.
 <div class="join-text">
 
 <span>
-BECOME PART OF ANTIQUE
+08 — BECOME PART OF ANTIQUE
 </span>
 
 <h2>
-
 One Community.
-
 <br>
-
-<strong>
-Many Contributions.
-</strong>
-
+<strong>Many Contributions.</strong>
 </h2>
 
 <p>
-
 Whether you want to participate in sports,
 support social service, contribute to cultural
 programmes, volunteer or help preserve inspiring
 stories — there is a place for you.
-
 </p>
 
 </div>
 
-
 <a
-    href="#contact"
-    class="btn join-button"
+href="#contact"
+class="btn join-button"
 >
 JOIN ANTIQUE
 </a>
@@ -3471,8 +3754,8 @@ JOIN ANTIQUE
 ========================================================= -->
 
 <section
-    class="contact"
-    id="contact"
+class="contact"
+id="contact"
 >
 
 <div class="container">
@@ -3480,7 +3763,7 @@ JOIN ANTIQUE
 <div class="section-heading reveal">
 
 <span class="section-label">
-GET IN TOUCH
+09 — GET IN TOUCH
 </span>
 
 <h2>
@@ -3500,8 +3783,8 @@ collaborate or learn more.
 
 <div class="contact-card reveal">
 
-<div class="contact-icon">
-✉
+<div class="contact-symbol">
+@
 </div>
 
 <h3>
@@ -3517,7 +3800,7 @@ contact@antiqueassociation.org
 
 <div class="contact-card reveal">
 
-<div class="contact-icon">
+<div class="contact-symbol">
 ⌂
 </div>
 
@@ -3534,7 +3817,7 @@ Official Antique Association Headquarters
 
 <div class="contact-card reveal">
 
-<div class="contact-icon">
+<div class="contact-symbol">
 ◎
 </div>
 
@@ -3544,7 +3827,7 @@ Social Media
 
 <p>
 Follow official channels for announcements
-and updates.
+and community updates.
 </p>
 
 </div>
@@ -3552,7 +3835,7 @@ and updates.
 
 <div class="contact-card reveal">
 
-<div class="contact-icon">
+<div class="contact-symbol">
 +
 </div>
 
@@ -3561,8 +3844,8 @@ Membership
 </h3>
 
 <p>
-Contact Association officials to become
-a member.
+Contact Association officials to
+become a member.
 </p>
 
 </div>
@@ -3581,11 +3864,13 @@ a member.
 
 <footer>
 
+<div class="footer-decoration"></div>
+
 <div class="footer-logo">
 
 <img
-    src="logo1.png"
-    alt="Antique Association Logo"
+src="logo2.png"
+alt="Antique Association Logo"
 >
 
 </div>
@@ -3601,33 +3886,21 @@ Community • Service • Sports • Culture • Unity
 
 <div class="footer-links">
 
-<a href="#home">
-Home
-</a>
+<a href="#home">Home</a>
 
-<a href="#about">
-About
-</a>
+<a href="#about">About</a>
 
-<a href="#vision">
-Vision
-</a>
+<a href="#vision">Vision</a>
 
-<a href="#leadership">
-Leadership
-</a>
+<a href="#values">Values</a>
 
-<a href="#activities">
-Activities
-</a>
+<a href="#leadership">Leadership</a>
 
-<a href="#gems">
-Unsung Gems
-</a>
+<a href="#activities">Activities</a>
 
-<a href="#contact">
-Contact
-</a>
+<a href="#gems">Unsung Gems</a>
+
+<a href="#contact">Contact</a>
 
 </div>
 
@@ -3659,9 +3932,10 @@ TOGETHER WE SERVE • TOGETHER WE GROW
 const progress =
 document.getElementById("progress");
 
-window.addEventListener("scroll", () => {
+function updateProgress(){
 
-    const scrollTop = window.scrollY;
+    const scrollTop =
+        window.scrollY;
 
     const documentHeight =
         document.documentElement.scrollHeight -
@@ -3674,8 +3948,15 @@ window.addEventListener("scroll", () => {
 
     progress.style.width =
         percentage + "%";
+}
 
-});
+window.addEventListener(
+    "scroll",
+    updateProgress,
+    {passive:true}
+);
+
+updateProgress();
 
 
 /* =========================================================
@@ -3685,19 +3966,24 @@ window.addEventListener("scroll", () => {
 const header =
 document.getElementById("header");
 
-window.addEventListener("scroll", () => {
+function updateHeader(){
 
-    if (window.scrollY > 40) {
+    if(window.scrollY > 40){
 
         header.classList.add("scrolled");
 
-    } else {
+    }else{
 
         header.classList.remove("scrolled");
 
     }
+}
 
-});
+window.addEventListener(
+    "scroll",
+    updateHeader,
+    {passive:true}
+);
 
 
 /* =========================================================
@@ -3710,22 +3996,32 @@ document.getElementById("menuBtn");
 const navbar =
 document.getElementById("navbar");
 
-menuBtn.addEventListener("click", () => {
+menuBtn.addEventListener(
+    "click",
+    () => {
 
-    navbar.classList.toggle("mobile-open");
+        navbar.classList.toggle(
+            "mobile-open"
+        );
 
-});
+    }
+);
 
 
 document
 .querySelectorAll(".nav-links a")
 .forEach(link => {
 
-    link.addEventListener("click", () => {
+    link.addEventListener(
+        "click",
+        () => {
 
-        navbar.classList.remove("mobile-open");
+            navbar.classList.remove(
+                "mobile-open"
+            );
 
-    });
+        }
+    );
 
 });
 
@@ -3742,75 +4038,97 @@ new IntersectionObserver(
 
     entries => {
 
-        entries.forEach(entry => {
+        entries.forEach(
+            entry => {
 
-            if (entry.isIntersecting) {
+                if(entry.isIntersecting){
 
-                entry.target.classList.add("show");
+                    entry.target.classList.add(
+                        "show"
+                    );
 
-                observer.unobserve(
-                    entry.target
-                );
+                    observer.unobserve(
+                        entry.target
+                    );
+
+                }
 
             }
-
-        });
+        );
 
     },
 
     {
-        threshold: 0.12
+        threshold:.12
     }
 
 );
 
 
-revealElements.forEach(element => {
+revealElements.forEach(
+    element => {
 
-    observer.observe(element);
+        observer.observe(
+            element
+        );
 
-});
+    }
+);
 
 
 /* =========================================================
-   UNSUNG GEMS READ MORE
+   UNSUNG GEMS
 ========================================================= */
 
 const readMoreButtons =
-document.querySelectorAll(".read-more");
+document.querySelectorAll(
+    ".read-more"
+);
+
+readMoreButtons.forEach(
+    button => {
+
+        button.addEventListener(
+            "click",
+            () => {
+
+                const content =
+                    button.parentElement
+                    .querySelector(
+                        ".gem-more"
+                    );
+
+                const isOpen =
+                    content.classList.contains(
+                        "open"
+                    );
 
 
-readMoreButtons.forEach(button => {
+                if(isOpen){
 
-    button.addEventListener("click", () => {
+                    content.classList.remove(
+                        "open"
+                    );
 
-        const content =
-            button.parentElement
-            .querySelector(".gem-more");
+                    button.textContent =
+                        "READ FULL STORY +";
 
-        const isOpen =
-            content.classList.contains("open");
+                }else{
 
+                    content.classList.add(
+                        "open"
+                    );
 
-        if (isOpen) {
+                    button.textContent =
+                        "CLOSE STORY −";
 
-            content.classList.remove("open");
+                }
 
-            button.textContent =
-                "READ MORE ↓";
+            }
+        );
 
-        } else {
-
-            content.classList.add("open");
-
-            button.textContent =
-                "READ LESS ↑";
-
-        }
-
-    });
-
-});
+    }
+);
 
 
 /* =========================================================
@@ -3827,105 +4145,131 @@ document.querySelectorAll(
     ".nav-links a"
 );
 
-
-function updateNavigation() {
+function updateNavigation(){
 
     let current =
         "home";
 
+    sections.forEach(
+        section => {
 
-    sections.forEach(section => {
+            const sectionTop =
+                section.offsetTop - 190;
 
-        const sectionTop =
-            section.offsetTop - 180;
+            if(
+                window.scrollY >=
+                sectionTop
+            ){
 
-
-        if (
-            window.scrollY >= sectionTop
-        ) {
-
-            current =
-                section.id;
-
-        }
-
-    });
-
-
-    navLinks.forEach(link => {
-
-        link.classList.remove(
-            "active"
-        );
-
-
-        if (
-            link.getAttribute("href") ===
-            "#" + current
-        ) {
-
-            link.classList.add(
-                "active"
-            );
-
-        }
-
-    });
-
-}
-
-
-window.addEventListener(
-    "scroll",
-    updateNavigation
-);
-
-updateNavigation();
-
-
-/* =========================================================
-   SMOOTH SCROLL
-========================================================= */
-
-document
-.querySelectorAll("a[href^='#']")
-.forEach(link => {
-
-    link.addEventListener(
-        "click",
-        event => {
-
-            const targetID =
-                link.getAttribute("href");
-
-
-            if (targetID === "#") {
-                return;
-            }
-
-
-            const target =
-                document.querySelector(
-                    targetID
-                );
-
-
-            if (target) {
-
-                event.preventDefault();
-
-
-                target.scrollIntoView({
-                    behavior: "smooth",
-                    block: "start"
-                });
+                current =
+                    section.id;
 
             }
 
         }
     );
 
-});
+
+    navLinks.forEach(
+        link => {
+
+            link.classList.remove(
+                "active"
+            );
+
+            if(
+                link.getAttribute(
+                    "href"
+                ) === "#" + current
+            ){
+
+                link.classList.add(
+                    "active"
+                );
+
+            }
+
+        }
+    );
+
+}
+
+window.addEventListener(
+    "scroll",
+    updateNavigation,
+    {passive:true}
+);
+
+updateNavigation();
+
+
+/* =========================================================
+   SMOOTH ANCHOR SCROLL
+========================================================= */
+
+document
+.querySelectorAll(
+    "a[href^='#']"
+)
+.forEach(
+    link => {
+
+        link.addEventListener(
+            "click",
+            event => {
+
+                const targetID =
+                    link.getAttribute(
+                        "href"
+                    );
+
+                if(
+                    targetID === "#"
+                ){
+                    return;
+                }
+
+                const target =
+                    document.querySelector(
+                        targetID
+                    );
+
+                if(target){
+
+                    event.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+
+                }
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Escape"){
+
+            navbar.classList.remove(
+                "mobile-open"
+            );
+
+        }
+
+    }
+);
 
 </script>
 
