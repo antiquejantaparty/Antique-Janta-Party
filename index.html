@@ -1331,6 +1331,386 @@ header.scrolled{
     letter-spacing:2px;
 }
 
+
+/* =========================================================
+   STUDENT GOALS TIMELINE
+========================================================= */
+
+.student-timeline-section{
+    position:relative;
+
+    padding:140px 6%;
+
+    background:
+        radial-gradient(
+            circle at 50% 20%,
+            rgba(201,154,61,.08),
+            transparent 30%
+        ),
+        #080808;
+
+    color:white;
+
+    overflow:hidden;
+}
+
+.student-timeline-section::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+        linear-gradient(
+            rgba(201,154,61,.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(201,154,61,.025) 1px,
+            transparent 1px
+        );
+
+    background-size:80px 80px;
+
+    pointer-events:none;
+}
+
+.student-heading{
+    position:relative;
+
+    z-index:2;
+
+    text-align:center;
+
+    margin:0 auto 90px;
+
+    max-width:850px;
+}
+
+.student-heading .section-label{
+    color:var(--gold-light);
+}
+
+.student-heading h2{
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(36px,5vw,62px);
+
+    line-height:1.15;
+
+    margin-bottom:18px;
+}
+
+.student-heading h2 span{
+    color:var(--gold-light);
+}
+
+.student-heading p{
+    margin-left:auto;
+    margin-right:auto;
+
+    color:#999;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+.student-timeline{
+    position:relative;
+
+    max-width:1050px;
+
+    margin:auto;
+}
+
+.student-timeline::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    bottom:0;
+
+    left:50%;
+
+    width:1px;
+
+    transform:translateX(-50%);
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--gold),
+            var(--gold-light),
+            var(--gold),
+            transparent
+        );
+
+    box-shadow:
+        0 0 18px rgba(201,154,61,.4);
+}
+
+.student-timeline::after{
+    content:"";
+
+    position:absolute;
+
+    left:calc(50% - 2px);
+
+    top:-100px;
+
+    width:5px;
+    height:100px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            var(--gold-light),
+            transparent
+        );
+
+    filter:blur(2px);
+
+    animation:
+        timelineLight 4s linear infinite;
+
+    pointer-events:none;
+}
+
+@keyframes timelineLight{
+
+    from{
+        top:-100px;
+    }
+
+    to{
+        top:100%;
+    }
+
+}
+
+.timeline-item{
+    position:relative;
+
+    width:50%;
+
+    padding:0 55px 80px;
+
+    opacity:0;
+
+    transform:translateY(70px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s ease;
+}
+
+.timeline-item.show{
+    opacity:1;
+
+    transform:translateY(0);
+}
+
+.timeline-item:nth-child(odd){
+    left:0;
+
+    text-align:right;
+}
+
+.timeline-item:nth-child(even){
+    left:50%;
+}
+
+.timeline-node{
+    position:absolute;
+
+    top:5px;
+
+    width:18px;
+    height:18px;
+
+    border-radius:50%;
+
+    background:var(--black);
+
+    border:2px solid var(--gold-light);
+
+    box-shadow:
+        0 0 0 6px rgba(201,154,61,.08),
+        0 0 25px rgba(201,154,61,.35);
+
+    transition:.4s;
+}
+
+.timeline-item:nth-child(odd) .timeline-node{
+    right:-9px;
+}
+
+.timeline-item:nth-child(even) .timeline-node{
+    left:-9px;
+}
+
+.timeline-item:hover .timeline-node{
+    background:var(--gold);
+
+    transform:scale(1.4);
+
+    box-shadow:
+        0 0 0 7px rgba(201,154,61,.1),
+        0 0 35px rgba(201,154,61,.65);
+}
+
+.timeline-year{
+    color:var(--gold-light);
+
+    font-size:.67rem;
+
+    letter-spacing:3px;
+
+    font-weight:600;
+
+    margin-bottom:15px;
+}
+
+.timeline-content{
+    position:relative;
+
+    padding:32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.055),
+            rgba(255,255,255,.015)
+        );
+
+    border:1px solid rgba(201,154,61,.15);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    transition:.5s ease;
+}
+
+.timeline-content::before{
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:20px;
+
+    background:
+        linear-gradient(
+            120deg,
+            transparent,
+            rgba(201,154,61,.08),
+            transparent
+        );
+
+    transform:translateX(-100%);
+
+    transition:.8s;
+
+    pointer-events:none;
+}
+
+.timeline-content:hover::before{
+    transform:translateX(100%);
+}
+
+.timeline-content:hover{
+    transform:translateY(-7px);
+
+    border-color:rgba(201,154,61,.45);
+
+    box-shadow:
+        0 20px 55px rgba(0,0,0,.45);
+}
+
+.timeline-icon{
+    position:relative;
+
+    color:var(--gold);
+
+    font-size:.8rem;
+
+    margin-bottom:18px;
+}
+
+.timeline-content h3{
+    position:relative;
+
+    font-family:"Cinzel",serif;
+
+    font-size:1.45rem;
+
+    margin-bottom:13px;
+}
+
+.timeline-content p{
+    position:relative;
+
+    color:#999;
+
+    font-size:.82rem;
+
+    line-height:1.8;
+}
+
+.timeline-content strong{
+    color:var(--gold-light);
+}
+
+.timeline-final{
+    position:relative;
+
+    text-align:center;
+
+    margin:10px auto 0;
+
+    padding:60px 30px;
+
+    max-width:800px;
+
+    border-top:1px solid rgba(201,154,61,.2);
+
+    border-bottom:1px solid rgba(201,154,61,.2);
+}
+
+.timeline-final h3{
+    font-family:"Cinzel",serif;
+
+    font-size:clamp(1.8rem,4vw,3rem);
+
+    color:var(--gold-light);
+}
+
+.timeline-final p{
+    max-width:600px;
+
+    margin:18px auto;
+
+    color:#888;
+
+    line-height:1.8;
+}
+
+.timeline-final span{
+    color:#666;
+
+    font-size:.65rem;
+
+    letter-spacing:3px;
+}
+
 /* =========================================================
    UNSUNG GEMS
 ========================================================= */
@@ -2160,6 +2540,57 @@ footer hr{
 }
 
 /* =========================================================
+   STUDENT TIMELINE MOBILE
+========================================================= */
+
+@media(max-width:800px){
+
+    .student-timeline{
+        padding-left:30px;
+    }
+
+    .student-timeline::before{
+        left:8px;
+
+        transform:none;
+    }
+
+    .student-timeline::after{
+        left:6px;
+    }
+
+    .timeline-item,
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even){
+
+        width:100%;
+
+        left:0;
+
+        padding:0 0 55px 35px;
+
+        text-align:left;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-node,
+    .timeline-item:nth-child(even) .timeline-node{
+
+        left:-1px;
+
+        right:auto;
+    }
+
+    .timeline-content{
+        padding:25px;
+    }
+
+    .student-heading{
+        margin-bottom:60px;
+    }
+
+}
+
+/* =========================================================
    RESPONSIVE 600
 ========================================================= */
 
@@ -2320,6 +2751,8 @@ alt="Antique Association Logo"
 <li><a href="#leadership">Leadership</a></li>
 
 <li><a href="#activities">Activities</a></li>
+
+<li><a href="#student-goals">Student Goals</a></li>
 
 <li><a href="#gems">Unsung Gems</a></li>
 
@@ -3304,6 +3737,290 @@ COMMUNITY
 
 
 <!-- =========================================================
+     STUDENT GOALS
+========================================================= -->
+
+<section
+class="student-timeline-section"
+id="student-goals"
+>
+
+<div class="student-heading reveal">
+
+<span class="section-label">
+07 — STUDENT-LED JOURNEY
+</span>
+
+<h2>
+Started by <span>Students.</span><br>
+Built for Everyone.
+</h2>
+
+<p>
+Antique Association began with a simple idea:
+students can do more than participate in their
+community — they can help build it. Our goals
+represent the journey we want to take together.
+</p>
+
+</div>
+
+
+<div class="student-timeline">
+
+
+<!-- BEGINNING -->
+
+<div class="timeline-item">
+
+<div class="timeline-node"></div>
+
+<div class="timeline-year">
+2026 — THE BEGINNING
+</div>
+
+<div class="timeline-content">
+
+<div class="timeline-icon">
+◆
+</div>
+
+<h3>
+A Student-Led Beginning
+</h3>
+
+<p>
+Antique Association was started by
+<strong>students</strong> who wanted to create
+something meaningful — a community where
+young people could organise, participate,
+serve and make their ideas matter.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- GOAL 01 -->
+
+<div class="timeline-item">
+
+<div class="timeline-node"></div>
+
+<div class="timeline-year">
+GOAL 01 — UNITY
+</div>
+
+<div class="timeline-content">
+
+<div class="timeline-icon">
+✦
+</div>
+
+<h3>
+Bring People Together
+</h3>
+
+<p>
+Create a community where students, families
+and people from different backgrounds can
+connect, cooperate and build friendships
+through shared experiences.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- GOAL 02 -->
+
+<div class="timeline-item">
+
+<div class="timeline-node"></div>
+
+<div class="timeline-year">
+GOAL 02 — PARTICIPATION
+</div>
+
+<div class="timeline-content">
+
+<div class="timeline-icon">
+◈
+</div>
+
+<h3>
+Give Students a Voice
+</h3>
+
+<p>
+Encourage students to take initiative,
+share ideas and participate in organising
+events rather than simply watching from
+the sidelines.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- GOAL 03 -->
+
+<div class="timeline-item">
+
+<div class="timeline-node"></div>
+
+<div class="timeline-year">
+GOAL 03 — SERVICE
+</div>
+
+<div class="timeline-content">
+
+<div class="timeline-icon">
+✧
+</div>
+
+<h3>
+Serve the Community
+</h3>
+
+<p>
+Turn student energy into real service through
+initiatives such as blood donation camps,
+welfare activities, awareness campaigns
+and community support.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- GOAL 04 -->
+
+<div class="timeline-item">
+
+<div class="timeline-node"></div>
+
+<div class="timeline-year">
+GOAL 04 — SPORTS &amp; CULTURE
+</div>
+
+<div class="timeline-content">
+
+<div class="timeline-icon">
+◆
+</div>
+
+<h3>
+Create Opportunities
+</h3>
+
+<p>
+Build platforms for sports, culture,
+creativity and celebration so that people
+can discover their talents, develop confidence
+and enjoy being part of something bigger.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- GOAL 05 -->
+
+<div class="timeline-item">
+
+<div class="timeline-node"></div>
+
+<div class="timeline-year">
+GOAL 05 — YOUTH DEVELOPMENT
+</div>
+
+<div class="timeline-content">
+
+<div class="timeline-icon">
+✦
+</div>
+
+<h3>
+Build Future Leaders
+</h3>
+
+<p>
+Give young people practical opportunities
+to learn leadership, teamwork, communication,
+responsibility and organisation through real
+community experiences.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- GOAL 06 -->
+
+<div class="timeline-item">
+
+<div class="timeline-node"></div>
+
+<div class="timeline-year">
+GOAL 06 — LEGACY
+</div>
+
+<div class="timeline-content">
+
+<div class="timeline-icon">
+◈
+</div>
+
+<h3>
+Build Something That Lasts
+</h3>
+
+<p>
+Our ultimate goal is to create an association
+whose impact continues beyond one event,
+one generation or one group of students.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- FINAL -->
+
+<div class="timeline-final reveal">
+
+<h3>
+The Journey Has Just Begun.
+</h3>
+
+<p>
+What started as a student-led idea can become
+a community built by thousands of contributions.
+The future of Antique Association will be shaped
+by the people who choose to be part of it.
+</p>
+
+<span>
+TOGETHER WE SERVE • TOGETHER WE GROW
+</span>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- =========================================================
      UNSUNG GEMS
 ========================================================= -->
 
@@ -3318,7 +4035,7 @@ id="gems"
 <div class="gems-heading reveal">
 
 <span class="section-label">
-07 — INDIA'S UNSUNG GEMS
+08 — INDIA'S UNSUNG GEMS
 </span>
 
 <h2>
@@ -3719,7 +4436,7 @@ id="join"
 <div class="join-text">
 
 <span>
-08 — BECOME PART OF ANTIQUE
+09 — BECOME PART OF ANTIQUE
 </span>
 
 <h2>
@@ -3763,7 +4480,7 @@ id="contact"
 <div class="section-heading reveal">
 
 <span class="section-label">
-09 — GET IN TOUCH
+10 — GET IN TOUCH
 </span>
 
 <h2>
@@ -3897,6 +4614,8 @@ Community • Service • Sports • Culture • Unity
 <a href="#leadership">Leadership</a>
 
 <a href="#activities">Activities</a>
+
+<a href="#student-goals">Student Goals</a>
 
 <a href="#gems">Unsung Gems</a>
 
@@ -4070,6 +4789,72 @@ revealElements.forEach(
 
         observer.observe(
             element
+        );
+
+    }
+);
+
+
+/* =========================================================
+   STUDENT GOALS TIMELINE
+========================================================= */
+
+const timelineItems =
+document.querySelectorAll(
+    ".timeline-item"
+);
+
+const timelineObserver =
+new IntersectionObserver(
+
+    entries => {
+
+        entries.forEach(
+            entry => {
+
+                if(entry.isIntersecting){
+
+                    const item =
+                        entry.target;
+
+                    const index =
+                        [...timelineItems]
+                        .indexOf(item);
+
+                    setTimeout(
+                        () => {
+
+                            item.classList.add(
+                                "show"
+                            );
+
+                        },
+                        index * 130
+                    );
+
+                    timelineObserver.unobserve(
+                        item
+                    );
+
+                }
+
+            }
+        );
+
+    },
+
+    {
+        threshold:.15
+    }
+
+);
+
+
+timelineItems.forEach(
+    item => {
+
+        timelineObserver.observe(
+            item
         );
 
     }
