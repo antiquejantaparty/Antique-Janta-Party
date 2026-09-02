@@ -16,35 +16,21 @@ content="Antique Association — A community organisation dedicated to service, 
 
 <style>
 
-/* =========================================================
-   ROOT
-========================================================= */
-
 :root{
-
     --gold:#c99a3d;
     --gold-light:#e8c778;
     --gold-dark:#87601e;
-
     --black:#080808;
     --black-soft:#101010;
     --dark:#151515;
     --dark-card:#1b1b1b;
-
     --white:#ffffff;
     --cream:#f7f4ed;
-
     --grey:#777;
     --border:#e7e0d2;
-
     --shadow:0 25px 70px rgba(0,0,0,.12);
     --shadow-dark:0 30px 90px rgba(0,0,0,.55);
-
 }
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -76,10 +62,6 @@ img{
     max-width:100%;
 }
 
-/* =========================================================
-   SCROLLBAR
-========================================================= */
-
 ::-webkit-scrollbar{
     width:8px;
 }
@@ -97,10 +79,6 @@ img{
     border-radius:20px;
 }
 
-/* =========================================================
-   PROGRESS
-========================================================= */
-
 #progress{
     position:fixed;
     top:0;
@@ -114,6 +92,7 @@ img{
         var(--gold)
     );
     z-index:99999;
+    box-shadow:0 0 12px rgba(201,154,61,.6);
 }
 
 /* =========================================================
@@ -126,12 +105,9 @@ header{
     left:0;
     width:100%;
     z-index:5000;
-
     background:rgba(255,255,255,.93);
     backdrop-filter:blur(20px);
-
     border-bottom:1px solid rgba(0,0,0,.06);
-
     transition:.35s ease;
 }
 
@@ -143,17 +119,11 @@ header.scrolled{
     width:min(1450px,94%);
     height:88px;
     margin:auto;
-
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     gap:25px;
 }
-
-/* =========================================================
-   LOGO
-========================================================= */
 
 .logo{
     display:flex;
@@ -165,31 +135,26 @@ header.scrolled{
     width:56px;
     height:56px;
     object-fit:contain;
-
-    transition:.4s;
+    transition:.5s cubic-bezier(.16,1,.3,1);
 }
 
 .logo:hover img{
-    transform:scale(1.07) rotate(-3deg);
+    transform:scale(1.08) rotate(-4deg);
+    filter:drop-shadow(0 0 12px rgba(201,154,61,.35));
 }
 
 .logo-text h1{
     font-family:"Cinzel",serif;
-
     font-size:18px;
     font-weight:800;
-
     letter-spacing:1.2px;
 }
 
 .logo-text p{
     color:var(--gold-dark);
-
     font-size:8px;
     font-weight:800;
-
     letter-spacing:2.5px;
-
     margin-top:3px;
 }
 
@@ -199,45 +164,41 @@ header.scrolled{
 
 .nav-links{
     list-style:none;
-
     display:flex;
     align-items:center;
-
     gap:23px;
 }
 
 .nav-links a{
     position:relative;
-
     color:#333;
-
     font-size:11px;
     font-weight:600;
-
-    transition:.3s;
+    transition:.35s ease;
 }
 
 .nav-links a:hover,
 .nav-links a.active{
     color:var(--gold-dark);
+    transform:translateY(-1px);
 }
 
 .nav-links a::after{
     content:"";
-
     position:absolute;
-
     left:50%;
     bottom:-9px;
-
     width:0;
     height:2px;
-
-    background:var(--gold);
-
+    background:linear-gradient(
+        90deg,
+        var(--gold-dark),
+        var(--gold-light),
+        var(--gold)
+    );
     transform:translateX(-50%);
-
-    transition:.3s;
+    transition:.4s cubic-bezier(.16,1,.3,1);
+    box-shadow:0 0 8px rgba(201,154,61,.35);
 }
 
 .nav-links a:hover::after,
@@ -245,58 +206,100 @@ header.scrolled{
     width:100%;
 }
 
-.nav-button{
-    padding:12px 22px;
+.nav-links a.active::after{
+    animation:navShimmer 2.4s ease-in-out infinite;
+}
 
+@keyframes navShimmer{
+    0%,100%{
+        opacity:.65;
+        transform:translateX(-50%) scaleX(.85);
+    }
+    50%{
+        opacity:1;
+        transform:translateX(-50%) scaleX(1);
+        box-shadow:0 0 15px rgba(201,154,61,.7);
+    }
+}
+
+.nav-button{
+    position:relative;
+    overflow:hidden;
+    padding:12px 22px;
     border:1px solid var(--gold);
     border-radius:30px;
-
     color:var(--gold-dark);
-
     font-size:10px;
     font-weight:800;
-
     letter-spacing:1.2px;
-
     transition:.35s;
+}
+
+.nav-button::after,
+.btn::after,
+.read-more::after{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.4),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.7s;
+}
+
+.nav-button:hover::after,
+.btn:hover::after,
+.read-more:hover::after{
+    left:150%;
 }
 
 .nav-button:hover{
     background:var(--gold);
     color:#fff;
-
-    transform:translateY(-2px);
+    transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(201,154,61,.25);
 }
 
 /* =========================================================
-   MOBILE MENU
+   MOBILE
 ========================================================= */
 
 .menu-btn{
     display:none;
-
     width:44px;
     height:44px;
-
     border:1px solid #ddd;
     border-radius:12px;
-
     background:#fff;
-
     cursor:pointer;
 }
 
 .menu-btn span{
     display:block;
-
     width:21px;
     height:2px;
-
     background:#222;
-
     margin:4px auto;
-
     transition:.3s;
+}
+
+.navbar.mobile-open .menu-btn span:nth-child(1){
+    transform:translateY(6px) rotate(45deg);
+}
+
+.navbar.mobile-open .menu-btn span:nth-child(2){
+    opacity:0;
+}
+
+.navbar.mobile-open .menu-btn span:nth-child(3){
+    transform:translateY(-6px) rotate(-45deg);
 }
 
 /* =========================================================
@@ -305,42 +308,59 @@ header.scrolled{
 
 .hero{
     min-height:100vh;
-
     padding:155px 6% 100px;
-
     display:grid;
-
     grid-template-columns:1.12fr .88fr;
-
     align-items:center;
-
     gap:70px;
-
     position:relative;
-
     overflow:hidden;
 }
 
 .hero::before{
     content:"";
-
     position:absolute;
-
     width:700px;
     height:700px;
-
     border-radius:50%;
-
     background:radial-gradient(
         circle,
         rgba(201,154,61,.11),
         transparent 70%
     );
-
     right:-250px;
     top:-180px;
-
     pointer-events:none;
+    animation:heroGlow 8s ease-in-out infinite;
+}
+
+.hero::after{
+    content:"";
+    position:absolute;
+    width:500px;
+    height:500px;
+    border:1px solid rgba(201,154,61,.06);
+    border-radius:50%;
+    right:-180px;
+    bottom:-250px;
+    animation:heroOrbit 20s linear infinite;
+}
+
+@keyframes heroGlow{
+    0%,100%{
+        transform:scale(1);
+        opacity:.7;
+    }
+    50%{
+        transform:scale(1.12);
+        opacity:1;
+    }
+}
+
+@keyframes heroOrbit{
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 .hero-content{
@@ -351,163 +371,201 @@ header.scrolled{
 
 .hero-tag{
     display:inline-flex;
-
     align-items:center;
     gap:10px;
-
     padding:9px 17px;
-
     border:1px solid rgba(201,154,61,.35);
-
     border-radius:30px;
-
     background:rgba(201,154,61,.07);
-
     color:var(--gold-dark);
-
     font-size:9px;
     font-weight:800;
-
     letter-spacing:2px;
-
     margin-bottom:27px;
+    animation:heroTagIn .9s cubic-bezier(.16,1,.3,1) both;
 }
 
 .hero-tag::before{
     content:"◆";
-
     font-size:7px;
+    animation:diamondPulse 2s ease-in-out infinite;
+}
+
+@keyframes diamondPulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.5) rotate(45deg);
+    }
 }
 
 .hero h2{
     font-family:"Cinzel",serif;
-
     font-size:clamp(45px,6vw,82px);
-
     line-height:1.05;
-
     letter-spacing:-2.5px;
-
     margin-bottom:27px;
+    animation:heroTitleIn 1.1s .12s cubic-bezier(.16,1,.3,1) both;
 }
 
 .gold-text{
     background:linear-gradient(
-        90deg,
+        120deg,
         var(--gold-dark),
+        var(--gold-light),
         var(--gold),
-        var(--gold-light)
+        var(--gold-light),
+        var(--gold-dark)
     );
-
+    background-size:250% auto;
     -webkit-background-clip:text;
     background-clip:text;
-
     color:transparent;
+    animation:goldFlow 5s linear infinite;
+}
+
+@keyframes goldFlow{
+    0%{
+        background-position:0% center;
+    }
+    50%{
+        background-position:100% center;
+    }
+    100%{
+        background-position:0% center;
+    }
 }
 
 .hero-description{
     max-width:700px;
-
     color:#666;
-
     font-size:15px;
-
     line-height:1.95;
+    animation:heroContentIn 1s .25s cubic-bezier(.16,1,.3,1) both;
 }
 
 .hero-buttons{
     display:flex;
     flex-wrap:wrap;
-
     gap:14px;
-
     margin-top:35px;
+    animation:heroContentIn 1s .38s cubic-bezier(.16,1,.3,1) both;
 }
 
 .btn{
     min-height:52px;
-
     padding:0 27px;
-
     display:inline-flex;
-
     align-items:center;
     justify-content:center;
-
+    position:relative;
+    overflow:hidden;
     border-radius:50px;
-
     font-size:10px;
     font-weight:800;
-
     letter-spacing:1px;
-
-    transition:.35s;
+    transition:.35s cubic-bezier(.16,1,.3,1);
 }
 
 .btn-gold{
     color:#fff;
-
     background:linear-gradient(
         135deg,
         var(--gold-dark),
         var(--gold),
         var(--gold-light)
     );
-
+    background-size:200% 200%;
     box-shadow:0 20px 50px rgba(201,154,61,.25);
 }
 
 .btn-gold:hover{
-    transform:translateY(-5px);
-
-    box-shadow:0 25px 65px rgba(201,154,61,.35);
+    transform:translateY(-5px) scale(1.02);
+    background-position:100% 50%;
+    box-shadow:
+        0 25px 65px rgba(201,154,61,.35),
+        0 0 25px rgba(201,154,61,.15);
 }
 
 .btn-outline{
     background:#fff;
-
     border:1px solid #aaa;
-
     color:#333;
 }
 
 .btn-outline:hover{
     border-color:var(--gold);
-
     color:var(--gold-dark);
-
     transform:translateY(-5px);
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
 }
-
-/* =========================================================
-   HERO STATS
-========================================================= */
 
 .hero-stats{
     display:flex;
-
     gap:48px;
-
     margin-top:55px;
+    animation:heroContentIn 1s .52s cubic-bezier(.16,1,.3,1) both;
 }
 
 .hero-stat strong{
     display:block;
-
     font-family:"Cinzel",serif;
-
     font-size:25px;
-
-    color:var(--gold-dark);
 }
 
 .hero-stat span{
     color:#777;
-
     font-size:9px;
     font-weight:700;
-
     letter-spacing:1.5px;
+}
+
+/* =========================================================
+   COUNTERS
+========================================================= */
+
+.counter,
+.year-counter,
+.impact-number{
+    display:inline-block;
+    background:linear-gradient(
+        120deg,
+        var(--gold-dark) 0%,
+        var(--gold-light) 25%,
+        #111 45%,
+        var(--gold) 65%,
+        var(--gold-light) 85%,
+        var(--gold-dark) 100%
+    );
+    background-size:250% auto;
+    -webkit-background-clip:text;
+    background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:
+        counterMetallic 4s linear infinite,
+        counterGlow 2.8s ease-in-out infinite;
+}
+
+@keyframes counterMetallic{
+    0%{
+        background-position:0% center;
+    }
+    50%{
+        background-position:100% center;
+    }
+    100%{
+        background-position:0% center;
+    }
+}
+
+@keyframes counterGlow{
+    0%,100%{
+        filter:drop-shadow(0 0 0 rgba(201,154,61,0));
+    }
+    50%{
+        filter:drop-shadow(0 0 12px rgba(201,154,61,.35));
+    }
 }
 
 /* =========================================================
@@ -516,119 +574,157 @@ header.scrolled{
 
 .hero-visual{
     display:flex;
-
     align-items:center;
     justify-content:center;
-
     position:relative;
+    animation:heroVisualIn 1.2s .15s cubic-bezier(.16,1,.3,1) both;
 }
 
 .logo-stage{
     position:relative;
-
     width:min(450px,80vw);
-
     aspect-ratio:1;
-
     display:grid;
-
     place-items:center;
 }
 
 .logo-stage::before,
 .logo-stage::after{
     content:"";
-
     position:absolute;
-
     border-radius:50%;
-
     border:1px solid rgba(201,154,61,.35);
 }
 
 .logo-stage::before{
     inset:1%;
-
     animation:spin 30s linear infinite;
 }
 
 .logo-stage::after{
     inset:9%;
-
     border-style:dashed;
-
     animation:spinReverse 22s linear infinite;
 }
 
 .logo-halo{
     position:absolute;
-
     inset:18%;
-
     border-radius:50%;
-
     background:radial-gradient(
         circle,
         rgba(201,154,61,.22),
         transparent 70%
     );
+    animation:haloPulse 4s ease-in-out infinite;
+}
+
+@keyframes haloPulse{
+    0%,100%{
+        transform:scale(.95);
+        opacity:.7;
+    }
+    50%{
+        transform:scale(1.06);
+        opacity:1;
+    }
 }
 
 .hero-logo{
     position:relative;
-
     width:58%;
     max-width:280px;
-
     object-fit:contain;
-
     filter:
         drop-shadow(0 25px 40px rgba(0,0,0,.2))
         drop-shadow(0 0 35px rgba(201,154,61,.2));
-
     animation:floatLogo 5s ease-in-out infinite;
 }
 
 .logo-caption{
     position:absolute;
-
     bottom:3%;
-
     width:100%;
-
     text-align:center;
-
     font-family:"Cinzel",serif;
-
     font-size:9px;
-
     letter-spacing:4px;
-
     color:#806020;
+    animation:captionPulse 3s ease-in-out infinite;
+}
+
+@keyframes captionPulse{
+    0%,100%{opacity:.65;}
+    50%{opacity:1;}
 }
 
 @keyframes spin{
-    to{
-        transform:rotate(360deg);
-    }
+    to{transform:rotate(360deg);}
 }
 
 @keyframes spinReverse{
-    to{
-        transform:rotate(-360deg);
-    }
+    to{transform:rotate(-360deg);}
 }
 
 @keyframes floatLogo{
-
     0%,100%{
         transform:translateY(0);
     }
-
     50%{
         transform:translateY(-14px);
     }
+}
 
+@keyframes heroTagIn{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+        filter:blur(6px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+
+@keyframes heroTitleIn{
+    from{
+        opacity:0;
+        transform:translateY(45px);
+        filter:blur(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+
+@keyframes heroContentIn{
+    from{
+        opacity:0;
+        transform:translateY(28px);
+        filter:blur(5px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+        filter:blur(0);
+    }
+}
+
+@keyframes heroVisualIn{
+    from{
+        opacity:0;
+        transform:translateY(30px) scale(.88);
+        filter:blur(8px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+        filter:blur(0);
+    }
 }
 
 /* =========================================================
@@ -649,7 +745,6 @@ header.scrolled{
 
 .dark-section{
     background:var(--dark);
-
     color:#fff;
 }
 
@@ -660,32 +755,23 @@ header.scrolled{
 
 .section-heading{
     max-width:820px;
-
     text-align:center;
-
     margin:0 auto 65px;
 }
 
 .section-label{
     display:inline-block;
-
     color:var(--gold-dark);
-
     font-size:9px;
     font-weight:800;
-
     letter-spacing:3.5px;
-
     margin-bottom:14px;
 }
 
 .section-heading h2{
     font-family:"Cinzel",serif;
-
     font-size:clamp(34px,4vw,54px);
-
     line-height:1.18;
-
     margin-bottom:16px;
 }
 
@@ -695,9 +781,7 @@ header.scrolled{
 
 .section-heading p{
     color:#777;
-
     font-size:13px;
-
     line-height:1.85;
 }
 
@@ -714,99 +798,164 @@ header.scrolled{
 }
 
 /* =========================================================
+   REVEAL
+========================================================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(45px) scale(.97);
+    filter:blur(5px);
+    transition:
+        opacity 1s cubic-bezier(.16,1,.3,1),
+        transform 1s cubic-bezier(.16,1,.3,1),
+        filter 1s cubic-bezier(.16,1,.3,1);
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    filter:blur(0);
+}
+
+/* =========================================================
+   STAGGER
+========================================================= */
+
+.about-card:nth-child(2),
+.vision-card:nth-child(2),
+.value-card:nth-child(2),
+.leader:nth-child(2),
+.activity:nth-child(2),
+.contact-card:nth-child(2),
+.impact-card:nth-child(2){
+    transition-delay:.08s;
+}
+
+.about-card:nth-child(3),
+.vision-card:nth-child(3),
+.value-card:nth-child(3),
+.leader:nth-child(3),
+.activity:nth-child(3),
+.contact-card:nth-child(3),
+.impact-card:nth-child(3){
+    transition-delay:.16s;
+}
+
+.value-card:nth-child(4),
+.leader:nth-child(4),
+.activity:nth-child(4),
+.contact-card:nth-child(4),
+.impact-card:nth-child(4){
+    transition-delay:.24s;
+}
+
+.value-card:nth-child(5),
+.leader:nth-child(5),
+.activity:nth-child(5){
+    transition-delay:.32s;
+}
+
+.value-card:nth-child(6),
+.leader:nth-child(6),
+.activity:nth-child(6){
+    transition-delay:.40s;
+}
+
+/* =========================================================
    ABOUT
 ========================================================= */
 
 .about-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:25px;
 }
 
 .about-card{
     position:relative;
-
     padding:40px;
-
-    background:linear-gradient(
-        145deg,
-        #fff,
-        #faf7ef
-    );
-
+    background:linear-gradient(145deg,#fff,#faf7ef);
     border:1px solid rgba(201,154,61,.16);
-
     border-radius:24px;
-
     box-shadow:var(--shadow);
-
     overflow:hidden;
-
-    transition:.45s;
+    transition:.5s cubic-bezier(.16,1,.3,1);
 }
 
 .about-card::before{
     content:"";
-
     position:absolute;
+    top:0;
+    left:-120%;
+    width:80%;
+    height:100%;
+    background:linear-gradient(
+        100deg,
+        transparent,
+        rgba(201,154,61,.08),
+        transparent
+    );
+    transform:skewX(-18deg);
+    transition:.8s;
+}
 
+.about-card:hover::before{
+    left:140%;
+}
+
+.about-card::after{
+    content:"";
+    position:absolute;
     top:0;
     left:0;
-
     width:100%;
     height:3px;
-
     background:linear-gradient(
         90deg,
         transparent,
         var(--gold),
         transparent
     );
-
     opacity:.5;
 }
 
 .about-card:hover{
-    transform:translateY(-10px);
-
+    transform:translateY(-12px);
     border-color:rgba(201,154,61,.5);
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.14),
+        0 0 30px rgba(201,154,61,.08);
 }
 
 .card-symbol{
     width:58px;
     height:58px;
-
     display:grid;
     place-items:center;
-
     border-radius:16px;
-
     background:rgba(201,154,61,.1);
-
     color:var(--gold-dark);
-
     font-family:"Cinzel",serif;
-
     font-size:19px;
-
     margin-bottom:24px;
+    transition:.45s;
+}
+
+.about-card:hover .card-symbol{
+    transform:rotate(8deg) scale(1.08);
+    background:rgba(201,154,61,.17);
+    box-shadow:0 0 25px rgba(201,154,61,.12);
 }
 
 .about-card h3{
     font-family:"Cinzel",serif;
-
     font-size:21px;
-
     margin-bottom:14px;
 }
 
 .about-card p{
     color:#666;
-
     font-size:12px;
-
     line-height:1.9;
 }
 
@@ -816,63 +965,78 @@ header.scrolled{
 
 .vision-wrapper{
     display:grid;
-
     grid-template-columns:1fr 1fr 1fr;
-
     gap:18px;
 }
 
 .vision-card{
     position:relative;
-
     padding:40px 32px;
-
     background:#1c1c1c;
-
     border:1px solid rgba(255,255,255,.08);
+    transition:.5s cubic-bezier(.16,1,.3,1);
+    overflow:hidden;
+}
 
-    transition:.4s;
+.vision-card::before,
+.activity::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:75%;
+    height:100%;
+    background:linear-gradient(
+        100deg,
+        transparent,
+        rgba(201,154,61,.08),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.8s;
+}
+
+.vision-card:hover::before,
+.activity:hover::before{
+    left:140%;
 }
 
 .vision-card:hover{
-    transform:translateY(-8px);
-
+    transform:translateY(-10px);
     border-color:rgba(201,154,61,.55);
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
 }
 
 .vision-number{
     font-family:"Cinzel",serif;
-
     color:var(--gold);
-
     font-size:13px;
-
     letter-spacing:2px;
 }
 
 .vision-card h3{
     font-family:"Cinzel",serif;
-
     font-size:22px;
-
     margin:18px 0 12px;
 }
 
 .vision-card p{
     color:#999;
-
     font-size:12px;
-
     line-height:1.85;
 }
 
 .vision-line{
     width:55px;
     height:1px;
-
     background:var(--gold);
-
     margin-top:25px;
+    transition:.5s;
+}
+
+.vision-card:hover .vision-line{
+    width:100px;
+    box-shadow:0 0 12px rgba(201,154,61,.5);
 }
 
 /* =========================================================
@@ -881,56 +1045,72 @@ header.scrolled{
 
 .values-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:18px;
 }
 
 .value-card{
+    position:relative;
     padding:30px;
-
     border:1px solid var(--border);
-
     background:#fff;
+    overflow:hidden;
+    transition:.5s cubic-bezier(.16,1,.3,1);
+}
 
-    transition:.4s;
+.value-card::before,
+.leader::before,
+.impact-card::before,
+.contact-card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:-120%;
+    width:70%;
+    height:100%;
+    background:linear-gradient(
+        100deg,
+        transparent,
+        rgba(201,154,61,.07),
+        transparent
+    );
+    transform:skewX(-20deg);
+    transition:.8s;
+}
+
+.value-card:hover::before,
+.leader:hover::before,
+.impact-card:hover::before,
+.contact-card:hover::before{
+    left:140%;
 }
 
 .value-card:hover{
-    transform:translateY(-8px);
-
+    transform:translateY(-9px);
     border-color:var(--gold);
-
     box-shadow:var(--shadow);
 }
 
 .value-number{
     color:var(--gold);
-
     font-family:"Cinzel",serif;
-
     font-size:12px;
-
     letter-spacing:2px;
 }
 
 .value-card h3{
     font-size:18px;
-
     margin:17px 0 9px;
 }
 
 .value-card p{
     color:#777;
-
     font-size:12px;
-
     line-height:1.75;
 }
 
 /* =========================================================
-   LEADERSHIP INTRO
+   LEADERSHIP
 ========================================================= */
 
 .leadership-section{
@@ -940,97 +1120,67 @@ header.scrolled{
 
 .leadership-section::before{
     content:"LEADERSHIP";
-
     position:absolute;
-
     right:-100px;
     top:70px;
-
     font-family:"Cinzel",serif;
-
     font-size:130px;
-
     font-weight:800;
-
     color:rgba(0,0,0,.025);
-
     pointer-events:none;
 }
 
-/* =========================================================
-   TOP LEADERSHIP
-========================================================= */
-
 .executive-grid{
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
     gap:25px;
-
     margin-bottom:28px;
 }
 
 .executive{
     position:relative;
-
     padding:42px;
-
     min-height:260px;
-
     border-radius:26px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #111,
-            #1c1810
-        );
-
+    background:linear-gradient(145deg,#111,#1c1810);
     color:#fff;
-
     overflow:hidden;
-
     border:1px solid rgba(201,154,61,.25);
-
     box-shadow:var(--shadow-dark);
-
-    transition:.45s;
+    transition:.5s cubic-bezier(.16,1,.3,1);
 }
 
 .executive:hover{
-    transform:translateY(-10px);
-
+    transform:translateY(-12px) scale(1.01);
     border-color:rgba(232,199,120,.65);
+    box-shadow:
+        0 40px 100px rgba(0,0,0,.65),
+        0 0 35px rgba(201,154,61,.08);
 }
 
 .executive::before{
     content:"";
-
     position:absolute;
-
     width:280px;
     height:280px;
-
     border-radius:50%;
-
     border:1px solid rgba(201,154,61,.13);
-
     right:-100px;
     bottom:-120px;
+    transition:1s;
+}
+
+.executive:hover::before{
+    transform:rotate(30deg) scale(1.15);
 }
 
 .executive::after{
     content:"";
-
     position:absolute;
-
     left:0;
     top:0;
-
     width:4px;
     height:100%;
-
     background:linear-gradient(
         180deg,
         var(--gold-light),
@@ -1040,162 +1190,131 @@ header.scrolled{
 
 .rank{
     color:var(--gold-light);
-
     font-size:9px;
     font-weight:800;
-
     letter-spacing:3px;
 }
 
 .executive-symbol{
     position:absolute;
-
     right:35px;
     top:30px;
-
     font-family:"Cinzel",serif;
-
     font-size:42px;
-
     color:rgba(201,154,61,.2);
+    transition:.5s;
+}
+
+.executive:hover .executive-symbol{
+    color:rgba(201,154,61,.35);
+    transform:scale(1.1) rotate(5deg);
 }
 
 .executive h3{
     font-family:"Cinzel",serif;
-
     font-size:30px;
-
     margin:15px 0 6px;
 }
 
 .executive h4{
     color:var(--gold-light);
-
     font-size:12px;
-
     font-weight:600;
-
     margin-bottom:16px;
 }
 
 .executive p{
     color:#999;
-
     font-size:12px;
-
     line-height:1.8;
-
     max-width:550px;
 }
 
-/* =========================================================
-   SECONDARY LEADERS
-========================================================= */
-
 .leadership-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:20px;
 }
 
 .leader{
     position:relative;
-
     padding:32px;
-
     background:#fff;
-
     border:1px solid #e5dfd3;
-
     border-radius:22px;
-
-    transition:.4s;
-
+    transition:.5s cubic-bezier(.16,1,.3,1);
     overflow:hidden;
 }
 
 .leader:hover{
-    transform:translateY(-9px);
-
+    transform:translateY(-10px);
     border-color:var(--gold);
-
     box-shadow:var(--shadow);
 }
 
 .leader::after{
     content:"";
-
     position:absolute;
-
     width:90px;
     height:90px;
-
     border-radius:50%;
-
     border:1px solid rgba(201,154,61,.1);
-
     right:-35px;
     bottom:-35px;
+    transition:.7s;
+}
+
+.leader:hover::after{
+    transform:scale(1.5);
+    border-color:rgba(201,154,61,.2);
 }
 
 .leader-rank{
     color:var(--gold-dark);
-
     font-size:8px;
     font-weight:800;
-
     letter-spacing:2px;
 }
 
 .avatar{
     width:65px;
     height:65px;
-
     display:grid;
     place-items:center;
-
     border-radius:50%;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--gold-dark),
-            var(--gold-light)
-        );
-
+    background:linear-gradient(
+        135deg,
+        var(--gold-dark),
+        var(--gold-light)
+    );
     color:#fff;
-
     font-family:"Cinzel",serif;
-
     font-size:14px;
     font-weight:800;
-
     margin:18px 0;
+    transition:.5s;
+}
+
+.leader:hover .avatar{
+    transform:scale(1.08) rotate(5deg);
+    box-shadow:0 10px 30px rgba(201,154,61,.25);
 }
 
 .leader h3{
     font-family:"Cinzel",serif;
-
     font-size:20px;
-
     margin-bottom:6px;
 }
 
 .leader h4{
     color:var(--gold-dark);
-
     font-size:11px;
-
     margin-bottom:13px;
 }
 
 .leader p{
     color:#777;
-
     font-size:12px;
-
     line-height:1.8;
 }
 
@@ -1205,65 +1324,54 @@ header.scrolled{
 
 .activity-grid{
     display:grid;
-
     grid-template-columns:repeat(3,1fr);
-
     gap:20px;
 }
 
 .activity{
     position:relative;
-
     padding:36px;
-
     background:#1c1c1c;
-
     border:1px solid rgba(255,255,255,.07);
-
     border-radius:22px;
-
-    transition:.4s;
-
+    transition:.5s cubic-bezier(.16,1,.3,1);
     overflow:hidden;
 }
 
 .activity:hover{
-    transform:translateY(-9px);
-
+    transform:translateY(-10px);
     border-color:rgba(201,154,61,.5);
+    box-shadow:0 25px 60px rgba(0,0,0,.25);
 }
 
 .activity-number{
     font-family:"Cinzel",serif;
-
     color:var(--gold);
-
     font-size:11px;
-
     letter-spacing:2px;
 }
 
 .activity-symbol{
     font-size:24px;
-
     color:var(--gold-light);
-
     margin:18px 0;
+    transition:.5s;
+}
+
+.activity:hover .activity-symbol{
+    transform:scale(1.2) rotate(10deg);
+    text-shadow:0 0 20px rgba(201,154,61,.45);
 }
 
 .activity h3{
     font-family:"Cinzel",serif;
-
     font-size:21px;
-
     margin-bottom:12px;
 }
 
 .activity p{
     color:#999;
-
     font-size:12px;
-
     line-height:1.85;
 }
 
@@ -1272,75 +1380,53 @@ header.scrolled{
 ========================================================= */
 
 .impact-section{
-    background:
-        linear-gradient(
-            135deg,
-            #f8f5ee,
-            #fff
-        );
+    background:linear-gradient(135deg,#f8f5ee,#fff);
 }
 
 .impact-grid{
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:18px;
 }
 
 .impact-card{
+    position:relative;
     text-align:center;
-
     padding:40px 20px;
-
     border:1px solid var(--border);
-
     background:#fff;
-
-    transition:.4s;
+    overflow:hidden;
+    transition:.5s cubic-bezier(.16,1,.3,1);
 }
 
 .impact-card:hover{
-    transform:translateY(-7px);
-
+    transform:translateY(-9px) scale(1.015);
     box-shadow:var(--shadow);
-
     border-color:var(--gold);
 }
 
 .impact-number{
     font-family:"Cinzel",serif;
-
     font-size:38px;
-
-    color:var(--gold-dark);
-
     font-weight:700;
 }
 
 .impact-card span{
     display:block;
-
     margin-top:8px;
-
     color:#777;
-
     font-size:9px;
     font-weight:800;
-
     letter-spacing:2px;
 }
 
-
 /* =========================================================
-   STUDENT GOALS TIMELINE
+   STUDENT GOALS
 ========================================================= */
 
 .student-timeline-section{
     position:relative;
-
     padding:140px 6%;
-
     background:
         radial-gradient(
             circle at 50% 20%,
@@ -1348,19 +1434,14 @@ header.scrolled{
             transparent 30%
         ),
         #080808;
-
     color:white;
-
     overflow:hidden;
 }
 
 .student-timeline-section::before{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background-image:
         linear-gradient(
             rgba(201,154,61,.025) 1px,
@@ -1371,21 +1452,22 @@ header.scrolled{
             rgba(201,154,61,.025) 1px,
             transparent 1px
         );
-
     background-size:80px 80px;
-
     pointer-events:none;
+    animation:gridMove 18s linear infinite;
+}
+
+@keyframes gridMove{
+    to{
+        background-position:80px 80px;
+    }
 }
 
 .student-heading{
     position:relative;
-
     z-index:2;
-
     text-align:center;
-
     margin:0 auto 90px;
-
     max-width:850px;
 }
 
@@ -1395,11 +1477,8 @@ header.scrolled{
 
 .student-heading h2{
     font-family:"Cinzel",serif;
-
     font-size:clamp(36px,5vw,62px);
-
     line-height:1.15;
-
     margin-bottom:18px;
 }
 
@@ -1410,36 +1489,25 @@ header.scrolled{
 .student-heading p{
     margin-left:auto;
     margin-right:auto;
-
     color:#999;
-
     font-size:13px;
-
     line-height:1.9;
 }
 
 .student-timeline{
     position:relative;
-
     max-width:1050px;
-
     margin:auto;
 }
 
 .student-timeline::before{
     content:"";
-
     position:absolute;
-
     top:0;
     bottom:0;
-
     left:50%;
-
     width:1px;
-
     transform:translateX(-50%);
-
     background:
         linear-gradient(
             to bottom,
@@ -1449,23 +1517,16 @@ header.scrolled{
             var(--gold),
             transparent
         );
-
-    box-shadow:
-        0 0 18px rgba(201,154,61,.4);
+    box-shadow:0 0 18px rgba(201,154,61,.4);
 }
 
 .student-timeline::after{
     content:"";
-
     position:absolute;
-
     left:calc(50% - 2px);
-
     top:-100px;
-
     width:5px;
     height:100px;
-
     background:
         linear-gradient(
             to bottom,
@@ -1473,52 +1534,37 @@ header.scrolled{
             var(--gold-light),
             transparent
         );
-
     filter:blur(2px);
-
-    animation:
-        timelineLight 4s linear infinite;
-
+    animation:timelineLight 4s linear infinite;
     pointer-events:none;
 }
 
 @keyframes timelineLight{
-
-    from{
-        top:-100px;
-    }
-
-    to{
-        top:100%;
-    }
-
+    from{top:-100px;}
+    to{top:100%;}
 }
 
 .timeline-item{
     position:relative;
-
     width:50%;
-
     padding:0 55px 80px;
-
     opacity:0;
-
-    transform:translateY(70px);
-
+    transform:translateY(70px) scale(.96);
+    filter:blur(5px);
     transition:
-        opacity .9s ease,
-        transform .9s ease;
+        opacity .9s cubic-bezier(.16,1,.3,1),
+        transform .9s cubic-bezier(.16,1,.3,1),
+        filter .9s cubic-bezier(.16,1,.3,1);
 }
 
 .timeline-item.show{
     opacity:1;
-
-    transform:translateY(0);
+    transform:translateY(0) scale(1);
+    filter:blur(0);
 }
 
 .timeline-item:nth-child(odd){
     left:0;
-
     text-align:right;
 }
 
@@ -1528,23 +1574,30 @@ header.scrolled{
 
 .timeline-node{
     position:absolute;
-
     top:5px;
-
     width:18px;
     height:18px;
-
     border-radius:50%;
-
     background:var(--black);
-
     border:2px solid var(--gold-light);
-
     box-shadow:
         0 0 0 6px rgba(201,154,61,.08),
         0 0 25px rgba(201,154,61,.35);
-
     transition:.4s;
+    animation:timelineNodePulse 2.8s ease-in-out infinite;
+}
+
+@keyframes timelineNodePulse{
+    0%,100%{
+        box-shadow:
+            0 0 0 6px rgba(201,154,61,.08),
+            0 0 20px rgba(201,154,61,.25);
+    }
+    50%{
+        box-shadow:
+            0 0 0 10px rgba(201,154,61,.035),
+            0 0 35px rgba(201,154,61,.55);
+    }
 }
 
 .timeline-item:nth-child(odd) .timeline-node{
@@ -1557,9 +1610,7 @@ header.scrolled{
 
 .timeline-item:hover .timeline-node{
     background:var(--gold);
-
     transform:scale(1.4);
-
     box-shadow:
         0 0 0 7px rgba(201,154,61,.1),
         0 0 35px rgba(201,154,61,.65);
@@ -1567,46 +1618,32 @@ header.scrolled{
 
 .timeline-year{
     color:var(--gold-light);
-
     font-size:.67rem;
-
     letter-spacing:3px;
-
     font-weight:600;
-
     margin-bottom:15px;
 }
 
 .timeline-content{
     position:relative;
-
     padding:32px;
-
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.055),
             rgba(255,255,255,.015)
         );
-
     border:1px solid rgba(201,154,61,.15);
-
     border-radius:20px;
-
     overflow:hidden;
-
     transition:.5s ease;
 }
 
 .timeline-content::before{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     border-radius:20px;
-
     background:
         linear-gradient(
             120deg,
@@ -1614,11 +1651,8 @@ header.scrolled{
             rgba(201,154,61,.08),
             transparent
         );
-
     transform:translateX(-100%);
-
     transition:.8s;
-
     pointer-events:none;
 }
 
@@ -1628,40 +1662,28 @@ header.scrolled{
 
 .timeline-content:hover{
     transform:translateY(-7px);
-
     border-color:rgba(201,154,61,.45);
-
-    box-shadow:
-        0 20px 55px rgba(0,0,0,.45);
+    box-shadow:0 20px 55px rgba(0,0,0,.45);
 }
 
 .timeline-icon{
     position:relative;
-
     color:var(--gold);
-
     font-size:.8rem;
-
     margin-bottom:18px;
 }
 
 .timeline-content h3{
     position:relative;
-
     font-family:"Cinzel",serif;
-
     font-size:1.45rem;
-
     margin-bottom:13px;
 }
 
 .timeline-content p{
     position:relative;
-
     color:#999;
-
     font-size:.82rem;
-
     line-height:1.8;
 }
 
@@ -1671,43 +1693,30 @@ header.scrolled{
 
 .timeline-final{
     position:relative;
-
     text-align:center;
-
     margin:10px auto 0;
-
     padding:60px 30px;
-
     max-width:800px;
-
     border-top:1px solid rgba(201,154,61,.2);
-
     border-bottom:1px solid rgba(201,154,61,.2);
 }
 
 .timeline-final h3{
     font-family:"Cinzel",serif;
-
     font-size:clamp(1.8rem,4vw,3rem);
-
     color:var(--gold-light);
 }
 
 .timeline-final p{
     max-width:600px;
-
     margin:18px auto;
-
     color:#888;
-
     line-height:1.8;
 }
 
 .timeline-final span{
     color:#666;
-
     font-size:.65rem;
-
     letter-spacing:3px;
 }
 
@@ -1717,9 +1726,7 @@ header.scrolled{
 
 .gems-section{
     position:relative;
-
     padding:135px 6%;
-
     background:
         radial-gradient(
             circle at 15% 15%,
@@ -1732,19 +1739,14 @@ header.scrolled{
             transparent 30%
         ),
         #050505;
-
     color:#fff;
-
     overflow:hidden;
 }
 
 .gems-section::before{
     content:"";
-
     position:absolute;
-
     inset:0;
-
     background:
         linear-gradient(
             90deg,
@@ -1758,47 +1760,41 @@ header.scrolled{
             rgba(201,154,61,.035) 50%,
             transparent 50.1%
         );
-
     background-size:120px 120px;
-
     pointer-events:none;
 }
 
 .gems-section::after{
     content:"";
-
     position:absolute;
-
     width:650px;
     height:650px;
-
     border:1px solid rgba(201,154,61,.08);
-
     border-radius:50%;
-
     left:50%;
     top:30%;
-
     transform:translate(-50%,-50%);
-
     box-shadow:
         0 0 0 60px rgba(201,154,61,.015),
         0 0 0 120px rgba(201,154,61,.01);
-
     pointer-events:none;
+    animation:gemOrbit 25s linear infinite;
+}
+
+@keyframes gemOrbit{
+    to{
+        transform:translate(-50%,-50%) rotate(360deg);
+    }
 }
 
 .gems-section .container{
     position:relative;
-
     z-index:5;
 }
 
 .gems-heading{
     max-width:900px;
-
     text-align:center;
-
     margin:0 auto 80px;
 }
 
@@ -1808,13 +1804,9 @@ header.scrolled{
 
 .gems-heading h2{
     font-family:"Cinzel",serif;
-
     color:#fff;
-
     font-size:clamp(40px,5vw,68px);
-
     line-height:1.1;
-
     margin-bottom:20px;
 }
 
@@ -1824,51 +1816,27 @@ header.scrolled{
 
 .gems-heading p{
     color:#888;
-
     max-width:720px;
-
     margin:auto;
-
     font-size:13px;
-
     line-height:1.9;
 }
 
-/* =========================================================
-   GEM CARD
-========================================================= */
-
 .gem{
     position:relative;
-
     max-width:1180px;
-
     margin:0 auto 35px;
-
     border:1px solid rgba(255,255,255,.1);
-
     border-radius:28px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #0d0d0d,
-            #080808
-        );
-
+    background:linear-gradient(145deg,#0d0d0d,#080808);
     overflow:hidden;
-
-    box-shadow:
-        0 35px 100px rgba(0,0,0,.7);
-
-    transition:.5s;
+    box-shadow:0 35px 100px rgba(0,0,0,.7);
+    transition:.6s cubic-bezier(.16,1,.3,1);
 }
 
 .gem:hover{
-    transform:translateY(-9px);
-
+    transform:translateY(-10px);
     border-color:rgba(201,154,61,.5);
-
     box-shadow:
         0 45px 110px rgba(0,0,0,.85),
         0 0 50px rgba(201,154,61,.06);
@@ -1876,13 +1844,10 @@ header.scrolled{
 
 .gem-top-line{
     position:absolute;
-
     top:0;
     left:0;
-
     width:100%;
     height:3px;
-
     background:linear-gradient(
         90deg,
         transparent,
@@ -1890,173 +1855,137 @@ header.scrolled{
         var(--gold-light),
         transparent
     );
+    background-size:200% 100%;
+    animation:gemLine 3.5s linear infinite;
+}
+
+@keyframes gemLine{
+    from{background-position:-100% 0;}
+    to{background-position:200% 0;}
 }
 
 .gem-inner{
     padding:60px;
-
     display:grid;
-
     grid-template-columns:150px 1fr;
-
     gap:45px;
-
     align-items:center;
 }
 
 .gem-symbol{
     width:120px;
     height:120px;
-
     display:grid;
-
     place-items:center;
-
     border-radius:50%;
-
     background:#090909;
-
     border:1px solid rgba(201,154,61,.65);
-
     color:var(--gold-light);
-
     font-family:"Cinzel",serif;
-
     font-size:28px;
-
     box-shadow:
         0 0 0 8px rgba(255,255,255,.015),
         0 0 45px rgba(201,154,61,.13);
-
     position:relative;
+    transition:.5s;
+}
+
+.gem:hover .gem-symbol{
+    transform:scale(1.06);
+    box-shadow:
+        0 0 0 10px rgba(255,255,255,.02),
+        0 0 55px rgba(201,154,61,.2);
 }
 
 .gem-symbol::before{
     content:"";
-
     position:absolute;
-
     inset:-12px;
-
     border-radius:50%;
-
     border:1px dashed rgba(201,154,61,.32);
-
     animation:spin 20s linear infinite;
 }
 
 .gem-symbol::after{
     content:"";
-
     position:absolute;
-
     width:7px;
     height:7px;
-
     border-radius:50%;
-
     background:var(--gold-light);
-
     top:-15px;
     left:50%;
-
     transform:translateX(-50%);
-
     box-shadow:0 0 15px var(--gold);
 }
 
 .gem-content{
     padding:35px;
-
     background:
         linear-gradient(
             135deg,
             rgba(255,255,255,.045),
             rgba(255,255,255,.012)
         );
-
     border:1px solid rgba(255,255,255,.07);
-
     border-radius:22px;
 }
 
 .gem-tag{
     color:var(--gold);
-
     font-size:8px;
-
     font-weight:800;
-
     letter-spacing:3px;
 }
 
 .gem-content h3{
     font-family:"Cinzel",serif;
-
     font-size:clamp(27px,4vw,45px);
-
     line-height:1.12;
-
     margin:12px 0 8px;
 }
 
 .gem-subtitle{
     color:var(--gold-light);
-
     font-size:12px;
     font-weight:600;
-
     margin-bottom:19px;
 }
 
 .gem-short{
     color:#999;
-
     font-size:13px;
-
     line-height:1.9;
 }
 
 .read-more{
+    position:relative;
+    overflow:hidden;
     margin-top:24px;
-
     padding:12px 23px;
-
     border:1px solid rgba(201,154,61,.5);
-
     border-radius:50px;
-
     background:transparent;
-
     color:var(--gold-light);
-
     font-size:9px;
     font-weight:800;
-
     letter-spacing:1.5px;
-
     cursor:pointer;
-
     transition:.35s;
 }
 
 .read-more:hover{
     background:var(--gold);
-
     color:#fff;
-
     transform:translateY(-3px);
+    box-shadow:0 12px 30px rgba(201,154,61,.2);
 }
 
 .gem-more{
     max-height:0;
-
     overflow:hidden;
-
     opacity:0;
-
     border-top:0 solid rgba(255,255,255,.08);
-
     transition:
         max-height .8s ease,
         opacity .5s ease,
@@ -2066,23 +1995,16 @@ header.scrolled{
 
 .gem-more.open{
     max-height:1200px;
-
     opacity:1;
-
     margin-top:28px;
-
     padding-top:25px;
-
     border-top:1px solid rgba(255,255,255,.08);
 }
 
 .gem-more p{
     color:#929292;
-
     font-size:12px;
-
     line-height:1.9;
-
     margin-bottom:14px;
 }
 
@@ -2096,49 +2018,45 @@ header.scrolled{
 
 .join{
     position:relative;
-
     padding:105px 6%;
-
-    background:
-        linear-gradient(
-            135deg,
-            #111,
-            #211c13
-        );
-
+    background:linear-gradient(135deg,#111,#211c13);
     color:#fff;
-
     overflow:hidden;
 }
 
 .join::before{
     content:"";
-
     position:absolute;
-
     width:500px;
     height:500px;
-
     border-radius:50%;
-
     border:1px solid rgba(201,154,61,.08);
-
     right:-150px;
     top:-200px;
+    animation:spin 25s linear infinite;
+}
+
+.join::after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    border:1px dashed rgba(201,154,61,.06);
+    right:-75px;
+    top:-125px;
+    animation:spinReverse 18s linear infinite;
 }
 
 .join-content{
     width:min(1250px,100%);
-
     margin:auto;
-
     display:flex;
-
     align-items:center;
-
     justify-content:space-between;
-
     gap:50px;
+    position:relative;
+    z-index:2;
 }
 
 .join-text{
@@ -2147,21 +2065,15 @@ header.scrolled{
 
 .join-text span{
     color:var(--gold-light);
-
     font-size:9px;
-
     font-weight:800;
-
     letter-spacing:3px;
 }
 
 .join-text h2{
     font-family:"Cinzel",serif;
-
     font-size:clamp(35px,5vw,61px);
-
     line-height:1.1;
-
     margin:17px 0;
 }
 
@@ -2171,17 +2083,13 @@ header.scrolled{
 
 .join-text p{
     color:#aaa;
-
     font-size:13px;
-
     line-height:1.85;
 }
 
 .join-button{
     flex-shrink:0;
-
     background:var(--gold);
-
     color:#111;
 }
 
@@ -2195,71 +2103,58 @@ header.scrolled{
 
 .contact{
     padding:115px 6%;
-
     background:#fff;
 }
 
 .contact-grid{
     display:grid;
-
     grid-template-columns:repeat(4,1fr);
-
     gap:18px;
 }
 
 .contact-card{
+    position:relative;
     padding:35px 25px;
-
     text-align:center;
-
     background:var(--cream);
-
     border:1px solid var(--border);
-
-    transition:.4s;
+    overflow:hidden;
+    transition:.5s cubic-bezier(.16,1,.3,1);
 }
 
 .contact-card:hover{
-    transform:translateY(-8px);
-
+    transform:translateY(-9px);
     border-color:var(--gold);
-
     box-shadow:var(--shadow);
 }
 
 .contact-symbol{
     width:55px;
     height:55px;
-
     display:grid;
     place-items:center;
-
     margin:0 auto 20px;
-
     border-radius:50%;
-
     background:rgba(201,154,61,.1);
-
     color:var(--gold-dark);
-
     font-family:"Cinzel",serif;
-
     font-size:18px;
+    transition:.5s;
+}
+
+.contact-card:hover .contact-symbol{
+    transform:scale(1.1) rotate(5deg);
 }
 
 .contact-card h3{
     font-family:"Cinzel",serif;
-
     font-size:18px;
-
     margin-bottom:9px;
 }
 
 .contact-card p{
     color:#777;
-
     font-size:11px;
-
     line-height:1.75;
 }
 
@@ -2269,92 +2164,91 @@ header.scrolled{
 
 footer{
     position:relative;
-
     padding:75px 20px 35px;
-
     background:#090909;
-
     color:#fff;
-
     text-align:center;
-
     overflow:hidden;
 }
 
 .footer-decoration{
     width:70px;
     height:1px;
-
     margin:0 auto 30px;
-
     background:linear-gradient(
         90deg,
         transparent,
         var(--gold),
         transparent
     );
+    animation:footerLine 3s ease-in-out infinite;
+}
+
+@keyframes footerLine{
+    0%,100%{
+        width:70px;
+        opacity:.6;
+    }
+    50%{
+        width:120px;
+        opacity:1;
+    }
 }
 
 .footer-logo img{
     width:82px;
     height:82px;
-
     object-fit:contain;
-
     margin-bottom:18px;
+    animation:footerFloat 4s ease-in-out infinite;
+}
+
+@keyframes footerFloat{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
 }
 
 footer h2{
     font-family:"Cinzel",serif;
-
     font-size:27px;
-
     letter-spacing:2px;
-
     margin-bottom:9px;
 }
 
 footer > p{
     color:#888;
-
     font-size:10px;
 }
 
 .footer-links{
     display:flex;
-
     justify-content:center;
-
     flex-wrap:wrap;
-
     gap:24px;
-
     margin:34px 0;
 }
 
 .footer-links a{
     color:#999;
-
     font-size:10px;
-
     font-weight:600;
-
     transition:.3s;
 }
 
 .footer-links a:hover{
     color:var(--gold-light);
+    transform:translateY(-2px);
 }
 
 footer hr{
     width:min(700px,80%);
-
     height:1px;
-
     margin:25px auto;
-
     border:none;
-
     background:rgba(255,255,255,.08);
 }
 
@@ -2364,34 +2258,10 @@ footer hr{
 
 .motto{
     color:var(--gold) !important;
-
     margin-top:10px;
-
     font-size:8px !important;
-
     font-weight:800;
-
     letter-spacing:2.5px;
-}
-
-/* =========================================================
-   REVEAL
-========================================================= */
-
-.reveal{
-    opacity:0;
-
-    transform:translateY(35px);
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-.reveal.show{
-    opacity:1;
-
-    transform:translateY(0);
 }
 
 /* =========================================================
@@ -2419,7 +2289,6 @@ footer hr{
     .contact-grid{
         grid-template-columns:repeat(2,1fr);
     }
-
 }
 
 /* =========================================================
@@ -2442,38 +2311,60 @@ footer hr{
     }
 
     .navbar.mobile-open .nav-links{
-
         display:flex;
-
         position:absolute;
-
         left:3%;
         right:3%;
-
         top:84px;
-
         padding:25px;
-
         background:#fff;
-
         border:1px solid #eee;
-
         border-radius:20px;
-
         box-shadow:var(--shadow);
-
         flex-direction:column;
-
         align-items:flex-start;
-
         gap:20px;
+        animation:mobileMenuIn .4s cubic-bezier(.16,1,.3,1) both;
+    }
+
+    @keyframes mobileMenuIn{
+        from{
+            opacity:0;
+            transform:translateY(-15px) scale(.97);
+        }
+        to{
+            opacity:1;
+            transform:translateY(0) scale(1);
+        }
+    }
+
+    .navbar.mobile-open .nav-links a{
+        animation:mobileLinkIn .45s both;
+    }
+
+    .navbar.mobile-open .nav-links li:nth-child(2) a{animation-delay:.03s;}
+    .navbar.mobile-open .nav-links li:nth-child(3) a{animation-delay:.06s;}
+    .navbar.mobile-open .nav-links li:nth-child(4) a{animation-delay:.09s;}
+    .navbar.mobile-open .nav-links li:nth-child(5) a{animation-delay:.12s;}
+    .navbar.mobile-open .nav-links li:nth-child(6) a{animation-delay:.15s;}
+    .navbar.mobile-open .nav-links li:nth-child(7) a{animation-delay:.18s;}
+    .navbar.mobile-open .nav-links li:nth-child(8) a{animation-delay:.21s;}
+    .navbar.mobile-open .nav-links li:nth-child(9) a{animation-delay:.24s;}
+
+    @keyframes mobileLinkIn{
+        from{
+            opacity:0;
+            transform:translateX(-12px);
+        }
+        to{
+            opacity:1;
+            transform:translateX(0);
+        }
     }
 
     .hero{
         grid-template-columns:1fr;
-
         text-align:center;
-
         padding-top:125px;
     }
 
@@ -2517,9 +2408,7 @@ footer hr{
 
     .gem-inner{
         grid-template-columns:1fr;
-
         text-align:center;
-
         padding:45px 25px;
     }
 
@@ -2533,14 +2422,12 @@ footer hr{
 
     .join-content{
         flex-direction:column;
-
         text-align:center;
     }
-
 }
 
 /* =========================================================
-   STUDENT TIMELINE MOBILE
+   TIMELINE MOBILE
 ========================================================= */
 
 @media(max-width:800px){
@@ -2551,7 +2438,6 @@ footer hr{
 
     .student-timeline::before{
         left:8px;
-
         transform:none;
     }
 
@@ -2562,21 +2448,15 @@ footer hr{
     .timeline-item,
     .timeline-item:nth-child(odd),
     .timeline-item:nth-child(even){
-
         width:100%;
-
         left:0;
-
         padding:0 0 55px 35px;
-
         text-align:left;
     }
 
     .timeline-item:nth-child(odd) .timeline-node,
     .timeline-item:nth-child(even) .timeline-node{
-
         left:-1px;
-
         right:auto;
     }
 
@@ -2587,7 +2467,6 @@ footer hr{
     .student-heading{
         margin-bottom:60px;
     }
-
 }
 
 /* =========================================================
@@ -2675,7 +2554,6 @@ footer hr{
     .join{
         padding:80px 20px;
     }
-
 }
 
 /* =========================================================
@@ -2687,17 +2565,18 @@ footer hr{
     *,
     *::before,
     *::after{
-
         animation-duration:.01ms !important;
-
         animation-iteration-count:1 !important;
-
         scroll-behavior:auto !important;
-
         transition-duration:.01ms !important;
-
     }
 
+    .counter,
+    .year-counter,
+    .impact-number{
+        animation:none !important;
+        filter:none !important;
+    }
 }
 
 </style>
@@ -2705,16 +2584,7 @@ footer hr{
 
 <body>
 
-<!-- =========================================================
-     PROGRESS
-========================================================= -->
-
 <div id="progress"></div>
-
-
-<!-- =========================================================
-     HEADER
-========================================================= -->
 
 <header id="header">
 
@@ -2737,34 +2607,23 @@ alt="Antique Association Logo"
 
 </a>
 
-
 <ul class="nav-links">
 
 <li><a href="#home" class="active">Home</a></li>
-
 <li><a href="#about">About</a></li>
-
 <li><a href="#vision">Vision</a></li>
-
 <li><a href="#values">Values</a></li>
-
 <li><a href="#leadership">Leadership</a></li>
-
 <li><a href="#activities">Activities</a></li>
-
 <li><a href="#student-goals">Student Goals</a></li>
-
 <li><a href="#gems">Unsung Gems</a></li>
-
 <li><a href="#contact">Contact</a></li>
 
 </ul>
 
-
 <a href="#contact" class="nav-button">
 JOIN US
 </a>
-
 
 <button
 class="menu-btn"
@@ -2781,7 +2640,6 @@ aria-label="Open menu"
 </nav>
 
 </header>
-
 
 <!-- =========================================================
      HERO
@@ -2825,17 +2683,11 @@ people whose contributions deserve to be remembered.
 
 <div class="hero-buttons">
 
-<a
-href="#about"
-class="btn btn-gold"
->
+<a href="#about" class="btn btn-gold">
 EXPLORE ASSOCIATION
 </a>
 
-<a
-href="#gems"
-class="btn btn-outline"
->
+<a href="#gems" class="btn btn-outline">
 DISCOVER UNSUNG GEMS
 </a>
 
@@ -2845,7 +2697,10 @@ DISCOVER UNSUNG GEMS
 
 <div class="hero-stat">
 
-<strong>2026</strong>
+<strong
+class="counter year-counter"
+data-target="year"
+>0</strong>
 
 <span>ESTABLISHED</span>
 
@@ -2853,7 +2708,11 @@ DISCOVER UNSUNG GEMS
 
 <div class="hero-stat">
 
-<strong>100+</strong>
+<strong
+class="counter"
+data-target="100"
+data-suffix="+"
+>0</strong>
 
 <span>COMMUNITY MEMBERS</span>
 
@@ -2861,7 +2720,11 @@ DISCOVER UNSUNG GEMS
 
 <div class="hero-stat">
 
-<strong>25+</strong>
+<strong
+class="counter"
+data-target="25"
+data-suffix="+"
+>0</strong>
 
 <span>INITIATIVES</span>
 
@@ -2870,7 +2733,6 @@ DISCOVER UNSUNG GEMS
 </div>
 
 </div>
-
 
 <div class="hero-visual">
 
@@ -2894,15 +2756,11 @@ UNITY • SERVICE • CULTURE
 
 </section>
 
-
 <!-- =========================================================
      ABOUT
 ========================================================= -->
 
-<section
-class="section white-section"
-id="about"
->
+<section class="section white-section" id="about">
 
 <div class="container">
 
@@ -2923,19 +2781,13 @@ service, friendship and responsibility.
 
 </div>
 
-
 <div class="about-grid">
-
 
 <div class="about-card reveal">
 
-<div class="card-symbol">
-I
-</div>
+<div class="card-symbol">I</div>
 
-<h3>
-Who We Are
-</h3>
+<h3>Who We Are</h3>
 
 <p>
 Antique Association is a community-driven
@@ -2946,16 +2798,11 @@ and meaningful community programmes.
 
 </div>
 
-
 <div class="about-card reveal">
 
-<div class="card-symbol">
-II
-</div>
+<div class="card-symbol">II</div>
 
-<h3>
-Our Mission
-</h3>
+<h3>Our Mission</h3>
 
 <p>
 We create opportunities for people to
@@ -2966,16 +2813,11 @@ teamwork and service.
 
 </div>
 
-
 <div class="about-card reveal">
 
-<div class="card-symbol">
-III
-</div>
+<div class="card-symbol">III</div>
 
-<h3>
-Our Foundation
-</h3>
+<h3>Our Foundation</h3>
 
 <p>
 Our foundation rests upon unity, respect,
@@ -2986,22 +2828,17 @@ can make a difference.
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
 
-
 <!-- =========================================================
      VISION
 ========================================================= -->
 
-<section
-class="section dark-section"
-id="vision"
->
+<section class="section dark-section" id="vision">
 
 <div class="container">
 
@@ -3022,19 +2859,13 @@ who choose to participate and serve.
 
 </div>
 
-
 <div class="vision-wrapper">
-
 
 <div class="vision-card reveal">
 
-<div class="vision-number">
-01
-</div>
+<div class="vision-number">01</div>
 
-<h3>
-Unity
-</h3>
+<h3>Unity</h3>
 
 <p>
 Bringing people together beyond differences
@@ -3046,16 +2877,11 @@ and mutual respect.
 
 </div>
 
-
 <div class="vision-card reveal">
 
-<div class="vision-number">
-02
-</div>
+<div class="vision-number">02</div>
 
-<h3>
-Service
-</h3>
+<h3>Service</h3>
 
 <p>
 Encouraging individuals to contribute their
@@ -3067,16 +2893,11 @@ welfare and social initiatives.
 
 </div>
 
-
 <div class="vision-card reveal">
 
-<div class="vision-number">
-03
-</div>
+<div class="vision-number">03</div>
 
-<h3>
-Participation
-</h3>
+<h3>Participation</h3>
 
 <p>
 Creating opportunities where members can
@@ -3088,22 +2909,17 @@ and contribute to something larger than themselves.
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
 
-
 <!-- =========================================================
      VALUES
 ========================================================= -->
 
-<section
-class="section cream-section"
-id="values"
->
+<section class="section cream-section" id="values">
 
 <div class="container">
 
@@ -3124,87 +2940,43 @@ undertaken by Antique Association.
 
 </div>
 
-
 <div class="values-grid">
 
-
 <div class="value-card reveal">
-
 <div class="value-number">01</div>
-
 <h3>Unity</h3>
-
-<p>
-Togetherness creates stronger communities.
-</p>
-
+<p>Togetherness creates stronger communities.</p>
 </div>
 
-
 <div class="value-card reveal">
-
 <div class="value-number">02</div>
-
 <h3>Service</h3>
-
-<p>
-We believe in helping others and giving back.
-</p>
-
+<p>We believe in helping others and giving back.</p>
 </div>
 
-
 <div class="value-card reveal">
-
 <div class="value-number">03</div>
-
 <h3>Sportsmanship</h3>
-
-<p>
-Competition should develop teamwork and character.
-</p>
-
+<p>Competition should develop teamwork and character.</p>
 </div>
 
-
 <div class="value-card reveal">
-
 <div class="value-number">04</div>
-
 <h3>Culture</h3>
-
-<p>
-We celebrate creativity, heritage and expression.
-</p>
-
+<p>We celebrate creativity, heritage and expression.</p>
 </div>
 
-
 <div class="value-card reveal">
-
 <div class="value-number">05</div>
-
 <h3>Responsibility</h3>
-
-<p>
-Every member has the ability to contribute positively.
-</p>
-
+<p>Every member has the ability to contribute positively.</p>
 </div>
-
 
 <div class="value-card reveal">
-
 <div class="value-number">06</div>
-
 <h3>Integrity</h3>
-
-<p>
-Honesty, respect and accountability guide our work.
-</p>
-
+<p>Honesty, respect and accountability guide our work.</p>
 </div>
-
 
 </div>
 
@@ -3212,15 +2984,11 @@ Honesty, respect and accountability guide our work.
 
 </section>
 
-
 <!-- =========================================================
      LEADERSHIP
 ========================================================= -->
 
-<section
-class="section white-section leadership-section"
-id="leadership"
->
+<section class="section white-section leadership-section" id="leadership">
 
 <div class="container">
 
@@ -3242,11 +3010,7 @@ coordination and purpose.
 
 </div>
 
-
-<!-- TOP RANKS -->
-
 <div class="executive-grid">
-
 
 <div class="executive reveal">
 
@@ -3254,17 +3018,11 @@ coordination and purpose.
 01 — HIGHEST OFFICE
 </div>
 
-<div class="executive-symbol">
-I
-</div>
+<div class="executive-symbol">I</div>
 
-<h3>
-President
-</h3>
+<h3>President</h3>
 
-<h4>
-Sikandar Kabir Ali
-</h4>
+<h4>Sikandar Kabir Ali</h4>
 
 <p>
 Provides the overall leadership, strategic
@@ -3274,24 +3032,17 @@ of Antique Association.
 
 </div>
 
-
 <div class="executive reveal">
 
 <div class="rank">
 02 — EXECUTIVE OFFICE
 </div>
 
-<div class="executive-symbol">
-II
-</div>
+<div class="executive-symbol">II</div>
 
-<h3>
-Vice President
-</h3>
+<h3>Vice President</h3>
 
-<h4>
-Avik Singh
-</h4>
+<h4>Avik Singh</h4>
 
 <p>
 Supports the President, assists in executive
@@ -3301,14 +3052,9 @@ Association initiatives.
 
 </div>
 
-
 </div>
 
-
-<!-- SECRETARIAT -->
-
 <div class="leadership-grid">
-
 
 <div class="leader reveal">
 
@@ -3316,17 +3062,11 @@ Association initiatives.
 03 — SECRETARIAT
 </div>
 
-<div class="avatar">
-SG
-</div>
+<div class="avatar">SG</div>
 
-<h3>
-Secretary-General
-</h3>
+<h3>Secretary-General</h3>
 
-<h4>
-Sk Sarif
-</h4>
+<h4>Rishav Kr Agarwal</h4>
 
 <p>
 Leads administration, communication,
@@ -3336,137 +3076,100 @@ Association decisions.
 
 </div>
 
-
 <div class="leader reveal">
 
 <div class="leader-rank">
-04 — FINANCE
+04 — SECRETARIAT
 </div>
 
-<div class="avatar">
-TG
-</div>
+<div class="avatar">TG</div>
 
-<h3>
-Treasurer-General
-</h3>
+<h3>Deputy Secretary-General</h3>
 
-<h4>
-Rohit Yadav
-</h4>
+<h4>Rohit Yadav</h4>
 
 <p>
-Oversees financial administration,
-resource management and responsible
-handling of Association funds.
+Assists the Secretary-General in managing organizational affairs.
+Coordinates responsibilities and supports effective administration.
 </p>
 
 </div>
 
-
 <div class="leader reveal">
 
 <div class="leader-rank">
-05 — SPORTS
+05 — FINANCE
 </div>
 
-<div class="avatar">
-SC
-</div>
+<div class="avatar">TG</div>
 
-<h3>
-Sports Coordinator
-</h3>
+<h3>Treasurer-General</h3>
 
-<h4>
-Ayush Das
-</h4>
+<h4>Sk Sarif</h4>
 
 <p>
-Coordinates tournaments, sporting events,
-competitions and recreational programmes.
+Oversees financial administration, resource management and budgeting.
+Ensures responsible handling and proper accountability of Association funds.
 </p>
 
 </div>
 
-
 <div class="leader reveal">
 
 <div class="leader-rank">
-06 — CULTURE
+06 — PROGRAMME
 </div>
 
-<div class="avatar">
-CC
-</div>
+<div class="avatar">DG</div>
 
-<h3>
-Cultural Coordinator
-</h3>
+<h3>Director-General</h3>
 
-<h4>
-Rishav Kumar Agarwal
-</h4>
+<h4>Ayush Das</h4>
 
 <p>
-Leads cultural programmes, creative events,
-performances and community celebrations.
+Oversees all functions, programmes, events and major activities.
+Ensures programmes are planned, coordinated and successfully executed.
 </p>
 
 </div>
 
-
 <div class="leader reveal">
 
 <div class="leader-rank">
-07 — OUTREACH
+07 — REPRESENTATIVE
 </div>
 
-<div class="avatar">
-PO
-</div>
+<div class="avatar">CSP</div>
 
-<h3>
-Public Affairs & Outreach Secretary
-</h3>
+<h3>Cheif Spokesperson</h3>
 
-<h4>
-Association Secretariat
-</h4>
+<h4>Hritik S Bhagat</h4>
 
 <p>
-Develops community outreach, partnerships,
-public communication and external engagement.
+Serves as the principal public representative of the Association.
+Communicates its official positions, activities and achievements to the public.
 </p>
 
 </div>
 
-
 <div class="leader reveal">
 
 <div class="leader-rank">
-08 — YOUTH
+08 — DISCIPLINE
 </div>
 
-<div class="avatar">
-YD
-</div>
+<div class="avatar">CW</div>
 
-<h3>
-Youth Development Coordinator
-</h3>
+<h3>Cheif-Whip</h3>
 
-<h4>
-Association Secretariat
-</h4>
+<h4>Aashik Kumar Shaw</h4>
 
 <p>
-Develops youth participation, leadership,
-volunteering and educational initiatives.
+Maintains coordination, discipline and collective responsibility within the Association.
+Ensures members and office-bearers remain aligned with organizational decisions.
 </p>
 
 </div>
-
 
 </div>
 
@@ -3474,15 +3177,11 @@ volunteering and educational initiatives.
 
 </section>
 
-
 <!-- =========================================================
      ACTIVITIES
 ========================================================= -->
 
-<section
-class="section dark-section"
-id="activities"
->
+<section class="section dark-section" id="activities">
 
 <div class="container">
 
@@ -3503,23 +3202,14 @@ service and positive community impact.
 
 </div>
 
-
 <div class="activity-grid">
-
 
 <div class="activity reveal">
 
-<div class="activity-number">
-01
-</div>
+<div class="activity-number">01</div>
+<div class="activity-symbol">◇</div>
 
-<div class="activity-symbol">
-◇
-</div>
-
-<h3>
-Blood Donation
-</h3>
+<h3>Blood Donation</h3>
 
 <p>
 Supporting voluntary blood donation camps
@@ -3528,20 +3218,12 @@ and awareness initiatives.
 
 </div>
 
-
 <div class="activity reveal">
 
-<div class="activity-number">
-02
-</div>
+<div class="activity-number">02</div>
+<div class="activity-symbol">◆</div>
 
-<div class="activity-symbol">
-◆
-</div>
-
-<h3>
-Sports
-</h3>
+<h3>Sports</h3>
 
 <p>
 Organising tournaments, competitions and
@@ -3550,20 +3232,12 @@ recreational sporting programmes.
 
 </div>
 
-
 <div class="activity reveal">
 
-<div class="activity-number">
-03
-</div>
+<div class="activity-number">03</div>
+<div class="activity-symbol">◇</div>
 
-<div class="activity-symbol">
-◇
-</div>
-
-<h3>
-Cultural Programmes
-</h3>
+<h3>Cultural Programmes</h3>
 
 <p>
 Celebrating culture, creativity, arts,
@@ -3572,20 +3246,12 @@ talent and community traditions.
 
 </div>
 
-
 <div class="activity reveal">
 
-<div class="activity-number">
-04
-</div>
+<div class="activity-number">04</div>
+<div class="activity-symbol">◆</div>
 
-<div class="activity-symbol">
-◆
-</div>
-
-<h3>
-Social Service
-</h3>
+<h3>Social Service</h3>
 
 <p>
 Supporting welfare initiatives that create
@@ -3594,20 +3260,12 @@ meaningful benefits for the community.
 
 </div>
 
-
 <div class="activity reveal">
 
-<div class="activity-number">
-05
-</div>
+<div class="activity-number">05</div>
+<div class="activity-symbol">◇</div>
 
-<div class="activity-symbol">
-◇
-</div>
-
-<h3>
-Environment
-</h3>
+<h3>Environment</h3>
 
 <p>
 Promoting cleanliness, awareness,
@@ -3616,20 +3274,12 @@ responsibility and environmental action.
 
 </div>
 
-
 <div class="activity reveal">
 
-<div class="activity-number">
-06
-</div>
+<div class="activity-number">06</div>
+<div class="activity-symbol">◆</div>
 
-<div class="activity-symbol">
-◆
-</div>
-
-<h3>
-Youth Development
-</h3>
+<h3>Youth Development</h3>
 
 <p>
 Encouraging teamwork, confidence,
@@ -3638,21 +3288,17 @@ leadership and community participation.
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
 
-
 <!-- =========================================================
      IMPACT
 ========================================================= -->
 
-<section
-class="section impact-section"
->
+<section class="section impact-section">
 
 <div class="container">
 
@@ -3673,61 +3319,55 @@ to contribute their time and effort.
 
 </div>
 
-
 <div class="impact-grid">
 
+<div class="impact-card reveal">
+
+<div
+class="impact-number counter"
+data-target="100"
+data-suffix="+"
+>0</div>
+
+<span>MEMBERS</span>
+
+</div>
 
 <div class="impact-card reveal">
 
-<div class="impact-number">
-100+
+<div
+class="impact-number counter"
+data-target="25"
+data-suffix="+"
+>0</div>
+
+<span>INITIATIVES</span>
+
 </div>
-
-<span>
-MEMBERS
-</span>
-
-</div>
-
 
 <div class="impact-card reveal">
 
-<div class="impact-number">
-25+
+<div
+class="impact-number counter"
+data-target="6"
+data-pad="2"
+>00</div>
+
+<span>CORE AREAS</span>
+
 </div>
-
-<span>
-INITIATIVES
-</span>
-
-</div>
-
 
 <div class="impact-card reveal">
 
-<div class="impact-number">
-06
-</div>
+<div
+class="impact-number counter"
+data-target="1"
+data-pad="2"
+>00</div>
 
-<span>
-CORE AREAS
-</span>
-
-</div>
-
-
-<div class="impact-card reveal">
-
-<div class="impact-number">
-01
-</div>
-
-<span>
-COMMUNITY
-</span>
+<span>COMMUNITY</span>
 
 </div>
-
 
 </div>
 
@@ -3735,15 +3375,11 @@ COMMUNITY
 
 </section>
 
-
 <!-- =========================================================
      STUDENT GOALS
 ========================================================= -->
 
-<section
-class="student-timeline-section"
-id="student-goals"
->
+<section class="student-timeline-section" id="student-goals">
 
 <div class="student-heading reveal">
 
@@ -3765,11 +3401,7 @@ represent the journey we want to take together.
 
 </div>
 
-
 <div class="student-timeline">
-
-
-<!-- BEGINNING -->
 
 <div class="timeline-item">
 
@@ -3781,13 +3413,9 @@ represent the journey we want to take together.
 
 <div class="timeline-content">
 
-<div class="timeline-icon">
-◆
-</div>
+<div class="timeline-icon">◆</div>
 
-<h3>
-A Student-Led Beginning
-</h3>
+<h3>A Student-Led Beginning</h3>
 
 <p>
 Antique Association was started by
@@ -3801,9 +3429,6 @@ serve and make their ideas matter.
 
 </div>
 
-
-<!-- GOAL 01 -->
-
 <div class="timeline-item">
 
 <div class="timeline-node"></div>
@@ -3814,13 +3439,9 @@ GOAL 01 — UNITY
 
 <div class="timeline-content">
 
-<div class="timeline-icon">
-✦
-</div>
+<div class="timeline-icon">✦</div>
 
-<h3>
-Bring People Together
-</h3>
+<h3>Bring People Together</h3>
 
 <p>
 Create a community where students, families
@@ -3833,9 +3454,6 @@ through shared experiences.
 
 </div>
 
-
-<!-- GOAL 02 -->
-
 <div class="timeline-item">
 
 <div class="timeline-node"></div>
@@ -3846,13 +3464,9 @@ GOAL 02 — PARTICIPATION
 
 <div class="timeline-content">
 
-<div class="timeline-icon">
-◈
-</div>
+<div class="timeline-icon">◈</div>
 
-<h3>
-Give Students a Voice
-</h3>
+<h3>Give Students a Voice</h3>
 
 <p>
 Encourage students to take initiative,
@@ -3865,9 +3479,6 @@ the sidelines.
 
 </div>
 
-
-<!-- GOAL 03 -->
-
 <div class="timeline-item">
 
 <div class="timeline-node"></div>
@@ -3878,13 +3489,9 @@ GOAL 03 — SERVICE
 
 <div class="timeline-content">
 
-<div class="timeline-icon">
-✧
-</div>
+<div class="timeline-icon">✧</div>
 
-<h3>
-Serve the Community
-</h3>
+<h3>Serve the Community</h3>
 
 <p>
 Turn student energy into real service through
@@ -3897,9 +3504,6 @@ and community support.
 
 </div>
 
-
-<!-- GOAL 04 -->
-
 <div class="timeline-item">
 
 <div class="timeline-node"></div>
@@ -3910,13 +3514,9 @@ GOAL 04 — SPORTS &amp; CULTURE
 
 <div class="timeline-content">
 
-<div class="timeline-icon">
-◆
-</div>
+<div class="timeline-icon">◆</div>
 
-<h3>
-Create Opportunities
-</h3>
+<h3>Create Opportunities</h3>
 
 <p>
 Build platforms for sports, culture,
@@ -3929,9 +3529,6 @@ and enjoy being part of something bigger.
 
 </div>
 
-
-<!-- GOAL 05 -->
-
 <div class="timeline-item">
 
 <div class="timeline-node"></div>
@@ -3942,13 +3539,9 @@ GOAL 05 — YOUTH DEVELOPMENT
 
 <div class="timeline-content">
 
-<div class="timeline-icon">
-✦
-</div>
+<div class="timeline-icon">✦</div>
 
-<h3>
-Build Future Leaders
-</h3>
+<h3>Build Future Leaders</h3>
 
 <p>
 Give young people practical opportunities
@@ -3961,9 +3554,6 @@ community experiences.
 
 </div>
 
-
-<!-- GOAL 06 -->
-
 <div class="timeline-item">
 
 <div class="timeline-node"></div>
@@ -3974,13 +3564,9 @@ GOAL 06 — LEGACY
 
 <div class="timeline-content">
 
-<div class="timeline-icon">
-◈
-</div>
+<div class="timeline-icon">◈</div>
 
-<h3>
-Build Something That Lasts
-</h3>
+<h3>Build Something That Lasts</h3>
 
 <p>
 Our ultimate goal is to create an association
@@ -3991,9 +3577,6 @@ one generation or one group of students.
 </div>
 
 </div>
-
-
-<!-- FINAL -->
 
 <div class="timeline-final reveal">
 
@@ -4014,23 +3597,17 @@ TOGETHER WE SERVE • TOGETHER WE GROW
 
 </div>
 
-
 </div>
 
 </section>
-
 
 <!-- =========================================================
      UNSUNG GEMS
 ========================================================= -->
 
-<section
-class="gems-section"
-id="gems"
->
+<section class="gems-section" id="gems">
 
 <div class="container">
-
 
 <div class="gems-heading reveal">
 
@@ -4051,7 +3628,6 @@ helped shape the world.
 
 </div>
 
-
 <!-- GEM 01 -->
 
 <div class="gem reveal">
@@ -4060,9 +3636,7 @@ helped shape the world.
 
 <div class="gem-inner">
 
-<div class="gem-symbol">
-I
-</div>
+<div class="gem-symbol">I</div>
 
 <div class="gem-content">
 
@@ -4136,7 +3710,6 @@ astrophysics and stellar evolution.
 
 </div>
 
-
 <!-- GEM 02 -->
 
 <div class="gem reveal">
@@ -4145,9 +3718,7 @@ astrophysics and stellar evolution.
 
 <div class="gem-inner">
 
-<div class="gem-symbol">
-II
-</div>
+<div class="gem-symbol">II</div>
 
 <div class="gem-content">
 
@@ -4155,9 +3726,7 @@ II
 SCIENCE — QUANTUM PHYSICS
 </span>
 
-<h3>
-Satyendra Nath Bose
-</h3>
+<h3>Satyendra Nath Bose</h3>
 
 <div class="gem-subtitle">
 A pioneer of quantum statistics
@@ -4209,7 +3778,6 @@ to influence research today.
 
 </div>
 
-
 <!-- GEM 03 -->
 
 <div class="gem reveal">
@@ -4218,9 +3786,7 @@ to influence research today.
 
 <div class="gem-inner">
 
-<div class="gem-symbol">
-III
-</div>
+<div class="gem-symbol">III</div>
 
 <div class="gem-content">
 
@@ -4228,9 +3794,7 @@ III
 SPACE — INSTITUTION BUILDING
 </span>
 
-<h3>
-Vikram Sarabhai
-</h3>
+<h3>Vikram Sarabhai</h3>
 
 <div class="gem-subtitle">
 A visionary behind India's space programme
@@ -4241,6 +3805,7 @@ A visionary behind India's space programme
 Vikram Sarabhai was a physicist and institution
 builder who played a foundational role in
 India's development of space science.
+
 </p>
 
 <button class="read-more">
@@ -4278,7 +3843,6 @@ long-term journey in space science and technology.
 
 </div>
 
-
 <!-- GEM 04 -->
 
 <div class="gem reveal">
@@ -4287,9 +3851,7 @@ long-term journey in space science and technology.
 
 <div class="gem-inner">
 
-<div class="gem-symbol">
-IV
-</div>
+<div class="gem-symbol">IV</div>
 
 <div class="gem-content">
 
@@ -4297,9 +3859,7 @@ IV
 MEDICINE — BIOCHEMISTRY
 </span>
 
-<h3>
-Yellapragada Subbarow
-</h3>
+<h3>Yellapragada Subbarow</h3>
 
 <div class="gem-subtitle">
 A pioneering Indian biochemist
@@ -4311,6 +3871,7 @@ Yellapragada Subbarow was an Indian-born
 biochemist whose research contributed to
 important developments in medicine and
 biochemical science.
+
 </p>
 
 <button class="read-more">
@@ -4344,7 +3905,6 @@ the twentieth century.
 
 </div>
 
-
 <!-- GEM 05 -->
 
 <div class="gem reveal">
@@ -4353,9 +3913,7 @@ the twentieth century.
 
 <div class="gem-inner">
 
-<div class="gem-symbol">
-V
-</div>
+<div class="gem-symbol">V</div>
 
 <div class="gem-content">
 
@@ -4363,9 +3921,7 @@ V
 AEROSPACE — ENGINEERING
 </span>
 
-<h3>
-Satish Dhawan
-</h3>
+<h3>Satish Dhawan</h3>
 
 <div class="gem-subtitle">
 A major architect of India's space capabilities
@@ -4376,6 +3932,7 @@ A major architect of India's space capabilities
 Satish Dhawan was an Indian aerospace engineer
 and scientist who played a major role in
 strengthening India's space programme.
+
 </p>
 
 <button class="read-more">
@@ -4416,20 +3973,15 @@ of the history of India's space exploration.
 
 </div>
 
-
 </div>
 
 </section>
-
 
 <!-- =========================================================
      JOIN
 ========================================================= -->
 
-<section
-class="join"
-id="join"
->
+<section class="join" id="join">
 
 <div class="join-content">
 
@@ -4454,10 +4006,7 @@ stories — there is a place for you.
 
 </div>
 
-<a
-href="#contact"
-class="btn join-button"
->
+<a href="#contact" class="btn join-button">
 JOIN ANTIQUE
 </a>
 
@@ -4465,15 +4014,11 @@ JOIN ANTIQUE
 
 </section>
 
-
 <!-- =========================================================
      CONTACT
 ========================================================= -->
 
-<section
-class="contact"
-id="contact"
->
+<section class="contact" id="contact">
 
 <div class="container">
 
@@ -4494,19 +4039,13 @@ collaborate or learn more.
 
 </div>
 
-
 <div class="contact-grid">
-
 
 <div class="contact-card reveal">
 
-<div class="contact-symbol">
-@
-</div>
+<div class="contact-symbol">@</div>
 
-<h3>
-Email
-</h3>
+<h3>Email</h3>
 
 <p>
 contact@antiqueassociation.org
@@ -4514,16 +4053,11 @@ contact@antiqueassociation.org
 
 </div>
 
-
 <div class="contact-card reveal">
 
-<div class="contact-symbol">
-⌂
-</div>
+<div class="contact-symbol">⌂</div>
 
-<h3>
-Headquarters
-</h3>
+<h3>Headquarters</h3>
 
 <p>
 Official Antique Association Headquarters
@@ -4531,16 +4065,11 @@ Official Antique Association Headquarters
 
 </div>
 
-
 <div class="contact-card reveal">
 
-<div class="contact-symbol">
-◎
-</div>
+<div class="contact-symbol">◎</div>
 
-<h3>
-Social Media
-</h3>
+<h3>Social Media</h3>
 
 <p>
 Follow official channels for announcements
@@ -4549,16 +4078,11 @@ and community updates.
 
 </div>
 
-
 <div class="contact-card reveal">
 
-<div class="contact-symbol">
-+
-</div>
+<div class="contact-symbol">+</div>
 
-<h3>
-Membership
-</h3>
+<h3>Membership</h3>
 
 <p>
 Contact Association officials to
@@ -4567,13 +4091,11 @@ become a member.
 
 </div>
 
-
 </div>
 
 </div>
 
 </section>
-
 
 <!-- =========================================================
      FOOTER
@@ -4600,32 +4122,21 @@ ANTIQUE ASSOCIATION
 Community • Service • Sports • Culture • Unity
 </p>
 
-
 <div class="footer-links">
 
 <a href="#home">Home</a>
-
 <a href="#about">About</a>
-
 <a href="#vision">Vision</a>
-
 <a href="#values">Values</a>
-
 <a href="#leadership">Leadership</a>
-
 <a href="#activities">Activities</a>
-
 <a href="#student-goals">Student Goals</a>
-
 <a href="#gems">Unsung Gems</a>
-
 <a href="#contact">Contact</a>
 
 </div>
 
-
 <hr>
-
 
 <p class="copyright">
 © 2026 Antique Association. All Rights Reserved.
@@ -4637,36 +4148,28 @@ TOGETHER WE SERVE • TOGETHER WE GROW
 
 </footer>
 
-
-<!-- =========================================================
-     JAVASCRIPT
-========================================================= -->
-
 <script>
 
 /* =========================================================
    SCROLL PROGRESS
 ========================================================= */
 
-const progress =
-document.getElementById("progress");
+const progress=document.getElementById("progress");
 
 function updateProgress(){
 
-    const scrollTop =
-        window.scrollY;
+    const scrollTop=window.scrollY;
 
-    const documentHeight =
-        document.documentElement.scrollHeight -
+    const documentHeight=
+        document.documentElement.scrollHeight-
         document.documentElement.clientHeight;
 
-    const percentage =
-        documentHeight > 0
-        ? (scrollTop / documentHeight) * 100
-        : 0;
+    const percentage=
+        documentHeight>0
+        ?(scrollTop/documentHeight)*100
+        :0;
 
-    progress.style.width =
-        percentage + "%";
+    progress.style.width=percentage+"%";
 }
 
 window.addEventListener(
@@ -4682,19 +4185,14 @@ updateProgress();
    HEADER
 ========================================================= */
 
-const header =
-document.getElementById("header");
+const header=document.getElementById("header");
 
 function updateHeader(){
 
-    if(window.scrollY > 40){
-
+    if(window.scrollY>40){
         header.classList.add("scrolled");
-
     }else{
-
         header.classList.remove("scrolled");
-
     }
 }
 
@@ -4709,71 +4207,62 @@ window.addEventListener(
    MOBILE MENU
 ========================================================= */
 
-const menuBtn =
-document.getElementById("menuBtn");
+const menuBtn=document.getElementById("menuBtn");
+const navbar=document.getElementById("navbar");
 
-const navbar =
-document.getElementById("navbar");
+menuBtn.addEventListener("click",()=>{
 
-menuBtn.addEventListener(
-    "click",
-    () => {
+    navbar.classList.toggle("mobile-open");
 
-        navbar.classList.toggle(
-            "mobile-open"
-        );
-
-    }
-);
-
+    menuBtn.setAttribute(
+        "aria-label",
+        navbar.classList.contains("mobile-open")
+        ? "Close menu"
+        : "Open menu"
+    );
+});
 
 document
 .querySelectorAll(".nav-links a")
-.forEach(link => {
+.forEach(link=>{
 
-    link.addEventListener(
-        "click",
-        () => {
+    link.addEventListener("click",()=>{
 
-            navbar.classList.remove(
-                "mobile-open"
-            );
+        navbar.classList.remove("mobile-open");
 
-        }
-    );
+        menuBtn.setAttribute(
+            "aria-label",
+            "Open menu"
+        );
+
+    });
 
 });
 
 
 /* =========================================================
-   REVEAL ANIMATIONS
+   CONTENT REVEAL
 ========================================================= */
 
-const revealElements =
+const revealElements=
 document.querySelectorAll(".reveal");
 
-const observer =
+const observer=
 new IntersectionObserver(
 
-    entries => {
+    entries=>{
 
-        entries.forEach(
-            entry => {
+        entries.forEach(entry=>{
 
-                if(entry.isIntersecting){
+            if(entry.isIntersecting){
 
-                    entry.target.classList.add(
-                        "show"
-                    );
+                entry.target.classList.add("show");
 
-                    observer.unobserve(
-                        entry.target
-                    );
-
-                }
+                observer.unobserve(entry.target);
 
             }
-        );
+
+        });
 
     },
 
@@ -4783,63 +4272,200 @@ new IntersectionObserver(
 
 );
 
+revealElements.forEach(element=>{
+    observer.observe(element);
+});
 
-revealElements.forEach(
-    element => {
 
-        observer.observe(
-            element
-        );
+/* =========================================================
+   ANIMATED COUNTERS
+========================================================= */
+
+const counters=
+document.querySelectorAll(".counter");
+
+function getCounterTarget(counter){
+
+    const target=counter.dataset.target;
+
+    if(target==="year"){
+        return new Date().getFullYear();
+    }
+
+    return Number(target)||0;
+}
+
+
+function formatCounterValue(value,counter){
+
+    const padding=
+        Number(counter.dataset.pad||0);
+
+    const suffix=
+        counter.dataset.suffix||"";
+
+    let formatted=
+        Math.floor(value).toString();
+
+    if(padding>0){
+
+        formatted=
+            formatted.padStart(
+                padding,
+                "0"
+            );
 
     }
+
+    return formatted+suffix;
+}
+
+
+function animateCounter(counter){
+
+    if(counter.dataset.animated==="true"){
+        return;
+    }
+
+    counter.dataset.animated="true";
+
+    const target=
+        getCounterTarget(counter);
+
+    const duration=2200;
+
+    const startTime=
+        performance.now();
+
+
+    function updateCounter(currentTime){
+
+        const elapsed=
+            currentTime-startTime;
+
+        const progressValue=
+            Math.min(
+                elapsed/duration,
+                1
+            );
+
+        const eased=
+            1-Math.pow(
+                1-progressValue,
+                4
+            );
+
+        const currentValue=
+            Math.floor(
+                target*eased
+            );
+
+        counter.textContent=
+            formatCounterValue(
+                currentValue,
+                counter
+            );
+
+
+        if(progressValue<1){
+
+            requestAnimationFrame(
+                updateCounter
+            );
+
+        }else{
+
+            counter.textContent=
+                formatCounterValue(
+                    target,
+                    counter
+                );
+
+        }
+
+    }
+
+    requestAnimationFrame(
+        updateCounter
+    );
+}
+
+
+const counterObserver=
+new IntersectionObserver(
+
+    entries=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                animateCounter(
+                    entry.target
+                );
+
+                counterObserver.unobserve(
+                    entry.target
+                );
+
+            }
+
+        });
+
+    },
+
+    {
+        threshold:.35
+    }
+
 );
+
+
+counters.forEach(counter=>{
+    counterObserver.observe(counter);
+});
 
 
 /* =========================================================
    STUDENT GOALS TIMELINE
 ========================================================= */
 
-const timelineItems =
+const timelineItems=
 document.querySelectorAll(
     ".timeline-item"
 );
 
-const timelineObserver =
+const timelineObserver=
 new IntersectionObserver(
 
-    entries => {
+    entries=>{
 
-        entries.forEach(
-            entry => {
+        entries.forEach(entry=>{
 
-                if(entry.isIntersecting){
+            if(entry.isIntersecting){
 
-                    const item =
-                        entry.target;
+                const item=
+                    entry.target;
 
-                    const index =
-                        [...timelineItems]
-                        .indexOf(item);
+                const index=
+                    [...timelineItems]
+                    .indexOf(item);
 
-                    setTimeout(
-                        () => {
+                setTimeout(()=>{
 
-                            item.classList.add(
-                                "show"
-                            );
-
-                        },
-                        index * 130
+                    item.classList.add(
+                        "show"
                     );
 
-                    timelineObserver.unobserve(
-                        item
-                    );
+                },index*130);
 
-                }
+                timelineObserver.unobserve(
+                    item
+                );
 
             }
-        );
+
+        });
 
     },
 
@@ -4849,133 +4475,114 @@ new IntersectionObserver(
 
 );
 
-
-timelineItems.forEach(
-    item => {
-
-        timelineObserver.observe(
-            item
-        );
-
-    }
-);
+timelineItems.forEach(item=>{
+    timelineObserver.observe(item);
+});
 
 
 /* =========================================================
    UNSUNG GEMS
 ========================================================= */
 
-const readMoreButtons =
+const readMoreButtons=
 document.querySelectorAll(
     ".read-more"
 );
 
-readMoreButtons.forEach(
-    button => {
+readMoreButtons.forEach(button=>{
 
-        button.addEventListener(
-            "click",
-            () => {
+    button.addEventListener(
+        "click",
+        ()=>{
 
-                const content =
-                    button.parentElement
-                    .querySelector(
-                        ".gem-more"
-                    );
+            const content=
+                button.parentElement
+                .querySelector(
+                    ".gem-more"
+                );
 
-                const isOpen =
-                    content.classList.contains(
-                        "open"
-                    );
+            const isOpen=
+                content.classList.contains(
+                    "open"
+                );
 
+            if(isOpen){
 
-                if(isOpen){
+                content.classList.remove(
+                    "open"
+                );
 
-                    content.classList.remove(
-                        "open"
-                    );
+                button.textContent=
+                    "READ FULL STORY +";
 
-                    button.textContent =
-                        "READ FULL STORY +";
+            }else{
 
-                }else{
+                content.classList.add(
+                    "open"
+                );
 
-                    content.classList.add(
-                        "open"
-                    );
-
-                    button.textContent =
-                        "CLOSE STORY −";
-
-                }
+                button.textContent=
+                    "CLOSE STORY −";
 
             }
-        );
 
-    }
-);
+        }
+    );
+
+});
 
 
 /* =========================================================
    ACTIVE NAVIGATION
 ========================================================= */
 
-const sections =
+const sections=
 document.querySelectorAll(
     "section[id]"
 );
 
-const navLinks =
+const navLinks=
 document.querySelectorAll(
     ".nav-links a"
 );
 
 function updateNavigation(){
 
-    let current =
-        "home";
+    let current="home";
 
-    sections.forEach(
-        section => {
+    sections.forEach(section=>{
 
-            const sectionTop =
-                section.offsetTop - 190;
+        const sectionTop=
+            section.offsetTop-190;
 
-            if(
-                window.scrollY >=
-                sectionTop
-            ){
+        if(
+            window.scrollY>=sectionTop
+        ){
 
-                current =
-                    section.id;
-
-            }
+            current=section.id;
 
         }
-    );
 
+    });
 
-    navLinks.forEach(
-        link => {
+    navLinks.forEach(link=>{
 
-            link.classList.remove(
+        link.classList.remove(
+            "active"
+        );
+
+        if(
+            link.getAttribute("href")
+            ==="#"+current
+        ){
+
+            link.classList.add(
                 "active"
             );
 
-            if(
-                link.getAttribute(
-                    "href"
-                ) === "#" + current
-            ){
-
-                link.classList.add(
-                    "active"
-                );
-
-            }
-
         }
-    );
+
+    });
 
 }
 
@@ -4993,48 +4600,40 @@ updateNavigation();
 ========================================================= */
 
 document
-.querySelectorAll(
-    "a[href^='#']"
-)
-.forEach(
-    link => {
+.querySelectorAll("a[href^='#']")
+.forEach(link=>{
 
-        link.addEventListener(
-            "click",
-            event => {
+    link.addEventListener(
+        "click",
+        event=>{
 
-                const targetID =
-                    link.getAttribute(
-                        "href"
-                    );
+            const targetID=
+                link.getAttribute("href");
 
-                if(
-                    targetID === "#"
-                ){
-                    return;
-                }
+            if(targetID==="#"){
+                return;
+            }
 
-                const target =
-                    document.querySelector(
-                        targetID
-                    );
+            const target=
+                document.querySelector(
+                    targetID
+                );
 
-                if(target){
+            if(target){
 
-                    event.preventDefault();
+                event.preventDefault();
 
-                    target.scrollIntoView({
-                        behavior:"smooth",
-                        block:"start"
-                    });
-
-                }
+                target.scrollIntoView({
+                    behavior:"smooth",
+                    block:"start"
+                });
 
             }
-        );
 
-    }
-);
+        }
+    );
+
+});
 
 
 /* =========================================================
@@ -5043,12 +4642,17 @@ document
 
 document.addEventListener(
     "keydown",
-    event => {
+    event=>{
 
-        if(event.key === "Escape"){
+        if(event.key==="Escape"){
 
             navbar.classList.remove(
                 "mobile-open"
+            );
+
+            menuBtn.setAttribute(
+                "aria-label",
+                "Open menu"
             );
 
         }
